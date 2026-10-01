@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Document AI – Contract Intelligence",
+    "description": "AI-powered document intelligence for contracts and business documents. Extracts key clauses, flags risks, and answers natural language questions about your documents.",
+    "categories": ["AI", "RAG", "Document Processing"],
+    "tech_stack": ["Python", "Streamlit", "ChromaDB", "LangChain"],
+    "image": "assets/document-ai.png",
+    "live_url": "https://your-app.onrender.com",
+    "github_url": "https://github.com/yourusername/document-ai",
+    "featured": true
+  },
+  {
+    "name": "CRM Automation",
+    "description": "Intelligent CRM automation that streamlines lead tracking, follow-ups, and pipeline management using AI-driven workflows.",
+    "categories": ["AI", "Automation"],
+    "tech_stack": ["Python", "FastAPI", "OpenAI"],
+    "image": "assets/crm-automation.png",
+    "live_url": "https://your-crm.onrender.com",
+    "github_url": "",
+    "featured": false
+  },
+  {
+    "name": "AI-Driven Assistant",
+    "description": "A conversational AI assistant with memory and tool-use capabilities, built for business process automation and customer support.",
+    "categories": ["AI", "AI Agents"],
+    "tech_stack": ["Python", "LangGraph", "Streamlit"],
+    "image": "assets/ai-assistant.png",
+    "live_url": "https://your-assistant.onrender.com",
+    "github_url": "",
+    "featured": false
+  }
+]

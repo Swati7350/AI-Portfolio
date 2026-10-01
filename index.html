@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Portfolio – Swati | AI & Automation Engineer</title>
+  <meta name="description" content="Portfolio of AI, RAG, Automation, and Document Processing applications built and deployed on Render." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ─── NAVBAR ─────────────────────────────────────────────── -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>Swati<span class="logo-bracket">/&gt;</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <a href="https://github.com/yourusername" target="_blank" rel="noopener" class="nav-github">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.031 1.531 1.031.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.087.636-1.337-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+            </svg>
+            GitHub
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ──────────────────────────────────────────────── -->
+  <header class="hero" id="home">
+    <div class="hero-inner">
+      <div class="hero-badge">Available for freelance work</div>
+      <h1 class="hero-title">
+        Building intelligent systems<br />
+        with <span class="gradient-text">AI, RAG &amp; Automation</span>
+      </h1>
+      <p class="hero-subtitle">
+        I design and ship production-ready AI applications — from document intelligence
+        and conversational agents to full workflow automation. Every project below is
+        live and deployable.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number" id="stat-projects">—</span>
+          <span class="stat-label">Live Projects</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">RAG</span>
+          <span class="stat-label">Retrieval Augmented</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">LLM</span>
+          <span class="stat-label">Powered</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-glow" aria-hidden="true"></div>
+  </header>
+
+  <!-- ─── PROJECTS ─────────────────────────────────────────── -->
+  <main class="projects-section" id="projects">
+    <div class="section-inner">
+
+      <div class="section-header">
+        <h2 class="section-title">Live Projects</h2>
+        <p class="section-subtitle">Click any card to explore — each project is independently deployed.</p>
+      </div>
+
+      <!-- Category Filters -->
+      <div class="filter-bar" role="group" aria-label="Filter projects by category">
+        <button class="filter-btn active" data-filter="All">All</button>
+        <button class="filter-btn" data-filter="AI">AI</button>
+        <button class="filter-btn" data-filter="RAG">RAG</button>
+        <button class="filter-btn" data-filter="Automation">Automation</button>
+        <button class="filter-btn" data-filter="AI Agents">AI Agents</button>
+        <button class="filter-btn" data-filter="Document Processing">Document Processing</button>
+        <button class="filter-btn" data-filter="Other">Other</button>
+      </div>
+
+      <!-- Project Grid — populated by app.js -->
+      <div class="projects-grid" id="projects-grid" aria-live="polite">
+        <div class="loading-state" id="loading-state">
+          <div class="spinner" aria-hidden="true"></div>
+          <p>Loading projects…</p>
+        </div>
+      </div>
+
+      <!-- Empty state — shown by JS when no filter matches -->
+      <div class="empty-state hidden" id="empty-state">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <p>No projects match this filter yet.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ─── CONTACT ──────────────────────────────────────────── -->
+  <section class="contact-section" id="contact">
+    <div class="section-inner contact-inner">
+      <h2 class="section-title">Let's work together</h2>
+      <p class="section-subtitle">
+        Looking for an AI engineer to build your next automation or LLM-powered product?
+        Reach out on Upwork or Fiverr.
+      </p>
+      <div class="contact-links">
+        <a href="https://www.upwork.com/freelancers/~yourprofile" target="_blank" rel="noopener" class="btn btn-primary">
+          Hire me on Upwork
+        </a>
+        <a href="https://www.fiverr.com/yourprofile" target="_blank" rel="noopener" class="btn btn-ghost">
+          Find me on Fiverr
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="nav-logo">
+        <span class="logo-bracket">&lt;</span>Swati<span class="logo-bracket">/&gt;</span>
+      </span>
+      <p class="footer-copy">Built with plain HTML, CSS &amp; JS. No frameworks, no fuss.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
