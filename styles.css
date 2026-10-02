@@ -593,3 +593,208 @@ button { cursor: pointer; font-family: inherit; }
   .filter-btn { padding: 6px 14px; font-size: 0.8rem; }
   .card-actions { flex-direction: column; }
 }
+
+/* ── Services / What I Build ─────────────────────────────── */
+.services-section {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.service-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.service-card:hover {
+  border-color: var(--border-h);
+  transform: translateY(-3px);
+}
+
+.service-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--tag-bg);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-light);
+  flex-shrink: 0;
+  margin-bottom: 4px;
+}
+
+.service-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.service-tagline {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--accent-light);
+  line-height: 1.4;
+}
+
+.service-description {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+/* ── About Section ───────────────────────────────────────── */
+.about-section {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+  background: var(--bg-card);
+}
+
+.about-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.about-text {
+  max-width: 680px;
+}
+
+.about-text .section-title {
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+
+.about-text p:last-child { margin-bottom: 0; }
+
+/* Tech stack block inside About */
+.tech-stack-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tech-stack-heading {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.tech-stack-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ── Connect Section ──────────────────────────────────────── */
+.connect-section {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+}
+
+.connect-inner {
+  text-align: center;
+}
+
+.connect-inner .section-title { margin-bottom: 12px; }
+.connect-inner .section-subtitle { margin-bottom: 36px; }
+
+.connect-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.connect-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.connect-btn:hover {
+  border-color: var(--accent-light);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+/* ── Final CTA Section ───────────────────────────────────── */
+.final-cta-section {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+  background: var(--bg-card);
+}
+
+.final-cta-inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.final-cta-inner .section-title { margin-bottom: 0; }
+.final-cta-inner .section-subtitle {
+  max-width: 560px;
+  margin-bottom: 8px;
+}
+
+/* ── Responsive additions ─────────────────────────────────── */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-inner {
+    gap: 36px;
+  }
+
+  .connect-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .connect-btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+}
