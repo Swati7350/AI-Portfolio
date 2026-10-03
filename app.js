@@ -89,15 +89,44 @@
         ${featuredBadge}
       </div>
       <div class="card-body">
+        ${p.problem || p.built || p.capabilities?.length ? `
+          <div class="project-label">DOCUMENT INTELLIGENCE</div>
+        ` : ''}
+
         <h3 class="card-title">${esc(p.name)}</h3>
         <p class="card-description">${esc(p.description)}</p>
+
+        ${p.problem ? `
+          <div class="project-detail">
+            <span class="project-detail-label">Problem</span>
+            <p>${esc(p.problem)}</p>
+          </div>
+        ` : ''}
+
+        ${p.built ? `
+          <div class="project-detail">
+            <span class="project-detail-label">Built</span>
+            <p>${esc(p.built)}</p>
+          </div>
+        ` : ''}
+
+        ${p.capabilities?.length ? `
+          <div class="project-detail">
+            <span class="project-detail-label">Capabilities</span>
+            <div class="capability-list">
+              ${p.capabilities.map(c => `<span>${esc(c)}</span>`).join('')}
+            </div>
+          </div>
+        ` : ''}
+
         <div class="card-tags">${tagsHtml}</div>
         <div class="card-tech">${techHtml}</div>
+
         <div class="card-actions">
           ${liveBtn}
           ${githubBtn}
         </div>
-      </div>`;
+      </div>;
 
     // Attach error handler via JS — avoids the broken inline onerror approach
     if (p.image) {
