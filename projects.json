@@ -1,12 +1,21 @@
 [
   {
-    "name": "Document AI – Contract Intelligence",
-    "description": "AI-powered document intelligence for contracts and business documents. Extracts key clauses, flags risks, and answers natural language questions about your documents.",
+    "name": "Document Intelligence System",
+    "description": "AI-powered document analysis for contracts, reports, invoices, research papers, and other business documents.",
+    "problem": "Businesses spend hours reviewing documents and manually searching for important information.",
+    "built": "AI-powered document ingestion, OCR, RAG, structured extraction, and natural-language document search.",
+    "capabilities": [
+      "Document Upload",
+      "OCR & AI Processing",
+      "Structured Extraction",
+      "Natural-Language Search",
+      "Contextual Q&A",
+      "Document Summaries"
+    ],
     "categories": ["AI", "RAG", "Document Processing"],
     "tech_stack": ["Python", "Streamlit", "ChromaDB", "LangChain"],
     "image": "assets/Document Intelligence AI Workflow.png",
-    "live_url": "https://your-app.onrender.com",
-    "github_url": "https://github.com/Swati7350/document-ai",
+    "live_url": "https://travel-agent-orchestration-and-whatsapp-integration.streamlit.app/",
     "featured": true
   },
   {
