@@ -530,22 +530,51 @@ button { cursor: pointer; font-family: inherit; }
   color: #fff;
 }
 
-/* Grid — 3 equal columns, tighter gap */
+/* Grid — single visible card, carousel handles navigation */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 16px;
+  flex: 1;
+  min-width: 0;
+  align-self: stretch;
 }
 
 /* Carousel wrapper — arrows flank the grid */
 .projects-carousel {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
+  align-items: center;
+  gap: 16px;
 }
 
-/* Arrows hidden on desktop (all cards visible) */
+/* Arrows — desktop only (hidden on mobile via media query) */
 .carousel-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.carousel-arrow:hover:not(:disabled) {
+  border-color: var(--accent-light);
+  color: var(--text-primary);
+  background: var(--bg-card-h);
+}
+
+.carousel-arrow:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.project-card.carousel-hidden {
   display: none;
 }
 
@@ -1049,9 +1078,9 @@ button { cursor: pointer; font-family: inherit; }
 
 /* ── Responsive ───────────────────────────────────────────── */
 
-/* Tablet: 3 columns → 2 columns */
+/* Tablet: keep 1-column carousel, override tablet breakpoint */
 @media (max-width: 1024px) and (min-width: 769px) {
-  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .projects-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 960px) {
@@ -1096,37 +1125,8 @@ button { cursor: pointer; font-family: inherit; }
   }
 
   .projects-grid { grid-template-columns: 1fr; }
-
-  /* Mobile carousel: show arrows, hide non-active cards */
-  .carousel-arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    width: 40px;
-    height: 40px;
-    margin-top: 120px; /* vertically centre against card */
-    background: var(--bg-raised);
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    color: var(--text-secondary);
-    cursor: pointer;
-    transition: border-color 0.2s, color 0.2s;
-  }
-
-  .carousel-arrow:hover:not(:disabled) {
-    border-color: var(--accent-light);
-    color: var(--text-primary);
-  }
-
-  .carousel-arrow:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-  }
-
-  .project-card.carousel-hidden {
-    display: none;
-  }
+  .carousel-arrow { display: none; }
+  .project-card.carousel-hidden { display: flex; }
 
   .tech-grid { grid-template-columns: 1fr 1fr; }
 
