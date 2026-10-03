@@ -530,10 +530,10 @@ button { cursor: pointer; font-family: inherit; }
   color: #fff;
 }
 
-/* Grid — single visible card, carousel handles navigation */
+/* Grid — 3 cards per page on desktop, carousel handles groups */
 .projects-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   flex: 1;
   min-width: 0;
@@ -1078,9 +1078,9 @@ button { cursor: pointer; font-family: inherit; }
 
 /* ── Responsive ───────────────────────────────────────────── */
 
-/* Tablet: keep 1-column carousel, override tablet breakpoint */
+/* Tablet: keep 3-column carousel grid */
 @media (max-width: 1024px) and (min-width: 769px) {
-  .projects-grid { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 960px) {

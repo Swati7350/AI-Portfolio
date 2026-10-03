@@ -131,29 +131,30 @@
     return card;
   }
 
-  /* ─── Carousel (mobile only) ─────────────────────────────── */
-  const prevBtn = document.getElementById('carousel-prev');
-  const nextBtn = document.getElementById('carousel-next');
-  let carouselIndex = 0;
+  /* ─── Carousel — desktop, 3 cards per page ───────────────── */
+  const prevBtn    = document.getElementById('carousel-prev');
+  const nextBtn    = document.getElementById('carousel-next');
+  const PAGE_SIZE  = 3;
+  let   carouselIndex = 0;   // current page index (0-based)
 
   function updateCarousel() {
-    // Only active when the grid is in single-column mode (mobile)
     const cards = grid.querySelectorAll('.project-card');
     if (!cards.length) return;
 
-    // On desktop (CSS shows all cards) arrows are hidden via CSS —
-    // but keep state correct so mobile works after a resize.
+    const totalPages = Math.ceil(cards.length / PAGE_SIZE);
+    const start = carouselIndex * PAGE_SIZE;
+    const end   = start + PAGE_SIZE;
+
     cards.forEach((card, i) => {
-      card.classList.toggle('carousel-hidden', i !== carouselIndex);
+      card.classList.toggle('carousel-hidden', i < start || i >= end);
     });
 
     prevBtn.disabled = carouselIndex === 0;
-    nextBtn.disabled = carouselIndex === cards.length - 1;
+    nextBtn.disabled = carouselIndex >= totalPages - 1;
   }
 
   function setupCarousel() {
     prevBtn.addEventListener('click', () => {
-      const cards = grid.querySelectorAll('.project-card');
       if (carouselIndex > 0) {
         carouselIndex--;
         updateCarousel();
@@ -162,7 +163,8 @@
 
     nextBtn.addEventListener('click', () => {
       const cards = grid.querySelectorAll('.project-card');
-      if (carouselIndex < cards.length - 1) {
+      const totalPages = Math.ceil(cards.length / PAGE_SIZE);
+      if (carouselIndex < totalPages - 1) {
         carouselIndex++;
         updateCarousel();
       }
