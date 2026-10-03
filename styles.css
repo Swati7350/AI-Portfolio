@@ -577,18 +577,17 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .card-image-placeholder svg { opacity: 0.15; }
-
 .featured-badge {
   position: absolute;
   top: 10px;
   right: 12px;
   left: auto;
-  background: var(--accent-mid);
-  color: #fff;
+  background: #f5b942;
+  color: #111827;
   font-size: 0.7rem;
-  font-weight: 600;
-  padding: 3px 9px;
-  border-radius: 4px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 5px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
