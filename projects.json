@@ -4,14 +4,6 @@
     "description": "AI-powered document analysis for contracts, reports, invoices, research papers, and other business documents.",
     "problem": "Businesses spend hours reviewing documents and manually searching for important information.",
     "built": "AI-powered document ingestion, OCR, RAG, structured extraction, and natural-language document search.",
-    "capabilities": [
-      "Document Upload",
-      "OCR & AI Processing",
-      "Structured Extraction",
-      "Natural-Language Search",
-      "Contextual Q&A",
-      "Document Summaries"
-    ],
     "categories": ["AI", "RAG", "Document Processing"],
     "tech_stack": ["Python", "Streamlit", "ChromaDB", "LangChain"],
     "image": "assets/Document Intelligence AI Workflow.png",
@@ -19,23 +11,73 @@
     "featured": true
   },
   {
-  "name": "CRM Automation",
-  "description": "AI-powered CRM automation that streamlines lead tracking, follow-ups, and pipeline management.",
-  "problem": "Sales teams spend time manually tracking leads, updating CRM records, and managing follow-ups.",
-  "built": "AI-driven workflows that connect lead sources with the CRM, automate updates, and trigger intelligent follow-ups.",
-  "categories": ["AI", "Automation"],
-  "tech_stack": ["CRM", "n8n", "Make.com","Zapier"],
-  "image": "assets/Streamlined CRM Automation Workflow.png",
-  "featured": false
-},
+    "name": "CRM Automation",
+    "description": "AI-powered CRM automation that streamlines lead tracking, follow-ups, and pipeline management.",
+    "problem": "Sales teams spend time manually tracking leads, updating CRM records, and managing follow-ups.",
+    "built": "AI-driven workflows that connect lead sources with the CRM, automate updates, and trigger intelligent follow-ups.",
+    "categories": ["AI", "Automation"],
+    "tech_stack": ["CRM", "n8n", "Make.com", "Zapier"],
+    "image": "assets/Streamlined CRM Automation Workflow.png",
+    "featured": false
+  },
   {
-    "name": "AI-Driven Assistant",
-    "description": "A conversational AI assistant with memory and tool-use capabilities, built for business process automation and customer support.",
-    "categories": ["AI", "AI Agents"],
-    "tech_stack": ["Python", "LangGraph", "Streamlit"],
+    "name": "Make.com Business Automation",
+    "description": "Workflow automation that connects business applications and moves information between systems without repetitive manual work.",
+    "problem": "Businesses lose time moving data between applications and performing repetitive workflow steps manually.",
+    "built": "Automated workflows using Make.com to connect business tools, move data, trigger actions, and streamline recurring processes.",
+    "categories": ["Automation"],
+    "tech_stack": ["Make.com", "APIs", "Webhooks"],
     "image": "",
-    "live_url": "https://your-assistant.onrender.com",
-    "github_url": "",
+    "featured": false
+  },
+  {
+    "name": "Automate Enquiries with Zapier",
+    "description": "Automated enquiry management that turns incoming enquiries into faster, more consistent follow-ups.",
+    "problem": "New enquiries can sit unattended when teams manually review messages, create records, and initiate follow-ups.",
+    "built": "Zapier workflows that capture enquiries, route information, update business systems, and trigger faster follow-up actions.",
+    "categories": ["Automation"],
+    "tech_stack": ["Zapier", "CRM", "Webhooks"],
+    "image": "",
+    "featured": false
+  },
+  {
+    "name": "AI Document Q&A",
+    "description": "AI tools that let users ask questions and retrieve relevant information directly from their documents.",
+    "problem": "Finding specific information inside large documents requires time-consuming manual reading and searching.",
+    "built": "AI-powered document processing and retrieval that allows users to ask natural-language questions and get contextual answers from their documents.",
+    "categories": ["AI", "RAG", "Document Processing"],
+    "tech_stack": ["RAG", "LLMs", "Document AI"],
+    "image": "",
+    "featured": false
+  },
+  {
+    "name": "AI Agent Platform with WhatsApp",
+    "description": "Custom AI agents connected to WhatsApp and business workflows to automate conversations and operational tasks.",
+    "problem": "Businesses often handle customer conversations and repetitive workflow tasks manually across communication channels.",
+    "built": "A custom AI agent platform that connects WhatsApp conversations with automated business workflows and actions.",
+    "categories": ["AI", "AI Agents", "Automation"],
+    "tech_stack": ["AI Agents", "WhatsApp", "Workflow Automation"],
+    "image": "",
+    "featured": false
+  },
+  {
+    "name": "AI Invoice Reconciliation",
+    "description": "AI-powered invoice and receipt matching that reduces manual reconciliation work.",
+    "problem": "Finance teams spend significant time comparing invoices, receipts, and transaction information manually.",
+    "built": "AI-powered document processing and matching to identify corresponding invoices and receipts and streamline reconciliation.",
+    "categories": ["AI", "Document Processing", "Automation"],
+    "tech_stack": ["AI", "OCR", "Document Processing"],
+    "image": "",
+    "featured": false
+  },
+  {
+    "name": "AI Voice Agent",
+    "description": "AI voice agents that handle customer conversations, enquiries, and routine business interactions.",
+    "problem": "Businesses spend time handling repetitive calls and responding to routine customer enquiries manually.",
+    "built": "Conversational AI voice workflows that understand customer requests, respond naturally, and connect conversations to business processes.",
+    "categories": ["AI", "AI Agents", "Automation"],
+    "tech_stack": ["Voice AI", "AI Agents", "LLMs"],
+    "image": "",
     "featured": false
   }
 ]
