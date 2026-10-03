@@ -50,7 +50,9 @@
       return;
     }
     emptyEl.classList.add('hidden');
+    carouselIndex = 0;
     projects.forEach((project, index) => grid.appendChild(buildCard(project, index)));
+    updateCarousel();
   }
 
   function buildCard(p, index) {
@@ -127,6 +129,44 @@
     }
 
     return card;
+  }
+
+  /* ─── Carousel (mobile only) ─────────────────────────────── */
+  const prevBtn = document.getElementById('carousel-prev');
+  const nextBtn = document.getElementById('carousel-next');
+  let carouselIndex = 0;
+
+  function updateCarousel() {
+    // Only active when the grid is in single-column mode (mobile)
+    const cards = grid.querySelectorAll('.project-card');
+    if (!cards.length) return;
+
+    // On desktop (CSS shows all cards) arrows are hidden via CSS —
+    // but keep state correct so mobile works after a resize.
+    cards.forEach((card, i) => {
+      card.classList.toggle('carousel-hidden', i !== carouselIndex);
+    });
+
+    prevBtn.disabled = carouselIndex === 0;
+    nextBtn.disabled = carouselIndex === cards.length - 1;
+  }
+
+  function setupCarousel() {
+    prevBtn.addEventListener('click', () => {
+      const cards = grid.querySelectorAll('.project-card');
+      if (carouselIndex > 0) {
+        carouselIndex--;
+        updateCarousel();
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      const cards = grid.querySelectorAll('.project-card');
+      if (carouselIndex < cards.length - 1) {
+        carouselIndex++;
+        updateCarousel();
+      }
+    });
   }
 
   function setupFilters() {
@@ -260,6 +300,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     initProjects();
     initForm();
+    setupCarousel();
   });
 
 })();
