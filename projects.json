@@ -19,15 +19,15 @@
     "featured": true
   },
   {
-    "name": "CRM Automation",
-    "description": "Intelligent CRM automation that streamlines lead tracking, follow-ups, and pipeline management using AI-driven workflows.",
-    "categories": ["AI", "Automation"],
-    "tech_stack": ["Python", "FastAPI", "OpenAI"],
-    "image": "",
-    "live_url": "https://your-crm.onrender.com",
-    "github_url": "",
-    "featured": false
-  },
+  "name": "CRM Automation",
+  "description": "AI-powered CRM automation that streamlines lead tracking, follow-ups, and pipeline management.",
+  "problem": "Sales teams spend time manually tracking leads, updating CRM records, and managing follow-ups.",
+  "built": "AI-driven workflows that connect lead sources with the CRM, automate updates, and trigger intelligent follow-ups.",
+  "categories": ["AI", "Automation"],
+  "tech_stack": ["CRM", "n8n", "Make.com","Zapier"],
+  "image": "assets/Streamlined CRM Automation Workflow.png",
+  "featured": false
+},
   {
     "name": "AI-Driven Assistant",
     "description": "A conversational AI assistant with memory and tool-use capabilities, built for business process automation and customer support.",
