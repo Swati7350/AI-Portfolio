@@ -581,7 +581,8 @@ button { cursor: pointer; font-family: inherit; }
 .featured-badge {
   position: absolute;
   top: 10px;
-  left: 10px;
+  right: 12px;
+  left: auto;
   background: var(--accent-mid);
   color: #fff;
   font-size: 0.7rem;
