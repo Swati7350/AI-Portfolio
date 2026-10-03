@@ -374,7 +374,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 /* Founder credibility — replaced by image, keeping selector for safety */
-.hero-credibility { margin-top: 4px; }
+.hero-credibility { margin-top: 14px; }
 
 /* Founder credibility — image */
 .credibility-img {
@@ -400,6 +400,7 @@ button { cursor: pointer; font-family: inherit; }
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: translateX(20px);
 }
 
 .hero-orbital-img {
