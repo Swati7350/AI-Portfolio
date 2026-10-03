@@ -59,8 +59,7 @@
     card.style.animationDelay = `${index * 60}ms`;
 
     const imageHtml = p.image
-      ? `<img src="${esc(p.image)}" alt="${esc(p.name)} screenshot" loading="lazy"
-            onerror="this.outerHTML='<div class=\\'card-image-placeholder\\'>${placeholderSvgEscaped()}</div>'" />`
+      ? `<img src="${esc(p.image)}" alt="${esc(p.name)} screenshot" loading="lazy" />`
       : `<div class="card-image-placeholder">${placeholderSvgStr()}</div>`;
 
     const featuredBadge = p.featured
@@ -99,6 +98,17 @@
           ${githubBtn}
         </div>
       </div>`;
+
+    // Attach error handler via JS — avoids the broken inline onerror approach
+    if (p.image) {
+      const img = card.querySelector('.card-image img');
+      if (img) {
+        img.addEventListener('error', () => {
+          const wrapper = img.parentElement;
+          wrapper.innerHTML = `<div class="card-image-placeholder">${placeholderSvgStr()}</div>`;
+        }, { once: true });
+      }
+    }
 
     return card;
   }
@@ -204,12 +214,6 @@
     </svg>`;
   }
 
-  // Escaped version safe to embed inside an onerror attribute string
-  function placeholderSvgEscaped() {
-    return placeholderSvgStr()
-      .replace(/'/g, "\\'")
-      .replace(/\n\s*/g, ' ');
-  }
 
   function iconExternal() {
     return `<svg width="13" height="13" viewBox="0 0 24 24" fill="none"
