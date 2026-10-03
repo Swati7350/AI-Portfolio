@@ -627,49 +627,46 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .card-actions .btn { flex: 1; justify-content: center; }
-.project-label {
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: var(--accent-purple);
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
 
-  .project-detail {
-    margin-top: 14px;
-  }
+/* ── Project detail rows (problem / built / capabilities) ─── */
+.project-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
 
-  .project-detail-label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-  }
+.project-detail-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--accent-light);
+}
 
-  .project-detail p {
-    margin: 0;
-    font-size: 0.82rem;
-    line-height: 1.5;
-    color: var(--text-secondary);
-  }
+.project-detail-text {
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
 
-  .capability-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
+.capability-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 2px;
+}
 
-  .capability-list span {
-    padding: 5px 8px;
-    border: 1px solid var(--border);
-    border-radius: 5px;
-    font-size: 0.72rem;
-    color: var(--text-secondary);
-  }
+.capability-pill {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--chip-color);
+  background: var(--chip-bg);
+  border: 1px solid var(--chip-border);
+  border-radius: 4px;
+  padding: 2px 9px;
+}
+
 /* Loading / Empty */
 .loading-state {
   grid-column: 1 / -1;
