@@ -405,7 +405,7 @@ button { cursor: pointer; font-family: inherit; }
 
 .hero-orbital-img {
   width: 100%;
-  max-width: 620px;
+  max-width: 580px;
   height: auto;
   display: block;
   /* Blend image edges into the dark background */
