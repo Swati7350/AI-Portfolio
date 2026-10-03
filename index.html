@@ -70,122 +70,22 @@
           </div>
         </div>
 
-        <p class="hero-credibility">
-          <svg class="credibility-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          Founded by <strong>Swati Gupta</strong> · Software Engineer · AI &amp; Automation Specialist<br />
-          <span class="credibility-exp">11+ Years of Software Engineering Experience</span>
-        </p>
+        <div class="hero-credibility">
+          <img
+            src="assets/founded by.png"
+            alt="Founded by Swati Gupta · Software Engineer · AI &amp; Automation Specialist · 11+ Years of Software Engineering Experience"
+            class="credibility-img"
+          />
+        </div>
       </div>
 
-      <!-- Right column — orbital visual -->
-      <div class="hero-right" aria-hidden="true">
-        <div class="orbital-wrap">
-
-          <!-- Orbit rings (decorative) -->
-          <svg class="orbital-rings" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Outer dashed ring -->
-            <circle cx="240" cy="240" r="200" stroke="url(#ringGrad)" stroke-width="1" stroke-dasharray="6 5" opacity="0.5"/>
-            <!-- Inner solid ring -->
-            <circle cx="240" cy="240" r="140" stroke="url(#ringGrad2)" stroke-width="1" opacity="0.35"/>
-            <!-- Connector dots on outer ring at node positions -->
-            <!-- Top (Document Intelligence) ~320deg -->
-            <circle cx="240" cy="40" r="3.5" fill="#a78bfa" opacity="0.7"/>
-            <!-- Left (Voice Agents) ~210deg -->
-            <circle cx="67" cy="340" r="3.5" fill="#a78bfa" opacity="0.7"/>
-            <!-- Right-top (ML Model) ~345deg -->
-            <circle cx="433" cy="186" r="3.5" fill="#818cf8" opacity="0.7"/>
-            <!-- Bottom-left (Business Auto) ~140deg -->
-            <circle cx="98" cy="371" r="3" fill="#a78bfa" opacity="0.5"/>
-            <!-- Right (Integrations) ~20deg -->
-            <circle cx="420" cy="305" r="3.5" fill="#818cf8" opacity="0.7"/>
-
-            <!-- Gradient defs -->
-            <defs>
-              <linearGradient id="ringGrad" x1="0" y1="0" x2="480" y2="480" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.6"/>
-                <stop offset="50%" stop-color="#818cf8" stop-opacity="0.8"/>
-                <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.4"/>
-              </linearGradient>
-              <linearGradient id="ringGrad2" x1="0" y1="0" x2="480" y2="480" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.4"/>
-                <stop offset="100%" stop-color="#818cf8" stop-opacity="0.3"/>
-              </linearGradient>
-            </defs>
-          </svg>
-
-          <!-- Central hub -->
-          <div class="orbital-hub">
-            <div class="hub-glow"></div>
-            <div class="hub-inner">
-              <!-- Circuit/AI chip icon -->
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-                <rect x="7" y="7" width="10" height="10" rx="1"/>
-                <path d="M7 9H4M7 12H4M7 15H4M17 9h3M17 12h3M17 15h3M9 7V4M12 7V4M15 7V4M9 17v3M12 17v3M15 17v3"/>
-                <circle cx="9.5" cy="9.5" r="0.8" fill="currentColor"/>
-                <circle cx="14.5" cy="9.5" r="0.8" fill="currentColor"/>
-                <circle cx="9.5" cy="14.5" r="0.8" fill="currentColor"/>
-                <circle cx="14.5" cy="14.5" r="0.8" fill="currentColor"/>
-              </svg>
-              <span class="hub-label">AI<br/>AUTOMATION</span>
-            </div>
-          </div>
-
-          <!-- Node: Document Intelligence — top -->
-          <div class="orbital-node node-doc">
-            <div class="node-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
-              </svg>
-            </div>
-            <span class="node-label">Document<br/>Intelligence</span>
-          </div>
-
-          <!-- Node: Voice Agents — left -->
-          <div class="orbital-node node-voice">
-            <div class="node-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/>
-              </svg>
-            </div>
-            <span class="node-label">Voice<br/>Agents</span>
-          </div>
-
-          <!-- Node: ML Model Deployment — right-top -->
-          <div class="orbital-node node-ml">
-            <div class="node-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/>
-              </svg>
-            </div>
-            <span class="node-label">ML Model<br/>Deployment &amp;<br/>Observability</span>
-          </div>
-
-          <!-- Node: Business Automation — bottom-left -->
-          <div class="orbital-node node-biz">
-            <div class="node-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-              </svg>
-            </div>
-            <span class="node-label">Business<br/>Automation</span>
-          </div>
-
-          <!-- Node: Integrations — right-bottom -->
-          <div class="orbital-node node-int">
-            <div class="node-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
-              </svg>
-            </div>
-            <span class="node-label">Integrations<br/><span class="node-sub">n8n · Make.com · Zapier</span></span>
-          </div>
-
-          <!-- Sparkle dots -->
-          <div class="sparkle s1"></div>
-          <div class="sparkle s2"></div>
-          <div class="sparkle s3"></div>
-          <div class="sparkle s4"></div>
-        </div>
+      <!-- Right column — orbital image -->
+      <div class="hero-right">
+        <img
+          src="assets/right side image.png"
+          alt="AI Automation orbital diagram showing Document Intelligence, Voice Agents, ML Model Deployment, Business Automation and Integrations"
+          class="hero-orbital-img"
+        />
       </div>
 
     </div>
