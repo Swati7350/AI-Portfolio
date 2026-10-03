@@ -106,15 +106,6 @@
           </div>
         ` : ''}
 
-        ${p.capabilities && p.capabilities.length ? `
-          <div class="project-detail">
-            <span class="project-detail-label">Capabilities</span>
-            <div class="capability-list">
-              ${p.capabilities.map(c => `<span class="capability-pill">${esc(c)}</span>`).join('')}
-            </div>
-          </div>
-        ` : ''}
-
         <div class="card-tags">${tagsHtml}</div>
         <div class="card-tech">${techHtml}</div>
 

@@ -485,7 +485,7 @@ button { cursor: pointer; font-family: inherit; }
 
 /* ── Projects ─────────────────────────────────────────────── */
 .projects-section {
-  padding: 80px 0 96px;
+  padding: 56px 0 72px;
   border-top: 1px solid var(--border);
   background: var(--bg-card);
 }
@@ -496,7 +496,16 @@ button { cursor: pointer; font-family: inherit; }
   flex-wrap: wrap;
   gap: 7px;
   justify-content: center;
-  margin-bottom: 44px;
+  margin-bottom: 24px;
+}
+
+/* Tighter header spacing for projects section only */
+.projects-section .section-header {
+  margin-bottom: 20px;
+}
+
+.projects-section .section-title {
+  margin-bottom: 4px;
 }
 
 .filter-btn {
@@ -521,11 +530,11 @@ button { cursor: pointer; font-family: inherit; }
   color: #fff;
 }
 
-/* Grid */
+/* Grid — 3 equal columns, tighter gap */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 
 /* Card */
@@ -593,11 +602,11 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .card-body {
-  padding: 18px 20px 20px;
+  padding: 14px 16px 16px;
   display: flex;
   flex-direction: column;
   flex: 1;
-  gap: 10px;
+  gap: 8px;
 }
 
 .card-title {
@@ -611,8 +620,7 @@ button { cursor: pointer; font-family: inherit; }
 .card-description {
   font-size: 0.86rem;
   color: var(--text-secondary);
-  line-height: 1.65;
-  flex: 1;
+  line-height: 1.55;
 }
 
 .card-tags { display: flex; flex-wrap: wrap; gap: 5px; }
@@ -621,18 +629,18 @@ button { cursor: pointer; font-family: inherit; }
 .card-actions {
   display: flex;
   gap: 8px;
-  padding-top: 4px;
+  padding-top: 8px;
   border-top: 1px solid var(--border);
   margin-top: auto;
 }
 
 .card-actions .btn { flex: 1; justify-content: center; }
 
-/* ── Project detail rows (problem / built / capabilities) ─── */
+/* ── Project detail rows (problem / built) ────────────────── */
 .project-detail {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .project-detail-label {
@@ -1028,6 +1036,12 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 /* ── Responsive ───────────────────────────────────────────── */
+
+/* Tablet: 3 columns → 2 columns */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 960px) {
   .about-top {
     grid-template-columns: 1fr;
