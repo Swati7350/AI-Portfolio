@@ -36,7 +36,6 @@
       return;
     }
 
-    if (statProjects) statProjects.textContent = allProjects.length;
     renderCards(allProjects);
     setupFilters();
   }
