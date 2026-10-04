@@ -17,7 +17,7 @@
     "built": "AI-powered matching to identify and reconcile related documents.",
     "categories": ["Document Intelligence", "Automation"],
     "tech_stack": ["OCR", "LangChain"],
-    "image": "",
+    "image": "assets/AI Invoice and Receipt Matching.png",
     "featured": false
   },
   {
@@ -38,7 +38,7 @@
     "categories": ["Travel Agents", "Automation"],
     "tech_stack": ["Twillio", "WhatsApp", "Workflow Automation"],
     "live_url": "https://travel-agent-orchestration-and-whatsapp-integration.streamlit.app/",
-    "image": "",
+    "image": "assets/Send Your Chat to WhatsApp.png",
     "featured": false
   },
   {
@@ -48,7 +48,7 @@
     "built": "Automated data flows, triggers, and actions across connected tools.",
     "categories": ["Automation"],
     "tech_stack": ["Make.com", "APIs", "Webhooks"],
-    "image": "",
+    "image": "assets/Make.com Automation Workflow Diagram.png",
     "featured": false
   },
   {
@@ -58,7 +58,7 @@
     "built": "Automated enquiry capture, routing, CRM updates, and follow-ups.",
     "categories": ["Automation"],
     "tech_stack": ["Zapier", "CRM", "Webhooks"],
-    "image": "",
+    "image": "assets/",
     "featured": false
   },
   {
@@ -68,7 +68,7 @@
     "built": "Voice AI that understands requests and takes business actions.",
     "categories": ["Conversational AI", "AI Agents", "Voice AI"],
     "tech_stack": ["Retell", "Vapi", "Bland"],
-    "image": "",
+    "image": "assets/",
     "featured": false
   }
 ]
