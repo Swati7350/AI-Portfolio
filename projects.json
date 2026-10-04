@@ -15,8 +15,8 @@
     "description": "AI that matches invoices and receipts to reduce manual reconciliation.",
     "problem": "Matching invoices and receipts manually takes time.",
     "built": "AI-powered matching to identify and reconcile related documents.",
-    "categories": ["AI", "Document Intelligence", "Automation"],
-    "tech_stack": ["AI", "OCR", "Document Processing"],
+    "categories": ["Document Intelligence", "Automation"],
+    "tech_stack": ["OCR", "LangChain"],
     "image": "",
     "featured": false
   },
@@ -25,7 +25,7 @@
     "description": "Automate lead tracking, CRM updates, and follow-ups.",
     "problem": "Manual lead tracking slows down sales teams.",
     "built": "Automated lead capture, CRM updates, and follow-ups.",
-    "categories": ["AI", "Automation"],
+    "categories": ["Workflow Automation"],
     "tech_stack": ["CRM", "n8n", "Make.com", "Zapier"],
     "image": "assets/Streamlined CRM Automation Workflow.png",
     "featured": false
@@ -35,8 +35,8 @@
     "description": "AI agents that automate WhatsApp conversations and business tasks.",
     "problem": "Businesses spend time handling repetitive customer conversations manually.",
     "built": "AI agents that handle conversations and trigger business actions.",
-    "categories": ["AI", "AI Agents", "Automation"],
-    "tech_stack": ["AI Agents", "WhatsApp", "Workflow Automation"],
+    "categories": ["Travel Agents", "Automation"],
+    "tech_stack": ["Twillio", "WhatsApp", "Workflow Automation"],
     "live_url": "https://travel-agent-orchestration-and-whatsapp-integration.streamlit.app/",
     "image": "",
     "featured": false
@@ -66,8 +66,8 @@
     "description": "AI voice agents that handle customer calls and enquiries.",
     "problem": "Businesses spend time handling repetitive customer calls.",
     "built": "Voice AI that understands requests and takes business actions.",
-    "categories": ["AI", "AI Agents", "Voice AI"],
-    "tech_stack": ["Voice AI", "LLMs", "Conversational AI"],
+    "categories": ["Conversational AI", "AI Agents", "Voice AI"],
+    "tech_stack": ["Retell", "Vapi", "Bland"],
     "image": "",
     "featured": false
   }

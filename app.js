@@ -76,7 +76,7 @@
             class="btn btn-primary btn-sm" aria-label="Open live demo of ${esc(p.name)}">
            ${iconExternal()} Live Demo
          </a>`
-      : `<span class="btn btn-ghost btn-sm" style="opacity:0.4;cursor:default;pointer-events:none">Coming Soon</span>`;
+      : `<span class="btn btn-ghost btn-sm" style="opacity:0.4;cursor:default;pointer-events:none">In Progress</span>`;
 
     const githubBtn = p.github_url
       ? `<a href="${esc(p.github_url)}" target="_blank" rel="noopener noreferrer"
