@@ -419,17 +419,48 @@ button { cursor: pointer; font-family: inherit; }
   border-top: 1px solid var(--border);
 }
 
-/* Two-column outer layout */
+/* Three-column outer layout */
 .services-two-col {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
   align-items: start;
 }
 
+.services-left,
+.services-right {
+  padding-right: 32px;
+}
+
+.services-third {
+  padding-left: 32px;
+  border-left: 1px solid var(--border);
+}
+
 .services-left .section-title,
-.services-right .section-title {
-  margin-bottom: 20px;
+.services-right .section-title,
+.services-third .section-title {
+  margin-bottom: 16px;
+}
+
+.services-right {
+  border-left: 1px solid var(--border);
+  padding-left: 32px;
+  padding-right: 0;
+}
+
+/* Tech list inside third column — stacked vertically, compact */
+.services-tech-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.tech-intro {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 14px;
 }
 
 /* Left: 2×2 service card grid */
@@ -1243,6 +1274,8 @@ button { cursor: pointer; font-family: inherit; }
   .hero-stats { width: 100%; justify-content: center; }
 
   .services-two-col { grid-template-columns: 1fr; }
+  .services-left, .services-right { padding-right: 0; }
+  .services-right, .services-third { padding-left: 0; border-left: none; }
   .services-grid    { grid-template-columns: 1fr 1fr; }
 
   .projects-grid { grid-template-columns: 1fr; }
