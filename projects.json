@@ -2,8 +2,8 @@
   {
     "name": "Document Intelligence System",
     "description": "Turn business documents into searchable, actionable information with AI.",
-    "problem": "Businesses spend hours reviewing documents and manually searching for important information.",
-    "built": "AI-powered document ingestion, OCR, RAG, structured extraction, and natural-language document search.",
+    "problem": "Finding key information in large documents takes too much time.",
+    "built": "AI that helps users search, extract, and understand document information.",
     "categories": ["AI", "RAG", "Knowledge Extraction"],
     "tech_stack": ["Pinecone", "Claude", "LangChain"],
     "image": "assets/Document Intelligence AI Workflow.png",
@@ -11,20 +11,41 @@
     "featured": true
   },
   {
+    "name": "AI Invoice Reconciliation",
+    "description": "AI that matches invoices and receipts to reduce manual reconciliation.",
+    "problem": "Matching invoices and receipts manually takes time.",
+    "built": "AI-powered matching to identify and reconcile related documents.",
+    "categories": ["AI", "Document Intelligence", "Automation"],
+    "tech_stack": ["AI", "OCR", "Document Processing"],
+    "image": "",
+    "featured": false
+  },
+  {
     "name": "CRM Automation",
-    "description": "AI-powered CRM automation that streamlines lead tracking, follow-ups, and pipeline management.",
-    "problem": "Sales teams spend time manually tracking leads, updating CRM records, and managing follow-ups.",
-    "built": "AI-driven workflows that connect lead sources with the CRM, automate updates, and trigger intelligent follow-ups.",
+    "description": "Automate lead tracking, CRM updates, and follow-ups.",
+    "problem": "Manual lead tracking slows down sales teams.",
+    "built": "Automated lead capture, CRM updates, and follow-ups.",
     "categories": ["AI", "Automation"],
     "tech_stack": ["CRM", "n8n", "Make.com", "Zapier"],
     "image": "assets/Streamlined CRM Automation Workflow.png",
     "featured": false
   },
   {
+    "name": "AI Agent Platform with WhatsApp",
+    "description": "AI agents that automate WhatsApp conversations and business tasks.",
+    "problem": "Businesses spend time handling repetitive customer conversations manually.",
+    "built": "AI agents that handle conversations and trigger business actions.",
+    "categories": ["AI", "AI Agents", "Automation"],
+    "tech_stack": ["AI Agents", "WhatsApp", "Workflow Automation"],
+    "live_url": "https://travel-agent-orchestration-and-whatsapp-integration.streamlit.app/",
+    "image": "",
+    "featured": false
+  },
+  {
     "name": "Make.com Business Automation",
-    "description": "Workflow automation that connects business applications and moves information between systems without repetitive manual work.",
-    "problem": "Businesses lose time moving data between applications and performing repetitive workflow steps manually.",
-    "built": "Automated workflows using Make.com to connect business tools, move data, trigger actions, and streamline recurring processes.",
+    "description": "Connect business tools and automate repetitive workflows.",
+    "problem": "Teams waste time moving data between business tools.",
+    "built": "Automated data flows, triggers, and actions across connected tools.",
     "categories": ["Automation"],
     "tech_stack": ["Make.com", "APIs", "Webhooks"],
     "image": "",
@@ -32,53 +53,21 @@
   },
   {
     "name": "Automate Enquiries with Zapier",
-    "description": "Automated enquiry management that turns incoming enquiries into faster, more consistent follow-ups.",
-    "problem": "New enquiries can sit unattended when teams manually review messages, create records, and initiate follow-ups.",
-    "built": "Zapier workflows that capture enquiries, route information, update business systems, and trigger faster follow-up actions.",
+    "description": "Turn incoming enquiries into automated follow-ups.",
+    "problem": "Manual enquiry handling can delay sales follow-ups.",
+    "built": "Automated enquiry capture, routing, CRM updates, and follow-ups.",
     "categories": ["Automation"],
     "tech_stack": ["Zapier", "CRM", "Webhooks"],
     "image": "",
     "featured": false
   },
   {
-    "name": "AI Document Q&A",
-    "description": "AI tools that let users ask questions and retrieve relevant information directly from their documents.",
-    "problem": "Finding specific information inside large documents requires time-consuming manual reading and searching.",
-    "built": "AI-powered document processing and retrieval that allows users to ask natural-language questions and get contextual answers from their documents.",
-    "categories": ["AI", "RAG", "Document Processing"],
-    "tech_stack": ["RAG", "LLMs", "Document AI"],
-    "image": "",
-    "featured": false
-  },
-  {
-    "name": "AI Agent Platform with WhatsApp",
-    "description": "Custom AI agents connected to WhatsApp and business workflows to automate conversations and operational tasks.",
-    "problem": "Businesses often handle customer conversations and repetitive workflow tasks manually across communication channels.",
-    "built": "A custom AI agent platform that connects WhatsApp conversations with automated business workflows and actions.",
-    "categories": ["AI", "AI Agents", "Automation"],
-    "tech_stack": ["AI Agents", "WhatsApp", "Workflow Automation"],
-    "live_url": "https://travel-agent-orchestration-and-whatsapp-integration.streamlit.app/",
-
-    "image": "",
-    "featured": false
-  },
-  {
-    "name": "AI Invoice Reconciliation",
-    "description": "AI-powered invoice and receipt matching that reduces manual reconciliation work.",
-    "problem": "Finance teams spend significant time comparing invoices, receipts, and transaction information manually.",
-    "built": "AI-powered document processing and matching to identify corresponding invoices and receipts and streamline reconciliation.",
-    "categories": ["AI", "Document Processing", "Automation"],
-    "tech_stack": ["AI", "OCR", "Document Processing"],
-    "image": "",
-    "featured": false
-  },
-  {
     "name": "AI Voice Agent",
-    "description": "AI voice agents that handle customer conversations, enquiries, and routine business interactions.",
-    "problem": "Businesses spend time handling repetitive calls and responding to routine customer enquiries manually.",
-    "built": "Conversational AI voice workflows that understand customer requests, respond naturally, and connect conversations to business processes.",
-    "categories": ["AI", "AI Agents", "Automation"],
-    "tech_stack": ["Voice AI", "AI Agents", "LLMs"],
+    "description": "AI voice agents that handle customer calls and enquiries.",
+    "problem": "Businesses spend time handling repetitive customer calls.",
+    "built": "Voice AI that understands requests and takes business actions.",
+    "categories": ["AI", "AI Agents", "Voice AI"],
+    "tech_stack": ["Voice AI", "LLMs", "Conversational AI"],
     "image": "",
     "featured": false
   }
