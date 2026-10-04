@@ -831,7 +831,10 @@ button { cursor: pointer; font-family: inherit; }
   margin-bottom: 56px;
 }
 
-.about-left .section-title { margin-bottom: 14px; }
+.about-left .section-title {
+  margin-bottom: 14px;
+  white-space: nowrap;
+}
 
 .about-left p {
   font-size: 0.925rem;
@@ -853,9 +856,9 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .team-row-label {
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.09em;
 }
@@ -898,15 +901,15 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .team-row-name {
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.82rem;
+  font-weight: 700;
   color: var(--text-primary);
   white-space: nowrap;
 }
 
 .team-row-role {
-  font-size: 0.72rem;
-  color: var(--text-muted);
+  font-size: 0.74rem;
+  color: var(--text-secondary);
   white-space: nowrap;
 }
 
