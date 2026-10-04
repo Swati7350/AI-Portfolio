@@ -1,13 +1,13 @@
 [
   {
     "name": "Document Intelligence System",
-    "description": "AI-powered document analysis for contracts, reports, invoices, research papers, and other business documents.",
+    "description": "Turn business documents into searchable, actionable information with AI.",
     "problem": "Businesses spend hours reviewing documents and manually searching for important information.",
     "built": "AI-powered document ingestion, OCR, RAG, structured extraction, and natural-language document search.",
-    "categories": ["AI", "RAG", "Document Processing"],
-    "tech_stack": ["Python", "Streamlit", "ChromaDB", "LangChain"],
+    "categories": ["AI", "RAG", "Knowledge Extraction"],
+    "tech_stack": ["Pinecone", "Claude", "LangChain"],
     "image": "assets/Document Intelligence AI Workflow.png",
-    "live_url": "https://travel-agent-orchestration-and-whatsapp-integration.streamlit.app/",
+    "live_url": "https://docai-contract-intelligence.onrender.com/",
     "featured": true
   },
   {
@@ -57,6 +57,8 @@
     "built": "A custom AI agent platform that connects WhatsApp conversations with automated business workflows and actions.",
     "categories": ["AI", "AI Agents", "Automation"],
     "tech_stack": ["AI Agents", "WhatsApp", "Workflow Automation"],
+    "live_url": "https://travel-agent-orchestration-and-whatsapp-integration.streamlit.app/",
+
     "image": "",
     "featured": false
   },
