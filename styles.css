@@ -422,24 +422,24 @@ button { cursor: pointer; font-family: inherit; }
 /* Three-column layout: left wider, right two narrower */
 .services-two-col {
   display: grid;
-  grid-template-columns: 1.3fr 0.85fr 0.85fr;
-  gap: 0;
+  grid-template-columns: 1.35fr 0.85fr 0.80fr;
+  gap: 40px;
   align-items: start;
 }
 
 .services-left {
-  padding-right: 32px;
+  padding-right: 0;
 }
 
 .services-right {
   border-left: 1px solid var(--border);
   padding-left: 28px;
-  padding-right: 28px;
+  padding-right: 0;
 }
 
 .services-third {
   border-left: 1px solid var(--border);
-  padding-left: 28px;
+  padding-left: 24px;
 }
 
 .services-left .section-title,
@@ -530,14 +530,14 @@ button { cursor: pointer; font-family: inherit; }
 .automate-list {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 12px;
 }
 
 .automate-group {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 20px 18px;
+  padding: 14px 15px;
 }
 
 .automate-group-title {
@@ -545,10 +545,10 @@ button { cursor: pointer; font-family: inherit; }
   align-items: center;
   gap: 7px;
   font-family: var(--font-display);
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .automate-group-title svg {
@@ -556,18 +556,25 @@ button { cursor: pointer; font-family: inherit; }
   flex-shrink: 0;
 }
 
+.automate-desc {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-bottom: 8px;
+}
+
 .automate-items {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
 }
 
 .automate-items li {
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   color: var(--text-secondary);
-  line-height: 1.45;
-  padding-left: 14px;
+  line-height: 1.4;
+  padding-left: 13px;
   position: relative;
 }
 
