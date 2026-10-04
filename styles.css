@@ -920,11 +920,12 @@ button { cursor: pointer; font-family: inherit; }
   gap: 22px;
 }
 .about-process-image {
-  width: 100%;
-  max-width: 620px;
+  width: 90%;
+  max-width: 560px;
   height: auto;
   display: block;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: -10px;
 }
 .process-item {
   display: flex;
