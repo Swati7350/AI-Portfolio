@@ -172,6 +172,37 @@
   }
 
   function setupFilters() {
+    // Map each filter button label to the category strings used in projects.json.
+    // Case-insensitive partial matching handles slight wording differences.
+    const FILTER_MAP = {
+      'AI':                   ['ai', 'llm', 'rag', 'knowledge', 'conversational', 'voice'],
+      'RAG':                  ['rag', 'knowledge'],
+      'Automation':           ['automation', 'workflow'],
+      'AI Agents':            ['ai agents', 'agent', 'travel agents'],
+      'Document Processing':  ['document', 'invoice', 'ocr', 'knowledge extraction'],
+      'Other':                null   // handled separately — projects with no matching filter
+    };
+
+    // Known filter keys (excluding All and Other)
+    const KNOWN_KEYS = Object.keys(FILTER_MAP).filter(k => k !== 'Other');
+
+    function projectMatchesFilter(p, filter) {
+      if (filter === 'All') return true;
+
+      const cats = (p.categories || []).map(c => c.toLowerCase());
+
+      if (filter === 'Other') {
+        // "Other" = no category matches ANY of the known filters
+        return !KNOWN_KEYS.some(key => {
+          const terms = FILTER_MAP[key];
+          return cats.some(c => terms.some(t => c.includes(t)));
+        });
+      }
+
+      const terms = FILTER_MAP[filter];
+      return cats.some(c => terms.some(t => c.includes(t)));
+    }
+
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         activeFilter = btn.dataset.filter;
@@ -180,7 +211,7 @@
 
         const filtered = activeFilter === 'All'
           ? allProjects
-          : allProjects.filter(p => p.categories && p.categories.includes(activeFilter));
+          : allProjects.filter(p => projectMatchesFilter(p, activeFilter));
 
         renderCards(filtered);
       });
