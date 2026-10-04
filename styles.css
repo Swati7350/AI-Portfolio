@@ -869,7 +869,7 @@ button { cursor: pointer; font-family: inherit; }
 /* Top row: about text left, how we work right */
 .about-top {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 0.9fr;
   gap: 56px;
   align-items: start;
   margin-bottom: 56px;
