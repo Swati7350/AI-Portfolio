@@ -664,17 +664,18 @@ button { cursor: pointer; font-family: inherit; }
   width: 44px;
   height: 44px;
   background: var(--bg-raised);
-  border: 1px solid var(--border);
+  border: 1.5px solid rgba(167, 139, 250, 0.45);
   border-radius: 50%;
-  color: var(--text-secondary);
+  color: var(--accent-light);
   cursor: pointer;
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  transition: border-color 0.2s, color 0.2s, background 0.2s, box-shadow 0.2s;
 }
 
 .carousel-arrow:hover:not(:disabled) {
   border-color: var(--accent-light);
-  color: var(--text-primary);
-  background: var(--bg-card-h);
+  color: #fff;
+  background: rgba(124, 58, 237, 0.18);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
 }
 
 .carousel-arrow:disabled {
