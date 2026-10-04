@@ -70,15 +70,5 @@
     "tech_stack": ["Zapier", "CRM", "Webhooks"],
     "image": "assets/Zapier Workflow Automation Infographic.png",
     "featured": false
-  },
-  {
-    "name": "AI Voice Agent",
-    "description": "AI voice agents that handle customer calls and enquiries.",
-    "problem": "Businesses spend time handling repetitive customer calls.",
-    "built": "Voice AI that understands requests and takes business actions.",
-    "categories": ["Conversational AI", "AI Agents", "Voice AI"],
-    "tech_stack": ["Retell", "Vapi", "Bland"],
-    "image": "assets/AI Voice Agents Call Flow.png",
-    "featured": false
   }
 ]
