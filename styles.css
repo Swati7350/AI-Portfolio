@@ -884,7 +884,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 /* Who We Help — inline pills */
-.who-help { margin-top: 4px; }
+.who-help { margin-top: 20px; }
 
 .who-help-label {
   font-size: 0.74rem;
@@ -919,7 +919,13 @@ button { cursor: pointer; font-family: inherit; }
   flex-direction: column;
   gap: 22px;
 }
-
+.about-process-image {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 .process-item {
   display: flex;
   gap: 16px;
