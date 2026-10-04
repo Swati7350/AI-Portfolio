@@ -419,34 +419,33 @@ button { cursor: pointer; font-family: inherit; }
   border-top: 1px solid var(--border);
 }
 
-/* Three-column outer layout */
+/* Three-column layout: left wider, right two narrower */
 .services-two-col {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1.2fr 0.9fr 0.9fr;
   gap: 0;
   align-items: start;
 }
 
-.services-left,
-.services-right {
+.services-left {
   padding-right: 32px;
 }
 
-.services-third {
-  padding-left: 32px;
+.services-right {
   border-left: 1px solid var(--border);
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+.services-third {
+  border-left: 1px solid var(--border);
+  padding-left: 28px;
 }
 
 .services-left .section-title,
 .services-right .section-title,
 .services-third .section-title {
   margin-bottom: 16px;
-}
-
-.services-right {
-  border-left: 1px solid var(--border);
-  padding-left: 32px;
-  padding-right: 0;
 }
 
 /* Tech list inside third column — stacked vertically, compact */
@@ -1061,11 +1060,17 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .tech-category-label {
-  font-size: 0.74rem;
-  font-weight: 600;
-  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-secondary);
   text-transform: uppercase;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.08em;
+}
+
+/* Smaller chips in the third column only */
+.services-third .tech-chip {
+  font-size: 0.68rem;
+  padding: 2px 8px;
 }
 
 .tech-chips {
