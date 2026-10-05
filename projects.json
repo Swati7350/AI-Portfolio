@@ -18,6 +18,7 @@
     "categories": ["Document Intelligence", "Automation"],
     "tech_stack": ["OCR", "LangChain"],
     "image": "assets/AI Invoice and Receipt Matching.png",
+    "live_url": "https://ai-invoice-ocr.onrender.com/",
     "featured": false
   },
   {
