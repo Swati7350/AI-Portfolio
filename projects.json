@@ -4,8 +4,20 @@
     "description": "Turn business documents into searchable, actionable information with AI.",
     "problem": "Finding key information in large documents takes too much time.",
     "built": "AI that helps users search, extract, and understand document information.",
-    "categories": ["AI", "RAG", "Knowledge Extraction"],
-    "tech_stack": ["Pinecone", "Claude", "LangChain"],
+    "categories": [
+      "AI",
+      "RAG",
+      "Knowledge Extraction"
+    ],
+    "business_categories": [
+      "Documents & Knowledge",
+      "Custom AI"
+    ],
+    "tech_stack": [
+      "Pinecone",
+      "Claude",
+      "LangChain"
+    ],
     "image": "assets/Document Intelligence AI Workflow.png",
     "live_url": "https://docai-contract-intelligence.onrender.com/",
     "featured": true
@@ -15,8 +27,18 @@
     "description": "AI that matches invoices and receipts to reduce manual reconciliation.",
     "problem": "Matching invoices and receipts manually takes time.",
     "built": "AI-powered matching to identify and reconcile related documents.",
-    "categories": ["Document Intelligence", "Automation"],
-    "tech_stack": ["OCR", "LangChain"],
+    "categories": [
+      "Document Intelligence",
+      "Automation"
+    ],
+    "business_categories": [
+      "Documents & Knowledge",
+      "Business Automation"
+    ],
+    "tech_stack": [
+      "OCR",
+      "LangChain"
+    ],
     "image": "assets/AI Invoice and Receipt Matching.png",
     "live_url": "https://ai-invoice-ocr.onrender.com/",
     "featured": false
@@ -26,8 +48,19 @@
     "description": "Automate lead tracking, CRM updates, and follow-ups.",
     "problem": "Manual lead tracking slows down sales teams.",
     "built": "Automated lead capture, CRM updates, and follow-ups.",
-    "categories": ["Workflow Automation"],
-    "tech_stack": ["CRM", "n8n", "Make.com", "Zapier"],
+    "categories": [
+      "Workflow Automation"
+    ],
+    "business_categories": [
+      "Customer & Sales",
+      "Business Automation"
+    ],
+    "tech_stack": [
+      "CRM",
+      "n8n",
+      "Make.com",
+      "Zapier"
+    ],
     "image": "assets/Streamlined CRM Automation Workflow.png",
     "featured": false
   },
@@ -36,19 +69,42 @@
     "description": "AI agents that automate WhatsApp conversations and business tasks.",
     "problem": "Businesses spend time handling repetitive customer conversations manually.",
     "built": "AI agents that handle conversations and trigger business actions.",
-    "categories": ["Travel Agents", "Automation"],
-    "tech_stack": ["Twillio", "WhatsApp", "Workflow Automation"],
-    "live_url": "https://travel-agent-orchestration-and-whatsapp-integration.streamlit.app/",
+    "categories": [
+      "AI Agents",
+      "Automation"
+    ],
+    "business_categories": [
+      "Customer & Sales",
+      "Custom AI"
+    ],
+    "tech_stack": [
+      "Twilio",
+      "WhatsApp",
+      "Workflow Automation"
+    ],
     "image": "assets/Send Your Chat to WhatsApp.png",
-    "featured": false
+    "featured": false,
+    "demo_private": true
   },
   {
     "name": "AI Voice Agent",
     "description": "AI voice agents that handle customer calls and enquiries.",
     "problem": "Businesses spend time handling repetitive customer calls.",
     "built": "Voice AI that understands requests and takes business actions.",
-    "categories": ["Conversational AI", "AI Agents", "Voice AI"],
-    "tech_stack": ["Retell", "Vapi", "Bland"],
+    "categories": [
+      "Conversational AI",
+      "AI Agents",
+      "Voice AI"
+    ],
+    "business_categories": [
+      "Customer & Sales",
+      "Custom AI"
+    ],
+    "tech_stack": [
+      "Retell",
+      "Vapi",
+      "Bland"
+    ],
     "image": "assets/AI Voice Agents Call Flow.png",
     "featured": false
   },
@@ -57,8 +113,17 @@
     "description": "Connect business tools and automate repetitive workflows.",
     "problem": "Teams waste time moving data between business tools.",
     "built": "Automated data flows, triggers, and actions across connected tools.",
-    "categories": ["Automation"],
-    "tech_stack": ["Make.com", "APIs", "Webhooks"],
+    "categories": [
+      "Automation"
+    ],
+    "business_categories": [
+      "Business Automation"
+    ],
+    "tech_stack": [
+      "Make.com",
+      "APIs",
+      "Webhooks"
+    ],
     "image": "assets/Make.com Automation Workflow Diagram.png",
     "featured": false
   },
@@ -67,8 +132,18 @@
     "description": "Turn incoming enquiries into automated follow-ups.",
     "problem": "Manual enquiry handling can delay sales follow-ups.",
     "built": "Automated enquiry capture, routing, CRM updates, and follow-ups.",
-    "categories": ["Automation"],
-    "tech_stack": ["Zapier", "CRM", "Webhooks"],
+    "categories": [
+      "Automation"
+    ],
+    "business_categories": [
+      "Customer & Sales",
+      "Business Automation"
+    ],
+    "tech_stack": [
+      "Zapier",
+      "CRM",
+      "Webhooks"
+    ],
     "image": "assets/Zapier Workflow Automation Infographic.png",
     "featured": false
   }
