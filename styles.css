@@ -244,10 +244,9 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .nav-logo-img {
-  height: 44px;
+  height: 70px;
   width: auto;
   display: block;
-  background: var(--navy);
   border-radius: 8px;
   padding: 4px 10px;
 }
