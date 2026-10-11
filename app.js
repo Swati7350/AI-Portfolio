@@ -11,6 +11,54 @@
   'use strict';
 
   /* ═══════════════════════════════════════════════════════════
+     0. HERO ROTATING TEXT
+  ═══════════════════════════════════════════════════════════ */
+
+  const ROTATING_PHRASES = [
+    'Business Automation Workflows',
+    'Customer Conversations',
+    'Sales & CRM Processes',
+    'Document Processing',
+    'Voice Agents',
+    'AI Agents',
+    'Custom AI Applications'
+  ];
+
+  const ROTATION_INTERVAL = 2500; // 2.5 seconds
+
+  function initRotatingText() {
+    const el = document.getElementById('rotating-phrase');
+    if (!el) return;
+
+    // Respect prefers-reduced-motion
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) {
+      el.textContent = ROTATING_PHRASES[0];
+      return;
+    }
+
+    let index = 0;
+    setInterval(() => {
+      // Fade out current text
+      el.classList.add('fade-out');
+      
+      // After fade completes, change text and fade back in
+      setTimeout(() => {
+        index = (index + 1) % ROTATING_PHRASES.length;
+        el.textContent = ROTATING_PHRASES[index];
+        el.classList.remove('fade-out');
+      }, 250); // Half of 0.5s transition time
+    }, ROTATION_INTERVAL);
+  }
+
+  // Call on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initRotatingText);
+  } else {
+    initRotatingText();
+  }
+
+  /* ═══════════════════════════════════════════════════════════
      1. PROJECT LOADER
   ═══════════════════════════════════════════════════════════ */
 
@@ -539,3 +587,18 @@
   document.addEventListener('DOMContentLoaded', initWorkPage);
 
 })();
+// Ensure FAQ anchor navigation works after page load
+window.addEventListener("load", () => {
+  if (window.location.hash === "#faq") {
+    const faq = document.getElementById("faq");
+
+    if (faq) {
+      requestAnimationFrame(() => {
+        faq.scrollIntoView({
+          behavior: "auto",
+          block: "start"
+        });
+      });
+    }
+  }
+});
