@@ -16,12 +16,12 @@
 
   const ROTATING_PHRASES = [
     'Business Automation Workflows',
-    'Customer Conversations',
+    'AI Chatbots',
     'Sales & CRM Processes',
-    'Document Processing',
-    'Voice Agents',
-    'AI Agents',
-    'Custom AI Applications'
+    'Document Search',
+    'Voice Agents & AI Agents',
+    'Custom AI Applications',
+    'Website Development'
   ];
 
   const ROTATION_INTERVAL = 2500; // 2.5 seconds
