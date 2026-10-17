@@ -377,10 +377,25 @@
      4. BOOT
   ═══════════════════════════════════════════════════════════ */
   document.addEventListener('DOMContentLoaded', () => {
-    initProjects();
-    initForm();
-    setupCarousel();
-  });
+
+  // Animate project count from 0 to 20+
+  if (statProjects) {
+    let count = 0;
+
+    const timer = setInterval(() => {
+      count++;
+      statProjects.textContent = count === 20 ? '20+' : count;
+
+      if (count >= 20) {
+        clearInterval(timer);
+      }
+    }, 75);
+  }
+
+  initProjects();
+  initForm();
+  setupCarousel();
+});
 
 })();
 
