@@ -2474,11 +2474,18 @@ button { cursor: pointer; font-family: inherit; }
 
 .footer-social a svg,
 .footer-social a .footer-platform-icon {
-  flex: 0 0 18px;
-  width: 18px;
-  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  min-width: 20px;
+  margin-right: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  letter-spacing: -1.5px;
+  -webkit-text-stroke: 0.5px currentColor;
 }
-
 .footer-social a:hover {
   color: #fff;
 }
