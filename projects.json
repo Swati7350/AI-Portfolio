@@ -43,27 +43,7 @@
     "live_url": "https://ai-invoice-ocr.onrender.com/",
     "featured": false
   },
-  {
-    "name": "CRM Automation",
-    "description": "Automate lead tracking, CRM updates, and follow-ups.",
-    "problem": "Manual lead tracking slows down sales teams.",
-    "built": "Automated lead capture, CRM updates, and follow-ups.",
-    "categories": [
-      "Workflow Automation"
-    ],
-    "business_categories": [
-      "Customer & Sales",
-      "Business Automation"
-    ],
-    "tech_stack": [
-      "CRM",
-      "n8n",
-      "Make.com",
-      "Zapier"
-    ],
-    "image": "assets/Streamlined CRM Automation Workflow.png",
-    "featured": false
-  },
+  
   {
     "name": "AI Agent Platform with WhatsApp",
     "description": "AI agents that automate WhatsApp conversations and business tasks.",
@@ -85,66 +65,5 @@
     "image": "assets/Send Your Chat to WhatsApp.png",
     "featured": false,
     "demo_private": true
-  },
-  {
-    "name": "AI Voice Agent",
-    "description": "AI voice agents that handle customer calls and enquiries.",
-    "problem": "Businesses spend time handling repetitive customer calls.",
-    "built": "Voice AI that understands requests and takes business actions.",
-    "categories": [
-      "Conversational AI",
-      "AI Agents",
-      "Voice AI"
-    ],
-    "business_categories": [
-      "Customer & Sales",
-      "Custom AI"
-    ],
-    "tech_stack": [
-      "Retell",
-      "Vapi",
-      "Bland"
-    ],
-    "image": "assets/AI Voice Agents Call Flow.png",
-    "featured": false
-  },
-  {
-    "name": "Make.com Business Automation",
-    "description": "Connect business tools and automate repetitive workflows.",
-    "problem": "Teams waste time moving data between business tools.",
-    "built": "Automated data flows, triggers, and actions across connected tools.",
-    "categories": [
-      "Automation"
-    ],
-    "business_categories": [
-      "Business Automation"
-    ],
-    "tech_stack": [
-      "Make.com",
-      "APIs",
-      "Webhooks"
-    ],
-    "image": "assets/Make.com Automation Workflow Diagram.png",
-    "featured": false
-  },
-  {
-    "name": "Automate Enquiries with Zapier",
-    "description": "Turn incoming enquiries into automated follow-ups.",
-    "problem": "Manual enquiry handling can delay sales follow-ups.",
-    "built": "Automated enquiry capture, routing, CRM updates, and follow-ups.",
-    "categories": [
-      "Automation"
-    ],
-    "business_categories": [
-      "Customer & Sales",
-      "Business Automation"
-    ],
-    "tech_stack": [
-      "Zapier",
-      "CRM",
-      "Webhooks"
-    ],
-    "image": "assets/Zapier Workflow Automation Infographic.png",
-    "featured": false
   }
 ]

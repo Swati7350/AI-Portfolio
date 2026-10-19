@@ -270,6 +270,74 @@
      contains your Formspree endpoint — set it there, not here.
   ═══════════════════════════════════════════════════════════ */
 
+  /* ═══════════════════════════════════════════════════════════
+     3. CLIENT RESULTS — Interactive Expanding Cards
+  ═══════════════════════════════════════════════════════════ */
+
+  function initClientResults() {
+    const container = document.querySelector('.client-results-container');
+    if (!container) return;
+
+    const cards = container.querySelectorAll('.result-card');
+    if (cards.length === 0) return;
+
+    // Respect prefers-reduced-motion
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Handle card expansion on click/hover
+    cards.forEach((card, index) => {
+      // Click handler
+      card.addEventListener('click', () => {
+        expandCard(cards, index, prefersReduced);
+      });
+
+      // Keyboard support (Enter and Space)
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          expandCard(cards, index, prefersReduced);
+        }
+      });
+
+      // Optional: expand on hover for desktop (optional, can be removed for click-only)
+      if (!window.matchMedia('(hover: none)').matches) {
+        card.addEventListener('mouseenter', () => {
+          if (!prefersReduced) {
+            expandCard(cards, index, prefersReduced);
+          }
+        });
+      }
+    });
+
+    // Initialize with first card expanded
+    cards[0].classList.add('result-card--expanded');
+    cards[0].setAttribute('aria-expanded', 'true');
+    cards.forEach((c, i) => {
+      if (i !== 0) {
+        c.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  function expandCard(cards, targetIndex, prefersReduced) {
+    // Remove expanded state from all cards
+    cards.forEach((card, i) => {
+      if (i === targetIndex) {
+        card.classList.add('result-card--expanded');
+        card.setAttribute('aria-expanded', 'true');
+      } else {
+        card.classList.remove('result-card--expanded');
+        card.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     4. ENQUIRY FORM
+     Submits to Formspree. The action URL in the <form> element
+     contains your Formspree endpoint — set it there, not here.
+  ═══════════════════════════════════════════════════════════ */
+
   function initForm() {
     const form      = document.getElementById('enquiry-form');
     const submitBtn = document.getElementById('submit-btn');
@@ -393,6 +461,7 @@
   }
 
   initProjects();
+  initClientResults();
   initForm();
   setupCarousel();
 });
