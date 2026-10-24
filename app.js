@@ -378,7 +378,10 @@
           form.reset();
           replyToEl.value = '';
           successEl.classList.remove('hidden');
+          document.getElementById('success-modal').hidden = false;
           successEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          
+
         } else {
           const json = await res.json().catch(() => ({}));
           console.error('[Form]', json);
