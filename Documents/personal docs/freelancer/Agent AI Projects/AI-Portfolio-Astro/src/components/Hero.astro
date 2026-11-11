@@ -1,0 +1,718 @@
+---
+/**
+ * src/components/Hero.astro
+ * 
+ * Premium two-column Hero section with AI-Powered Systems Pipeline
+ * Left: positioning label, headline, supporting text, CTAs, and credibility indicators
+ * Right: AI-Powered Systems Pipeline SVG illustration with data-flow animations
+ */
+---
+
+<header class="hero" id="home">
+  <div class="hero-container">
+    <!-- Left Column: Content -->
+    <div class="hero-left">
+      <!-- Positioning Label -->
+      <div class="hero-label">
+        AI ENGINEERING | INTELLIGENT AUTOMATION | CUSTOM SOFTWARE
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="hero-headline">
+        Engineering AI Systems That Make Businesses Work Better.
+      </h1>
+
+      <!-- Supporting Text -->
+      <p class="hero-description">
+        We design and build intelligent applications, AI agents and connected software systems that solve complex business problems and streamline operations.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="hero-cta">
+        <a href="/contact" class="btn btn-primary">Discuss Your Workflow</a>
+        <a href="/work" class="btn btn-secondary">Explore Our Work</a>
+      </div>
+
+      <!-- Credibility Indicators -->
+      <div class="hero-credibility">
+        <div class="credibility-item">
+          <span class="credibility-label">AI Engineering</span>
+        </div>
+        <div class="credibility-divider"></div>
+        <div class="credibility-item">
+          <span class="credibility-label">End-to-end Development</span>
+        </div>
+        <div class="credibility-divider"></div>
+        <div class="credibility-item">
+          <span class="credibility-label">Business-focused Solutions</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: AI Systems Pipeline Illustration -->
+    <div class="hero-right">
+      <svg class="pipeline-svg" viewBox="0 0 550 650" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI-Powered Systems Pipeline: Understand & Extract, Analyse & Reason, Automate & Orchestrate">
+        <!-- Define gradients and filters -->
+        <defs>
+          <!-- Glowing background effects behind pipeline -->
+          <radialGradient id="glow-cyan" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#22B8CF;stop-opacity:0.12" />
+            <stop offset="100%" style="stop-color:#22B8CF;stop-opacity:0" />
+          </radialGradient>
+          
+          <radialGradient id="glow-blue" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#2563EB;stop-opacity:0.15" />
+            <stop offset="100%" style="stop-color:#2563EB;stop-opacity:0" />
+          </radialGradient>
+
+          <filter id="shadow-glow">
+            <feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity="0.25" flood-color="#2563EB"/>
+          </filter>
+
+          <linearGradient id="stage-1-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#22B8CF;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#1B8EAA;stop-opacity:1" />
+          </linearGradient>
+          <linearGradient id="stage-2-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#2563EB;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#1D4FBF;stop-opacity:1" />
+          </linearGradient>
+          <linearGradient id="stage-3-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#22B8CF;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#1B8EAA;stop-opacity:1" />
+          </linearGradient>
+
+          <!-- Flow animation for connector lines -->
+          <style>
+            @keyframes flowAnimation {
+              0% {
+                stroke-dashoffset: 0;
+              }
+              100% {
+                stroke-dashoffset: -30;
+              }
+            }
+
+            @keyframes pulseGlow {
+              0%, 100% {
+                opacity: 0.5;
+                r: 4px;
+              }
+              50% {
+                opacity: 1;
+                r: 6px;
+              }
+            }
+
+            @keyframes slideInCard {
+              0% {
+                opacity: 0;
+                transform: translateY(20px);
+              }
+              100% {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+
+            @keyframes glowPulse {
+              0%, 100% {
+                opacity: 0.4;
+              }
+              50% {
+                opacity: 0.8;
+              }
+            }
+
+            .pipeline-svg {
+              animation: slideInCard 0.8s ease-out;
+            }
+
+            .flow-line {
+              animation: flowAnimation 2s linear infinite;
+              stroke-dasharray: 30;
+            }
+
+            .pulse-dot {
+              animation: pulseGlow 2s ease-in-out infinite;
+            }
+
+            .glow-element {
+              animation: glowPulse 4s ease-in-out infinite;
+            }
+          </style>
+        </defs>
+
+        <!-- Ambient glow elements behind pipeline -->
+        <circle class="glow-element" cx="120" cy="150" r="80" fill="url(#glow-cyan)"/>
+        <circle class="glow-element" cx="280" cy="120" r="100" fill="url(#glow-blue)"/>
+        <circle class="glow-element" cx="430" cy="160" r="80" fill="url(#glow-cyan)"/>
+
+        <!-- Title -->
+        <text x="250" y="35" font-size="18" font-weight="700" text-anchor="middle" fill="#FFFFFF" style="paint-order:stroke;stroke:#075BEE;stroke-width:0.8px">
+          AI-Powered Systems Pipeline
+        </text>
+
+        <!-- Stage 1: Understand & Extract -->
+        <g filter="url(#shadow-glow)">
+          <!-- Card background with enhanced shadow -->
+          <rect x="20" y="75" width="150" height="140" rx="14" fill="#F1F6FB" stroke="#22B8CF" stroke-width="2.5" opacity="0.95"/>
+          
+          <!-- Icon area -->
+          <rect x="40" y="92" width="110" height="56" rx="10" fill="url(#stage-1-gradient)"/>
+          
+          <!-- Document icons -->
+          <rect x="55" y="102" width="28" height="32" rx="3" fill="none" stroke="white" stroke-width="2"/>
+          <line x1="60" y1="110" x2="78" y2="110" stroke="white" stroke-width="1.2"/>
+          <line x1="60" y1="117" x2="78" y2="117" stroke="white" stroke-width="1.2"/>
+          <line x1="60" y1="124" x2="75" y2="124" stroke="white" stroke-width="1.2"/>
+          
+          <circle cx="105" cy="112" r="16" fill="none" stroke="white" stroke-width="1.5"/>
+          <circle cx="105" cy="112" r="12" fill="none" stroke="white" stroke-width="1"/>
+          
+          <!-- Text -->
+          <text x="95" y="163" font-size="13" font-weight="700" text-anchor="middle" fill="#0B1F44">
+            Understand &
+          </text>
+          <text x="95" y="179" font-size="13" font-weight="700" text-anchor="middle" fill="#0B1F44">
+            Extract
+          </text>
+          
+          <!-- Subtext -->
+          <text x="95" y="200" font-size="9.5" text-anchor="middle" fill="#64748B">
+            Documents, data,
+          </text>
+          <text x="95" y="211" font-size="9.5" text-anchor="middle" fill="#64748B">
+            customer inputs
+          </text>
+        </g>
+
+        <!-- Arrow connector 1 with animated flow -->
+        <g>
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+              <polygon points="0 0, 10 3, 0 6" fill="#22B8CF"/>
+            </marker>
+          </defs>
+          <path class="flow-line" d="M 170 150 Q 215 150 275 150" fill="none" stroke="#22B8CF" stroke-width="3" marker-end="url(#arrowhead)"/>
+          <circle class="pulse-dot" cx="170" cy="150" r="5" fill="#22B8CF"/>
+        </g>
+
+        <!-- Stage 2: Analyse & Reason -->
+        <g filter="url(#shadow-glow)">
+          <!-- Card background with enhanced shadow -->
+          <rect x="195" y="75" width="150" height="140" rx="14" fill="#F1F6FB" stroke="#2563EB" stroke-width="2.5" opacity="0.95"/>
+          
+          <!-- Icon area -->
+          <rect x="215" y="92" width="110" height="56" rx="10" fill="url(#stage-2-gradient)"/>
+          
+          <!-- Brain/neural network icons -->
+          <circle cx="240" cy="115" r="9" fill="white" stroke="white" stroke-width="1"/>
+          <circle cx="255" cy="104" r="8" fill="none" stroke="white" stroke-width="1.8"/>
+          <circle cx="272" cy="112" r="9" fill="white" stroke="white" stroke-width="1"/>
+          
+          <line x1="240" y1="115" x2="255" y2="104" stroke="white" stroke-width="1.8"/>
+          <line x1="255" y1="104" x2="272" y2="112" stroke="white" stroke-width="1.8"/>
+          <line x1="240" y1="115" x2="272" y2="112" stroke="white" stroke-width="1.8"/>
+          
+          <!-- Text -->
+          <text x="270" y="163" font-size="13" font-weight="700" text-anchor="middle" fill="#0B1F44">
+            Analyse &
+          </text>
+          <text x="270" y="179" font-size="13" font-weight="700" text-anchor="middle" fill="#0B1F44">
+            Reason
+          </text>
+          
+          <!-- Subtext -->
+          <text x="270" y="200" font-size="9.5" text-anchor="middle" fill="#64748B">
+            LLMs, RAG,
+          </text>
+          <text x="270" y="211" font-size="9.5" text-anchor="middle" fill="#64748B">
+            AI agents, logic
+          </text>
+        </g>
+
+        <!-- Arrow connector 2 with animated flow -->
+        <g>
+          <path class="flow-line" d="M 345 150 Q 390 150 450 150" fill="none" stroke="#2563EB" stroke-width="3" marker-end="url(#arrowhead)"/>
+          <circle class="pulse-dot" cx="345" cy="150" r="5" fill="#2563EB"/>
+        </g>
+
+        <!-- Stage 3: Automate & Orchestrate -->
+        <g filter="url(#shadow-glow)">
+          <!-- Card background with enhanced shadow -->
+          <rect x="370" y="75" width="150" height="140" rx="14" fill="#F1F6FB" stroke="#22B8CF" stroke-width="2.5" opacity="0.95"/>
+          
+          <!-- Icon area -->
+          <rect x="390" y="92" width="110" height="56" rx="10" fill="url(#stage-3-gradient)"/>
+          
+          <!-- Connected system icons -->
+          <circle cx="415" cy="110" r="6" fill="white"/>
+          <circle cx="445" cy="118" r="6" fill="white"/>
+          <circle cx="470" cy="110" r="6" fill="white"/>
+          
+          <line x1="415" y1="110" x2="445" y2="118" stroke="white" stroke-width="1.8"/>
+          <line x1="445" y1="118" x2="470" y2="110" stroke="white" stroke-width="1.8"/>
+          <line x1="415" y1="110" x2="470" y2="110" stroke="white" stroke-width="1.8"/>
+          
+          <!-- Text -->
+          <text x="445" y="163" font-size="13" font-weight="700" text-anchor="middle" fill="#0B1F44">
+            Automate &
+          </text>
+          <text x="445" y="179" font-size="13" font-weight="700" text-anchor="middle" fill="#0B1F44">
+            Orchestrate
+          </text>
+          
+          <!-- Subtext -->
+          <text x="445" y="200" font-size="9.5" text-anchor="middle" fill="#64748B">
+            APIs, CRM,
+          </text>
+          <text x="445" y="211" font-size="9.5" text-anchor="middle" fill="#64748B">
+            ERP, applications
+          </text>
+        </g>
+
+        <!-- Flow visualization at bottom -->
+        <g>
+          <!-- Input flow -->
+          <text x="275" y="260" font-size="12" font-weight="700" text-anchor="middle" fill="#DDF5FF">
+            Continuous Data Flow
+          </text>
+          
+          <!-- Animated flow lines -->
+          <path class="flow-line" d="M 80 310 L 180 310" fill="none" stroke="#22B8CF" stroke-width="2.5" opacity="0.7"/>
+          <path class="flow-line" d="M 180 310 L 280 310" fill="none" stroke="#2563EB" stroke-width="2.5" opacity="0.7"/>
+          <path class="flow-line" d="M 280 310 L 420 310" fill="none" stroke="#22B8CF" stroke-width="2.5" opacity="0.7"/>
+          
+          <!-- Connection points -->
+          <circle cx="80" cy="310" r="4" fill="#22B8CF"/>
+          <circle cx="180" cy="310" r="4" fill="#2563EB"/>
+          <circle cx="280" cy="310" r="4" fill="#22B8CF"/>
+          <circle cx="420" cy="310" r="4" fill="#22B8CF"/>
+        </g>
+
+        <!-- Continuous Output Flow -->
+        <g>
+          <!-- Output section title -->
+          <text x="275" y="370" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">
+            Real-World Business Impact
+          </text>
+          
+          <!-- Connected output systems flow -->
+          <path class="flow-line" d="M 60 410 Q 275 395 490 410" fill="none" stroke="#2563EB" stroke-width="3" opacity="0.8" marker-end="url(#arrowhead)"/>
+          
+          <!-- Output indicators -->
+          <circle cx="120" cy="410" r="7" fill="#22B8CF" opacity="0.9"/>
+          <circle cx="210" cy="405" r="7" fill="#2563EB" opacity="0.9"/>
+          <circle cx="340" cy="405" r="7" fill="#22B8CF" opacity="0.9"/>
+          <circle cx="430" cy="410" r="7" fill="#2563EB" opacity="0.9"/>
+          
+          <!-- Integration labels -->
+          <text x="120" y="440" font-size="10" font-weight="600" text-anchor="middle" fill="#D8E9FF">
+            Performance
+          </text>
+          <text x="210" y="440" font-size="10" font-weight="600" text-anchor="middle" fill="#D8E9FF">
+            Efficiency
+          </text>
+          <text x="340" y="440" font-size="10" font-weight="600" text-anchor="middle" fill="#D8E9FF">
+            Growth
+          </text>
+          <text x="430" y="440" font-size="10" font-weight="600" text-anchor="middle" fill="#D8E9FF">
+            Scale
+          </text>
+          
+          <!-- Bottom callout -->
+          <text x="275" y="490" font-size="11" text-anchor="middle" fill="#EAF7FF" font-weight="600">
+            Engineered to deliver measurable business value
+          </text>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Subtle connected-system paths behind the content -->
+  <svg class="hero-orbits" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <filter id="orbit-soft-glow" x="-100%" y="-100%" width="300%" height="300%">
+        <feGaussianBlur stdDeviation="5" result="blur" />
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      <linearGradient id="orbit-line-blue" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#22D3EE" stop-opacity="0.08"/>
+        <stop offset="0.5" stop-color="#62A8FF" stop-opacity="0.42"/>
+        <stop offset="1" stop-color="#22D3EE" stop-opacity="0.12"/>
+      </linearGradient>
+    </defs>
+    <g fill="none" stroke="url(#orbit-line-blue)" stroke-width="1.5">
+      <path d="M-100 690 C250 430 470 820 800 590 S1300 350 1710 570"/>
+      <path d="M-80 300 C240 80 490 270 760 190 S1270 80 1690 250" stroke-opacity=".55"/>
+      <path d="M-100 830 C260 640 470 510 790 700 S1300 850 1710 650" stroke-opacity=".42"/>
+      <path d="M180 -80 C390 190 560 280 810 250 S1260 100 1450 -70" stroke-opacity=".35"/>
+    </g>
+    <g filter="url(#orbit-soft-glow)">
+      <circle class="orbit-node orbit-node-a" cx="250" cy="535" r="5" fill="#22D3EE"/>
+      <circle class="orbit-node orbit-node-b" cx="610" cy="690" r="7" fill="#3988FF"/>
+      <circle class="orbit-node orbit-node-c" cx="1010" cy="485" r="6" fill="#22D3EE"/>
+      <circle class="orbit-node orbit-node-a" cx="1370" cy="390" r="5" fill="#70B8FF"/>
+      <circle class="orbit-node orbit-node-b" cx="480" cy="185" r="4" fill="#22D3EE"/>
+      <circle class="orbit-node orbit-node-c" cx="1190" cy="155" r="5" fill="#3988FF"/>
+    </g>
+  </svg>
+  <div class="hero-bg" aria-hidden="true"></div>
+</header>
+
+<style>
+  .hero {
+    position: relative;
+    isolation: isolate;
+    background:
+      radial-gradient(ellipse 58% 78% at 78% 43%, rgba(23, 105, 255, 0.42) 0%, rgba(7, 91, 238, 0.18) 42%, transparent 76%),
+      radial-gradient(ellipse 42% 58% at 54% 8%, rgba(34, 211, 238, 0.12) 0%, transparent 72%),
+      linear-gradient(112deg, #061B49 0%, #082B78 43%, #075BCE 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1.5rem;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(3, 17, 52, 0.26) 0%, transparent 48%, rgba(5, 37, 111, 0.08) 100%),
+      linear-gradient(0deg, rgba(3, 19, 57, 0.18), transparent 38%, rgba(13, 75, 185, 0.08));
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  /* Left Column */
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .hero-label {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #22B8CF;
+    margin-bottom: 0;
+  }
+
+  .hero-headline {
+    font-size: clamp(1.85rem, 3.8vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+    margin: 0;
+  }
+
+  .hero-description {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: #D6E6FF;
+    margin: 0;
+    max-width: 500px;
+  }
+
+  /* CTA Buttons */
+  .hero-cta {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    border: none;
+    white-space: nowrap;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .btn-primary {
+    background: #2563EB;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  }
+
+  .btn-primary:hover {
+    background: #1D4ED8;
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: #FFFFFF;
+    border: 1.5px solid rgba(210, 232, 255, 0.72);
+    transition: all 0.2s ease;
+  }
+
+  .btn-secondary:hover {
+    border-color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+  }
+
+  /* Credibility Indicators */
+  .hero-credibility {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    padding-top: 1rem;
+    margin-top: 0.3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .credibility-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .credibility-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #D6E6FF;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .credibility-divider {
+    width: 1px;
+    height: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Right Column - SVG Pipeline */
+  .hero-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pipeline-svg {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    filter: drop-shadow(0 18px 42px rgba(3, 18, 61, 0.24)) drop-shadow(0 0 26px rgba(34, 211, 238, 0.12));
+  }
+
+  /* Ambient illumination and connected orbital paths */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .hero-bg::before {
+    content: "";
+    position: absolute;
+    width: min(62vw, 820px);
+    aspect-ratio: 1;
+    top: -24%;
+    right: -8%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(35, 119, 255, 0.30) 0%, rgba(34, 211, 238, 0.10) 34%, transparent 70%);
+    filter: blur(30px);
+  }
+
+  .hero-bg::after {
+    content: "";
+    position: absolute;
+    width: min(48vw, 620px);
+    aspect-ratio: 1;
+    bottom: -48%;
+    left: 22%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(7, 91, 238, 0.25) 0%, transparent 68%);
+    filter: blur(42px);
+  }
+
+  .hero-orbits {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.28;
+    mask-image: linear-gradient(90deg, transparent 0%, transparent 35%, rgba(0,0,0,0.3) 45%, rgba(0,0,0,1) 60%, rgba(0,0,0,1) 100%);
+  }
+
+  .orbit-node {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: orbitNodePulse 4.8s ease-in-out infinite;
+  }
+
+  .orbit-node-b { animation-delay: 1.2s; }
+  .orbit-node-c { animation-delay: 2.4s; }
+
+  @keyframes orbitNodePulse {
+    0%, 100% { opacity: 0.48; transform: scale(0.82); }
+    50% { opacity: 1; transform: scale(1.28); }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .hero {
+      padding: 4rem 1.5rem;
+      min-height: auto;
+    }
+
+    .hero-container {
+      gap: 2.5rem;
+    }
+
+    .hero-headline {
+      font-size: clamp(1.75rem, 3.5vw, 2.8rem);
+    }
+
+    .hero-description {
+      font-size: 1rem;
+    }
+
+    .pipeline-svg {
+      max-width: 520px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 3rem 1.5rem;
+    }
+
+    .hero-container {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .hero-headline {
+      font-size: 1.75rem;
+    }
+
+    .hero-description {
+      font-size: 0.95rem;
+    }
+
+    .hero-cta {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .hero-cta .btn {
+      width: 100%;
+    }
+
+    .hero-credibility {
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 0.3rem;
+      padding-top: 1rem;
+    }
+
+    .pipeline-svg {
+      max-width: 100%;
+      max-width: 400px;
+    }
+
+    .hero-bg::before {
+      width: 420px;
+      right: -38%;
+    }
+
+    .hero-bg::after {
+      width: 320px;
+      left: -12%;
+    }
+
+    .hero-orbits {
+      opacity: 0.18;
+      mask-image: linear-gradient(90deg, transparent 0%, transparent 30%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,1) 60%, rgba(0,0,0,1) 100%);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero {
+      padding: 2rem 1rem;
+    }
+
+    .hero-headline {
+      font-size: 1.5rem;
+      line-height: 1.3;
+    }
+
+    .hero-description {
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .hero-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+    }
+
+    .credibility-label {
+      font-size: 0.7rem;
+    }
+
+    .credibility-divider {
+      height: 1.25rem;
+    }
+
+    .btn {
+      padding: 0.65rem 1.25rem;
+      font-size: 0.85rem;
+    }
+
+    .pipeline-svg {
+      max-width: 320px;
+    }
+  }
+
+  /* Respect prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-bg::before,
+    .hero-bg::after,
+    .orbit-node,
+    .pipeline-svg,
+    .pipeline-svg * {
+      animation: none !important;
+    }
+
+    .btn {
+      transition: none;
+    }
+  }
+</style>
