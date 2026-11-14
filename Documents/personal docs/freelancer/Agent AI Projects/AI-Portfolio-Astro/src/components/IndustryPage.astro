@@ -48,9 +48,7 @@ const howWeHelpContent: Record<string, string> = {
 <section class="industry-section challenges-section" aria-labelledby="challenges-title">
   <div class="industry-shell">
     <header class="section-header">
-      <span class="section-eyebrow">CURRENT STATE</span>
       <h2 id="challenges-title">Operational Challenges in {industry.name}</h2>
-      <p>Organizations across {industry.name.toLowerCase()} face these common operational bottlenecks:</p>
     </header>
 
     <div class="challenges-grid">
@@ -140,17 +138,6 @@ const howWeHelpContent: Record<string, string> = {
       faqs={industry.faqs}
       title={`${industry.name} FAQ`}
     />
-  </div>
-</section>
-
-<!-- Final CTA Section -->
-<section class="industry-cta-section" aria-labelledby="industry-cta-title">
-  <div class="industry-shell">
-    <div class="cta-content">
-      <h2 id="industry-cta-title">Ready to Build Smarter Systems for Your Business?</h2>
-      <p>Let's discuss how intelligent automation can streamline your workflows and drive growth.</p>
-      <a href="/contact/" class="cta-button">Discuss Your Project</a>
-    </div>
   </div>
 </section>
 
@@ -418,53 +405,6 @@ const howWeHelpContent: Record<string, string> = {
     background: linear-gradient(135deg, #f5f9fd 0%, #f9fafb 100%);
   }
 
-  /* CTA Section */
-  .industry-cta-section {
-    padding: 56px 1.5rem;
-    background: linear-gradient(135deg, #0B1F44 0%, #102A43 50%, #1E3A5F 100%);
-    color: #FFFFFF;
-  }
-
-  .cta-content {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .cta-content h2 {
-    margin: 0 0 1rem;
-    font-size: clamp(1.6rem, 4vw, 2.2rem);
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-  }
-
-  .cta-content p {
-    margin: 0 0 1.5rem;
-    font-size: 1rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.85);
-  }
-
-  .cta-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 11px 28px;
-    background: #22D3EE;
-    color: #0B1F44;
-    font-weight: 600;
-    font-size: 0.9rem;
-    border-radius: 8px;
-    text-decoration: none;
-    box-shadow: 0 2px 8px rgba(34, 211, 238, 0.25);
-  }
-
-  .cta-button:hover {
-    background: #06B6D4;
-    box-shadow: 0 4px 12px rgba(34, 211, 238, 0.35);
-  }
-
   @media (max-width: 768px) {
     .industry-section {
       padding: 48px 1.5rem;
@@ -484,27 +424,8 @@ const howWeHelpContent: Record<string, string> = {
       gap: 12px;
     }
 
-    .hero-ctas {
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .cta-primary,
-    .cta-secondary {
-      width: 100%;
-      justify-content: center;
-    }
-
-    .industry-cta-section {
-      padding: 48px 1.5rem;
-    }
-
-    .cta-content h2 {
-      margin-bottom: 0.8rem;
-    }
-
-    .cta-content p {
-      margin-bottom: 1.2rem;
+    .section-header {
+      margin-bottom: 28px;
     }
   }
 
