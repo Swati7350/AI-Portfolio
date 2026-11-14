@@ -1,0 +1,153 @@
+---
+/**
+ * src/components/ProjectCard.astro
+ * 
+ * Individual project card component
+ * Used in ProjectsGrid for displaying projects
+ */
+
+interface Props {
+  id: string;
+  title: string;
+  description: string;
+  categories?: string[];
+  image?: string;
+  liveUrl?: string;
+  githubUrl?: string;
+}
+
+const { 
+  id, 
+  title, 
+  description, 
+  categories = [], 
+  image, 
+  liveUrl,
+  githubUrl
+} = Astro.props;
+
+// Use live_url as primary destination, fallback to github_url, then section anchor
+const href = liveUrl || githubUrl || `#${id}`;
+const categoriesString = categories.join(',');
+---
+
+<a href={href} class="project-card" data-project-card data-categories={categoriesString}>
+  {
+    image && (
+      <div class="project-card-image">
+        <img 
+          src={image} 
+          alt={title}
+          width="400"
+          height="200"
+          loading="lazy"
+        />
+      </div>
+    )
+  }
+  <div class="project-card-content">
+    <h3 class="project-card-title">{title}</h3>
+    <p class="project-card-desc">{description}</p>
+
+    <div class="project-card-arrow">
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M5 12h14M12 5l7 7-7 7" />
+      </svg>
+    </div>
+  </div>
+</a>
+
+<style>
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--bg-card);
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .project-card:hover {
+    border-color: var(--blue);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(22, 119, 255, 0.1);
+  }
+
+  .project-card:focus-visible {
+    outline: 2px solid var(--border-focus);
+    outline-offset: 2px;
+  }
+
+  .project-card-image {
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    overflow: hidden;
+    background: var(--bg-secondary);
+  }
+
+  .project-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s;
+  }
+
+  .project-card:hover .project-card-image img {
+    transform: scale(1.05);
+  }
+
+  .project-card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1;
+    position: relative;
+  }
+
+  .project-card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--text-primary);
+  }
+
+  .project-card-desc {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .project-card-arrow {
+    color: var(--blue);
+    transition: transform 0.2s;
+  }
+
+  .project-card:hover .project-card-arrow {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 768px) {
+    .project-card-image {
+      aspect-ratio: 16 / 10;
+    }
+
+    .project-card-content {
+      padding: 1.25rem;
+    }
+  }
+</style>
