@@ -1,0 +1,381 @@
+---
+/**
+ * src/components/Footer.astro
+ * 
+ * Footer component - four-column layout:
+ * 1. Brand (company name, tagline, description)
+ * 2. Explore (navigation links)
+ * 3. Connect (platform logos)
+ * 4. CTA (call-to-action section)
+ */
+
+import { site } from '../data/site';
+---
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <!-- Column 1: Brand -->
+    <div class="footer-column footer-brand">
+      <p class="footer-brand-name">{site.title}</p>
+      <p class="footer-tagline">Understand the Problem. Engineer the Solution.</p>
+      <p class="footer-description">
+        We build practical solutions that simplify operations, connect existing tools and address real business needs.
+      </p>
+    </div>
+
+    <!-- Column 2: Explore -->
+    <nav class="footer-column footer-nav" aria-label="Explore">
+      <h3 class="footer-heading">Explore</h3>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#about">About Us</a></li>
+        <li><a href="/case-studies/">Case Studies</a></li>
+        <li><a href="/insights/">Insights</a></li>
+        <li><a href="/industries/">Industries</a></li>
+      </ul>
+    </nav>
+
+    <!-- Column 3: Connect -->
+    <div class="footer-column footer-connect">
+      <h3 class="footer-heading">Connect</h3>
+      <div class="footer-platform-logos">
+        <a
+          href={site.social.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          class="platform-logo-link"
+        >
+          <svg
+            class="platform-logo"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7H10v-7a6 6 0 0 1 6-6z" />
+            <rect x="2" y="9" width="4" height="12" />
+            <circle cx="4" cy="4" r="2" />
+          </svg>
+        </a>
+
+        <a
+          href={site.social.clutch}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Clutch"
+          class="platform-logo-link"
+        >
+          <svg
+            class="platform-logo"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M7.5 2C4.46 2 2 4.46 2 7.5S4.46 13 7.5 13c1.26 0 2.45-.41 3.42-1.1.64 1.92 2.43 3.35 4.58 3.35 2.71 0 4.9-2.19 4.9-4.9 0-2.06-1.27-3.83-3.08-4.56.33-.84.52-1.76.52-2.74C17.84 4.46 15.38 2 12.34 2c-1.26 0-2.45.41-3.42 1.1C8.28 1.18 6.49-.25 4.34-.25c-2.71 0-4.9 2.19-4.9 4.9 0 1.26.41 2.45 1.1 3.42-.66.64-1.1 1.92-1.1 3.43z" />
+          </svg>
+        </a>
+
+        <a
+          href={site.social.upwork}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Upwork"
+          class="platform-logo-link"
+        >
+          <svg
+            class="platform-logo"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3.001-2.439-5.452-5.439-5.452z" />
+          </svg>
+        </a>
+
+        <a
+          href={site.social.fiverr}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Fiverr"
+          class="platform-logo-link"
+        >
+          <svg
+            class="platform-logo"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M2 14h4v4H2v-4zm5 0h4v4H7v-4zm5 0h4v4h-4v-4zM2 4h4v4H2V4zm5 0h4v4H7V4zm5 0h4v4h-4V4zm5 0h4v4h-4V4zm0 10h4v4h-4v-4z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Column 4: CTA -->
+    <div class="footer-column footer-cta">
+      <div class="footer-cta-content">
+        <h3 class="footer-cta-heading">Ready to Build Smarter Systems for Your Business?</h3>
+        <p class="footer-cta-description">Let's discuss how intelligent automation can streamline your workflows and drive growth.</p>
+        <a href="/contact/" class="footer-cta-button">Discuss Your Project</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p class="footer-copy">
+        © {new Date().getFullYear()} {site.title}. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: #0B1F44;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .footer-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: 1.5fr 0.8fr 0.8fr 1.2fr;
+    align-items: start;
+    gap: 48px;
+    padding-top: 56px;
+    padding-bottom: 40px;
+  }
+
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Brand Column */
+  .footer-brand {
+    gap: 12px;
+  }
+
+  .footer-brand-name {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  .footer-tagline {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .footer-description {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Navigation Column */
+  .footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-nav a {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-nav a:hover {
+    color: #22D3EE;
+  }
+
+  /* Connect Column - Platform Logos */
+  .footer-platform-logos {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+
+  .platform-logo-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+
+  .platform-logo-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #22D3EE;
+  }
+
+  .platform-logo {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+  }
+
+  /* CTA Column */
+  .footer-cta {
+    background: rgba(34, 211, 238, 0.05);
+    border: 1px solid rgba(34, 211, 238, 0.15);
+    border-radius: 12px;
+    padding: 24px;
+    gap: 16px;
+  }
+
+  .footer-cta-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .footer-cta-heading {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .footer-cta-description {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .footer-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 24px;
+    background: #22D3EE;
+    color: #0B1F44;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(34, 211, 238, 0.25);
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .footer-cta-button:hover {
+    background: #06B6D4;
+    box-shadow: 0 4px 12px rgba(34, 211, 238, 0.35);
+  }
+
+  /* Heading Styles */
+  .footer-heading {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0;
+    margin-bottom: 4px;
+  }
+
+  /* Footer Bottom */
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .footer-bottom-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .footer-copy {
+    margin: 0;
+    color: #aebdcb;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  /* Tablet Breakpoint */
+  @media (max-width: 1024px) {
+    .footer-inner {
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      padding-top: 48px;
+      padding-bottom: 32px;
+    }
+
+    .footer-cta {
+      grid-column: 1 / -1;
+    }
+  }
+
+  /* Mobile Breakpoint */
+  @media (max-width: 640px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding-top: 40px;
+      padding-bottom: 24px;
+    }
+
+    .footer-cta {
+      grid-column: auto;
+    }
+
+    .footer-bottom-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .footer-platform-logos {
+      gap: 12px;
+    }
+
+    .platform-logo-link {
+      width: 36px;
+      height: 36px;
+    }
+
+    .platform-logo {
+      width: 18px;
+      height: 18px;
+    }
+  }
+</style>
