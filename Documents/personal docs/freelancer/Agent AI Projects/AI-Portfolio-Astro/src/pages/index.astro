@@ -1,0 +1,30 @@
+---
+/**
+ * src/pages/index.astro
+ * 
+ * Homepage - displays all major sections
+ */
+import MainLayout from '../layouts/MainLayout.astro';
+import { pages } from '../data/site';
+import Hero from '../components/Hero.astro';
+import ProblemsSection from '../components/ProblemsSection.astro';
+import ProjectsGrid from '../components/ProjectsGrid.astro';
+import IndustriesSection from '../components/IndustriesSection.astro';
+import ClientResults from '../components/ClientResults.astro';
+import ProcessSection from '../components/ProcessSection.astro';
+import AboutSection from '../components/AboutSection.astro';
+---
+
+<MainLayout
+  title={pages.home.title}
+  description={pages.home.description}
+  ogImage={pages.home.ogImage}
+>
+  <Hero />
+  <ProblemsSection />
+  <ProjectsGrid showFilter limit={3} />
+  <IndustriesSection />
+  <ClientResults />
+  <ProcessSection />
+  <AboutSection />
+</MainLayout>

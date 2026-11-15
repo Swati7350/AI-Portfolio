@@ -26,8 +26,8 @@ const {
   githubUrl
 } = Astro.props;
 
-// Use live_url as primary destination, fallback to github_url, then section anchor
-const href = liveUrl || githubUrl || `#${id}`;
+// Project cards lead to an internal detail page; live demos are presented on that page.
+const href = `/work/${id}/`;
 const categoriesString = categories.join(',');
 ---
 
@@ -49,21 +49,7 @@ const categoriesString = categories.join(',');
     <h3 class="project-card-title">{title}</h3>
     <p class="project-card-desc">{description}</p>
 
-    <div class="project-card-arrow">
-      <svg
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-      >
-        <path d="M5 12h14M12 5l7 7-7 7" />
-      </svg>
-    </div>
+    <span class="project-card-link">Read More <span aria-hidden="true">→</span></span>
   </div>
 </a>
 
@@ -132,13 +118,19 @@ const categoriesString = categories.join(',');
     flex: 1;
   }
 
-  .project-card-arrow {
+  .project-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
     color: var(--blue);
-    transition: transform 0.2s;
+    font-size: 0.9rem;
+    font-weight: 650;
+    margin-top: 0.25rem;
+    transition: gap 0.2s;
   }
 
-  .project-card:hover .project-card-arrow {
-    transform: translateX(4px);
+  .project-card:hover .project-card-link {
+    gap: 0.7rem;
   }
 
   @media (max-width: 768px) {

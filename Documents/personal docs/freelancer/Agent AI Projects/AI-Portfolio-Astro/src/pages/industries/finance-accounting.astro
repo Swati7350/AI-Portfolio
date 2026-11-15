@@ -1,0 +1,24 @@
+---
+/**
+ * src/pages/industries/finance-accounting.astro
+ * 
+ * Finance & Accounting industry page
+ */
+import MainLayout from '../../layouts/MainLayout.astro';
+import { site } from '../../data/site';
+import { industries } from '../../data/industries';
+import IndustryPage from '../../components/IndustryPage.astro';
+
+const industry = industries.find(ind => ind.id === 'finance-accounting')!;
+const title = `${industry.name} | AI & Automation Solutions | Paras AI Innovations`;
+const description = `Finance & Accounting AI solutions: Invoice processing, expense automation, document intelligence, and financial reporting workflows.`;
+const canonical = new URL('/industries/finance-accounting/', site.url);
+---
+
+<MainLayout
+  title={title}
+  description={description}
+  canonical={canonical.toString()}
+>
+  <IndustryPage industry={industry} />
+</MainLayout>

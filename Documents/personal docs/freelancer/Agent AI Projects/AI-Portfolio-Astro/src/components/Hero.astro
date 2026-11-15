@@ -5,7 +5,9 @@
  * Premium two-column Hero section with AI-Powered Systems Pipeline
  * Left: positioning label, headline, supporting text, CTAs, and credibility indicators
  * Right: AI-Powered Systems Pipeline SVG illustration with data-flow animations
+ * Bottom: Running capabilities banner (Ticker)
  */
+import Ticker from './Ticker.astro';
 ---
 
 <header class="hero" id="home">
@@ -17,41 +19,31 @@
         AI ENGINEERING | INTELLIGENT AUTOMATION | CUSTOM SOFTWARE
       </div>
 
+      <!-- Subtle cyan accent line -->
+      <div class="hero-accent-line"></div>
+
       <!-- Main Headline -->
       <h1 class="hero-headline">
-        Engineering AI Systems That Make Businesses Work Better.
+        Engineering <span class="hero-headline-accent">AI Systems</span> That Make Businesses Work Better.
       </h1>
 
       <!-- Supporting Text -->
       <p class="hero-description">
-        We design and build intelligent applications, AI agents and connected software systems that solve complex business problems and streamline operations.
+        We engineer intelligent AI applications, autonomous agents, and connected software that transform complex processes into streamlined workflows—helping organisations work smarter and scale faster.
       </p>
 
-      <!-- CTA Buttons -->
-      <div class="hero-cta">
-        <a href="/contact" class="btn btn-primary">Discuss Your Workflow</a>
-        <a href="/work" class="btn btn-secondary">Explore Our Work</a>
+      <!-- Partnership Labels -->
+      <div class="hero-partnerships">
+        <span class="partnership-label">Enterprise Partnerships</span>
+        <span class="partnership-divider"></span>
+        <span class="partnership-label">Technology Collaborations</span>
       </div>
 
-      <!-- Credibility Indicators -->
-      <div class="hero-credibility">
-        <div class="credibility-item">
-          <span class="credibility-label">AI Engineering</span>
-        </div>
-        <div class="credibility-divider"></div>
-        <div class="credibility-item">
-          <span class="credibility-label">End-to-end Development</span>
-        </div>
-        <div class="credibility-divider"></div>
-        <div class="credibility-item">
-          <span class="credibility-label">Business-focused Solutions</span>
-        </div>
-      </div>
     </div>
 
     <!-- Right Column: AI Systems Pipeline Illustration -->
     <div class="hero-right">
-      <svg class="pipeline-svg" viewBox="0 0 550 650" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI-Powered Systems Pipeline: Understand & Extract, Analyse & Reason, Automate & Orchestrate">
+      <svg class="pipeline-svg" viewBox="0 0 550 490" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI-Powered Systems Pipeline: Understand & Extract, Analyse & Reason, Automate & Orchestrate">
         <!-- Define gradients and filters -->
         <defs>
           <!-- Glowing background effects behind pipeline -->
@@ -137,8 +129,54 @@
               animation: pulseGlow 2s ease-in-out infinite;
             }
 
+            .pulse-dot {
+              animation: pulseGlow 2s ease-in-out infinite;
+            }
             .glow-element {
               animation: glowPulse 4s ease-in-out infinite;
+            }
+
+            /* Particle animations for engineering journey */
+            @keyframes particleFlow {
+              0% {
+                cx: 70;
+                opacity: 0.3;
+              }
+              50% {
+                opacity: 0.8;
+              }
+              100% {
+                cx: 480;
+                opacity: 0.2;
+              }
+            }
+
+            .particle-1 {
+              animation: particleFlow 4s ease-in-out infinite;
+            }
+
+            .particle-2 {
+              animation: particleFlow 4s ease-in-out infinite 0.8s;
+            }
+
+            .particle-3 {
+              animation: particleFlow 4s ease-in-out infinite 1.6s;
+            }
+
+            /* Node glow animation */
+            @keyframes nodeGlowPulse {
+              0%, 100% {
+                stroke-width: 1.5;
+                opacity: 0.2;
+              }
+              50% {
+                stroke-width: 2;
+                opacity: 0.5;
+              }
+            }
+
+            .node-glow {
+              animation: nodeGlowPulse 3s ease-in-out infinite;
             }
           </style>
         </defs>
@@ -149,8 +187,8 @@
         <circle class="glow-element" cx="430" cy="160" r="80" fill="url(#glow-cyan)"/>
 
         <!-- Title -->
-        <text x="250" y="35" font-size="18" font-weight="700" text-anchor="middle" fill="#FFFFFF" style="paint-order:stroke;stroke:#075BEE;stroke-width:0.8px">
-          AI-Powered Systems Pipeline
+        <text x="255" y="35" font-size="22" font-weight="500" text-anchor="middle" fill="#FFFFFF" fill-opacity="0.9" style="paint-order:stroke;stroke:#075BEE;stroke-width:0.5px;letter-spacing:0.2px;font-family:Inter,sans-serif">
+          Smarter Systems - Meaningful Business Impact
         </text>
 
         <!-- Stage 1: Understand & Extract -->
@@ -161,29 +199,43 @@
           <!-- Icon area -->
           <rect x="40" y="92" width="110" height="56" rx="10" fill="url(#stage-1-gradient)"/>
           
-          <!-- Document icons -->
-          <rect x="55" y="102" width="28" height="32" rx="3" fill="none" stroke="white" stroke-width="2"/>
-          <line x1="60" y1="110" x2="78" y2="110" stroke="white" stroke-width="1.2"/>
-          <line x1="60" y1="117" x2="78" y2="117" stroke="white" stroke-width="1.2"/>
-          <line x1="60" y1="124" x2="75" y2="124" stroke="white" stroke-width="1.2"/>
-          
-          <circle cx="105" cy="112" r="16" fill="none" stroke="white" stroke-width="1.5"/>
-          <circle cx="105" cy="112" r="12" fill="none" stroke="white" stroke-width="1"/>
+          <!-- Clipboard with magnifying glass icon -->
+          <svg x="55" y="102" width="80" height="40" viewBox="0 0 80 40" xmlns="http://www.w3.org/2000/svg">
+            <!-- Clipboard -->
+            <rect x="10" y="6" width="32" height="28" rx="2" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Clipboard clip -->
+            <rect x="18" y="2" width="8" height="6" rx="1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Checkmarks -->
+            <path d="M 16 14 L 18 16 L 22 12" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 16 20 L 18 22 L 22 18" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 16 26 L 18 28 L 22 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Lines -->
+            <line x1="26" y1="14" x2="38" y2="14" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="26" y1="20" x2="38" y2="20" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="26" y1="26" x2="35" y2="26" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+            <!-- Magnifying glass -->
+            <circle cx="54" cy="24" r="10" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 62 32 L 70 40" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
           
           <!-- Text -->
-          <text x="95" y="163" font-size="13" font-weight="700" text-anchor="middle" fill="#0B1F44">
-            Understand &
+          <text x="95" y="165" font-size="15.5" font-weight="600"
+                text-anchor="middle" fill="#0B1F44"
+                font-family="Inter,sans-serif">
+            Understand
           </text>
-          <text x="95" y="179" font-size="13" font-weight="700" text-anchor="middle" fill="#0B1F44">
-            Extract
+          <text x="95" y="179" font-size="15.5" font-weight="600"
+                text-anchor="middle" fill="#0B1F44"
+                font-family="Inter,sans-serif">
+            Business First
           </text>
           
-          <!-- Subtext -->
-          <text x="95" y="200" font-size="9.5" text-anchor="middle" fill="#64748B">
-            Documents, data,
+          <!-- Supporting line -->
+          <text x="95" y="200" font-size="11" text-anchor="middle" fill="#64748B" font-weight="400" font-family="Inter,sans-serif">
+            Goals · Workflows
           </text>
-          <text x="95" y="211" font-size="9.5" text-anchor="middle" fill="#64748B">
-            customer inputs
+          <text x="95" y="210" font-size="11" text-anchor="middle" fill="#64748B" font-weight="400" font-family="Inter,sans-serif">
+            · Bottlenecks
           </text>
         </g>
 
@@ -206,36 +258,67 @@
           <!-- Icon area -->
           <rect x="215" y="92" width="110" height="56" rx="10" fill="url(#stage-2-gradient)"/>
           
-          <!-- Brain/neural network icons -->
-          <circle cx="240" cy="115" r="9" fill="white" stroke="white" stroke-width="1"/>
-          <circle cx="255" cy="104" r="8" fill="none" stroke="white" stroke-width="1.8"/>
-          <circle cx="272" cy="112" r="9" fill="white" stroke="white" stroke-width="1"/>
-          
-          <line x1="240" y1="115" x2="255" y2="104" stroke="white" stroke-width="1.8"/>
-          <line x1="255" y1="104" x2="272" y2="112" stroke="white" stroke-width="1.8"/>
-          <line x1="240" y1="115" x2="272" y2="112" stroke="white" stroke-width="1.8"/>
+          <!-- Three interconnected modular cubes (isometric) -->
+          <svg x="230" y="102" width="80" height="40" viewBox="0 0 80 40" xmlns="http://www.w3.org/2000/svg">
+            <!-- Left cube (front-left) -->
+            <g fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Front face -->
+              <rect x="6" y="12" width="12" height="12"/>
+              <!-- Top face -->
+              <polygon points="6,12 12,6 24,6 18,12"/>
+              <!-- Right face -->
+              <polygon points="18,12 24,6 24,18 18,24"/>
+            </g>
+            
+            <!-- Center cube (larger, middle) -->
+            <g fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Front face -->
+              <rect x="30" y="8" width="14" height="14"/>
+              <!-- Top face -->
+              <polygon points="30,8 37,2 51,2 44,8"/>
+              <!-- Right face -->
+              <polygon points="44,8 51,2 51,16 44,22"/>
+            </g>
+            
+            <!-- Right cube (front-right) -->
+            <g fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Front face -->
+              <rect x="54" y="12" width="12" height="12"/>
+              <!-- Top face -->
+              <polygon points="54,12 60,6 72,6 66,12"/>
+              <!-- Right face -->
+              <polygon points="66,12 72,6 72,18 66,24"/>
+            </g>
+            
+            <!-- Connecting lines between cubes - geometric and clean -->
+            <line x1="18" y1="15" x2="30" y2="15" stroke="white" stroke-width="1.3"/>
+            <line x1="44" y1="15" x2="54" y2="15" stroke="white" stroke-width="1.3"/>
+            <!-- Vertical connectors from center cube to other cubes -->
+            <line x1="15" y1="20" x2="24" y2="16" stroke="white" stroke-width="1" opacity="0.6"/>
+            <line x1="51" y1="16" x2="60" y2="20" stroke="white" stroke-width="1" opacity="0.6"/>
+          </svg>
           
           <!-- Text -->
-          <text x="270" y="163" font-size="13" font-weight="700" text-anchor="middle" fill="#0B1F44">
-            Analyse &
+          <text x="270" y="166" font-size="17" font-weight="700" text-anchor="middle" fill="#0B1F44" font-family="Inter,sans-serif">
+            Engineer
           </text>
-          <text x="270" y="179" font-size="13" font-weight="700" text-anchor="middle" fill="#0B1F44">
-            Reason
+          <text x="270" y="182" font-size="17" font-weight="700" text-anchor="middle" fill="#0B1F44" font-family="Inter,sans-serif">
+            Solutions
           </text>
           
-          <!-- Subtext -->
-          <text x="270" y="200" font-size="9.5" text-anchor="middle" fill="#64748B">
-            LLMs, RAG,
+          <!-- Supporting line -->
+          <text x="270" y="200" font-size="11" text-anchor="middle" fill="#64748B" font-weight="400" font-family="Inter,sans-serif">
+            AI Solutions · Existing
           </text>
-          <text x="270" y="211" font-size="9.5" text-anchor="middle" fill="#64748B">
-            AI agents, logic
+          <text x="270" y="210" font-size="11" text-anchor="middle" fill="#64748B" font-weight="400" font-family="Inter,sans-serif">
+            Systems
           </text>
         </g>
 
         <!-- Arrow connector 2 with animated flow -->
         <g>
-          <path class="flow-line" d="M 345 150 Q 390 150 450 150" fill="none" stroke="#2563EB" stroke-width="3" marker-end="url(#arrowhead)"/>
-          <circle class="pulse-dot" cx="345" cy="150" r="5" fill="#2563EB"/>
+          <path class="flow-line" d="M 345 150 Q 390 150 450 150" fill="none" stroke="#22B8CF" stroke-width="3" marker-end="url(#arrowhead)"/>
+          <circle class="pulse-dot" cx="345" cy="150" r="5" fill="#22B8CF"/>
         </g>
 
         <!-- Stage 3: Automate & Orchestrate -->
@@ -246,85 +329,175 @@
           <!-- Icon area -->
           <rect x="390" y="92" width="110" height="56" rx="10" fill="url(#stage-3-gradient)"/>
           
-          <!-- Connected system icons -->
-          <circle cx="415" cy="110" r="6" fill="white"/>
-          <circle cx="445" cy="118" r="6" fill="white"/>
-          <circle cx="470" cy="110" r="6" fill="white"/>
-          
-          <line x1="415" y1="110" x2="445" y2="118" stroke="white" stroke-width="1.8"/>
-          <line x1="445" y1="118" x2="470" y2="110" stroke="white" stroke-width="1.8"/>
-          <line x1="415" y1="110" x2="470" y2="110" stroke="white" stroke-width="1.8"/>
+          <!-- Circular workflow nodes with directional arrows -->
+          <svg x="405" y="102" width="80" height="40" viewBox="0 0 80 40" xmlns="http://www.w3.org/2000/svg">
+            <!-- Center node -->
+            <circle cx="40" cy="20" r="5.5" fill="white" stroke="white" stroke-width="0.5"/>
+            
+            <!-- Top node -->
+            <circle cx="40" cy="5" r="4" fill="none" stroke="white" stroke-width="1.4"/>
+            
+            <!-- Bottom-right node -->
+            <circle cx="62" cy="28" r="4" fill="none" stroke="white" stroke-width="1.4"/>
+            
+            <!-- Bottom-left node -->
+            <circle cx="18" cy="28" r="4" fill="none" stroke="white" stroke-width="1.4"/>
+            
+            <!-- Prominent directional arrows from center to nodes -->
+            <!-- Arrow to top -->
+            <line x1="40" y1="25" x2="40" y2="10" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
+            <polygon points="40,6 37.5,10.5 42.5,10.5" fill="white"/>
+            
+            <!-- Arrow to bottom-right (curved path) -->
+            <line x1="52" y1="25" x2="60" y2="32" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
+            <polygon points="63,34 57.5,31 59,25.5" fill="white"/>
+            
+            <!-- Arrow to bottom-left (curved path) -->
+            <line x1="28" y1="25" x2="20" y2="32" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
+            <polygon points="17,34 22.5,31 21,25.5" fill="white"/>
+            
+            <!-- Circular flow path accent (more visible) -->
+            <circle cx="40" cy="20" r="11" fill="none" stroke="white" stroke-width="1.1" opacity="0.5" stroke-dasharray="1.5,2"/>
+          </svg>
           
           <!-- Text -->
-          <text x="445" y="163" font-size="13" font-weight="700" text-anchor="middle" fill="#0B1F44">
-            Automate &
-          </text>
-          <text x="445" y="179" font-size="13" font-weight="700" text-anchor="middle" fill="#0B1F44">
+          <text x="445" y="166" font-size="17" font-weight="700" text-anchor="middle" fill="#0B1F44" font-family="Inter,sans-serif">
             Orchestrate
           </text>
-          
-          <!-- Subtext -->
-          <text x="445" y="200" font-size="9.5" text-anchor="middle" fill="#64748B">
-            APIs, CRM,
+          <text x="445" y="182" font-size="17" font-weight="700" text-anchor="middle" fill="#0B1F44" font-family="Inter,sans-serif">
+            Operations
           </text>
-          <text x="445" y="211" font-size="9.5" text-anchor="middle" fill="#64748B">
-            ERP, applications
+          
+          <!-- Supporting line -->
+          <text x="445" y="200" font-size="11" text-anchor="middle" fill="#64748B" font-weight="400" font-family="Inter,sans-serif">
+            Process Automation
+          </text>
+          <text x="445" y="210" font-size="11" text-anchor="middle" fill="#64748B" font-weight="400" font-family="Inter,sans-serif">
+            · Workflow Orchestration
           </text>
         </g>
 
-        <!-- Flow visualization at bottom -->
-        <g>
-          <!-- Input flow -->
-          <text x="275" y="260" font-size="12" font-weight="700" text-anchor="middle" fill="#DDF5FF">
-            Continuous Data Flow
+        <!-- Engineering Journey: Shipped. Scaled. Sustained. -->
+        <g class="journey-section">
+          <text x="275" y="265" font-size="25" font-weight="700" text-anchor="middle" fill="#FFFFFF" font-family="Inter,sans-serif">
+            Shipped. Scaled. Sustained.
           </text>
-          
-          <!-- Animated flow lines -->
-          <path class="flow-line" d="M 80 310 L 180 310" fill="none" stroke="#22B8CF" stroke-width="2.5" opacity="0.7"/>
-          <path class="flow-line" d="M 180 310 L 280 310" fill="none" stroke="#2563EB" stroke-width="2.5" opacity="0.7"/>
-          <path class="flow-line" d="M 280 310 L 420 310" fill="none" stroke="#22B8CF" stroke-width="2.5" opacity="0.7"/>
-          
-          <!-- Connection points -->
-          <circle cx="80" cy="310" r="4" fill="#22B8CF"/>
-          <circle cx="180" cy="310" r="4" fill="#2563EB"/>
-          <circle cx="280" cy="310" r="4" fill="#22B8CF"/>
-          <circle cx="420" cy="310" r="4" fill="#22B8CF"/>
-        </g>
+          <text x="275" y="290" font-size="14" font-weight="400" text-anchor="middle" fill="#D6E6FF" font-family="Inter,sans-serif">
+            Engineered for real-world operations and built to evolve with your business.
+          </text>
 
-        <!-- Continuous Output Flow -->
-        <g>
-          <!-- Output section title -->
-          <text x="275" y="370" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">
-            Real-World Business Impact
-          </text>
-          
-          <!-- Connected output systems flow -->
-          <path class="flow-line" d="M 60 410 Q 275 395 490 410" fill="none" stroke="#2563EB" stroke-width="3" opacity="0.8" marker-end="url(#arrowhead)"/>
-          
-          <!-- Output indicators -->
-          <circle cx="120" cy="410" r="7" fill="#22B8CF" opacity="0.9"/>
-          <circle cx="210" cy="405" r="7" fill="#2563EB" opacity="0.9"/>
-          <circle cx="340" cy="405" r="7" fill="#22B8CF" opacity="0.9"/>
-          <circle cx="430" cy="410" r="7" fill="#2563EB" opacity="0.9"/>
-          
-          <!-- Integration labels -->
-          <text x="120" y="440" font-size="10" font-weight="600" text-anchor="middle" fill="#D8E9FF">
-            Performance
-          </text>
-          <text x="210" y="440" font-size="10" font-weight="600" text-anchor="middle" fill="#D8E9FF">
-            Efficiency
-          </text>
-          <text x="340" y="440" font-size="10" font-weight="600" text-anchor="middle" fill="#D8E9FF">
-            Growth
-          </text>
-          <text x="430" y="440" font-size="10" font-weight="600" text-anchor="middle" fill="#D8E9FF">
-            Scale
-          </text>
-          
-          <!-- Bottom callout -->
-          <text x="275" y="490" font-size="11" text-anchor="middle" fill="#EAF7FF" font-weight="600">
-            Engineered to deliver measurable business value
-          </text>
+          <!-- Define gradients for the connecting line and nodes -->
+          <defs>
+            <linearGradient id="journey-line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#22D3EE;stop-opacity:0.75" />
+              <stop offset="50%" style="stop-color:#2563EB;stop-opacity:0.75" />
+              <stop offset="100%" style="stop-color:#22D3EE;stop-opacity:0.75" />
+            </linearGradient>
+            <filter id="node-glow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+
+          <!-- Continuous connecting line: cyan → electric blue → cyan.
+               Nodes align with the exact centre of each stage below. -->
+          <g class="journey-connector" fill="none" stroke-linecap="round">
+            <path d="M 30 325 H 100" stroke="#22D3EE" stroke-width="4" opacity="1"/>
+            <path d="M 100 325 H 275" stroke="#3B82F6" stroke-width="4" opacity="1"/>
+            <path d="M 275 325 H 450" stroke="#22D3EE" stroke-width="4" opacity="1"/>
+            <path d="M 450 325 H 520" stroke="#22D3EE" stroke-width="4" opacity="1"/>
+          </g>
+
+          <!-- Three prominent, fixed anchor nodes -->
+          <g class="journey-anchor-nodes">
+            <circle cx="100" cy="325" r="11" fill="#22D3EE" opacity="0.18" filter="url(#node-glow)"/>
+            <circle cx="100" cy="325" r="6.5" fill="#22D3EE" stroke="#A5F3FC" stroke-width="1.5"/>
+
+            <circle cx="275" cy="325" r="11" fill="#3B82F6" opacity="0.22" filter="url(#node-glow)"/>
+            <circle cx="275" cy="325" r="6.5" fill="#3B82F6" stroke="#BFDBFE" stroke-width="1.5"/>
+
+            <circle cx="450" cy="325" r="11" fill="#22D3EE" opacity="0.18" filter="url(#node-glow)"/>
+            <circle cx="450" cy="325" r="6.5" fill="#22D3EE" stroke="#A5F3FC" stroke-width="1.5"/>
+          </g>
+
+          <!-- Animated particles along the line -->
+          <circle class="journey-particle" r="2.2" fill="#FFFFFF" opacity="0.8">
+            <animateMotion dur="5s" repeatCount="indefinite" path="M 30 325 H 520"/>
+          </circle>
+          <circle class="journey-particle" r="1.8" fill="#67E8F9" opacity="0.6">
+            <animateMotion dur="5s" begin="-1.67s" repeatCount="indefinite" path="M 30 325 H 520"/>
+          </circle>
+          <circle class="journey-particle" r="1.5" fill="#93C5FD" opacity="0.5">
+            <animateMotion dur="5s" begin="-3.33s" repeatCount="indefinite" path="M 30 325 H 520"/>
+          </circle>
+
+          <!-- Column 1: Built & Delivered (x=30 to x=170, width=140) -->
+          <g class="journey-stage">
+            <!-- Icon centered in column: cx=100, cyan colour -->
+            <g transform="translate(80.8, 340) scale(1.35)" fill="none" stroke="#22D3EE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+              <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6.05 11A22 22 0 0 1 12 15z"/>
+              <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
+              <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+            </g>
+            <!-- Heading -->
+            <text x="100" y="420" font-size="16" font-weight="500" text-anchor="middle" fill="#FFFFFF" font-family="Inter,sans-serif">
+              Built &amp;
+            </text>
+            <text x="100" y="437" font-size="16" font-weight="500" text-anchor="middle" fill="#FFFFFF" font-family="Inter,sans-serif">
+              Delivered
+            </text>
+            <!-- Description with max-width constraint via tspan wrapping -->
+            <text x="100" y="459" font-size="13" font-weight="400" text-anchor="middle" fill="#C0D9FF" fill-opacity="0.85" class="journey-desc" font-family="Inter,sans-serif" line-height="1.5">
+              <tspan x="100" dy="0">Production-ready solutions</tspan>
+              <tspan x="100" dy="16">for real-world workflows</tspan>
+            </text>
+          </g>
+
+          <!-- Column 2: Growth & Expansion (x=190 to x=360, width=170, center=275) -->
+          <g class="journey-stage">
+            <!-- Icon centered in column: cx=275, electric blue colour -->
+            <g transform="translate(255.8, 340) scale(1.35)" fill="none" stroke="#60A5FA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+              <polyline points="17 6 23 6 23 12"/>
+            </g>
+            <!-- Heading -->
+            <text x="275" y="420" font-size="16" font-weight="500" text-anchor="middle" fill="#FFFFFF" font-family="Inter,sans-serif">
+              Growth &amp;
+            </text>
+            <text x="275" y="437" font-size="16" font-weight="500" text-anchor="middle" fill="#FFFFFF" font-family="Inter,sans-serif">
+              Expansion
+            </text>
+            <!-- Description with max-width constraint via tspan wrapping -->
+            <text x="275" y="459" font-size="13" font-weight="400" text-anchor="middle" fill="#C0D9FF" fill-opacity="0.85" class="journey-desc" font-family="Inter,sans-serif" line-height="1.5">
+              <tspan x="275" dy="0">Scales with evolving</tspan>
+              <tspan x="275" dy="16">business needs</tspan>
+            </text>
+          </g>
+
+          <!-- Column 3: Long-term Reliability (x=380 to x=520, width=140, center=450) -->
+          <g class="journey-stage">
+            <!-- Icon centered in column: cx=450, cyan colour -->
+            <g transform="translate(430.8, 340) scale(1.35)" fill="none" stroke="#22D3EE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </g>
+            <!-- Heading -->
+            <text x="450" y="420" font-size="16" font-weight="500" text-anchor="middle" fill="#FFFFFF" font-family="Inter,sans-serif">
+              Long-term
+            </text>
+            <text x="450" y="437" font-size="16" font-weight="500" text-anchor="middle" fill="#FFFFFF" font-family="Inter,sans-serif">
+              Reliability
+            </text>
+            <!-- Description with max-width constraint via tspan wrapping -->
+            <text x="450" y="459" font-size="13" font-weight="400" text-anchor="middle" fill="#C0D9FF" fill-opacity="0.85" class="journey-desc" font-family="Inter,sans-serif" line-height="1.5">
+              <tspan x="450" dy="0">Reliable, maintained</tspan>
+              <tspan x="450" dy="16">and supported</tspan>
+            </text>
+          </g>
         </g>
       </svg>
     </div>
@@ -350,15 +523,17 @@
       <path d="M180 -80 C390 190 560 280 810 250 S1260 100 1450 -70" stroke-opacity=".35"/>
     </g>
     <g filter="url(#orbit-soft-glow)">
-      <circle class="orbit-node orbit-node-a" cx="250" cy="535" r="5" fill="#22D3EE"/>
-      <circle class="orbit-node orbit-node-b" cx="610" cy="690" r="7" fill="#3988FF"/>
-      <circle class="orbit-node orbit-node-c" cx="1010" cy="485" r="6" fill="#22D3EE"/>
-      <circle class="orbit-node orbit-node-a" cx="1370" cy="390" r="5" fill="#70B8FF"/>
-      <circle class="orbit-node orbit-node-b" cx="480" cy="185" r="4" fill="#22D3EE"/>
-      <circle class="orbit-node orbit-node-c" cx="1190" cy="155" r="5" fill="#3988FF"/>
+      <!-- Decorative nodes kept near the left perimeter, away from the text block -->
+      <circle class="orbit-node orbit-node-a" cx="85" cy="145" r="8" fill="#22D3EE"/>
+      <circle class="orbit-node orbit-node-b" cx="105" cy="790" r="9" fill="#3988FF"/>
+      <circle class="orbit-node orbit-node-c" cx="420" cy="690" r="7" fill="#22D3EE"/>
+      <circle class="orbit-node orbit-node-d" cx="250" cy="430" r="4.5" fill="#60A5FA"/>
     </g>
   </svg>
   <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-ticker">
+    <Ticker />
+  </div>
 </header>
 
 <style>
@@ -369,12 +544,13 @@
       radial-gradient(ellipse 58% 78% at 78% 43%, rgba(23, 105, 255, 0.42) 0%, rgba(7, 91, 238, 0.18) 42%, transparent 76%),
       radial-gradient(ellipse 42% 58% at 54% 8%, rgba(34, 211, 238, 0.12) 0%, transparent 72%),
       linear-gradient(112deg, #061B49 0%, #082B78 43%, #075BCE 100%);
-    min-height: 100vh;
+    min-height: calc(100svh - 70px);
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4rem 1.5rem;
-    overflow: hidden;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 0;
+    overflow: visible;
   }
 
   .hero::before {
@@ -394,51 +570,95 @@
     max-width: 1280px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1.1fr;
-    gap: 3rem;
+    grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr);
+    gap: 2.5rem;
     align-items: center;
+    flex: 1 0 auto;
+    padding: 2rem 1.5rem 1.25rem;
+  }
+
+  /* Keep the existing ticker inside the hero as its bottom row. */
+  .hero-ticker {
+    position: relative;
+    z-index: 2;
+    flex: 0 0 auto;
+    width: 100%;
+    margin-top: auto;
   }
 
   /* Left Column */
   .hero-left {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.9rem;
   }
 
   .hero-label {
     display: inline-block;
     font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-weight: 600;
+    letter-spacing: 0.075em;
     text-transform: uppercase;
-    color: #22B8CF;
-    margin-bottom: 0;
+    color: #B9D0E8;
+    margin-bottom: 1rem;
+    font-family: Inter, sans-serif;
+  }
+
+  .hero-accent-line {
+    width: 48px;
+    height: 2px;
+    background: linear-gradient(90deg, #22D3EE 0%, rgba(34, 211, 238, 0) 100%);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-headline-accent {
+    color: #22D3EE;
   }
 
   .hero-headline {
-    font-size: clamp(1.85rem, 3.8vw, 3.2rem);
+    font-size: clamp(2.25rem, 3.35vw, 3.15rem);
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.1;
     letter-spacing: -0.02em;
     color: #FFFFFF;
-    margin: 0;
+    margin: 0 0 1.25rem 0;
+    font-family: Inter, sans-serif;
   }
 
   .hero-description {
-    font-size: 1.05rem;
-    line-height: 1.65;
+    font-size: clamp(1rem, 2.2vw, 1.125rem);
+    font-weight: 400;
+    line-height: 1.6;
     color: #D6E6FF;
     margin: 0;
     max-width: 500px;
+    font-family: Inter, sans-serif;
   }
 
-  /* CTA Buttons */
-  .hero-cta {
+  .hero-partnerships {
     display: flex;
-    gap: 0.75rem;
-    margin-top: 0;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem;
+    margin-top: 1.75rem;
+    font-family: Inter, sans-serif;
+  }
+
+  .partnership-label {
+    font-size: clamp(0.875rem, 1.8vw, 0.975rem);
+    font-weight: 500;
+    color: #22D3EE;
+    letter-spacing: 0.01em;
+  }
+
+  .partnership-divider {
+    width: 1px;
+    height: 20px;
+    background: linear-gradient(180deg, transparent 0%, rgba(34, 211, 238, 0.5) 50%, transparent 100%);
+  }
+
+  /* CTA Button - Not used in Hero */
+  .hero-cta {
+    display: none;
   }
 
   .btn {
@@ -458,14 +678,15 @@
   }
 
   .btn-primary {
-    background: #2563EB;
+    background: #102B46;
     color: #FFFFFF;
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 2px 8px rgba(16, 43, 70, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
   }
 
   .btn-primary:hover {
-    background: #1D4ED8;
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    background: #0F2440;
+    box-shadow: 0 4px 12px rgba(16, 43, 70, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
     transform: translateY(-2px);
   }
 
@@ -482,36 +703,6 @@
     transform: translateY(-2px);
   }
 
-  /* Credibility Indicators */
-  .hero-credibility {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-    padding-top: 1rem;
-    margin-top: 0.3rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .credibility-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .credibility-label {
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: #D6E6FF;
-    text-transform: none;
-    letter-spacing: 0;
-  }
-
-  .credibility-divider {
-    width: 1px;
-    height: 1.5rem;
-    background: rgba(255, 255, 255, 0.1);
-  }
-
   /* Right Column - SVG Pipeline */
   .hero-right {
     display: flex;
@@ -521,7 +712,7 @@
 
   .pipeline-svg {
     width: 100%;
-    max-width: 650px;
+    max-width: 600px;
     height: auto;
     filter: drop-shadow(0 18px 42px rgba(3, 18, 61, 0.24)) drop-shadow(0 0 26px rgba(34, 211, 238, 0.12));
   }
@@ -566,8 +757,8 @@
     height: 100%;
     z-index: 1;
     pointer-events: none;
-    opacity: 0.28;
-    mask-image: linear-gradient(90deg, transparent 0%, transparent 35%, rgba(0,0,0,0.3) 45%, rgba(0,0,0,1) 60%, rgba(0,0,0,1) 100%);
+    opacity: 0.52;
+    mask-image: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.62) 18%, rgba(0,0,0,0.22) 34%, transparent 48%, transparent 100%);
   }
 
   .orbit-node {
@@ -578,6 +769,7 @@
 
   .orbit-node-b { animation-delay: 1.2s; }
   .orbit-node-c { animation-delay: 2.4s; }
+  .orbit-node-d { animation-delay: 3.2s; }
 
   @keyframes orbitNodePulse {
     0%, 100% { opacity: 0.48; transform: scale(0.82); }
@@ -587,43 +779,74 @@
   /* Responsive Design */
   @media (max-width: 1024px) {
     .hero {
-      padding: 4rem 1.5rem;
+      padding: 0;
       min-height: auto;
     }
 
     .hero-container {
       gap: 2.5rem;
+      padding: 2.5rem 1.5rem 1.25rem;
     }
 
     .hero-headline {
-      font-size: clamp(1.75rem, 3.5vw, 2.8rem);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin: 0 0 1.25rem 0;
     }
 
     .hero-description {
-      font-size: 1rem;
+      font-size: clamp(0.95rem, 2vw, 1.05rem);
+    }
+
+    .hero-accent-line {
+      margin-bottom: 1.25rem;
     }
 
     .pipeline-svg {
-      max-width: 520px;
+      max-width: 500px;
     }
   }
 
   @media (max-width: 768px) {
     .hero {
-      padding: 3rem 1.5rem;
+      padding: 0;
     }
 
     .hero-container {
       grid-template-columns: 1fr;
       gap: 2rem;
+      padding: 2.5rem 1.5rem 1rem;
     }
 
     .hero-headline {
-      font-size: 1.75rem;
+      font-size: clamp(1.8rem, 6vw, 2.25rem);
+      line-height: 1.2;
+      margin: 0 0 1rem 0;
     }
 
     .hero-description {
-      font-size: 0.95rem;
+      font-size: clamp(0.9rem, 1.8vw, 1rem);
+      line-height: 1.6;
+    }
+
+    .hero-partnerships {
+      margin-top: 1.5rem;
+      gap: 1rem;
+    }
+
+    .partnership-label {
+      font-size: clamp(0.8rem, 1.6vw, 0.9rem);
+    }
+
+    .partnership-divider {
+      height: 18px;
+    }
+
+    .hero-accent-line {
+      margin-bottom: 1rem;
+    }
+
+    .hero-label {
+      font-size: clamp(0.7rem, 1.6vw, 0.75rem);
     }
 
     .hero-cta {
@@ -633,13 +856,6 @@
 
     .hero-cta .btn {
       width: 100%;
-    }
-
-    .hero-credibility {
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-top: 0.3rem;
-      padding-top: 1rem;
     }
 
     .pipeline-svg {
@@ -659,36 +875,54 @@
 
     .hero-orbits {
       opacity: 0.18;
-      mask-image: linear-gradient(90deg, transparent 0%, transparent 30%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,1) 60%, rgba(0,0,0,1) 100%);
+      mask-image: linear-gradient(90deg, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.2) 24%, transparent 46%, rgba(0,0,0,0.45) 62%, rgba(0,0,0,1) 100%);
     }
   }
 
   @media (max-width: 480px) {
     .hero {
-      padding: 2rem 1rem;
+      padding: 0;
+    }
+
+    .hero-container {
+      padding: 2rem 1rem 0.75rem;
     }
 
     .hero-headline {
-      font-size: 1.5rem;
-      line-height: 1.3;
+      font-size: clamp(1.65rem, 7vw, 2rem);
+      line-height: 1.2;
+      margin: 0 0 0.8rem 0;
     }
 
     .hero-description {
-      font-size: 0.9rem;
-      line-height: 1.6;
+      font-size: clamp(0.85rem, 1.6vw, 0.95rem);
+      line-height: 1.5;
+    }
+
+    .hero-partnerships {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .partnership-label {
+      font-size: clamp(0.75rem, 1.4vw, 0.85rem);
+    }
+
+    .partnership-divider {
+      display: none;
     }
 
     .hero-label {
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
+      font-size: clamp(0.65rem, 1.4vw, 0.7rem);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.8rem;
     }
 
-    .credibility-label {
-      font-size: 0.7rem;
-    }
-
-    .credibility-divider {
-      height: 1.25rem;
+    .hero-accent-line {
+      margin-bottom: 0.8rem;
+      width: 40px;
     }
 
     .btn {
@@ -707,8 +941,13 @@
     .hero-bg::after,
     .orbit-node,
     .pipeline-svg,
-    .pipeline-svg * {
+    .pipeline-svg *,
+    .journey-particle {
       animation: none !important;
+    }
+
+    .journey-particle {
+      display: none;
     }
 
     .btn {

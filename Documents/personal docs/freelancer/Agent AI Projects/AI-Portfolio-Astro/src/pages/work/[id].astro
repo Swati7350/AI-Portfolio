@@ -3,6 +3,15 @@
  * Individual project detail page.
  * Content is sourced from src/data/projects.ts. Only display capabilities
  * and technologies supplied for each project; do not imply unverified outcomes.
+ * 
+ * Image Configuration:
+ * - heroImage: Displayed in the hero section (top of page)
+ * - finalProductImage: Displayed in the Final Product section
+ * - Configured independently per project in src/data/projects.ts
+ * 
+ * Project Story Configuration:
+ * - projectStory: Optional project-specific content for Problem/Solution, Final Product, and CTA
+ * - If not defined, uses default Document Intelligence content as fallback
  */
 import MainLayout from '../../layouts/MainLayout.astro';
 import { projects } from '../../data/projects';
@@ -19,6 +28,33 @@ const hasLiveDemo = Boolean(project.live_url && !project.demo_private);
 const pageTitle = `${project.name} | Recent Projects | Paras AI Innovations`;
 const pageDescription = project.description;
 const projectNumber = String(projects.findIndex((item) => item.id === project.id) + 1).padStart(2, '0');
+
+// Image configuration with fallbacks
+const heroImage = project.heroImage || project.image;
+const finalProductImage = project.finalProductImage || project.image;
+
+// Story content with Document Intelligence as default fallback
+const story = project.projectStory || {
+  sectionHeading: 'From scattered documents to intelligent knowledge.',
+  sectionDescription: 'Finding the right information across large volumes of business documents shouldn\'t require endless manual searching. We engineered an AI-powered system that makes document information easier to access, understand and use.',
+  challengeTitle: 'Information buried in business documents',
+  challengeDescription: 'Businesses deal with large volumes of PDFs, reports, contracts and records. Finding specific information, extracting key details and locating relevant answers manually can be time-consuming and inefficient.',
+  challengePoints: [
+    'Information spread across multiple documents',
+    'Time-consuming manual searches',
+    'Difficulty retrieving specific details',
+  ],
+  solutionTitle: 'An AI-powered document intelligence system',
+  solutionDescription: 'We built an intelligent platform that processes business documents, creates searchable knowledge bases and enables users to retrieve relevant information through natural-language queries.',
+  solutionPoints: [
+    'Automated document processing',
+    'Semantic search across documents',
+    'Contextual AI answers with source references',
+  ],
+  finalProductDescription: 'A working AI-powered application that lets users upload documents, search their contents and get contextual answers through a conversational interface.',
+  ctaHeading: 'Have documents holding back your business operations?',
+  ctaDescription: 'Let\'s build intelligent document systems that make your business information easier to access, understand and act on.',
+};
 ---
 
 <MainLayout title={pageTitle} description={pageDescription}>
@@ -36,7 +72,7 @@ const projectNumber = String(projects.findIndex((item) => item.id === project.id
           <a class="hero-link" href="#project-story">Explore the project <span aria-hidden="true">↓</span></a>
         </div>
         <figure class="hero-visual">
-          <img src={project.image} alt={`${project.name} product visual`} fetchpriority="high" />
+          <img src={heroImage} alt={`${project.name} product visual`} fetchpriority="high" />
           <figcaption><span class="visual-dot"></span> PROJECT PREVIEW</figcaption>
         </figure>
       </div>
@@ -47,18 +83,16 @@ const projectNumber = String(projects.findIndex((item) => item.id === project.id
     <section class="transformation-section" id="project-story">
       <div class="section-heading">
         <p class="section-kicker">THE THINKING BEHIND THE BUILD</p>
-        <h2>From scattered documents to intelligent knowledge.</h2>
-        <p>Finding the right information across large volumes of business documents shouldn't require endless manual searching. We engineered an AI-powered system that makes document information easier to access, understand and use.</p>
+        <h2>{story.sectionHeading}</h2>
+        <p>{story.sectionDescription}</p>
       </div>
       <div class="transformation-grid">
         <article class="story-panel challenge-panel">
           <div class="panel-topline"><span>THE CHALLENGE</span></div>
-          <h3>Information buried in business documents</h3>
-          <p>Businesses deal with large volumes of PDFs, reports, contracts and records. Finding specific information, extracting key details and locating relevant answers manually can be time-consuming and inefficient.</p>
+          <h3>{story.challengeTitle}</h3>
+          <p>{story.challengeDescription}</p>
           <ul class="challenge-points">
-            <li>Information spread across multiple documents</li>
-            <li>Time-consuming manual searches</li>
-            <li>Difficulty retrieving specific details</li>
+            {story.challengePoints?.map((point) => <li>{point}</li>)}
           </ul>
           <div class="panel-decoration challenge-decoration" aria-hidden="true"><span></span><span></span><span></span></div>
         </article>
@@ -69,90 +103,87 @@ const projectNumber = String(projects.findIndex((item) => item.id === project.id
         </div>
         <article class="story-panel solution-panel">
           <div class="panel-topline"><span>THE SOLUTION</span></div>
-          <h3>An AI-powered document intelligence system</h3>
-          <p>We built an intelligent platform that processes business documents, creates searchable knowledge bases and enables users to retrieve relevant information through natural-language queries.</p>
+          <h3>{story.solutionTitle}</h3>
+          <p>{story.solutionDescription}</p>
           <ul class="solution-points">
-            <li>Automated document processing</li>
-            <li>Semantic search across documents</li>
-            <li>Contextual AI answers with source references</li>
+            {story.solutionPoints?.map((point) => <li>{point}</li>)}
           </ul>
           <div class="panel-decoration solution-decoration" aria-hidden="true"><span></span><span></span><span></span></div>
         </article>
       </div>
     </section>
 
-    <!-- How we engineered it -->
-    <section class="workflow-section">
-      <div class="workflow-inner">
-        <div class="workflow-header">
-          <p class="section-kicker">HOW WE ENGINEERED IT</p>
-          <h2>Turning documents into searchable intelligence.</h2>
-          <p>The system transforms uploaded documents into structured, searchable knowledge that users can explore through an AI-powered interface.</p>
-        </div>
-        <div class="workflow-stages">
-          <div class="workflow-stage">
-            <div class="stage-number">01</div>
-            <h3>Upload</h3>
-            <p>Users upload their business documents.</p>
+    <!-- Workflow section (WhatsApp agent only) -->
+    {story.workflowStages && (
+      <section class="workflow-section">
+        <div class="workflow-inner">
+          <div class="workflow-header">
+            <p class="section-kicker">THE INTELLIGENCE BEHIND THE CONVERSATION</p>
+            <h2>{story.workflowTitle}</h2>
+            <p>{story.workflowDescription}</p>
           </div>
-          <div class="workflow-connector" aria-hidden="true">→</div>
-          <div class="workflow-stage">
-            <div class="stage-number">02</div>
-            <h3>Process</h3>
-            <p>Documents are processed and relevant content is extracted.</p>
-          </div>
-          <div class="workflow-connector" aria-hidden="true">→</div>
-          <div class="workflow-stage">
-            <div class="stage-number">03</div>
-            <h3>Index</h3>
-            <p>Content is organized into a searchable knowledge base.</p>
-          </div>
-          <div class="workflow-connector" aria-hidden="true">→</div>
-          <div class="workflow-stage">
-            <div class="stage-number">04</div>
-            <h3>Retrieve</h3>
-            <p>Semantic search identifies relevant information.</p>
-          </div>
-          <div class="workflow-connector" aria-hidden="true">→</div>
-          <div class="workflow-stage">
-            <div class="stage-number">05</div>
-            <h3>Respond</h3>
-            <p>AI generates contextual answers with supporting source references.</p>
+          <div class="workflow-stages">
+            {story.workflowStages.map((stage, index) => (
+              <>
+                <div class="workflow-stage">
+                  <div class="stage-number">{stage.number}</div>
+                  <h3>{stage.title}</h3>
+                  <p>{stage.description}</p>
+                </div>
+                {index < story.workflowStages!.length - 1 && (
+                  <div class="workflow-connector">→</div>
+                )}
+              </>
+            ))}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    )}
 
-    <!-- Technology ecosystem -->
-    <section class="technology-section">
-      <div class="technology-inner">
-        <div class="technology-copy">
-          <p class="section-kicker">BUILT WITH THE RIGHT AI TECHNOLOGIES</p>
-          <h2>Built with the right AI technologies.</h2>
-          <p>A combination of language models, retrieval frameworks and vector search technology powers document understanding and intelligent information retrieval.</p>
+    <!-- Technology Stack (Document Intelligence only) -->
+    {project.id === 'document-intelligence' && (
+      <section class="technology-section">
+        <div class="technology-inner">
+          <div class="technology-header">
+            <p class="section-kicker">TECHNOLOGY STACK</p>
+            <h2>Technology Stack</h2>
+            <p>The core technologies powering the application.</p>
+          </div>
+          <div class="technology-grid-2x2">
+            <div class="tech-card">
+              <div class="tech-card-title">Frontend</div>
+              <div class="tech-card-items">
+                <span class="tech-item">React</span>
+                <span class="tech-separator">·</span>
+                <span class="tech-item">TypeScript</span>
+              </div>
+            </div>
+            <div class="tech-card">
+              <div class="tech-card-title">Backend</div>
+              <div class="tech-card-items">
+                <span class="tech-item">Python</span>
+                <span class="tech-separator">·</span>
+                <span class="tech-item">FastAPI</span>
+              </div>
+            </div>
+            <div class="tech-card tech-card-highlight">
+              <div class="tech-card-title">AI &amp; Frameworks</div>
+              <div class="tech-card-items">
+                <span class="tech-item">Claude</span>
+                <span class="tech-separator">·</span>
+                <span class="tech-item">LangChain</span>
+              </div>
+            </div>
+            <div class="tech-card">
+              <div class="tech-card-title">Vector Database</div>
+              <div class="tech-card-items">
+                <span class="tech-item">Pinecone</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="technology-grid">
-          <div class="technology-group">
-            <div class="technology-group-label">Vector Database</div>
-            <div class="technology-item">
-              <span class="technology-name">Pinecone</span>
-            </div>
-          </div>
-          <div class="technology-group">
-            <div class="technology-group-label">Language Model</div>
-            <div class="technology-item">
-              <span class="technology-name">Claude</span>
-            </div>
-          </div>
-          <div class="technology-group">
-            <div class="technology-group-label">AI Orchestration</div>
-            <div class="technology-item">
-              <span class="technology-name">LangChain</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    )}
 
     <!-- Final product -->
     <section class="final-product-section" id="final-product">
@@ -160,8 +191,13 @@ const projectNumber = String(projects.findIndex((item) => item.id === project.id
         <div class="final-product-heading">
           <div>
             <p class="section-kicker">THE FINISHED EXPERIENCE</p>
-            <h2>Explore the Document Intelligence System</h2>
-            <p>A working AI-powered application that lets users upload documents, search their contents and get contextual answers through a conversational interface.</p>
+            <h2>Explore the {project.name}</h2>
+            <p>{story.finalProductDescription}</p>
+            {story.finalProductExample && (
+              <div class="final-product-example">
+                <p>{story.finalProductExample}</p>
+              </div>
+            )}
           </div>
           {hasLiveDemo && (
             <a class="demo-button" href={project.live_url} target="_blank" rel="noopener noreferrer">
@@ -171,10 +207,10 @@ const projectNumber = String(projects.findIndex((item) => item.id === project.id
         </div>
         <figure class="product-preview">
           <div class="preview-toolbar"><span></span><span></span><span></span><i>{project.name}</i></div>
-          <img src={project.image} alt={`${project.name} application snapshot`} loading="lazy" />
+          <img src={finalProductImage} alt={`${project.name} application snapshot`} loading="lazy" />
         </figure>
         <div class="product-footnote">
-          <span><span class="status-dot"></span> Document Intelligence System — Application Preview</span>
+          <span><span class="status-dot"></span> {story.finalProductCaption || `${project.name} — Application Preview`}</span>
           {hasLiveDemo ? <span>Live demo available in a new tab</span> : <span>Project preview</span>}
         </div>
       </div>
@@ -184,19 +220,28 @@ const projectNumber = String(projects.findIndex((item) => item.id === project.id
     <section class="project-enquiry-section">
       <div class="project-next">
         <div>
-          <h2>Have documents holding back your business operations?</h2>
-          <p>Let's build intelligent document systems that make your business information easier to access, understand and act on.</p>
+          <h2>{story.ctaHeading}</h2>
+          <p>{story.ctaDescription}</p>
         </div>
         <a class="contact-button" href="/contact/">Discuss Your Project</a>
       </div>
     </section>
+  </article>
 </MainLayout>
 
 <style>
   .project-detail { color: var(--text-primary); overflow: clip; }
-  .project-hero { position: relative; isolation: isolate; overflow: hidden; padding: clamp(3.5rem, 7vw, 6.25rem) 1.5rem; background: #0b1f44; color: #fff; }
-  .project-hero-inner { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); align-items: center; gap: clamp(2rem, 5vw, 5rem); }
-  .hero-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 1.15rem; }
+  .project-hero { position: relative; isolation: isolate; overflow: hidden; padding: clamp(2.5rem, 5vw, 4rem) 1.5rem; background: #0b1f44; color: #fff; }
+  .project-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.35fr);
+  align-items: center;
+  gap: clamp(1.5rem, 3vw, 3rem);
+}  .hero-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 1.15rem; }
   .back-link { color: #b9d3ed; text-decoration: none; font-size: .88rem; font-weight: 600; margin-bottom: .65rem; }
   .back-link:hover, .hero-link:hover { color: #fff; }
   .eyebrow, .section-kicker { margin: 0; color: #159fd0; font-size: .73rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
@@ -207,9 +252,16 @@ const projectNumber = String(projects.findIndex((item) => item.id === project.id
   .project-categories { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: .2rem; }
   .project-categories span { padding: .45rem .75rem; border: 1px solid rgba(111,220,240,.25); border-radius: 999px; background: rgba(34,211,238,.08); color: #c9f5fb; font-size: .77rem; font-weight: 650; }
   .hero-link { display: inline-flex; gap: .65rem; align-items: center; margin-top: .7rem; color: #62d9ee; font-size: .92rem; font-weight: 700; text-decoration: none; }
-  .hero-visual { position: relative; margin: 0; padding: .65rem; border: 1px solid rgba(255,255,255,.16); border-radius: 22px; background: rgba(255,255,255,.08); box-shadow: 0 25px 70px rgba(0,0,0,.25); }
-  .hero-visual img { display: block; width: 100%; max-height: 410px; aspect-ratio: 1.42 / 1; object-fit: cover; border-radius: 15px; background: #fff; }
-  .hero-visual figcaption { display: flex; align-items: center; gap: .55rem; padding: .75rem .35rem .15rem; color: #b8cce2; font-size: .66rem; font-weight: 750; letter-spacing: .13em; }
+  .hero-visual { position: relative; margin: 0; padding: .75rem; border: 1px solid rgba(255,255,255,.16); border-radius: 24px; background: rgba(255,255,255,.08); box-shadow: 0 25px 70px rgba(0,0,0,.25); }
+  .hero-visual img {
+  display: block;
+  width: 100%;
+  max-height: 600px;
+  aspect-ratio: 1.42 / 1;
+  object-fit: cover;
+  border-radius: 15px;
+  background: #fff;
+}  .hero-visual figcaption { display: flex; align-items: center; gap: .55rem; padding: .75rem .35rem .15rem; color: #b8cce2; font-size: .66rem; font-weight: 750; letter-spacing: .13em; }
   .visual-dot, .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #22d3ee; display: inline-block; }
   .hero-glow { position: absolute; z-index: -1; width: 520px; height: 520px; right: -180px; top: -280px; border-radius: 50%; background: radial-gradient(circle, rgba(34,211,238,.2), transparent 68%); }
 
@@ -256,14 +308,17 @@ const projectNumber = String(projects.findIndex((item) => item.id === project.id
   .solution-decoration span { border-color: rgba(98,217,238,.16); }
 
   .technology-section { padding: clamp(3.5rem, 6vw, 5.5rem) 1.5rem; background: #f1f6fc; }
-  .technology-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
-  .technology-copy h2 { margin: .65rem 0 .75rem; font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.12; letter-spacing: -.04em; }
-  .technology-copy > p { max-width: 650px; margin: 0; color: var(--text-secondary); line-height: 1.7; }
-  .technology-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
-  .technology-group { display: flex; flex-direction: column; gap: 0.5rem; }
-  .technology-group-label { font-size: 0.75rem; font-weight: 800; color: #22d3ee; letter-spacing: 0.1em; text-transform: uppercase; }
-  .technology-item { min-width: 0; display: flex; align-items: center; gap: .75rem; padding: 1rem; border: 1px solid #e0eaf5; border-radius: 13px; background: #fff; box-shadow: 0 5px 18px rgba(24,59,99,.035); }
-  .technology-name { min-width: 0; color: #18304b; font-size: .9rem; font-weight: 700; overflow-wrap: anywhere; }
+  .technology-inner { max-width: 1080px; margin: 0 auto; }
+  .technology-header { max-width: 760px; margin: 0 auto 2.6rem; text-align: center; }
+  .technology-header h2 { margin: .65rem 0 .75rem; font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.12; letter-spacing: -.04em; }
+  .technology-header > p { max-width: 650px; margin: 0 auto; color: var(--text-secondary); line-height: 1.7; }
+  .technology-grid-2x2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.25rem, 3vw, 2rem); max-width: 1080px; margin: 0 auto; }
+  .tech-card { padding: clamp(1.5rem, 3vw, 2rem); border-radius: 16px; background: #fff; border: 1px solid #e0eaf5; box-shadow: 0 5px 18px rgba(24,59,99,.035); display: flex; flex-direction: column; gap: 1rem; }
+  .tech-card-highlight { background: linear-gradient(135deg, rgba(34,211,238,.08), rgba(34,211,238,.04)); border-color: rgba(34,211,238,.2); }
+  .tech-card-title { font-size: clamp(0.9rem, 2vw, 1.1rem); font-weight: 700; color: #0b1f44; }
+  .tech-card-items { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+  .tech-item { font-size: clamp(0.85rem, 1.5vw, 0.95rem); color: #52647a; font-weight: 600; }
+  .tech-separator { color: #cad5e1; margin: 0 0.25rem; }
   
   .project-enquiry-section { padding: clamp(3.5rem, 7vw, 6rem) 1.5rem; background: #fff; }
 
@@ -271,6 +326,8 @@ const projectNumber = String(projects.findIndex((item) => item.id === project.id
   .final-product-inner { max-width: 1080px; margin: 0 auto; }
   .final-product-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; margin-bottom: 1.7rem; }
   .final-product-heading h2 { margin-bottom: .55rem; }
+  .final-product-example { margin-top: 1.2rem; padding: 1.2rem; border-left: 3px solid #22d3ee; background: #f5f8fc; border-radius: 8px; }
+  .final-product-example p { margin: 0; color: #52647a; font-size: 0.95rem; line-height: 1.7; white-space: pre-line; }
   .demo-button, .contact-button { display: inline-flex; flex: 0 0 auto; align-items: center; justify-content: center; gap: .65rem; padding: .9rem 1.25rem; border-radius: 8px; background: #1769ee; color: #fff; text-decoration: none; font-weight: 700; transition: transform .2s, box-shadow .2s, background .2s; }
   .demo-button:hover, .contact-button:hover { transform: translateY(-2px); background: #0d58d5; box-shadow: 0 8px 22px rgba(22,105,238,.2); }
   .product-preview { overflow: hidden; margin: 0; padding: .65rem; border: 1px solid #dce7f2; border-radius: 18px; background: #f5f8fc; box-shadow: 0 18px 50px rgba(22,54,91,.08); }
@@ -296,15 +353,14 @@ const projectNumber = String(projects.findIndex((item) => item.id === project.id
     .transformation-bridge { flex-direction: row; min-height: 48px; }
     .bridge-line { width: 35px; height: 1px; background: linear-gradient(90deg, transparent, #21b8d2); }
     .bridge-caption { writing-mode: initial; }
-    .technology-inner { grid-template-columns: 1fr; gap: 1.7rem; }
-    .technology-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .technology-grid-2x2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .workflow-stages { gap: 1rem; }
     .workflow-connector { margin: 1rem 0; }
     .project-next { margin-left: 1rem; margin-right: 1rem; }
   }
   @media (max-width: 560px) {
     .project-hero, .transformation-section, .workflow-section, .technology-section, .final-product-section, .project-enquiry-section { padding-left: 1rem; padding-right: 1rem; }
-    .technology-grid { grid-template-columns: 1fr; }
+    .technology-grid-2x2 { grid-template-columns: 1fr; }
     .workflow-stages { flex-direction: column; gap: 1rem; }
     .workflow-connector { display: none; }
     .final-product-heading { flex-direction: column; align-items: flex-start; gap: 1.1rem; }

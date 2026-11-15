@@ -1,0 +1,22 @@
+---
+/**
+ * src/pages/work/index.astro
+ * 
+ * Work/Projects page - displays all projects with filtering
+ */
+import MainLayout from '../../layouts/MainLayout.astro';
+import { pages } from '../../data/site';
+import ProjectsGrid from '../../components/ProjectsGrid.astro';
+---
+
+<MainLayout
+  title={pages.work.title}
+  description={pages.work.description}
+  ogImage={pages.work.ogImage}
+>
+  <ProjectsGrid 
+    title="Recent Projects"
+    subtitle="Explore AI systems, intelligent automation and custom applications built to address practical business challenges."
+    showFilter
+  />
+</MainLayout>
