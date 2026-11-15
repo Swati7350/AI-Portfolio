@@ -1,0 +1,143 @@
+---
+/**
+ * Individual project detail page.
+ * Project information is sourced from src/data/projects.ts.
+ */
+import MainLayout from '../../layouts/MainLayout.astro';
+import { projects } from '../../data/projects';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const hasLiveDemo = Boolean(project.live_url && !project.demo_private);
+const pageTitle = `${project.name} | Recent Projects | Paras AI Innovations`;
+const pageDescription = project.description;
+---
+
+<MainLayout title={pageTitle} description={pageDescription}>
+  <article class="project-detail">
+    <section class="project-hero">
+      <div class="project-hero-inner">
+        <a class="back-link" href="/work/">← All Recent Projects</a>
+        <div class="project-categories">
+          {project.categories.map((category) => <span>{category}</span>)}
+        </div>
+        <p class="eyebrow">PROJECT OVERVIEW</p>
+        <h1>{project.name}</h1>
+        <p class="project-intro">{project.description}</p>
+      </div>
+    </section>
+
+    <section class="project-body">
+      <div class="project-layout">
+        <div class="project-main">
+          <section class="content-section">
+            <p class="section-kicker">THE CHALLENGE</p>
+            <h2>The business problem</h2>
+            <p>{project.problem || project.description}</p>
+          </section>
+
+          <section class="content-section">
+            <p class="section-kicker">THE SOLUTION</p>
+            <h2>What we built</h2>
+            <p>{project.built || project.description}</p>
+          </section>
+
+          <section class="content-section final-product" id="final-product">
+            <p class="section-kicker">THE RESULT</p>
+            <h2>Final Product</h2>
+            <p class="final-product-copy">A look at the application and the experience it is designed to deliver.</p>
+            <figure class="product-preview">
+              <img src={project.image} alt={`${project.name} application preview`} loading="lazy" />
+            </figure>
+            {hasLiveDemo && (
+              <a class="demo-button" href={project.live_url} target="_blank" rel="noopener noreferrer">
+                Explore Live Demo <span aria-hidden="true">↗</span>
+              </a>
+            )}
+          </section>
+        </div>
+
+        <aside class="project-sidebar">
+          <div class="sidebar-panel">
+            <h2>Project Areas</h2>
+            <div class="tag-list">
+              {project.categories.map((item) => <span>{item}</span>)}
+            </div>
+          </div>
+          <div class="sidebar-panel">
+            <h2>Technology Stack</h2>
+            <div class="tag-list tech-list">
+              {project.tech_stack.map((item) => <span>{item}</span>)}
+            </div>
+          </div>
+          <div class="sidebar-panel">
+            <h2>Business Focus</h2>
+            <div class="tag-list">
+              {project.business_categories.map((item) => <span>{item}</span>)}
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="project-next">
+      <div>
+        <p class="section-kicker">HAVE A SIMILAR CHALLENGE?</p>
+        <h2>Let's engineer a solution for your business.</h2>
+      </div>
+      <a class="contact-button" href="/contact/">Discuss Your Project <span aria-hidden="true">→</span></a>
+    </section>
+  </article>
+</MainLayout>
+
+<style>
+  .project-detail { color: var(--text-primary); }
+  .project-hero {
+    padding: clamp(2.75rem, 5vw, 4rem) 1.5rem;
+    background: linear-gradient(135deg, #f5f9fd 0%, #edf5ff 100%);
+    border-bottom: 1px solid var(--border);
+  }
+  .project-hero-inner, .project-layout, .project-next { max-width: 1180px; margin: 0 auto; }
+  .project-hero-inner { display: flex; flex-direction: column; align-items: flex-start; gap: .85rem; }
+  .back-link { color: var(--blue); text-decoration: none; font-size: .9rem; font-weight: 600; margin-bottom: .25rem; }
+  .project-categories, .tag-list { display: flex; flex-wrap: wrap; gap: .55rem; }
+  .project-categories span, .tag-list span {
+    padding: .45rem .8rem; border: 1px solid rgba(22,119,255,.16); border-radius: 999px;
+    background: rgba(22,119,255,.06); color: var(--blue); font-size: .8rem; font-weight: 600;
+  }
+  .eyebrow, .section-kicker { margin: 0; color: var(--blue); font-size: .75rem; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+  .project-hero h1 { max-width: 850px; margin: 0; font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.1; letter-spacing: -.045em; }
+  .project-intro { max-width: 760px; margin: 0; color: var(--text-secondary); font-size: 1.1rem; line-height: 1.75; }
+  .project-body { padding: clamp(2.75rem, 5vw, 4rem) 1.5rem; }
+  .project-layout { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(250px, .8fr); gap: clamp(2rem, 4vw, 3.5rem); align-items: start; }
+  .project-main { display: flex; flex-direction: column; gap: 2.5rem; min-width: 0; }
+  .content-section h2 { margin: .65rem 0 1rem; font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.2; letter-spacing: -.025em; }
+  .content-section > p:not(.section-kicker) { max-width: 760px; margin: 0; color: var(--text-secondary); font-size: 1rem; line-height: 1.8; }
+  .project-sidebar { display: flex; flex-direction: column; gap: 1.2rem; }
+  .sidebar-panel { padding: 1.5rem; border: 1px solid var(--border); border-radius: 14px; background: var(--bg-secondary); }
+  .sidebar-panel h2 { margin: 0 0 1rem; font-size: 1rem; }
+  .tech-list span { background: #fff; }
+  .final-product-copy { margin-bottom: .75rem !important; }
+  .product-preview { margin: .75rem 0 1rem; overflow: hidden; border: 1px solid var(--border); border-radius: 14px; background: var(--bg-secondary); }
+  .product-preview img { display: block; width: 100%; height: auto; }
+  .demo-button, .contact-button {
+    display: inline-flex; align-items: center; justify-content: center; gap: .65rem;
+    padding: .9rem 1.35rem; border-radius: 8px; background: var(--blue); color: #fff;
+    text-decoration: none; font-weight: 650; transition: transform .2s, box-shadow .2s;
+  }
+  .demo-button:hover, .contact-button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(22,119,255,.2); }
+  .project-next { margin: 0 auto clamp(2.5rem, 5vw, 4rem); padding: 2rem; border-radius: 16px; background: #f2f7fd; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+  .project-next h2 { margin: .6rem 0 0; font-size: clamp(1.35rem, 3vw, 1.8rem); }
+  @media (max-width: 800px) {
+    .project-layout { grid-template-columns: 1fr; }
+    .project-sidebar { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .project-next { margin-left: 1rem; margin-right: 1rem; flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 560px) { .project-sidebar { grid-template-columns: 1fr; } .project-hero { padding-left: 1rem; padding-right: 1rem; } .project-body { padding-left: 1rem; padding-right: 1rem; } }
+</style>
