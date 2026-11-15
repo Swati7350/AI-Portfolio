@@ -689,3 +689,36 @@ window.addEventListener("load", () => {
     }
   }
 });
+
+
+/* Signature expanding panels: hover on desktop, tap-to-expand on touch screens. */
+(() => {
+  const panels = Array.from(document.querySelectorAll(".signature-panel"));
+  if (!panels.length) return;
+
+  const setActive = (activePanel) => {
+    panels.forEach((panel) => {
+      const active = panel === activePanel;
+      panel.classList.toggle("is-expanded", active);
+      panel.setAttribute("aria-expanded", String(active));
+    });
+  };
+
+  const touchLayout = window.matchMedia("(max-width: 680px), (hover: none)");
+  panels.forEach((panel) => {
+    panel.addEventListener("mouseenter", () => {
+      if (!touchLayout.matches) setActive(panel);
+    });
+    panel.addEventListener("focus", () => setActive(panel));
+    panel.addEventListener("click", (event) => {
+      if (!touchLayout.matches) {
+        setActive(panel);
+        return;
+      }
+      if (!panel.classList.contains("is-expanded")) {
+        event.preventDefault();
+        setActive(panel);
+      }
+    });
+  });
+})();

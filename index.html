@@ -42,60 +42,130 @@
   <!-- ─── 1. HERO ──────────────────────────────────────────── -->
   <header class="hero" id="home">
     <div class="hero-inner">
-
-      <!-- Headline centered at the top of the hero -->
-      <h1 class="hero-title hero-title-top"><span class="title-dark">We Build</span> <span class="title-highlight">AI Systems</span><br><span class="title-dark">That Automate</span></h1>
-
-      <!-- Left-side project details and calls to action -->
-      <div class="hero-left">
-        <div class="hero-badge">
-          <span class="badge-dot"></span>
-          Accepting New Projects
+      <div class="hero-content">
+        <!-- Positioning Label -->
+        <p class="hero-label">AI ENGINEERING · INTELLIGENT AUTOMATION · CUSTOM SOFTWARE</p>
+        
+        <!-- Main Headline -->
+        <h1 class="hero-headline">
+          Engineering AI Systems That Make Businesses Work Better.
+        </h1>
+        
+        <!-- Supporting Copy -->
+        <p class="hero-copy">
+          We design and build intelligent applications, AI agents and connected software systems that solve complex business problems and streamline operations.
+        </p>
+        
+        <!-- CTAs -->
+        <div class="hero-cta-group">
+          <a href="contact.html" class="btn btn-primary btn-lg">Discuss Your Workflow</a>
+          <a href="work.html" class="btn btn-secondary btn-lg">Explore Our Work</a>
         </div>
-
-        <!-- <script type="text/javascript" src="https://widget.clutch.co/static/js/widget.js"></script> <div class="clutch-widget" data-url="https://widget.clutch.co" data-widget-type="14" data-height="50" data-nofollow="false" data-expandifr="true" data-clutchcompany-id="2746873"></div> -->
-        <!-- <p class="hero-subtitle">
-          From customer enquiries and sales follow-ups to document processing, CRM workflows, and voice interactions — we engineer the AI and automation systems that remove manual work from your operations.
-        </p> -->
-<!-- 
-        <div class="hero-cta">
-          <a href="#contact" class="btn btn-primary">Tell Us What You Want to Automate →</a>
-          <a href="work.html" class="btn btn-ghost">See Our Work →</a>
-        </div> -->
-
-        <!-- <div class="hero-stats">
-          <div class="stat">
-            <span class="stat-number" id="stat-projects">0</span>
-            <span class="stat-label">Delivered Projects</span>
+        
+        <!-- Proof Indicators -->
+        <div class="hero-proof">
+          <div class="proof-item">
+            <span class="proof-number">3</span>
+            <span class="proof-label">Delivered Projects</span>
           </div>
-          <div class="stat-divider"></div>
-          <div class="stat">
-            <span class="stat-number">11+</span>
-            <span class="stat-label">Years Engineering</span>
+          <div class="proof-divider"></div>
+          <div class="proof-item">
+            <span class="proof-number">11+</span>
+            <span class="proof-label">Years Engineering</span>
           </div>
-          <div class="stat-divider"></div>
-          <div class="stat">
-            <span class="stat-number">100%</span>
-            <span class="stat-label">Custom-Built Solutions</span>
+          <div class="proof-divider"></div>
+          <div class="proof-item">
+            <span class="proof-number">100%</span>
+            <span class="proof-label">Custom Solutions</span>
           </div>
-        </div> -->
+        </div>
       </div>
-
-      <!-- Dynamic capability phrase floats above the robotic palm -->
-      <div class="hero-rotating-phrase" aria-live="polite">
-        <span class="rotating-text" id="rotating-phrase">Business Automation Workflows</span>
+      
+      <!-- Right Column: AI Systems Pipeline Visual -->
+      <div class="hero-visual">
+        <svg class="pipeline-diagram" viewBox="0 0 400 420" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Background -->
+          <defs>
+            <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#22B8CF;stop-opacity:0.2" />
+              <stop offset="100%" style="stop-color:#2563EB;stop-opacity:0.1" />
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          
+          <!-- Stage 1: Understand & Extract -->
+          <g class="pipeline-stage" data-stage="1">
+            <circle cx="80" cy="100" r="45" fill="url(#nodeGradient)" stroke="#22B8CF" stroke-width="2" filter="url(#glow)" />
+            <text x="80" y="95" text-anchor="middle" font-size="11" font-weight="600" fill="#FFFFFF">01</text>
+            <text x="80" y="120" text-anchor="middle" font-size="12" font-weight="500" fill="#FFFFFF">Understand</text>
+            <text x="80" y="135" text-anchor="middle" font-size="11" fill="#E0F7FF">&amp; Extract</text>
+          </g>
+          
+          <!-- Connector 1 → 2 -->
+          <g class="pipeline-connector">
+            <line x1="125" y1="100" x2="275" y2="100" stroke="#22B8CF" stroke-width="2" stroke-dasharray="5,5" opacity="0.4" />
+            <circle cx="200" cy="100" r="3" fill="#22B8CF" opacity="0.6" />
+          </g>
+          
+          <!-- Stage 2: Analyse & Reason -->
+          <g class="pipeline-stage" data-stage="2">
+            <circle cx="320" cy="100" r="45" fill="url(#nodeGradient)" stroke="#2563EB" stroke-width="2" filter="url(#glow)" />
+            <text x="320" y="95" text-anchor="middle" font-size="11" font-weight="600" fill="#FFFFFF">02</text>
+            <text x="320" y="120" text-anchor="middle" font-size="12" font-weight="500" fill="#FFFFFF">Analyse</text>
+            <text x="320" y="135" text-anchor="middle" font-size="11" fill="#E0F7FF">&amp; Reason</text>
+          </g>
+          
+          <!-- Connector 2 → 3 (downward) -->
+          <g class="pipeline-connector">
+            <line x1="320" y1="145" x2="320" y2="235" stroke="#2563EB" stroke-width="2" stroke-dasharray="5,5" opacity="0.4" />
+            <circle cx="320" cy="190" r="3" fill="#2563EB" opacity="0.6" />
+          </g>
+          
+          <!-- Stage 3: Automate & Orchestrate -->
+          <g class="pipeline-stage" data-stage="3">
+            <circle cx="320" cy="280" r="45" fill="url(#nodeGradient)" stroke="#1677FF" stroke-width="2" filter="url(#glow)" />
+            <text x="320" y="275" text-anchor="middle" font-size="11" font-weight="600" fill="#FFFFFF">03</text>
+            <text x="320" y="300" text-anchor="middle" font-size="12" font-weight="500" fill="#FFFFFF">Automate</text>
+            <text x="320" y="315" text-anchor="middle" font-size="11" fill="#E0F7FF">&amp; Orchestrate</text>
+          </g>
+          
+          <!-- Input Data Icons -->
+          <g class="data-icons" opacity="0.3">
+            <rect x="20" y="40" width="40" height="30" rx="4" fill="none" stroke="#64748B" stroke-width="1.5" />
+            <text x="40" y="60" text-anchor="middle" font-size="10" fill="#64748B">DOC</text>
+            
+            <rect x="20" y="80" width="40" height="30" rx="4" fill="none" stroke="#64748B" stroke-width="1.5" />
+            <text x="40" y="100" text-anchor="middle" font-size="10" fill="#64748B">DATA</text>
+            
+            <rect x="20" y="120" width="40" height="30" rx="4" fill="none" stroke="#64748B" stroke-width="1.5" />
+            <text x="40" y="140" text-anchor="middle" font-size="10" fill="#64748B">INPUT</text>
+          </g>
+          
+          <!-- Output Integration Icons -->
+          <g class="integration-icons" opacity="0.3">
+            <circle cx="360" cy="290" r="15" fill="none" stroke="#64748B" stroke-width="1.5" />
+            <text x="360" y="295" text-anchor="middle" font-size="9" fill="#64748B">API</text>
+            
+            <circle cx="360" cy="320" r="15" fill="none" stroke="#64748B" stroke-width="1.5" />
+            <text x="360" y="325" text-anchor="middle" font-size="8" fill="#64748B">CRM</text>
+            
+            <circle cx="360" cy="350" r="15" fill="none" stroke="#64748B" stroke-width="1.5" />
+            <text x="360" y="355" text-anchor="middle" font-size="8" fill="#64748B">ERP</text>
+          </g>
+          
+          <!-- Description Text -->
+          <text x="200" y="400" text-anchor="middle" font-size="12" fill="#64748B" font-weight="500">Connected AI Processing Pipeline</text>
+        </svg>
       </div>
-
-      <!-- Full-width hero visual -->
-      <div class="hero-right">
-        <img
-          src="assets/robot_hand.png"
-          alt="AI Automation diagram showing Document Intelligence, Voice Agents, Business Automation and System Integrations"
-          class="hero-orbital-img"
-        />
-      </div>
-
     </div>
+    
+    <!-- Hero Background Glow -->
     <div class="hero-bg-glow" aria-hidden="true"></div>
   </header>
 
@@ -135,255 +205,263 @@
   </section>
 
   <!-- ─── 2. BUSINESS PROBLEMS ─────────────────────────────── -->
-  
   <section class="problems-section" id="problems">
     <div class="section-inner">
       <div class="problems-header">
-        <span class="section-eyebrow">What We Help You Achieve</span>
-        <h2 class="section-title">Automate the Work. Focus on Growing Your Business.</h2>
-        <p class="section-subtitle">From intelligent agents to connected business workflows, we turn repetitive tasks into streamlined operations.</p>
+        <span class="section-eyebrow">Transform Your Operations</span>
+        <h2 class="section-title">From Challenges to Connected Solutions</h2>
+        <p class="section-subtitle">We align AI, automation, and engineering to your business challenges—turning operational friction into streamlined workflows.</p>
       </div>
 
-      <div class="problems-map">
+      <!-- Three-Column Architecture -->
+      <div class="problems-architecture">
 
-        <div class="problem-item">
-          <div class="problem-item-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
-          </div>
-          <div class="problem-item-body">
-            <h3 class="problem-item-label">AI & Business Automation</h3>
-            <p class="problem-item-desc">Connect tools and eliminate repetitive steps.</p>
+        <!-- LEFT COLUMN: BUSINESS CHALLENGES (5 items) -->
+        <div class="problems-column problems-column--left">
+          <h3 class="problems-column-title">Business Challenges</h3>
+          
+          <div class="problems-list">
+            <div class="problem-challenge">
+              <div class="problem-challenge-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 8v4M8 12h8M6 14h12M4 16h16M3 20h18"/>
+                </svg>
+              </div>
+              <div class="problem-challenge-text">
+                <h4 class="problem-challenge-title">Manual Workflows & Data Entry</h4>
+                <p class="problem-challenge-desc">Repetitive tasks draining team time and resources</p>
+              </div>
+            </div>
+
+            <div class="problem-challenge">
+              <div class="problem-challenge-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M9 19c-5 1.5-5-2.5-7-4m14 6v-3.87a3.375 3.375 0 0 0-3.375-3.375h-1.25a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.375A3.375 3.375 0 0 0 6 5.625v1.5a1.125 1.125 0 0 1-1.125 1.125H3.625A3.375 3.375 0 0 0 .25 11.625v3.75a3.375 3.375 0 0 0 3.375 3.375h1.25a1.125 1.125 0 0 1 1.125 1.125v1.5a3.375 3.375 0 0 0 3.375 3.375h1.5a3.375 3.375 0 0 0 3.375-3.375v-1.5a1.125 1.125 0 0 1 1.125-1.125h1.25a3.375 3.375 0 0 0 3.375-3.375v-3.75"/>
+                </svg>
+              </div>
+              <div class="problem-challenge-text">
+                <h4 class="problem-challenge-title">Disconnected Systems & Data Silos</h4>
+                <p class="problem-challenge-desc">Information scattered across multiple tools</p>
+              </div>
+            </div>
+
+            <div class="problem-challenge">
+              <div class="problem-challenge-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/>
+                </svg>
+              </div>
+              <div class="problem-challenge-text">
+                <h4 class="problem-challenge-title">Limited Customer Engagement</h4>
+                <p class="problem-challenge-desc">Scaling personalized interactions is difficult</p>
+              </div>
+            </div>
+
+            <div class="problem-challenge">
+              <div class="problem-challenge-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M4 4v7a7 7 0 0 0 14 0V4M9 9h6M9 13h6"/>
+                </svg>
+              </div>
+              <div class="problem-challenge-text">
+                <h4 class="problem-challenge-title">Information Extraction & Search</h4>
+                <p class="problem-challenge-desc">Finding insights in documents and data is slow</p>
+              </div>
+            </div>
+
+            <div class="problem-challenge">
+              <div class="problem-challenge-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 3v18M3 12h18"/>
+                </svg>
+              </div>
+              <div class="problem-challenge-text">
+                <h4 class="problem-challenge-title">Scaling Team Capacity</h4>
+                <p class="problem-challenge-desc">Adding staff isn't sustainable or cost-effective</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="problem-item">
-          <div class="problem-item-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8zm3.5-9c.828 0 1.5-.672 1.5-1.5S16.328 8 15.5 8 14 8.672 14 9.5s.672 1.5 1.5 1.5zm-7 0c.828 0 1.5-.672 1.5-1.5S9.328 8 8.5 8 7 8.672 7 9.5 7.672 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.16-3.5H6.34c.85 2.04 2.83 3.5 5.16 3.5z"/></svg>
-          </div>
-          <div class="problem-item-body">
-            <h3 class="problem-item-label">AI Agents</h3>
-            <p class="problem-item-desc">Handle multi-step tasks with less manual intervention.</p>
-          </div>
-        </div>
+        <!-- CENTER COLUMN: ARCHITECTURE VISUAL -->
+        <div class="problems-column problems-column--center">
+          <div class="problems-architecture-visual">
+            <svg class="problems-svg-diagram" viewBox="0 0 280 420" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation">
+              <defs>
+                <linearGradient id="problemsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#22B8CF;stop-opacity:0.15"/>
+                  <stop offset="100%" style="stop-color:#2563EB;stop-opacity:0.08"/>
+                </linearGradient>
+                <filter id="problemsGlow">
+                  <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+                  <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
 
-        <div class="problem-item">
-          <div class="problem-item-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-          </div>
-          <div class="problem-item-body">
-            <h3 class="problem-item-label">Voice Agents</h3>
-            <p class="problem-item-desc">Automate routine calls and customer interactions.</p>
-          </div>
-        </div>
+              <!-- Top: Business Challenges -->
+              <g class="problems-node-group">
+                <rect x="30" y="20" width="220" height="70" rx="12" fill="url(#problemsGradient)" stroke="#22B8CF" stroke-width="1.5" opacity="0.3"/>
+                <text x="140" y="42" text-anchor="middle" font-size="12" font-weight="600" fill="#102B46">Business Challenges</text>
+                <text x="140" y="62" text-anchor="middle" font-size="10" fill="#64748B" font-weight="500">Manual Work</text>
+                <text x="140" y="77" text-anchor="middle" font-size="10" fill="#64748B" font-weight="500">Disconnected Systems</text>
+              </g>
 
-        <div class="problem-item">
-          <div class="problem-item-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-          </div>
-          <div class="problem-item-body">
-            <h3 class="problem-item-label">Website Development</h3>
-            <p class="problem-item-desc">Build professional, responsive websites for your business.</p>
-          </div>
-        </div>
+              <!-- Arrow Down -->
+              <line x1="140" y1="90" x2="140" y2="130" stroke="#22B8CF" stroke-width="2" opacity="0.4" stroke-dasharray="4,4"/>
+              <polygon points="140,135 135,128 145,128" fill="#22B8CF" opacity="0.4"/>
 
-        <div class="problem-item">
-          <div class="problem-item-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="1.8"
-                stroke-linecap="round" stroke-linejoin="round">
-              <rect x="4" y="3" width="12" height="16" rx="2"/>
-              <path d="M8 7h4"/>
-              <path d="M8 11h4"/>
-              <path d="M8 15h4"/>
-              <path d="M16 7h2a2 2 0 0 1 2 2v12H8v-2"/>
+              <!-- Middle: Our Approach -->
+              <g class="problems-node-group">
+                <circle cx="140" cy="175" r="50" fill="url(#problemsGradient)" stroke="#2563EB" stroke-width="2" filter="url(#problemsGlow)"/>
+                <text x="140" y="168" text-anchor="middle" font-size="11" font-weight="600" fill="#102B46">Our</text>
+                <text x="140" y="182" text-anchor="middle" font-size="11" font-weight="600" fill="#102B46">Approach</text>
+              </g>
+
+              <!-- Left Branch: AI & Automation -->
+              <line x1="100" y1="175" x2="50" y2="250" stroke="#22B8CF" stroke-width="1.5" opacity="0.4" stroke-dasharray="3,3"/>
+              <g class="problems-node-group">
+                <rect x="15" y="250" width="70" height="60" rx="8" fill="url(#problemsGradient)" stroke="#22B8CF" stroke-width="1.5" opacity="0.4"/>
+                <text x="50" y="270" text-anchor="middle" font-size="9" font-weight="600" fill="#102B46">AI & Automation</text>
+                <text x="50" y="285" text-anchor="middle" font-size="8" fill="#64748B">Agents, RAG,</text>
+                <text x="50" y="297" text-anchor="middle" font-size="8" fill="#64748B">Workflow Automation</text>
+              </g>
+
+              <!-- Right Branch: Integration & Engineering -->
+              <line x1="180" y1="175" x2="230" y2="250" stroke="#2563EB" stroke-width="1.5" opacity="0.4" stroke-dasharray="3,3"/>
+              <g class="problems-node-group">
+                <rect x="195" y="250" width="70" height="60" rx="8" fill="url(#problemsGradient)" stroke="#2563EB" stroke-width="1.5" opacity="0.4"/>
+                <text x="230" y="270" text-anchor="middle" font-size="9" font-weight="600" fill="#102B46">Integration &</text>
+                <text x="230" y="282" text-anchor="middle" font-size="9" font-weight="600" fill="#102B46">Engineering</text>
+                <text x="230" y="297" text-anchor="middle" font-size="8" fill="#64748B">Custom Tools,</text>
+                <text x="230" y="307" text-anchor="middle" font-size="8" fill="#64748B">Websites</text>
+              </g>
+
+              <!-- Arrow Down from branches -->
+              <line x1="50" y1="310" x2="50" y2="340" stroke="#22B8CF" stroke-width="1.5" opacity="0.3" stroke-dasharray="3,3"/>
+              <line x1="230" y1="310" x2="230" y2="340" stroke="#2563EB" stroke-width="1.5" opacity="0.3" stroke-dasharray="3,3"/>
+
+              <!-- Bottom: Outcomes -->
+              <g class="problems-node-group">
+                <rect x="30" y="340" width="220" height="70" rx="12" fill="url(#problemsGradient)" stroke="#1677FF" stroke-width="2" opacity="0.5"/>
+                <text x="140" y="362" text-anchor="middle" font-size="12" font-weight="600" fill="#102B46">Connected Solutions</text>
+                <text x="140" y="380" text-anchor="middle" font-size="10" fill="#64748B" font-weight="500">Streamlined Workflows</text>
+                <text x="140" y="395" text-anchor="middle" font-size="10" fill="#64748B" font-weight="500">Operational Efficiency</text>
+              </g>
             </svg>
           </div>
-          <div class="problem-item-body">
-            <h3 class="problem-item-label">RAG & Document Search</h3>
-            <p class="problem-item-desc">Find useful answers from your business information.</p>
-          </div>
         </div>
 
-        <div class="problem-item">
-          <div class="problem-item-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7z"/></svg>
-          </div>
-          <div class="problem-item-body">
-            <h3 class="problem-item-label">Social Media Automation</h3>
-            <p class="problem-item-desc">Automate social media scheduling and publishing across platforms.</p>
+        <!-- RIGHT COLUMN: OUR SOLUTIONS (5 items) -->
+        <div class="problems-column problems-column--right">
+          <h3 class="problems-column-title">Our Solutions</h3>
+
+          <div class="problems-list">
+            <div class="problem-solution">
+              <div class="problem-solution-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <polyline points="17 1 21 5 17 9"/>
+                  <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+                  <polyline points="7 23 3 19 7 15"/>
+                  <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+                </svg>
+              </div>
+              <div class="problem-solution-text">
+                <h4 class="problem-solution-title">AI Automation & Integration</h4>
+                <p class="problem-solution-desc">Connect tools, automate workflows, eliminate manual data entry</p>
+              </div>
+            </div>
+
+            <div class="problem-solution">
+              <div class="problem-solution-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 8v4l3 2"/>
+                </svg>
+              </div>
+              <div class="problem-solution-text">
+                <h4 class="problem-solution-title">Intelligent AI Agents</h4>
+                <p class="problem-solution-desc">Multi-step task handling, real-time decision making, adaptive learning</p>
+              </div>
+            </div>
+
+            <div class="problem-solution">
+              <div class="problem-solution-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                  <line x1="12" y1="19" x2="12" y2="23"/>
+                </svg>
+              </div>
+              <div class="problem-solution-text">
+                <h4 class="problem-solution-title">Voice & Conversational AI</h4>
+                <p class="problem-solution-desc">Automate calls, customer interactions, and multichannel engagement</p>
+              </div>
+            </div>
+
+            <div class="problem-solution">
+              <div class="problem-solution-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <path d="M9 13h6M9 17h6"/>
+                </svg>
+              </div>
+              <div class="problem-solution-text">
+                <h4 class="problem-solution-title">RAG & Document Intelligence</h4>
+                <p class="problem-solution-desc">Extract insights, search company knowledge, intelligent document processing</p>
+              </div>
+            </div>
+
+            <div class="problem-solution">
+              <div class="problem-solution-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M9 19c-5 1.5-5-2.5-7-4m14 6v-3.87a3.375 3.375 0 0 0-3.375-3.375h-1.25a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.375A3.375 3.375 0 0 0 6 5.625v1.5"/>
+                </svg>
+              </div>
+              <div class="problem-solution-text">
+                <h4 class="problem-solution-title">Custom Web & Software Solutions</h4>
+                <p class="problem-solution-desc">Purpose-built platforms, responsive design, seamless UX</p>
+              </div>
+            </div>
           </div>
         </div>
 
       </div>
 
       <div class="problems-cta">
-        <a href="contact.html" class="btn btn-primary">Book a Free Consultation →</a>
+        <a href="contact.html" class="btn btn-primary">Discuss Your Challenge →</a>
       </div>
     </div>
   </section>
 
-  <!-- ─── 3. SELECTED WORK ──────────────────────────────────── -->
-  <main class="projects-section" id="work">
+  <!-- ─── 3. SHIPPED. SCALED. SUSTAINED. ──────────────────── -->
+  <section class="projects-showcase" id="work">
     <div class="section-inner">
-      <div class="work-section-header">
-        <div class="work-section-header-text">
-          <span class="section-eyebrow">What We've Built</span>
-          <h2 class="section-title">Selected Work</h2>
-          <p class="section-subtitle">AI systems and automation built to solve real business problems.</p>
-        </div>
+      <div class="projects-header">
+        <span class="section-eyebrow">What We've Built</span>
+        <h2 class="section-title">Shipped. Scaled. Sustained.</h2>
+        <p class="section-subtitle">AI systems and automation built to solve real business problems.</p>
       </div>
 
-      <div class="work-filter-area">
-        <div class="filter-bar" role="group" aria-label="Filter projects by category">
-          <button class="filter-btn active" data-filter="All">All</button>
-          <button class="filter-btn" data-filter="AI">AI</button>
-          <button class="filter-btn" data-filter="RAG">RAG</button>
-          <button class="filter-btn" data-filter="Automation">Automation</button>
-          <button class="filter-btn" data-filter="AI Agents">AI Agents</button>
-          <button class="filter-btn" data-filter="Document Processing">Document Processing</button>
-        </div>
-        <a href="work.html" class="btn btn-ghost work-view-all-link">Explore Our Work →</a>
-      </div>
-
-      <div class="projects-carousel">
-        <!-- <button class="carousel-arrow carousel-prev" id="carousel-prev" aria-label="Previous project" disabled>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
-            <polyline points="15 18 9 12 15 6"/>
-          </svg>
-        </button> -->
-
+      <div class="projects-showcase-grid">
+        <!-- Project cards will be generated from projects.json -->
         <div class="projects-grid" id="projects-grid" aria-live="polite">
           <div class="loading-state" id="loading-state">
             <div class="spinner" aria-hidden="true"></div>
             <p>Loading projects…</p>
           </div>
         </div>
-
-        <!-- <button class="carousel-arrow carousel-next" id="carousel-next" aria-label="Next project">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
-            <polyline points="9 18 15 12 9 6"/>
-          </svg>
-        </button> -->
       </div>
 
-      <div class="empty-state hidden" id="empty-state">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-        </svg>
-        <p>No projects match this filter yet.</p>
-      </div>
-
-    </div>
-  </main>
-
-  <!-- ─── 4. SOLUTIONS ─────────────────────────────────────── -->
-  <section class="waterfall-section" id="solutions">
-    <div class="section-inner">
-      <div class="section-header">
-        <h2 class="section-title">What If You Didn't Have to Start From Scratch?</h2>
-        <p class="section-subtitle">Build on what works. Add AI and automation where needed.</p>
-      </div>
-
-      <div class="waterfall-flow">
-        <!-- Stage 1: Your Existing Business -->
-        <div class="waterfall-stage stage-1">
-          <h3 class="stage-title">Your Existing Business</h3>
-          <div class="stage-items">
-            <div class="stage-item">
-              <div class="stage-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              </div>
-              <span class="stage-label">Your Team</span>
-            </div>
-            <div class="stage-item">
-              <div class="stage-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-              </div>
-              <span class="stage-label">Existing Tech Stack</span>
-            </div>
-            <div class="stage-item">
-              <div class="stage-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
-              </div>
-              <span class="stage-label">Business Data</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Arrow 1 -->
-        <div class="waterfall-arrow" aria-hidden="true">
-          <svg width="24" height="32" viewBox="0 0 24 32" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="12" y1="0" x2="12" y2="26"/><polyline points="18 20 12 26 6 20"/>
-          </svg>
-        </div>
-
-        <!-- Stage 2: Paras AI Innovations -->
-        <div class="waterfall-stage stage-2">
-          <h3 class="stage-title">Paras AI Innovations</h3>
-          <div class="stage-grid">
-            <div class="stage-item">
-              <div class="stage-icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-              </div>
-              <span class="stage-label">AI Engineering</span>
-            </div>
-            <div class="stage-item">
-              <div class="stage-icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
-              </div>
-              <span class="stage-label">Business Automation</span>
-            </div>
-            <div class="stage-item">
-              <div class="stage-icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 16 14 12"/><polyline points="2 12 6 8 10 12"/><path d="M6 8h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2z"/></svg>
-              </div>
-              <span class="stage-label">System Integrations</span>
-            </div>
-            <div class="stage-item">
-              <div class="stage-icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-              </div>
-              <span class="stage-label">Custom Solutions</span>
-            </div>
-          </div>
-          <div class="stage-divider"></div>
-          <p class="stage-note">Built around your existing setup</p>
-        </div>
-
-        <!-- Arrow 2 -->
-        <div class="waterfall-arrow" aria-hidden="true">
-          <svg width="24" height="32" viewBox="0 0 24 32" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="12" y1="0" x2="12" y2="26"/><polyline points="18 20 12 26 6 20"/>
-          </svg>
-        </div>
-
-        <!-- Stage 3: A More Efficient Operation -->
-        <div class="waterfall-stage stage-3">
-          <h3 class="stage-title">A More Efficient Operation</h3>
-          <div class="stage-items">
-            <div class="stage-item">
-              <div class="stage-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-              </div>
-              <span class="stage-label">Fully Automated Business Workflows</span>
-            </div>
-            <div class="stage-item">
-              <div class="stage-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><polyline points="12 6 12 12 16 14"/></svg>
-              </div>
-              <span class="stage-label">Less Manual Work</span>
-            </div>
-            <div class="stage-item">
-              <div class="stage-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/><path d="M8 13l3 3 5-5"/></svg>
-              </div>
-              <span class="stage-label">Custom-Built Solutions</span>
-            </div>
-          </div>
-        </div>
+      <div class="projects-cta">
+        <a href="work.html" class="btn btn-primary">Explore Our Work →</a>
       </div>
     </div>
   </section>
+
 
   <!-- ─── 4. HOW WE WORK ────────────────────────────────────── -->
   <section class="process-section" id="how-we-work">
@@ -464,6 +542,85 @@
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SIGNATURE CAPABILITIES ─────────────────────────────── -->
+  <section class="signature-section" id="capabilities">
+    <div class="section-inner">
+      <header class="signature-header">
+        <span class="section-eyebrow">HOW WE CREATE IMPACT</span>
+        <h2 class="section-title">Engineering Intelligence.<br class="signature-title-break"> Automating Impact.</h2>
+        <p class="section-subtitle">AI, automation and engineering—designed around the way your business works.</p>
+      </header>
+
+      <div class="signature-panels" aria-label="Explore our capabilities">
+        <a class="signature-panel is-expanded" href="work.html#selected-work" aria-expanded="true">
+          <span class="signature-panel-shade"></span>
+          <span class="signature-panel-content">
+            <span class="signature-panel-kicker">01 / AI ENGINEERING</span>
+            <span class="signature-panel-title">Multi-Agent AI<br>at the Core</span>
+            <span class="signature-panel-description">Intelligent agents. Connected workflows. Real business impact.</span>
+          </span>
+          <span class="signature-panel-arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <a class="signature-panel" href="work.html#selected-work" aria-expanded="false">
+          <span class="signature-panel-shade"></span>
+          <span class="signature-panel-content">
+            <span class="signature-panel-kicker">02 / AUTOMATION</span>
+            <span class="signature-panel-title">Automate What<br>Slows You Down</span>
+            <span class="signature-panel-description">Turn repetitive work into dependable, connected processes.</span>
+          </span>
+          <span class="signature-panel-arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <a class="signature-panel" href="work.html#selected-work" aria-expanded="false">
+          <span class="signature-panel-shade"></span>
+          <span class="signature-panel-content">
+            <span class="signature-panel-kicker">03 / INTEGRATIONS</span>
+            <span class="signature-panel-title">Connect the<br>Tools You Use</span>
+            <span class="signature-panel-description">Bring your systems and business data together.</span>
+          </span>
+          <span class="signature-panel-arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <a class="signature-panel" href="work.html#selected-work" aria-expanded="false">
+          <span class="signature-panel-shade"></span>
+          <span class="signature-panel-content">
+            <span class="signature-panel-kicker">04 / CUSTOM SOLUTIONS</span>
+            <span class="signature-panel-title">AI at the Core.<br>Built for Your Business.</span>
+            <span class="signature-panel-description">Build on what works. Add AI and automation where needed.</span>
+          </span>
+          <span class="signature-panel-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+      <div class="signature-principles">
+        <div class="signature-principles-header">
+          <span class="section-eyebrow">WHY PARAS AI INNOVATIONS</span>
+          <h3>What Makes Our Approach Different</h3>
+          <p>The right solution starts with understanding the problem—not choosing a tool.</p>
+        </div>
+
+        <div class="signature-principles-grid">
+          <article class="signature-principle">
+            <span class="signature-principle-number">01</span>
+            <h4>Problem Before Technology</h4>
+            <p>We start with your business goals, bottlenecks and workflows to identify where AI or automation can genuinely help.</p>
+          </article>
+          <article class="signature-principle">
+            <span class="signature-principle-number">02</span>
+            <h4>Built Around Your Systems</h4>
+            <p>We connect or extend existing tools wherever practical, rather than replacing everything by default.</p>
+          </article>
+          <article class="signature-principle">
+            <span class="signature-principle-number">03</span>
+            <h4>Beyond the Automation</h4>
+            <p>We design for real-world business needs—from connecting systems and handling exceptions to ensuring your team can confidently use and manage solutions.</p>
+          </article>
+        </div>
       </div>
     </div>
   </section>
@@ -801,89 +958,20 @@
     </div>
   </section>
 
+  <!-- ─── FINAL CTA ───────────────────────────────────────── -->
+  <section class="final-cta" id="final-cta">
+    <div class="final-cta-content">
+      <h2 class="final-cta-headline">Have a Complex Business Problem? Let's Engineer the Solution.</h2>
+      <p class="final-cta-copy">Tell us about your operational challenges, software requirements or automation opportunities. Our team will help you identify the right technical approach.</p>
+      <a href="contact.html" class="btn btn-primary btn-lg">Discuss Your Project</a>
+    </div>
+  </section>
+
   <!-- ─── 9. FOOTER ───────────────────────────────────────── -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="section-inner footer-inner">
-
-      <div class="footer-brand">
-        <p class="footer-brand-name">Paras AI Innovations</p>
-        <p class="footer-tagline">Understand the Problem. Engineer the Solution.</p>
-        <p class="footer-description">
-          We build practical solutions that simplify operations, connect existing tools and address real business needs.
-      </div>
-
-      <nav class="footer-nav" aria-label="Explore">
-        <h3 class="footer-heading">Explore</h3>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="work.html">Our Work</a></li>
-          <li><a href="index.html#how-we-work">How We Work</a></li>
-          <a href="work.html#faq">FAQs</a>
-        </ul>
-      </nav>
-
-      <div class="footer-connect">
-        <h3 class="footer-heading">Connect</h3>
-        <ul class="footer-contact-links">
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-
-        <div class="footer-social">
-                    
-          <a href="https://clutch.co/profile/paras-ai-innovations"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Clutch">
-            <svg width="16" height="16" viewBox="0 0 24 24"
-                fill="currentColor" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"/>
-              <circle cx="12" cy="12" r="4" fill="#122c43"/>
-            </svg>
-            <span>Clutch</span>
-          </a>
-          <a href="https://www.fiverr.com/sellers/swatigupta163/"
-            target="_blank" rel="noopener noreferrer"
-            aria-label="Fiverr">
-            <span class="footer-platform-icon" aria-hidden="true">fi</span>
-            <span>Fiverr</span>
-          </a>
-
-          <a href="https://www.linkedin.com/in/swatigupta86"
-            target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <svg width="18" height="18" viewBox="0 0 24 24"
-                fill="currentColor" aria-hidden="true">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7H10v-7a6 6 0 0 1 6-6z"/>
-              <rect x="2" y="9" width="4" height="12"/>
-              <circle cx="4" cy="4" r="2"/>
-            </svg>
-            <span>LinkedIn</span>
-          </a>
-
-          
-          <a href="https://www.upwork.com/freelancers/~0158a7bcb185395121"
-            target="_blank" rel="noopener noreferrer"
-            aria-label="Upwork">
-            <svg width="18" height="18" viewBox="0 0 24 24"
-                fill="currentColor" aria-hidden="true">
-              <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3.001-2.439-5.452-5.439-5.452z"/>
-            </svg>
-            <span>Upwork</span>
-          </a>
-        </div>
-      </div>
-    
-    </div>
-    <div class="footer-bottom">
-      <div class="section-inner footer-bottom-inner">
-        <p class="footer-copy">
-          © 2026 Paras AI Innovations. All rights reserved.
-        </p>
-        <a href="privacy-policy.html">Privacy Policy</a>
-      </div>
-    </div>
-  </footer>
+  <div id="site-footer-placeholder"></div>
 
 
+  <script src="footer-loader.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
