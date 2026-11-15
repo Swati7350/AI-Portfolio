@@ -1,0 +1,22 @@
+---
+/**
+ * src/pages/industries/index.astro
+ * 
+ * Industries landing page
+ */
+import MainLayout from '../../layouts/MainLayout.astro';
+import { site } from '../../data/site';
+import IndustriesLanding from '../../components/IndustriesLanding.astro';
+
+const title = 'Industries | Paras AI Innovations';
+const description = 'Explore how Paras AI Innovations applies AI and automation to solve challenges across healthcare, ecommerce, manufacturing, finance, logistics, and professional services.';
+const canonical = new URL('/industries/', site.url);
+---
+
+<MainLayout
+  title={title}
+  description={description}
+  canonical={canonical.toString()}
+>
+  <IndustriesLanding />
+</MainLayout>

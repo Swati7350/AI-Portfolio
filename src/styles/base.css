@@ -1,0 +1,297 @@
+/**
+ * src/styles/base.css
+ * 
+ * Global styles, typography, design system, and base component styles.
+ * Organized from the existing styles.css
+ */
+
+/* ── CSS Variables / Design System ──────────────────────────────── */
+:root {
+  /* ── Backgrounds (60–70% of visual weight) ──────────────── */
+  --bg: #FFFFFF;
+  --bg-secondary: #F5FAFF;
+  --bg-card: #FFFFFF;
+  --bg-surface: #EAF4FF;
+  --bg-subtle: #DCEEFF;
+
+  /* ── Brand Blues ─────────────────────────────────────────── */
+  --blue: #1677FF;
+  --blue-hover: #0D5FD4;
+  --blue-light: #2F80FF;
+  --blue-dim: #2563EB;
+
+  /* ── Cyan (accent) ──────────────────────────────────────── */
+  --cyan: #22D3EE;
+  --cyan-dark: #1B8EAA;
+
+  /* ── Navy ────────────────────────────────────────────────── */
+  --navy: #102A43;
+  --navy-mid: #1E3A5F;
+  --navy-dark: #0B1F44;
+
+  /* ── Text ────────────────────────────────────────────────── */
+  --text-primary: #102A43;
+  --text-secondary: #60758A;
+  --text-muted: #94A3B8;
+
+  /* ── Borders ─────────────────────────────────────────────── */
+  --border: #D9E7F5;
+  --border-strong: #B8D0EC;
+  --border-focus: #1677FF;
+
+  /* ── Tags & Chips ────────────────────────────────────────── */
+  --tag-bg: #EAF4FF;
+  --tag-color: #1677FF;
+  --tag-border: #DCEEFF;
+  --chip-bg: #F0F7FF;
+  --chip-color: #2D5F8A;
+  --chip-border: #D9E7F5;
+
+  /* ── Shadows ─────────────────────────────────────────────── */
+  --shadow-xs: 0 1px 3px rgba(16, 42, 67, 0.06);
+  --shadow-sm: 0 2px 8px rgba(16, 42, 67, 0.08);
+  --shadow-md: 0 4px 20px rgba(16, 42, 67, 0.10);
+  --shadow-lg: 0 8px 40px rgba(16, 42, 67, 0.12);
+
+  /* ── Radius ──────────────────────────────────────────────── */
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-pill: 999px;
+
+  /* ── Status ──────────────────────────────────────────────── */
+  --green: #16A34A;
+  --green-bg: rgba(22, 163, 74, 0.08);
+  --green-border: rgba(22, 163, 74, 0.20);
+
+  /* ── Typography ──────────────────────────────────────────── */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+}
+
+/* ── Reset & Base ────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+}
+
+/* ── Focus Styles (accessibility) ──────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* ── Skip link (accessibility) ────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  background: var(--blue);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 600;
+  z-index: 9999;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* ── Layout ──────────────────────────────────────────────────── */
+.section-inner,
+.nav-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Shared section header ────────────────────────────────────── */
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 10px;
+}
+
+.sub-section-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 24px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  border: none;
+  white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--blue);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(22, 119, 255, 0.20);
+}
+
+.btn-primary:hover {
+  background: var(--blue-hover);
+  box-shadow: 0 4px 16px rgba(22, 119, 255, 0.30);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--blue);
+  border: 1.5px solid var(--blue);
+}
+
+.btn-ghost:hover {
+  background: var(--bg-surface);
+  border-color: var(--blue-hover);
+  color: var(--blue-hover);
+  transform: translateY(-1px);
+}
+
+.btn-sm {
+  padding: 7px 16px;
+  font-size: 0.82rem;
+}
+
+/* ── Tags ────────────────────────────────────────────────────── */
+.tag {
+  background: var(--tag-bg);
+  color: var(--tag-color);
+  font-size: 0.74rem;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--tag-border);
+}
+
+/* ── Tech chips ──────────────────────────────────────────────── */
+.tech-chip {
+  background: var(--chip-bg);
+  color: var(--chip-color);
+  border: 1px solid var(--chip-border);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 4px 11px;
+  border-radius: 5px;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.tech-chip:hover {
+  background: var(--bg-subtle);
+  border-color: var(--border-strong);
+  color: var(--navy);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ── Utility: Animations ─────────────────────────────────────── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Reduce Motion ──────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,168 @@
+<div class="article-filters" id="article-filters">
+  <div class="filters-container">
+    <div class="filters-label">Browse by Topic</div>
+    <div class="filters-scroll" role="group" aria-label="Filter articles by topic">
+      <button class="filter-btn active" type="button" data-filter="all">All Insights</button>
+      <button class="filter-btn" type="button" data-filter="AI Engineering">AI Engineering</button>
+      <button class="filter-btn" type="button" data-filter="AI Agents & Automation">AI Agents &amp; Automation</button>
+      <button class="filter-btn" type="button" data-filter="Data & Document Intelligence">Data &amp; Document Intelligence</button>
+      <button class="filter-btn" type="button" data-filter="Software & Digital Products">Software &amp; Digital Products</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .article-filters {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .filters-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .filters-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+  }
+
+  .filters-scroll {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    padding: 0.25rem 0;
+    margin: -0.25rem 0;
+  }
+
+  /* Hide scrollbar for modern look */
+  .filters-scroll::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .filters-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .filters-scroll::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 2px;
+  }
+
+  .filter-btn {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+    outline: none;
+  }
+
+  .filter-btn:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+  }
+
+  .filter-btn:focus-visible {
+    outline: 2px solid var(--border-focus);
+    outline-offset: 2px;
+  }
+
+  .filter-btn.active {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: #FFFFFF;
+  }
+
+  @media (max-width: 768px) {
+    .article-filters {
+      padding: 1.5rem 1.5rem;
+    }
+
+    .filters-scroll {
+      gap: 0.5rem;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 0.85rem;
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .article-filters {
+      padding: 1rem 1rem;
+    }
+
+    .filters-scroll {
+      gap: 0.4rem;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.75rem;
+    }
+  }
+</style>
+
+<script>
+  const filterButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('.filter-btn'));
+  const articlesGrid = document.getElementById('articles-grid');
+
+  const topicCategories: Record<string, string[]> = {
+    'AI Engineering': ['AI & Machine Learning', 'Technology & Industry Insights'],
+    'AI Agents & Automation': ['AI Agents & Automation', 'Conversational AI & Voice Technology', 'Business Automation'],
+    'Data & Document Intelligence': ['Document Intelligence & RAG', 'Data Annotation & AI Training'],
+    'Software & Digital Products': ['Software & SaaS Development'],
+  };
+
+  const applyFilter = (filter: string, updateUrl = false) => {
+    const selectedCategories = topicCategories[filter] || [];
+    filterButtons.forEach(button => {
+      button.classList.toggle('active', button.dataset.filter === filter || (filter === 'all' && button.dataset.filter === 'all'));
+      button.setAttribute('aria-pressed', String(button.dataset.filter === filter));
+    });
+
+    articlesGrid?.querySelectorAll<HTMLElement>('[data-article-id]').forEach(article => {
+      const actualCategory = article.dataset.category || '';
+      const visible = filter === 'all' || selectedCategories.includes(actualCategory);
+      article.hidden = !visible;
+      article.style.display = visible ? '' : 'none';
+    });
+
+    if (updateUrl) {
+      const url = new URL(window.location.href);
+      if (filter === 'all') url.searchParams.delete('category');
+      else url.searchParams.set('category', filter);
+      window.history.pushState({}, '', url);
+    }
+  };
+
+  const initialCategory = new URLSearchParams(window.location.search).get('category') || 'all';
+  applyFilter(topicCategories[initialCategory] ? initialCategory : 'all');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => applyFilter(button.dataset.filter || 'all', true));
+  });
+
+  window.addEventListener('popstate', () => {
+    const category = new URLSearchParams(window.location.search).get('category') || 'all';
+    applyFilter(topicCategories[category] ? category : 'all');
+  });
+</script>

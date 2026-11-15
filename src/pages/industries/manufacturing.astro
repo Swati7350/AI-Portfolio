@@ -1,0 +1,24 @@
+---
+/**
+ * src/pages/industries/manufacturing.astro
+ * 
+ * Manufacturing industry page
+ */
+import MainLayout from '../../layouts/MainLayout.astro';
+import { site } from '../../data/site';
+import { industries } from '../../data/industries';
+import IndustryPage from '../../components/IndustryPage.astro';
+
+const industry = industries.find(ind => ind.id === 'manufacturing')!;
+const title = `${industry.name} | AI & Automation Solutions | Paras AI Innovations`;
+const description = `Manufacturing AI solutions: Production optimization, quality control automation, equipment monitoring, and connected operations.`;
+const canonical = new URL('/industries/manufacturing/', site.url);
+---
+
+<MainLayout
+  title={title}
+  description={description}
+  canonical={canonical.toString()}
+>
+  <IndustryPage industry={industry} />
+</MainLayout>

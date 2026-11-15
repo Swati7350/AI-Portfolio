@@ -1,0 +1,16 @@
+{
+  "name": "paras-ai-innovations",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Paras AI Innovations - AI Agents & Business Automation",
+  "author": "Paras AI Innovations",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^4.0.0"
+  }
+}

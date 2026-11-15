@@ -1,0 +1,18 @@
+---
+/**
+ * src/pages/contact/index.astro
+ * 
+ * Contact page
+ */
+import MainLayout from '../../layouts/MainLayout.astro';
+import { pages } from '../../data/site';
+import ContactForm from '../../components/ContactForm.astro';
+---
+
+<MainLayout
+  title={pages.contact.title}
+  description={pages.contact.description}
+  ogImage={pages.contact.ogImage}
+>
+  <ContactForm />
+</MainLayout>

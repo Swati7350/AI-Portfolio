@@ -1,0 +1,1152 @@
+---
+/**
+ * Visual-led Service Card Grid with Full-Screen Preview
+ * 3-column desktop × 2-row layout with embedded custom SVG illustrations
+ * Clicking a card opens a full-screen service preview with selectable thumbnails
+ */
+const services = [
+  {
+    title: "Multi-Agent Systems",
+    description: "We design intelligent AI agents that work together to plan, reason, and execute complex business workflows — from autonomous task execution to multi-agent orchestration.",
+    icon: "ai-agents",
+    previewImage: "/assets/Multi-Agent Ecosystem Platform.png"
+  },
+  {
+    title: "Intelligent Document Systems",
+    description: "Unlock the value hidden in your documents with AI-powered data extraction, intelligent processing, automated reconciliation and instant knowledge retrieval.",
+    icon: "rag-document",
+    previewImage: "/assets/Intelligent Document Systems.png"
+  },
+  {
+    title: "Business Automation",
+    description: "We eliminate operational bottlenecks by connecting disconnected systems, automating repetitive processes, and synchronizing data across platforms for seamless operations.",
+    icon: "business-automation",
+    previewImage: "/assets/Business Automation Workflow Infographic.png"
+  },
+  {
+    title: "Voice Agents",
+    description: "Build natural conversational interfaces that answer calls, handle inquiries and complete transactions through voice.",
+    icon: "voice-agents",
+    previewImage: "/assets/AI Voice Agents Call Flow.png"
+  },
+  {
+    title: "Website Development",
+    description: "Design and build responsive digital experiences tailored to your business goals and customer workflows.",
+    icon: "website-dev",
+    previewImage: "/assets/Travel Website.png"
+  },
+  {
+    title: "Social Media Automation",
+    description: "Streamline content workflows, manage scheduling across platforms and maintain consistent brand presence.",
+    icon: "social-automation",
+    previewImage: "/assets/Zapier Workflow Automation Infographic.png"
+  }
+];
+
+const getSVGIcon = (icon: string) => {
+  const svgMap: Record<string, string> = {
+    "ai-agents": `<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" class="service-illustration agent-architecture">
+      <defs>
+        <linearGradient id="agent-card-fill" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#164B7A" stop-opacity="0.95"/>
+          <stop offset="100%" stop-color="#0D345B" stop-opacity="0.95"/>
+        </linearGradient>
+        <radialGradient id="orchestrator-fill">
+          <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.32"/>
+          <stop offset="100%" stop-color="#0B3155" stop-opacity="0.98"/>
+        </radialGradient>
+        <filter id="agent-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="2" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+
+      <!-- Orchestration connections: specialist agents report to the central hub -->
+      <g fill="none" stroke="#38BDF8" stroke-width="1.8" opacity="0.78">
+        <path d="M88 78 L105 101"/>
+        <path d="M152 78 L135 101"/>
+        <path d="M88 162 L105 139"/>
+        <path d="M152 162 L135 139"/>
+      </g>
+      <g fill="#7DD3FC">
+        <circle cx="88" cy="78" r="2.8"/>
+        <circle cx="152" cy="78" r="2.8"/>
+        <circle cx="88" cy="162" r="2.8"/>
+        <circle cx="152" cy="162" r="2.8"/>
+      </g>
+
+      <!-- Specialist agent modules -->
+      <g>
+        <!-- Research Agent -->
+        <rect x="10" y="30" width="91" height="49" rx="8" fill="url(#agent-card-fill)" stroke="#22B8CF" stroke-width="1.5"/>
+        <circle cx="27" cy="49" r="7" fill="none" stroke="#22B8CF" stroke-width="1.8"/>
+        <path d="M32 54 L37 59" stroke="#22B8CF" stroke-width="2" stroke-linecap="round"/>
+        <path d="M42 45 H91 M42 52 H82" stroke="#7DD3FC" stroke-width="1.2" stroke-linecap="round" opacity="0.75"/>
+        <text x="55" y="69" font-size="8" font-weight="700" text-anchor="middle" fill="#DDF7FF">RESEARCH</text>
+
+        <!-- Sales Agent -->
+        <rect x="139" y="30" width="91" height="49" rx="8" fill="url(#agent-card-fill)" stroke="#38BDF8" stroke-width="1.5"/>
+        <path d="M151 59 V48 M157 59 V42 M163 59 V36" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M149 63 H169" stroke="#7DD3FC" stroke-width="1.2" opacity="0.75"/>
+        <path d="M176 45 H220 M176 52 H213" stroke="#7DD3FC" stroke-width="1.2" stroke-linecap="round" opacity="0.75"/>
+        <text x="184" y="69" font-size="8" font-weight="700" text-anchor="middle" fill="#DDF7FF">SALES</text>
+
+        <!-- Document Agent -->
+        <rect x="10" y="161" width="91" height="49" rx="8" fill="url(#agent-card-fill)" stroke="#38BDF8" stroke-width="1.5"/>
+        <path d="M21 172 H34 L39 177 V198 H21 Z" fill="none" stroke="#38BDF8" stroke-width="1.7" stroke-linejoin="round"/>
+        <path d="M34 172 V178 H39 M25 184 H35 M25 189 H35" fill="none" stroke="#7DD3FC" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M45 177 H91 M45 184 H84" stroke="#7DD3FC" stroke-width="1.2" stroke-linecap="round" opacity="0.75"/>
+        <text x="58" y="201" font-size="8" font-weight="700" text-anchor="middle" fill="#DDF7FF">DOCUMENTS</text>
+
+        <!-- Operations Agent -->
+        <rect x="139" y="161" width="91" height="49" rx="8" fill="url(#agent-card-fill)" stroke="#22B8CF" stroke-width="1.5"/>
+        <circle cx="157" cy="184" r="8" fill="none" stroke="#22B8CF" stroke-width="1.8"/>
+        <circle cx="157" cy="184" r="3" fill="none" stroke="#22B8CF" stroke-width="1.5"/>
+        <path d="M157 172 V175 M157 193 V196 M145 184 H148 M166 184 H169 M149 176 L151 178 M163 190 L165 192 M165 176 L163 178 M151 190 L149 192" stroke="#22B8CF" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M176 177 H220 M176 184 H213" stroke="#7DD3FC" stroke-width="1.2" stroke-linecap="round" opacity="0.75"/>
+        <text x="184" y="201" font-size="8" font-weight="700" text-anchor="middle" fill="#DDF7FF">OPERATIONS</text>
+      </g>
+
+      <!-- Central AI Orchestrator -->
+      <g filter="url(#agent-glow)">
+        <circle cx="120" cy="120" r="34" fill="url(#orchestrator-fill)" stroke="#38BDF8" stroke-width="2.4"/>
+        <circle cx="120" cy="120" r="26" fill="none" stroke="#22B8CF" stroke-width="1.2" opacity="0.85"/>
+        <path d="M109 116 C109 111 113 108 117 110 C120 104 130 107 130 113 C136 115 135 124 129 125 H111 C105 125 104 118 109 116 Z" fill="none" stroke="#B8F3FF" stroke-width="1.7" stroke-linejoin="round"/>
+        <circle cx="120" cy="120" r="2.5" fill="#E0FAFF"/>
+      </g>
+      <text x="120" y="139" font-size="7.5" font-weight="800" letter-spacing="0.7" text-anchor="middle" fill="#EAFBFF">ORCHESTRATOR</text>
+      <text x="120" y="151" font-size="6.5" font-weight="700" letter-spacing="1.1" text-anchor="middle" fill="#7DD3FC">AI CORE</text>
+    </svg>`,
+    
+    "rag-document": `<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" class="service-illustration service-architecture">
+      <defs>
+        <linearGradient id="doc-module" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#164B7A"/><stop offset="1" stop-color="#0D345B"/>
+        </linearGradient>
+        <filter id="doc-glow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <!-- Document inputs -->
+      <g fill="url(#doc-module)" stroke="#38BDF8" stroke-width="1.7">
+        <rect x="12" y="48" width="47" height="61" rx="6"/>
+        <rect x="12" y="126" width="47" height="61" rx="6"/>
+      </g>
+      <g fill="none" stroke="#7DD3FC" stroke-width="1.5" stroke-linecap="round">
+        <path d="M22 64 H49 M22 73 H45 M22 82 H48 M22 142 H49 M22 151 H45 M22 160 H48"/>
+        <path d="M35 109 V120 M35 120 H80 M35 126 V120"/>
+      </g>
+      <path d="M59 78 H82 M59 156 H82 M82 78 V156" fill="none" stroke="#22B8CF" stroke-width="1.8"/>
+      <path d="M82 117 H101" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M96 112 L102 117 L96 122" fill="none" stroke="#38BDF8" stroke-width="2"/>
+      <!-- Processing engine -->
+      <g filter="url(#doc-glow)">
+        <rect x="101" y="82" width="62" height="70" rx="12" fill="url(#doc-module)" stroke="#22B8CF" stroke-width="2"/>
+        <circle cx="132" cy="105" r="13" fill="none" stroke="#7DD3FC" stroke-width="1.8"/>
+        <path d="M126 105 L130 109 L138 100" fill="none" stroke="#7DD3FC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M116 129 H148 M120 137 H144" stroke="#38BDF8" stroke-width="1.6" stroke-linecap="round"/>
+      </g>
+      <text x="132" y="166" text-anchor="middle" font-size="7.5" font-weight="800" fill="#DDF7FF" letter-spacing=".7">AI EXTRACT</text>
+      <!-- Structured knowledge output -->
+      <path d="M163 117 H181" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"/>
+      <path d="M176 112 L182 117 L176 122" fill="none" stroke="#38BDF8" stroke-width="2"/>
+      <g fill="url(#doc-module)" stroke="#22B8CF" stroke-width="1.6">
+        <rect x="184" y="53" width="44" height="39" rx="6"/>
+        <rect x="184" y="101" width="44" height="39" rx="6"/>
+        <rect x="184" y="149" width="44" height="39" rx="6"/>
+      </g>
+      <g fill="none" stroke="#7DD3FC" stroke-width="1.4" stroke-linecap="round">
+        <path d="M194 65 H218 M194 72 H212 M194 113 H218 M194 120 H212 M194 161 H218 M194 168 H212"/>
+      </g>
+      <text x="206" y="84" text-anchor="middle" font-size="6.5" fill="#DDF7FF">DATA</text>
+      <text x="206" y="132" text-anchor="middle" font-size="6.5" fill="#DDF7FF">SEARCH</text>
+      <text x="206" y="180" text-anchor="middle" font-size="6.5" fill="#DDF7FF">INSIGHT</text>
+    </svg>`,
+    
+    "business-automation": `<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" class="service-illustration service-architecture">
+      <defs>
+        <linearGradient id="flow-module" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#164B7A"/><stop offset="1" stop-color="#0D345B"/>
+        </linearGradient>
+        <filter id="flow-glow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <!-- Connected business applications -->
+      <g fill="url(#flow-module)" stroke="#38BDF8" stroke-width="1.7">
+        <rect x="9" y="48" width="54" height="43" rx="7"/>
+        <rect x="9" y="149" width="54" height="43" rx="7"/>
+        <rect x="177" y="48" width="54" height="43" rx="7"/>
+        <rect x="177" y="149" width="54" height="43" rx="7"/>
+      </g>
+      <g fill="none" stroke="#7DD3FC" stroke-width="1.5" stroke-linecap="round">
+        <path d="M20 62 H51 M20 70 H44 M20 78 H48 M20 163 H51 M20 171 H44 M20 179 H48"/>
+        <path d="M188 62 H219 M188 70 H212 M188 78 H216 M188 163 H219 M188 171 H212 M188 179 H216"/>
+      </g>
+      <!-- Flow lines -->
+      <g fill="none" stroke="#22B8CF" stroke-width="2" stroke-linecap="round">
+        <path d="M63 69 H86 Q95 69 95 82 V100"/>
+        <path d="M63 170 H86 Q95 170 95 157 V140"/>
+        <path d="M145 100 V82 Q145 69 154 69 H177"/>
+        <path d="M145 140 V157 Q145 170 154 170 H177"/>
+      </g>
+      <g fill="#7DD3FC">
+        <circle cx="95" cy="100" r="3"/><circle cx="95" cy="140" r="3"/>
+        <circle cx="145" cy="100" r="3"/><circle cx="145" cy="140" r="3"/>
+      </g>
+      <!-- Central workflow orchestrator -->
+      <g filter="url(#flow-glow)">
+        <rect x="83" y="91" width="74" height="58" rx="12" fill="url(#flow-module)" stroke="#22B8CF" stroke-width="2.2"/>
+        <circle cx="120" cy="111" r="10" fill="none" stroke="#7DD3FC" stroke-width="1.8"/>
+        <path d="M115 111 H125 M120 106 V116" stroke="#7DD3FC" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M102 131 H138" stroke="#38BDF8" stroke-width="1.5" stroke-linecap="round"/>
+      </g>
+      <text x="120" y="160" text-anchor="middle" font-size="7.5" font-weight="800" fill="#DDF7FF" letter-spacing=".7">WORKFLOW HUB</text>
+      <text x="36" y="105" text-anchor="middle" font-size="6.5" fill="#DDF7FF">CRM</text>
+      <text x="36" y="206" text-anchor="middle" font-size="6.5" fill="#DDF7FF">FINANCE</text>
+      <text x="204" y="105" text-anchor="middle" font-size="6.5" fill="#DDF7FF">EMAIL</text>
+      <text x="204" y="206" text-anchor="middle" font-size="6.5" fill="#DDF7FF">APPS</text>
+    </svg>`,
+    
+    "voice-agents": `<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" class="service-illustration service-architecture">
+      <defs>
+        <linearGradient id="voice-module" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#164B7A"/><stop offset="1" stop-color="#0D345B"/>
+        </linearGradient>
+        <filter id="voice-glow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <!-- Incoming call -->
+      <g filter="url(#voice-glow)">
+        <rect x="12" y="83" width="48" height="74" rx="10" fill="url(#voice-module)" stroke="#22B8CF" stroke-width="1.8"/>
+        <path d="M28 104 Q23 111 31 122 Q39 133 47 126 L42 118 L36 121 Q31 117 30 112 L34 108 Z" fill="none" stroke="#7DD3FC" stroke-width="2" stroke-linejoin="round"/>
+        <circle cx="36" cy="145" r="2" fill="#38BDF8"/>
+      </g>
+      <text x="36" y="172" text-anchor="middle" font-size="7" font-weight="700" fill="#DDF7FF">CALL</text>
+      <path d="M60 120 H83" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"/>
+      <path d="M78 115 L84 120 L78 125" fill="none" stroke="#38BDF8" stroke-width="2"/>
+      <!-- Conversational AI core -->
+      <g filter="url(#voice-glow)">
+        <rect x="84" y="72" width="72" height="96" rx="14" fill="url(#voice-module)" stroke="#38BDF8" stroke-width="2.2"/>
+        <circle cx="120" cy="105" r="17" fill="none" stroke="#22B8CF" stroke-width="1.8"/>
+        <path d="M110 104 Q120 95 130 104 Q120 115 110 104 Z" fill="none" stroke="#7DD3FC" stroke-width="1.7"/>
+        <circle cx="115" cy="104" r="2" fill="#7DD3FC"/><circle cx="125" cy="104" r="2" fill="#7DD3FC"/>
+        <path d="M103 133 H137 M108 141 H132" stroke="#38BDF8" stroke-width="1.6" stroke-linecap="round"/>
+      </g>
+      <text x="120" y="157" text-anchor="middle" font-size="7" font-weight="800" fill="#DDF7FF">VOICE AI</text>
+      <!-- Speech waveform -->
+      <g stroke="#22B8CF" stroke-width="2.2" stroke-linecap="round">
+        <path d="M94 53 V43 M104 58 V37 M114 61 V34 M124 58 V37 M134 53 V43"/>
+      </g>
+      <path d="M156 120 H179" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"/>
+      <path d="M174 115 L180 120 L174 125" fill="none" stroke="#38BDF8" stroke-width="2"/>
+      <!-- Business actions -->
+      <g fill="url(#voice-module)" stroke="#22B8CF" stroke-width="1.7">
+        <rect x="181" y="48" width="48" height="42" rx="7"/>
+        <rect x="181" y="99" width="48" height="42" rx="7"/>
+        <rect x="181" y="150" width="48" height="42" rx="7"/>
+      </g>
+      <g fill="none" stroke="#7DD3FC" stroke-width="1.5" stroke-linecap="round">
+        <path d="M193 61 H217 M193 68 H212 M193 112 H217 M193 119 H212 M193 163 H217 M193 170 H212"/>
+      </g>
+      <text x="205" y="84" text-anchor="middle" font-size="6.5" fill="#DDF7FF">ANSWER</text>
+      <text x="205" y="135" text-anchor="middle" font-size="6.5" fill="#DDF7FF">BOOK</text>
+      <text x="205" y="186" text-anchor="middle" font-size="6.5" fill="#DDF7FF">FOLLOW UP</text>
+    </svg>`,
+    
+    "website-dev": `<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" class="service-illustration service-architecture">
+      <defs>
+        <linearGradient id="web-module" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#164B7A"/><stop offset="1" stop-color="#0D345B"/>
+        </linearGradient>
+        <filter id="web-glow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <!-- Desktop experience -->
+      <g filter="url(#web-glow)">
+        <rect x="20" y="42" width="139" height="111" rx="9" fill="url(#web-module)" stroke="#38BDF8" stroke-width="2"/>
+        <path d="M20 61 H159" stroke="#22B8CF" stroke-width="1.5"/>
+        <circle cx="32" cy="52" r="2.5" fill="#38BDF8"/><circle cx="41" cy="52" r="2.5" fill="#22B8CF"/><circle cx="50" cy="52" r="2.5" fill="#7DD3FC"/>
+        <rect x="32" y="74" width="55" height="7" rx="3" fill="#38BDF8" opacity=".9"/>
+        <path d="M32 91 H139 M32 99 H125" stroke="#7DD3FC" stroke-width="1.5" stroke-linecap="round" opacity=".8"/>
+        <rect x="32" y="111" width="39" height="27" rx="4" fill="#1D5B8B" stroke="#22B8CF" stroke-width="1.2"/>
+        <rect x="79" y="111" width="25" height="27" rx="4" fill="#164B7A" stroke="#38BDF8" stroke-width="1.2"/>
+        <rect x="112" y="111" width="35" height="27" rx="4" fill="#164B7A" stroke="#22B8CF" stroke-width="1.2"/>
+      </g>
+      <path d="M89 153 V169 H111" fill="none" stroke="#38BDF8" stroke-width="1.8" stroke-dasharray="3 3"/>
+      <!-- Responsive mobile experience -->
+      <g filter="url(#web-glow)">
+        <rect x="165" y="81" width="53" height="104" rx="9" fill="url(#web-module)" stroke="#22B8CF" stroke-width="2"/>
+        <path d="M172 95 H211" stroke="#38BDF8" stroke-width="1.4"/>
+        <rect x="173" y="104" width="37" height="23" rx="3" fill="#1D5B8B" stroke="#38BDF8" stroke-width="1.2"/>
+        <path d="M174 137 H207 M174 145 H201 M174 153 H205" stroke="#7DD3FC" stroke-width="1.4" stroke-linecap="round"/>
+        <circle cx="191" cy="174" r="2.5" fill="#38BDF8"/>
+      </g>
+      <!-- Code and delivery marks -->
+      <g fill="none" stroke="#7DD3FC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M64 187 L53 196 L64 205 M78 187 L89 196 L78 205"/>
+        <path d="M111 191 H137 M111 200 H132"/>
+      </g>
+      <text x="120" y="222" text-anchor="middle" font-size="7.5" font-weight="800" letter-spacing="1" fill="#DDF7FF">DIGITAL EXPERIENCE</text>
+    </svg>`,
+    
+    "social-automation": `<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" class="service-illustration service-architecture">
+      <defs>
+        <linearGradient id="social-module" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#164B7A"/><stop offset="1" stop-color="#0D345B"/>
+        </linearGradient>
+        <filter id="social-glow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <!-- Content planning calendar -->
+      <g filter="url(#social-glow)">
+        <rect x="14" y="43" width="91" height="104" rx="9" fill="url(#social-module)" stroke="#38BDF8" stroke-width="2"/>
+        <path d="M14 66 H105" stroke="#22B8CF" stroke-width="1.5"/>
+        <path d="M35 35 V52 M84 35 V52" stroke="#7DD3FC" stroke-width="3" stroke-linecap="round"/>
+        <g fill="#1D5B8B" stroke="#22B8CF" stroke-width="1.2">
+          <rect x="25" y="78" width="17" height="16" rx="3"/><rect x="51" y="78" width="17" height="16" rx="3"/><rect x="77" y="78" width="17" height="16" rx="3"/>
+          <rect x="25" y="104" width="17" height="16" rx="3"/><rect x="51" y="104" width="17" height="16" rx="3"/><rect x="77" y="104" width="17" height="16" rx="3"/>
+        </g>
+      </g>
+      <text x="59" y="137" text-anchor="middle" font-size="7" font-weight="800" fill="#DDF7FF">CONTENT PLAN</text>
+      <!-- Scheduling and publishing engine -->
+      <path d="M105 96 H127" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"/>
+      <path d="M122 91 L128 96 L122 101" fill="none" stroke="#38BDF8" stroke-width="2"/>
+      <g filter="url(#social-glow)">
+        <rect x="129" y="69" width="56" height="56" rx="12" fill="url(#social-module)" stroke="#22B8CF" stroke-width="2"/>
+        <circle cx="157" cy="94" r="15" fill="none" stroke="#7DD3FC" stroke-width="1.7"/>
+        <path d="M157 84 V94 L165 99" fill="none" stroke="#7DD3FC" stroke-width="2" stroke-linecap="round"/>
+        <path d="M143 114 H171" stroke="#38BDF8" stroke-width="1.5" stroke-linecap="round"/>
+      </g>
+      <text x="157" y="139" text-anchor="middle" font-size="7" font-weight="800" fill="#DDF7FF">SCHEDULER</text>
+      <!-- Multi-channel publishing -->
+      <path d="M185 97 H201 V57 M201 97 V176" fill="none" stroke="#22B8CF" stroke-width="1.8"/>
+      <path d="M201 57 H211 M201 97 H211 M201 137 H211 M201 176 H211" stroke="#38BDF8" stroke-width="1.8"/>
+      <g fill="url(#social-module)" stroke="#38BDF8" stroke-width="1.5">
+        <rect x="211" y="43" width="22" height="27" rx="5"/>
+        <rect x="211" y="83" width="22" height="27" rx="5"/>
+        <rect x="211" y="123" width="22" height="27" rx="5"/>
+        <rect x="211" y="163" width="22" height="27" rx="5"/>
+      </g>
+      <g fill="#7DD3FC">
+        <circle cx="222" cy="56" r="4"/><rect x="217" y="94" width="10" height="5" rx="2"/>
+        <path d="M217 136 H227 M222 131 V141" stroke="#7DD3FC" stroke-width="1.7" stroke-linecap="round"/>
+        <circle cx="222" cy="176" r="4" fill="none" stroke="#7DD3FC" stroke-width="1.5"/>
+      </g>
+      <text x="158" y="164" text-anchor="middle" font-size="6.5" fill="#DDF7FF">PUBLISH</text>
+      <text x="157" y="203" text-anchor="middle" font-size="7.5" font-weight="800" letter-spacing=".8" fill="#DDF7FF">MULTI-CHANNEL</text>
+    </svg>`
+  };
+  
+  return svgMap[icon] || "";
+};
+---
+
+<section class="capabilities-section" id="capabilities" aria-labelledby="capabilities-title">
+  <div class="capabilities-shell">
+    <header class="capabilities-heading">
+      <span class="capabilities-eyebrow">WHAT WE ENGINEER</span>
+      <h2 id="capabilities-title">Automate the Work.<br /><span>Focus on Growing Your Business.</span></h2>
+      <p>We design and build intelligent applications, connected workflows and digital experiences that help businesses work better.</p>
+    </header>
+
+    <div class="services-grid">
+      {services.map((service, index) => (
+        <article 
+          class="service-card" 
+          data-card-index={index} 
+          data-preview-image={service.previewImage}
+          tabindex="0" 
+          aria-label={`${service.title} service`}
+        >
+          <div class="card-illustration">
+            <div set:html={getSVGIcon(service.icon)} />
+          </div>
+          <div class="card-body">
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+            <a class="card-action-link" href="javascript:void(0);" aria-label={`Explore ${service.title} capability`}>
+              Explore capability ↗
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Interactive service preview: selected service plus five clickable thumbnails -->
+<div class="service-preview" aria-hidden="true">
+  <div class="service-preview__backdrop"></div>
+  <div class="service-preview__content" role="dialog" aria-modal="true" aria-label="Explore our services">
+    <button class="service-preview__close" type="button" aria-label="Close service preview">
+      <span aria-hidden="true">&times;</span>
+    </button>
+
+    <div class="service-preview__main">
+      <div class="service-preview__text">
+        <span class="service-preview__eyebrow">EXPLORE OUR CAPABILITIES</span>
+        <h2 class="service-preview__title"></h2>
+        <p class="service-preview__description"></p>
+      </div>
+      <div class="service-preview__image-frame">
+        <img class="service-preview__image" src="" alt="" />
+      </div>
+    </div>
+
+    <aside class="service-preview__navigation" aria-label="Other services">
+      <p class="service-preview__navigation-label">EXPLORE OTHER SERVICES</p>
+      <div class="service-preview__thumbnails">
+        {services.map((service, index) => (
+          <button
+            class="service-preview__thumbnail"
+            type="button"
+            data-preview-index={index}
+            aria-label={`View ${service.title}`}
+            aria-pressed="false"
+          >
+            <span class="service-preview__thumbnail-image">
+              <img src={service.previewImage} alt="" loading="lazy" />
+            </span>
+            <span class="service-preview__thumbnail-title">{service.title}</span>
+          </button>
+        ))}
+      </div>
+      <p class="service-preview__hint">Click a service to view its details</p>
+    </aside>
+  </div>
+</div>
+
+<script>
+  const cards = Array.from(document.querySelectorAll<HTMLElement>(".service-card"));
+  const preview = document.querySelector<HTMLElement>(".service-preview");
+  const previewImage = preview?.querySelector<HTMLImageElement>(".service-preview__image");
+  const previewTitle = preview?.querySelector<HTMLElement>(".service-preview__title");
+  const previewDescription = preview?.querySelector<HTMLElement>(".service-preview__description");
+  const closeButton = preview?.querySelector<HTMLButtonElement>(".service-preview__close");
+  const thumbnailButtons = Array.from(
+    preview?.querySelectorAll<HTMLButtonElement>(".service-preview__thumbnail") ?? []
+  );
+
+  let activeCard: HTMLElement | null = null;
+  let imageSwapTimer: number | undefined;
+
+  function showPreview(card: HTMLElement) {
+    const index = cards.indexOf(card);
+    const cardTitle = card.querySelector<HTMLElement>("h3");
+    const cardDescription = card.querySelector<HTMLElement>("p");
+    const imagePath = card.dataset.previewImage;
+
+    if (!preview || !previewImage || !imagePath || !cardTitle || index < 0) return;
+
+    window.clearTimeout(imageSwapTimer);
+    preview.classList.add("is-changing");
+
+    imageSwapTimer = window.setTimeout(() => {
+      previewImage.src = imagePath;
+      previewImage.alt = `${cardTitle.textContent || "Service"} visualization`;
+      if (previewTitle) previewTitle.textContent = cardTitle.textContent || "";
+      if (previewDescription && cardDescription) {
+        previewDescription.textContent = cardDescription.textContent || "";
+      }
+
+      thumbnailButtons.forEach((button) => {
+        const isSelected = Number(button.dataset.previewIndex) === index;
+        button.hidden = isSelected;
+        button.setAttribute("aria-pressed", String(isSelected));
+      });
+
+      preview.classList.remove("is-changing");
+    }, 120);
+
+    preview.classList.add("is-visible");
+    preview.setAttribute("aria-hidden", "false");
+
+    if (activeCard && activeCard !== card) activeCard.classList.remove("is-active");
+    card.classList.add("is-active");
+    activeCard = card;
+  }
+
+  function closePreview() {
+    if (!preview) return;
+
+    preview.classList.remove("is-visible", "is-changing");
+    preview.setAttribute("aria-hidden", "true");
+    cards.forEach((card) => card.classList.remove("is-active"));
+    thumbnailButtons.forEach((button) => {
+      button.hidden = false;
+      button.setAttribute("aria-pressed", "false");
+    });
+
+    activeCard = null;
+    window.clearTimeout(imageSwapTimer);
+  }
+
+  // Click to open preview on all devices
+  // Enter and Space keys also open the preview when a card is focused
+  cards.forEach((card) => {
+    card.addEventListener("click", (event) => {
+      showPreview(card);
+    });
+
+    card.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        showPreview(card);
+      }
+    });
+  });
+
+  // Thumbnail hover is intentionally inert. A click selects the service.
+  thumbnailButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const index = Number(button.dataset.previewIndex);
+      const selectedCard = cards[index];
+      if (selectedCard) showPreview(selectedCard);
+    });
+  });
+
+  closeButton?.addEventListener("click", closePreview);
+
+  // The preview closes only through its close button or Escape.
+  // Moving outside the original grid, hovering thumbnails, and scrolling
+  // do not dismiss or change the selected service.
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && preview?.classList.contains("is-visible")) {
+      closePreview();
+    }
+  });
+</script>
+
+<style>
+  .capabilities-section {
+    padding: clamp(5rem, 9vw, 8.5rem) 1.5rem;
+    background: linear-gradient(135deg, #f5f9fd 0%, #f9fafb 100%);
+    overflow: clip;
+  }
+
+  .capabilities-shell {
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+
+  .capabilities-heading {
+    max-width: 760px;
+    margin: 0 auto clamp(3rem, 6vw, 5rem);
+    text-align: center;
+  }
+
+  .capabilities-eyebrow {
+    color: #2563eb;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .capabilities-heading h2 {
+    margin: 1rem 0 1.1rem;
+    color: #102a43;
+    font: 700 clamp(2.25rem, 5vw, 4rem) / 1.08 "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.055em;
+  }
+
+  .capabilities-heading h2 span {
+    color: #6b849b;
+  }
+
+  .capabilities-heading p {
+    max-width: 590px;
+    margin: 0 auto;
+    color: #62788e;
+    font-size: 1.04rem;
+    line-height: 1.75;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
+
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    height: 360px;
+    padding: 24px;
+    background: #FFFFFF;
+    border: 1px solid #DCE7F3;
+    border-radius: 16px;
+    box-shadow: 0 3px 12px rgba(23, 78, 166, 0.055), 0 1px 3px rgba(16, 42, 67, 0.035);
+    cursor: pointer;
+    outline: none;
+    transform-style: preserve-3d;
+    transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.38s ease, border-color 0.3s ease;
+  }
+
+  .service-card:focus-visible {
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12), 0 8px 20px rgba(16, 42, 67, 0.1), 0 0 0 1px #2563EB;
+  }
+
+  @media (hover: hover) {
+    .service-card:hover {
+      border-color: rgba(37, 99, 235, 0.42);
+      box-shadow: 0 12px 28px rgba(23, 78, 166, 0.13), 0 4px 12px rgba(16, 42, 67, 0.06);
+      transform: perspective(1100px) translateY(-4px) rotateX(0.8deg);
+    }
+  }
+
+  .service-card.is-active {
+    border-color: rgba(37, 99, 235, 0.38);
+    box-shadow: 0 8px 20px rgba(23, 78, 166, 0.10);
+  }
+
+  .card-illustration {
+    position: relative;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    margin-bottom: 16px;
+    flex-shrink: 0;
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid rgba(147, 197, 253, 0.42);
+    border-radius: 12px;
+    background:
+      radial-gradient(ellipse at 50% 42%, rgba(96, 165, 250, 0.34) 0%, rgba(59, 130, 246, 0.20) 44%, transparent 78%),
+      linear-gradient(135deg, #1B4F91 0%, #286BC0 52%, #1D579F 100%);
+    box-shadow: inset 0 1px 0 rgba(191, 219, 254, 0.34), inset 0 -8px 18px rgba(16, 42, 67, 0.08);
+    transition: box-shadow 0.35s ease, border-color 0.35s ease;
+  }
+
+  .card-illustration::before {
+    content: "";
+    position: absolute;
+    inset: 12px 18%;
+    z-index: -1;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(147, 197, 253, 0.24), rgba(56, 189, 248, 0.12) 48%, transparent 72%);
+    filter: blur(13px);
+  }
+
+  .card-illustration > div {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    transform: translateY(-1px);
+    transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), filter 0.38s ease;
+  }
+
+  .card-illustration :global(svg) {
+    width: 100%;
+    height: 100%;
+    max-width: 205px;
+    max-height: 150px;
+    overflow: visible;
+    filter: drop-shadow(0 4px 2px rgba(56, 189, 248, 0.16)) drop-shadow(0 8px 8px rgba(34, 184, 207, 0.08));
+    transition: filter 0.38s ease;
+  }
+
+  .card-illustration :global(svg [stroke]) {
+    stroke-width: 3 !important;
+  }
+
+  /* Keep the Multi-Agent architecture's fine diagram strokes crisp. */
+  .card-illustration :global(svg.agent-architecture [stroke]) {
+    stroke-width: 1.7 !important;
+  }
+
+  .card-illustration :global(svg.agent-architecture rect[stroke]) {
+    stroke-width: 1.5 !important;
+  }
+
+  /* Fine-line treatment for the service architecture illustrations. */
+  .card-illustration :global(svg.service-architecture [stroke]) {
+    stroke-width: 1.6 !important;
+  }
+
+  .card-illustration :global(svg.service-architecture rect[stroke]) {
+    stroke-width: 1.6 !important;
+  }
+
+  .service-card:hover .card-illustration,
+  .service-card:focus-visible .card-illustration {
+    border-color: rgba(56, 189, 248, 0.5);
+    box-shadow: inset 0 1px 0 rgba(56, 189, 248, 0.28), inset 0 -10px 20px rgba(16, 42, 67, 0.12), 0 4px 12px rgba(14, 165, 233, 0.08);
+  }
+
+  .service-card:hover .card-illustration > div,
+  .service-card:focus-visible .card-illustration > div {
+    transform: translateY(-5px) scale(1.045);
+    filter: saturate(1.14);
+  }
+
+  .service-card:hover .card-illustration :global(svg),
+  .service-card:focus-visible .card-illustration :global(svg) {
+    filter: drop-shadow(0 6px 3px rgba(56, 189, 248, 0.22)) drop-shadow(0 12px 12px rgba(34, 184, 207, 0.12));
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .service-card h3 {
+    margin: 0 0 10px;
+    color: #102A43;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    text-align: left;
+  }
+
+  .service-card p {
+    margin: 0 0 16px;
+    color: #526B83;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: left;
+    flex: 1;
+  }
+
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #2563EB;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .card-link:hover {
+    color: #1D4ED8;
+    transform: translateX(2px);
+  }
+
+  .card-link span {
+    transition: transform 0.2s ease;
+  }
+
+  .card-link:hover span {
+    transform: translateX(3px);
+  }
+
+  .card-action-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #2563EB;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    margin-top: auto;
+    cursor: pointer;
+  }
+
+  .card-action-link:hover {
+    color: #1D4ED8;
+    transform: translateX(2px);
+  }
+
+  .service-card:hover .card-action-link {
+    color: #1D4ED8;
+  }
+
+  .card-action-link:hover::after {
+    transform: translateX(2px);
+  }
+
+  .card-action-link::after {
+    content: '';
+    display: inline-block;
+    transition: transform 0.25s ease;
+  }
+
+  /* Interactive service preview */
+  .service-preview {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    padding: clamp(1rem, 4vw, 3rem);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.32s ease, visibility 0.32s ease;
+  }
+
+  .service-preview.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .service-preview__backdrop {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(13, 37, 62, 0.93), rgba(3, 12, 25, 0.98));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .service-preview__content {
+    position: relative;
+    width: min(94vw, 1420px);
+    height: min(86vh, 850px);
+    display: grid;
+    grid-template-columns: minmax(0, 1.65fr) minmax(270px, 0.85fr);
+    align-items: stretch;
+    gap: clamp(1.25rem, 3vw, 3rem);
+    padding: clamp(1.25rem, 3vw, 2.5rem);
+    border: 1px solid rgba(148, 190, 224, 0.2);
+    border-radius: 22px;
+    background: linear-gradient(145deg, rgba(14, 39, 64, 0.96), rgba(5, 20, 37, 0.98));
+    box-shadow: 0 32px 100px rgba(0, 0, 0, 0.48);
+  }
+
+  .service-preview__close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 2;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(191, 219, 254, 0.25);
+    border-radius: 50%;
+    background: rgba(15, 43, 69, 0.9);
+    color: #EAF6FF;
+    font: 300 30px/1 sans-serif;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .service-preview__close:hover {
+    background: #1D579F;
+    border-color: rgba(125, 211, 252, 0.65);
+    transform: rotate(90deg);
+  }
+
+  .service-preview__main {
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(1rem, 2vh, 1.5rem);
+    padding: clamp(0.25rem, 1vw, 1rem);
+  }
+
+  .service-preview__text {
+    max-width: 760px;
+    padding-right: 2.5rem;
+  }
+
+  .service-preview__eyebrow,
+  .service-preview__navigation-label {
+    display: block;
+    margin: 0 0 0.65rem;
+    color: #67D4E8;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+  }
+
+  .service-preview__title {
+    margin: 0 0 0.65rem;
+    color: #F1F8FF;
+    font-size: clamp(1.45rem, 2.6vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.15;
+  }
+
+  .service-preview__description {
+    max-width: 680px;
+    margin: 0;
+    color: rgba(226, 242, 255, 0.76);
+    font-size: clamp(0.88rem, 1.1vw, 1rem);
+    line-height: 1.65;
+  }
+
+  .service-preview__image-frame {
+    min-height: 0;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    border: 1px solid rgba(125, 184, 224, 0.2);
+    border-radius: 16px;
+    background: radial-gradient(ellipse at center, rgba(31, 91, 139, 0.28), rgba(5, 22, 40, 0.72));
+  }
+
+  .service-preview__image {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.2s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .service-preview.is-changing .service-preview__image {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+
+  .service-preview__navigation {
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2.75rem 0.25rem 0.5rem;
+  }
+
+  .service-preview__navigation-label {
+    margin-bottom: 1rem;
+    color: rgba(191, 219, 254, 0.78);
+  }
+
+  .service-preview__thumbnails {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .service-preview__thumbnail {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.55rem;
+    border: 1px solid rgba(148, 190, 224, 0.2);
+    border-radius: 12px;
+    background: rgba(22, 57, 88, 0.55);
+    color: #EAF6FF;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .service-preview__thumbnail[hidden] {
+    display: none;
+  }
+
+  .service-preview__thumbnail:hover,
+  .service-preview__thumbnail:focus-visible {
+    border-color: #38BDF8;
+    background: rgba(35, 91, 137, 0.82);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+    transform: translateY(-2px);
+    outline: none;
+  }
+
+  .service-preview__thumbnail-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 7px;
+    background: #123A5C;
+  }
+
+  .service-preview__thumbnail-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .service-preview__thumbnail-title {
+    color: #EAF6FF;
+    font-size: 0.75rem;
+    font-weight: 650;
+    line-height: 1.35;
+  }
+
+  .service-preview__hint {
+    margin: 1rem 0 0;
+    color: rgba(191, 219, 254, 0.55);
+    font-size: 0.72rem;
+    line-height: 1.5;
+  }
+
+  /* Tablet: 2 columns */
+  @media (max-width: 1024px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: clamp(1.25rem, 2.5vw, 2rem);
+    }
+
+    .service-card {
+      height: auto;
+      min-height: 340px;
+    }
+  }
+
+  /* Mobile: 1 column */
+  @media (max-width: 768px) {
+    .capabilities-section {
+      padding: 4.5rem 1.1rem;
+    }
+
+    .capabilities-heading {
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+
+    .capabilities-heading h2 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+    }
+
+    .capabilities-heading p {
+      font-size: 0.96rem;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .service-card {
+      height: auto;
+      min-height: 320px;
+      padding: 20px;
+    }
+
+    .service-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .card-illustration {
+      height: 138px;
+      margin-bottom: 14px;
+    }
+
+    .card-illustration :global(svg) {
+      max-width: 190px;
+      max-height: 138px;
+    }
+
+    .service-card h3 {
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .card-link {
+      font-size: 12px;
+    }
+
+    .service-preview {
+      padding: 0.75rem;
+    }
+
+    .service-preview__content {
+      width: 100%;
+      height: min(92dvh, 900px);
+      grid-template-columns: 1fr;
+      grid-template-rows: minmax(0, 1fr) auto;
+      gap: 0.85rem;
+      padding: 1rem;
+      border-radius: 16px;
+      overflow-y: auto;
+    }
+
+    .service-preview__close {
+      top: 10px;
+      right: 10px;
+      width: 38px;
+      height: 38px;
+    }
+
+    .service-preview__main {
+      min-height: 0;
+      gap: 0.8rem;
+      padding: 0.25rem 0;
+    }
+
+    .service-preview__text {
+      padding-right: 2.5rem;
+    }
+
+    .service-preview__title {
+      font-size: 1.35rem;
+    }
+
+    .service-preview__description {
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    .service-preview__image-frame {
+      min-height: 180px;
+    }
+
+    .service-preview__navigation {
+      padding: 0.25rem 0;
+    }
+
+    .service-preview__navigation-label {
+      margin-bottom: 0.6rem;
+    }
+
+    .service-preview__thumbnails {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(112px, 1fr);
+      grid-template-columns: none;
+      overflow-x: auto;
+      padding: 0 0 0.4rem;
+      scroll-snap-type: x proximity;
+    }
+
+    .service-preview__thumbnail {
+      scroll-snap-align: start;
+      padding: 0.4rem;
+    }
+
+    .service-preview__thumbnail-title {
+      font-size: 0.68rem;
+    }
+
+    .service-preview__hint {
+      margin-top: 0.5rem;
+    }
+  }
+
+  /* Respect user motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .service-card,
+    .card-link,
+    .service-preview,
+    .service-preview__image,
+    .service-preview__thumbnail,
+    .service-preview__close {
+      transition: none !important;
+      animation: none !important;
+    }
+
+    .card-link span {
+      transition: none !important;
+    }
+  }
+</style>

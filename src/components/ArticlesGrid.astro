@@ -1,0 +1,74 @@
+---
+/**
+ * src/components/ArticlesGrid.astro
+ * 
+ * Grid layout for article cards
+ */
+
+import { articles } from '../data/articles';
+import ArticleCard from './ArticleCard.astro';
+
+interface Props {
+  maxItems?: number;
+}
+
+const { maxItems } = Astro.props;
+
+const displayArticles = maxItems ? articles.slice(0, maxItems) : articles;
+
+// Separate featured and non-featured
+const featured = displayArticles.filter(a => a.featured);
+const nonFeatured = displayArticles.filter(a => !a.featured);
+---
+
+<section class="articles-section" id="articles">
+  <div class="articles-container">
+    <div class="articles-grid" id="articles-grid">
+      {featured.map(article => (
+        <ArticleCard article={article} featured={true} />
+      ))}
+      {nonFeatured.map(article => (
+        <ArticleCard article={article} />
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .articles-section {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
+
+  .articles-container {
+    width: 100%;
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .articles-section {
+      padding: 2.5rem 1.5rem;
+    }
+
+    .articles-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .articles-section {
+      padding: 2rem 1rem;
+    }
+
+    .articles-grid {
+      gap: 1.25rem;
+    }
+  }
+</style>
