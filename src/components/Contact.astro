@@ -1,5 +1,6 @@
 ---
-const formspreeEndpoint = "/api/contact";
+// Use Formspree endpoint directly - get from environment or use default
+const formspreeEndpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT || "";
 
 // Service-specific default messages
 const serviceMessages: Record<string, string> = {
