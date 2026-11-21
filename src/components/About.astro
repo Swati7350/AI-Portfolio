@@ -1,0 +1,215 @@
+---
+
+// Duplicate content is temporary for carousel testing. Add genuine testimonials
+// to this array when they are available; each entry renders as a complete card.
+const testimonials = [
+  {
+    id: "client-testimonial-1",
+    quote: "Working with Paras AI Innovations was an outstanding experience. Their expertise and professionalism were evident throughout the project. They delivered high-quality work, & met all deadlines. Communication was efficient, making the entire process seamless. I highly recommend their services to anyone looking for top-notch service.",
+    label: "Client Testimonial",
+    url: "https://www.linkedin.com/feed/update/urn:li:activity:7515022629569830912",
+  },
+  {
+    id: "client-testimonial-2",
+    quote: "Paras AI Innovations strengthened our digital presence with a professional website and structured product showcase, while helping us explore AI-driven solutions for business growth.",
+    label: "Client Testimonial",
+    url: "https://www.linkedin.com/services/page/314b6331004b391821/",
+  },
+];
+---
+
+<section class="section-about-us flat-spacing" id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="heading-section">
+          <div class="heading-sub fw-semibold effectFade fadeUp">About Us</div>
+          <div class="heading-title text-gradient-2 effectFade fadeRotateX">
+            Intelligent Technology, <br /> <span class="text-orange">Real Business Impact.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xxl-7 col-lg-6 lg-mb-24">
+        <div class="col-left">
+          <div class="position-relative z-5">
+            <h5 class="title fw-semibold text-white">
+              India-based,<br />
+              <span class="text-brand">Serving Clients Worldwide.</span>
+            </h5>
+            <a class="tf-btn" href="/contact/">
+              Start a Project
+            </a>
+          </div>
+          <img
+            class="effectFade fadeRotateX"
+            src="/wp-content/themes/aigocy/assets/images/item/earth.png"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+
+      <div class="col-xxl-5 col-lg-6">
+        <div class="testimonial-carousel" data-testimonial-carousel data-interval="4000">
+          <div class="testimonial-viewport" aria-live="polite" aria-atomic="true">
+            {testimonials.map((testimonial, index) => (
+              <article
+                class={`box-quotes testimonial-slide${index === 0 ? " is-active" : ""}`}
+                data-testimonial-slide
+                data-testimonial-id={testimonial.id}
+                aria-hidden={index === 0 ? "false" : "true"}
+              >
+                <div class="testimonial-top">
+                  <div class="icon mb-8" aria-hidden="true">
+                    <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.9375 20V10.3597C12.9375 7.72182 13.824 5.51559 15.5969 3.74101C17.4177 1.91847 19.8854 0.671463 23 0V6.40288C21.8021 6.78657 21.0115 7.26619 20.6281 7.84173C20.2448 8.3693 20.0292 9.04077 19.9813 9.85612H23V20H12.9375ZM0 20V10.3597C0 7.72182 0.886459 5.51559 2.65938 3.74101C4.48021 1.91847 6.94792 0.671463 10.0625 0V6.40288C8.9125 6.78657 8.12187 7.26619 7.69062 7.84173C7.30729 8.3693 7.09167 9.04077 7.04375 9.85612H10.0625V20H0Z" fill="#E4E4E7"/>
+                    </svg>
+                  </div>
+                  <p class="testimonial-quote">{testimonial.quote}</p>
+                  <div class="closing-quote" aria-hidden="true">
+                    <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10.0625 0V10.3597C10.0625 12.9978 9.17589 15.2041 7.40297 16.9787C5.58216 18.8012 3.11445 20.0483 0 20V13.597C1.19792 13.2133 1.98853 12.7337 2.37178 12.1581C2.76512 11.6305 2.98074 10.9591 3.02866 9.14373H0V0H10.0625ZM23 0V10.3597C23 12.9978 22.1134 15.2041 20.3405 16.9787C18.5197 18.8012 16.052 20.0483 12.9375 20V13.597C14.1354 13.2133 14.926 12.7337 15.3093 12.1581C15.7026 11.6305 15.9182 10.9591 15.9661 9.14373H12.9375V0H23Z" fill="#E4E4E7"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="testimonial-bottom">
+                  <div class="expertise-row">
+                    <div class="d-flex gap-4 text mb-10 about-trustpilot">
+                      <svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M12.6792 18.3019L18.1887 16.9057L20.4906 24L12.6792 18.3019ZM25.3585 9.13208H15.6604L12.6792 0L9.69811 9.13208H0L7.84906 14.7925L4.86792 23.9245L12.717 18.2641L17.5472 14.7925L25.3585 9.13208Z" fill="#219653"/>
+                      </svg>
+                      Our Expertise
+                    </div>
+                    <div class="d-flex gap-2 about-rating-stars" aria-label="Five star rating">
+                      {Array.from({ length: 5 }).map(() => (
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                          <rect width="24" height="24" fill="#3F3F46"/>
+                          <path d="M11.9996 16.4114L15.6496 15.4341L17.1746 20.4001L11.9996 16.4114ZM20.3996 9.99255H13.9746L11.9996 3.6001L10.0246 9.99255H3.59961L8.79961 13.9548L6.82461 20.3473L12.0246 16.385L15.2246 13.9548L20.3996 9.99255Z" fill="#FFFFFF"/>
+                        </svg>
+                      ))}
+                    </div>
+                  </div>
+
+                  <a href={testimonial.url} target="_blank" rel="noopener noreferrer" class="testimonial-link">
+                    {testimonial.label}
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const testimonialCarousels = document.querySelectorAll<HTMLElement>(
+    "[data-testimonial-carousel]"
+  );
+
+  testimonialCarousels.forEach((carousel) => {
+    carousel.dataset.carouselInitialized = "true";
+    const slides = Array.from(carousel.querySelectorAll<HTMLElement>("[data-testimonial-slide]"));
+    if (slides.length < 2) return;
+
+    const interval = Math.max(3000, Number(carousel.dataset.interval) || 4000);
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let activeIndex = Math.max(0, slides.findIndex((slide) => slide.classList.contains("is-active")));
+    let timer: number | undefined;
+    let fallbackTimer: number | undefined;
+    let paused = false;
+    let transitioning = false;
+
+    const clearTimers = () => {
+      if (timer !== undefined) window.clearTimeout(timer);
+      if (fallbackTimer !== undefined) window.clearTimeout(fallbackTimer);
+      timer = undefined;
+      fallbackTimer = undefined;
+    };
+
+    const scheduleNext = () => {
+      clearTimers();
+      if (!paused && !document.hidden && !reducedMotion.matches) {
+        timer = window.setTimeout(advance, interval);
+      }
+    };
+
+    const finishTransition = (outgoing: HTMLElement, incoming: HTMLElement, nextIndex: number) => {
+      outgoing.classList.remove("is-active");
+      outgoing.setAttribute("aria-hidden", "true");
+      incoming.classList.remove("is-entering", "is-entered");
+      incoming.classList.add("is-active");
+      incoming.setAttribute("aria-hidden", "false");
+      activeIndex = nextIndex;
+      transitioning = false;
+      scheduleNext();
+    };
+
+    function advance() {
+      if (paused || document.hidden || transitioning) {
+        scheduleNext();
+        return;
+      }
+      const outgoing = slides[activeIndex];
+      const nextIndex = (activeIndex + 1) % slides.length;
+      const incoming = slides[nextIndex];
+      if (!outgoing || !incoming) return;
+
+      transitioning = true;
+      incoming.classList.add("is-entering");
+      incoming.setAttribute("aria-hidden", "false");
+      void incoming.offsetHeight;
+
+      if (reducedMotion.matches) {
+        finishTransition(outgoing, incoming, nextIndex);
+        return;
+      }
+
+      requestAnimationFrame(() => requestAnimationFrame(() => incoming.classList.add("is-entered")));
+
+      const onEnd = (event: TransitionEvent) => {
+        if (event.target !== incoming || event.propertyName !== "transform") return;
+        incoming.removeEventListener("transitionend", onEnd);
+        if (fallbackTimer !== undefined) window.clearTimeout(fallbackTimer);
+        finishTransition(outgoing, incoming, nextIndex);
+      };
+      incoming.addEventListener("transitionend", onEnd);
+      fallbackTimer = window.setTimeout(() => {
+        incoming.removeEventListener("transitionend", onEnd);
+        if (transitioning) finishTransition(outgoing, incoming, nextIndex);
+      }, 1100);
+    }
+
+    const pause = () => { paused = true; clearTimers(); };
+    const resume = () => { paused = false; scheduleNext(); };
+    const onVisibility = () => document.hidden ? clearTimers() : scheduleNext();
+    const onMotionChange = () => reducedMotion.matches ? clearTimers() : scheduleNext();
+    const cleanup = () => {
+      clearTimers();
+      carousel.removeEventListener("pointerenter", pause);
+      carousel.removeEventListener("pointerleave", resume);
+      carousel.removeEventListener("focusin", pause);
+      carousel.removeEventListener("focusout", onFocusOut);
+      document.removeEventListener("visibilitychange", onVisibility);
+      reducedMotion.removeEventListener?.("change", onMotionChange);
+    };
+    function onFocusOut(event: FocusEvent) {
+      const next = event.relatedTarget as Node | null;
+      if (!next || !carousel.contains(next)) resume();
+    }
+
+    carousel.addEventListener("pointerenter", pause);
+    carousel.addEventListener("pointerleave", resume);
+    carousel.addEventListener("focusin", pause);
+    carousel.addEventListener("focusout", onFocusOut);
+    document.addEventListener("visibilitychange", onVisibility);
+    reducedMotion.addEventListener?.("change", onMotionChange);
+    document.addEventListener("astro:before-swap", cleanup, { once: true });
+    window.addEventListener("pagehide", cleanup, { once: true });
+    scheduleNext();
+  });
+</script>

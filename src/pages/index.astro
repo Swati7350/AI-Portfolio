@@ -1,30 +1,53 @@
 ---
-/**
- * src/pages/index.astro
- * 
- * Homepage - displays all major sections
- */
-import MainLayout from '../layouts/MainLayout.astro';
-import { pages } from '../data/site';
-import Hero from '../components/Hero.astro';
-import ProblemsSection from '../components/ProblemsSection.astro';
-import ProjectsGrid from '../components/ProjectsGrid.astro';
-import IndustriesSection from '../components/IndustriesSection.astro';
-import ClientResults from '../components/ClientResults.astro';
-import ProcessSection from '../components/ProcessSection.astro';
-import AboutSection from '../components/AboutSection.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Services from "../components/Services.astro";
+import FeaturedWorks from "../components/FeaturedWorks.astro";
+import Process from "../components/Process.astro";
+import Benefits from "../components/Benefits.astro";
+import Features from "../components/Features.astro";
+import FAQs from "../components/FAQs.astro";
+import Contact from "../components/Contact.astro";
 ---
-
-<MainLayout
-  title={pages.home.title}
-  description={pages.home.description}
-  ogImage={pages.home.ogImage}
+<BaseLayout 
+  title="Paras AI Innovations | AI Engineering & Software Development"
+  description="Paras AI Innovations builds intelligent AI applications, custom software, AI agents and business automation systems that solve real business challenges."
 >
-  <Hero />
-  <ProblemsSection />
-  <ProjectsGrid showFilter limit={3} />
-  <IndustriesSection />
-  <ClientResults />
-  <ProcessSection />
-  <AboutSection />
-</MainLayout>
+  <main>
+    <Hero />
+    <About />
+    <div class="box-white box-white-top">
+      <Services />
+    </div>
+    <div class="box-white box-white-none">
+      <FeaturedWorks />
+    
+    <Process /><Benefits /><Features />
+   
+    <FAQs /> 
+    </div>
+    <Contact /></main>
+  <style>
+    /* Reproduce the original adjacent white section wrappers:
+       Services has rounded top corners only; Featured Works continues the
+       same surface without a second rounded edge or vertical gap. */
+    .box-white {
+      background-color: var(--neutral-50, #fafafa);
+      margin-left: 16px;
+      margin-right: 16px;
+    }
+    .box-white-top {
+      border-radius: 40px 40px 0 0;
+    }
+    .box-white-none {
+      border-radius: 0;
+    }
+    @media (max-width: 991px) {
+      .box-white { margin-left: 12px; margin-right: 12px; }
+    }
+    @media (max-width: 767px) {
+      .box-white-top { border-radius: 24px 24px 0 0; }
+    }
+  </style>
+</BaseLayout>

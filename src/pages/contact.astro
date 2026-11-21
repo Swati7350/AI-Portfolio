@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Contact from "../components/Contact.astro";
+---
+
+<BaseLayout
+  title="Contact Us | Paras AI Innovations"
+  description="Get in touch with Paras AI Innovations. Reach out to discuss your AI and software development needs with our team of experts."
+  canonicalURL="https://parasaiinnovations.com/contact/"
+>
+  <main class="contact-page">
+    <Contact />
+  </main>
+</BaseLayout>
+
+<style>
+  .contact-page {
+    width: 100%;
+    padding-top: 112px;
+  }
+
+  @media (max-width: 767px) {
+    .contact-page {
+      padding-top: 96px;
+    }
+  }
+</style>

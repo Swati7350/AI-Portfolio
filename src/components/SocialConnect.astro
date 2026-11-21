@@ -1,0 +1,61 @@
+---
+const socials = [
+  { name: "Twitter / X", href: "https://x.com/", icon: "icon-twitter-x" },
+  { name: "Facebook", href: "https://www.facebook.com/", icon: "icon-facebook-f" },
+  { name: "Instagram", href: "https://www.instagram.com/", icon: "icon-instagram" },
+  { name: "Linkedin", href: "https://www.linkedin.com/", icon: "icon-linkedin-in" }
+];
+---
+<footer class="aigocy-footer">
+  <div class="footer-image">
+    <img
+      class="effectFade fadeUp"
+      src="/wp-content/themes/aigocy/assets/images/logo/logo-footer.png"
+      alt=""
+      loading="lazy"
+    />
+  </div>
+
+  <div class="container">
+    <div class="footer-content">
+      <a href="#top" class="footer-logo" aria-label="Aigocy home">
+        <img
+          src="/wp-content/themes/aigocy/assets/images/logo/logo-2.svg"
+          alt="Aigocy"
+          width="86"
+          height="86"
+        />
+      </a>
+
+      <div class="title h6 fw-semibold">
+        Get connected <br /> with Aigocy on social
+      </div>
+      <div class="text">Don't miss our new updates!</div>
+
+      <nav class="tf-social-1 justify-content-center" aria-label="Social media">
+        {socials.map((social) => (
+          <a href={social.href} target="_blank" rel="noopener noreferrer" class="text-body-1 fw-semibold">
+            {social.name}
+            <span class="social-item" aria-hidden="true">
+              <i class={`icon ${social.icon}`}></i>
+            </span>
+          </a>
+        ))}
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <ul class="footer-links d-flex gap-24 align-items-center">
+        <li><a href="#about" class="fw-semibold link-underline link1">About</a></li>
+        <li><a href="#services" class="fw-semibold link-underline link1">Services</a></li>
+        <li><a href="#works" class="fw-semibold link-underline link1">Works</a></li>
+        <li><a href="#contact" class="fw-semibold link-underline link1">Contact</a></li>
+      </ul>
+      <p class="text-secondary coppy-rights text-center">© 2026 Aigocy. All Rights Reserved.</p>
+      <a href="#top" class="action-go-top d-flex gap-8 align-items-center justify-content-end link1">
+        <span class="fw-semibold">Back to top</span>
+        <i class="icon icon-long-arrow-alt-up-solid fs-20" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</footer>

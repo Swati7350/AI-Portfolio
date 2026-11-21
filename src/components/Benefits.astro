@@ -1,0 +1,406 @@
+---
+const projects = [
+  {
+    number: '01',
+    label: 'Legal AI',
+    title: 'Legal AI',
+    description: 'Search legal contracts, retrieve relevant clauses, and identify key terms and obligations using AI-powered document intelligence.',
+    technologies: ['Claude', 'Pinecone', 'LangChain'],
+    image: '/wp-content/themes/aigocy/assets/images/section/legal Contract Intelligence.png',
+    alt: 'Legal AI contract intelligence',
+  },
+  {
+    number: '02',
+    label: 'AI Voice Agent',
+    title: 'Real Estate AI Voice Agent',
+    description: 'An AI-powered voice agent that handles property enquiries, answers property-related questions, and helps schedule site visits.',
+    technologies: ['Retell', 'Vapi', 'Bland'],
+    image: '/wp-content/themes/aigocy/assets/images/section/AI Voice Agent.png',
+    alt: 'AI voice agent handling real estate enquiries',
+  },
+  {
+    number: '03',
+    label: 'Supply Chains AI Agent',
+    title: 'Supply Chains AI Agent',
+    description: 'Automate three-way matching across purchase orders, goods receipt notes, and supplier invoices. Detect discrepancies and duplicate invoices before payment approval.',
+    technologies: ['Python', 'FastAPI', 'OCR', 'SQL'],
+    image: '/wp-content/themes/aigocy/assets/images/section/supply chains Invoice 3wm.png',
+    alt: 'AI-powered three-way matching for supply chain and logistics',
+  },
+  {
+    number: '04',
+    label: 'Manufacturing Automation',
+    title: 'Manufacturing Business Automation',
+    description: 'Automate customer enquiries, quotation workflows, order updates, task assignments, and payment follow-ups. Connect business tools to reduce manual work.',
+    technologies: ['Workflow Automation', 'CRM Integration', 'Make.com · n8n'],
+    image: '/wp-content/themes/aigocy/assets/images/section/manufacturing automation.png',
+    alt: 'Manufacturing business process automation',
+  },
+  {
+    number: '05',
+    label: 'Travel Website',
+    title: 'Travel Website Development',
+    description: 'Build engaging travel websites with destination guides, personalized itineraries, trip planning features, and booking integrations to help travelers discover and plan their journeys.',
+    technologies: ['Website Development', 'API Integration', 'AI Travel Assistant'],
+    image: '/wp-content/themes/aigocy/assets/images/section/Travel Website.png',
+    alt: 'Travel planning website with destination and trip planning features',
+  },
+  {
+    number: '06',
+    label: 'Personalized AI Agent',
+    title: 'Personalized AI Agent',
+    description: 'Configure AI agents around your business with tailored instructions, company knowledge, model settings and connected business tools.',
+    technologies: ['LLM Integration', 'API Integration'],
+    image: '/wp-content/themes/aigocy/assets/images/section/custom ai agent.png',
+    alt: 'Personalized AI agent configuration and business tool integrations',
+  },
+];
+---
+<section class="section-benefits flat-spacing pt-0" id="benefits">
+  <div class="container">
+    <div class="heading-section center mb-70">
+      <div class="heading-sub fw-semibold effectFade fadeUp">Client Results</div>
+      <div class="heading-title text-gradient-3 effectFade fadeRotateX">Shipped. Scaled. Sustained.</div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-5">
+        <div class="benefits-box benefits-secure">
+          <div class="benefits-secure-inner text-center">
+            <img src="/wp-content/themes/aigocy/assets/images/item/benefits-1.svg" alt="Layered security illustration" loading="lazy" decoding="async" />
+          </div>
+          <div class="content">
+            <h6 class="fw-semibold title">Secure by Design</h6>
+            <p class="text text-secondary">PII handling, SSO/SAML, RBAC, encryption, and audit trails - built in, not bolted on. Enterprise-ready from the start.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="benefits-box benefits-design">
+          <div class="benefits-design-inner">
+            <img class="item-img-1" src="/wp-content/themes/aigocy/assets/images/item/benefits-2.svg" alt="AI experience design illustration" loading="lazy" decoding="async" />
+            <img class="item-img-2 rightleft" src="/wp-content/themes/aigocy/assets/images/item/benefits-3.png" alt="" loading="lazy" decoding="async" />
+            <img class="item-img-3 updown" src="/wp-content/themes/aigocy/assets/images/item/benefits-4.png" alt="" loading="lazy" decoding="async" />
+          </div>
+          <div class="content">
+            <h6 class="fw-semibold title">Design-Led AI Experiences</h6>
+            <p class="text text-secondary">We craft prompts, interfaces, and guardrails that feel intuitive - so adoption rises and support tickets fall.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-studies-accordion-wrapper">
+      <div class="case-studies-accordion" data-case-studies-accordion role="group" aria-label="Featured project case studies">
+        {projects.map((project) => (
+          <article
+            class:list={['case-study-panel', project.number === '03' && 'is-expanded']}
+            data-case-study-panel
+            tabindex="0"
+            role="button"
+            aria-expanded={project.number === '03' ? 'true' : 'false'}
+            aria-label={`Show project ${project.number}: ${project.title}`}
+          >
+            <img class="case-study-panel__image" src={project.image} alt={project.alt} loading="lazy" decoding="async" />
+            <div class="case-study-panel__overlay" aria-hidden="true"></div>
+            <span class="case-study-panel__number">{project.number}</span>
+            <span class="case-study-panel__label">{project.label}</span>
+            <div class="case-study-panel__content">
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <div class="case-study-panel__technologies" aria-label="Technology stack">
+                {project.technologies.map((technology) => <span>{technology}</span>)}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Project showcase cards: image-led, with the Aigocy theme's warm neutral
+     surfaces, restrained shadows and signature orange accent. */
+  .case-studies-accordion-wrapper {
+    width: 100%;
+    margin-top: clamp(2rem, 4vw, 3.25rem);
+  }
+
+  .case-studies-accordion {
+    display: flex;
+    align-items: stretch;
+    gap: 14px;
+    width: 100%;
+    height: 500px;
+  }
+
+  .case-study-panel {
+    position: relative;
+    isolation: isolate;
+    display: block;
+    flex: 1 1 0;
+    min-width: 0;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, .06);
+    border-radius: 20px;
+    background: #f5f4f2;
+    box-shadow: 0 5px 0 rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    outline: none;
+    transition: flex .58s cubic-bezier(.2, .7, .2, 1), box-shadow .3s ease, border-color .3s ease;
+  }
+
+  .case-study-panel:hover,
+  .case-study-panel:focus-visible {
+    border-color: rgba(253, 58, 37, .3);
+  }
+
+  .case-study-panel:focus-visible {
+    outline: 2px solid #fd3a25;
+    outline-offset: 3px;
+  }
+
+  .case-study-panel.is-expanded {
+    flex: 2.65 1 0;
+    border-color: rgba(253, 58, 37, .2);
+  }
+
+  .case-study-panel__image,
+  .case-study-panel__overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .case-study-panel__image {
+    z-index: -2;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.035);
+    filter: saturate(.86) contrast(.97) brightness(.82);
+    transition: filter .5s ease, transform .65s ease;
+  }
+
+  /* A restrained charcoal veil keeps vertical labels readable without hiding
+     the project imagery. */
+  .case-study-panel__overlay {
+    z-index: -1;
+    background: linear-gradient(180deg,
+      rgba(9, 9, 11, .24) 0%,
+      rgba(9, 9, 11, .08) 42%,
+      rgba(9, 9, 11, .48) 100%);
+    opacity: 1;
+    transition: opacity .4s ease, background .4s ease;
+  }
+
+  .case-study-panel.is-expanded .case-study-panel__image {
+    filter: saturate(.88) contrast(.98) brightness(.9);
+    transform: scale(1);
+  }
+
+  /* Keep the upper image area natural; concentrate contrast behind the copy. */
+  .case-study-panel.is-expanded .case-study-panel__overlay {
+    background: linear-gradient(180deg,
+      rgba(9, 9, 11, .02) 0%,
+      rgba(9, 9, 11, .02) 34%,
+      rgba(9, 9, 11, .42) 58%,
+      rgba(9, 9, 11, .88) 100%);
+  }
+
+  .case-study-panel__number {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    z-index: 2;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 750;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, .45);
+    pointer-events: none;
+  }
+
+  .case-study-panel__label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%, -50%) rotate(180deg);
+    writing-mode: vertical-rl;
+    color: rgba(255, 255, 255, .98);
+    font-size: .7rem;
+    font-weight: 750;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-shadow: 0 1px 9px rgba(0, 0, 0, .6);
+    transition: opacity .22s ease;
+    pointer-events: none;
+  }
+
+  .case-study-panel.is-expanded .case-study-panel__label { opacity: 0; }
+
+  .case-study-panel__content {
+    position: absolute;
+    inset: auto 0 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    padding: 30px 26px 26px;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity .3s ease .08s, transform .38s ease .06s;
+    pointer-events: none;
+  }
+
+  .case-study-panel.is-expanded .case-study-panel__content {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .case-study-panel__eyebrow {
+    color: #ff8a78;
+    font-size: .66rem;
+    font-weight: 800;
+    letter-spacing: .15em;
+  }
+
+  .case-study-panel__content h3 {
+    margin: 0;
+    color: #fff;
+    font-family: var(--font-display, inherit);
+    font-size: clamp(1.1rem, 1.55vw, 1.5rem);
+    font-weight: 750;
+    line-height: 1.25;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, .2);
+  }
+
+  .case-study-panel__content p {
+    max-width: 620px;
+    margin: 0;
+    color: rgba(255, 255, 255, .94);
+    font-size: .9rem;
+    line-height: 1.58;
+    text-shadow: 0 1px 7px rgba(0, 0, 0, .24);
+  }
+
+  .case-study-panel__technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 2px;
+  }
+
+  .case-study-panel__technologies span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 25px;
+    padding: 3px 9px;
+    border: 1px solid rgba(255, 138, 120, .55);
+    border-radius: 6px;
+    background: rgba(253, 58, 37, .2);
+    color: #fff;
+    font-size: .7rem;
+    font-weight: 650;
+    backdrop-filter: blur(5px);
+  }
+
+  @media (max-width: 1050px) {
+    .case-studies-accordion { height: 440px; gap: 10px; }
+    .case-study-panel.is-expanded { flex: 2.8 1 0; }
+    .case-study-panel__content { padding: 22px 18px 20px; }
+    .case-study-panel__content p { font-size: .82rem; }
+  }
+
+  @media (max-width: 700px) {
+    .case-studies-accordion {
+      flex-direction: column;
+      height: auto;
+      gap: 11px;
+    }
+    .case-study-panel,
+    .case-study-panel.is-expanded {
+      flex: none;
+      width: 100%;
+      height: 88px;
+      min-height: 88px;
+      border-radius: 13px;
+      transition: height .38s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .case-study-panel.is-expanded { height: 330px; }
+    .case-study-panel__number {
+      top: 15px;
+      left: 17px;
+      transform: none;
+      font-size: 1rem;
+    }
+    .case-study-panel__label {
+      top: 50%;
+      left: auto;
+      right: 17px;
+      transform: translateY(-50%);
+      writing-mode: horizontal-tb;
+      font-size: .63rem;
+      letter-spacing: .11em;
+    }
+    .case-study-panel__content { padding: 22px 17px 18px; gap: 9px; }
+    .case-study-panel__content h3 { font-size: 1.08rem; }
+    .case-study-panel__content p { font-size: .82rem; }
+    .case-study-panel.is-expanded .case-study-panel__overlay {
+      background: linear-gradient(180deg, rgba(9, 9, 11, .08) 0%, rgba(9, 9, 11, .32) 35%, rgba(9, 9, 11, .9) 100%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .case-study-panel,
+    .case-study-panel__image,
+    .case-study-panel__overlay,
+    .case-study-panel__label,
+    .case-study-panel__content { transition: none !important; }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('[data-case-studies-accordion]').forEach((container) => {
+    const cards = Array.from(container.querySelectorAll('[data-case-study-panel]'));
+    const defaultCard = cards.find((card) =>
+      card.querySelector('.case-study-panel__number')?.textContent.trim() === '03'
+    ) || cards[0];
+
+    const activate = (selected) => {
+      cards.forEach((card) => {
+        const expanded = card === selected;
+        card.classList.toggle('is-expanded', expanded);
+        card.setAttribute('aria-expanded', String(expanded));
+      });
+    };
+
+    container.addEventListener('pointerover', (event) => {
+      if (event.pointerType !== 'mouse' && event.pointerType !== 'pen') return;
+      const card = event.target.closest('[data-case-study-panel]');
+      const previous = event.relatedTarget?.closest?.('[data-case-study-panel]');
+      if (card && container.contains(card) && card !== previous) activate(card);
+    });
+
+    container.addEventListener('pointerleave', (event) => {
+      if (event.pointerType === 'mouse' || event.pointerType === 'pen') activate(defaultCard);
+    });
+
+    cards.forEach((card) => {
+      card.addEventListener('click', () => activate(card));
+      card.addEventListener('focus', () => activate(card));
+      card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          activate(card);
+        }
+      });
+    });
+  });
+</script>
+

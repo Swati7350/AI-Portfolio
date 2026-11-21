@@ -1,0 +1,155 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/project-detail.css";
+
+const tags = ["Document Processing", "RAG", "Semantic Search", "Knowledge Extraction"];
+const challenge = [
+  "Information spread across multiple documents.",
+  "Time-consuming manual searches.",
+  "Difficulty retrieving specific details."
+];
+const solution = [
+  "Automated document processing.",
+  "Semantic search across documents.",
+  "Contextual AI answers with source references."
+];
+const pageStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://parasaiinnovations.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://parasaiinnovations.com/projects/" },
+    { "@type": "ListItem", "position": 3, "name": "Document Intelligence System", "item": "https://parasaiinnovations.com/projects/document-intelligence/" }
+  ]
+};
+---
+<BaseLayout 
+  title="Document Intelligence System | Paras AI Innovations"
+  description="Explore our AI-powered Document Intelligence System for processing business documents, semantic search, knowledge extraction and contextual AI answers."
+  ogImage="/images/projects/document-intelligence-hero.jpg"
+ structuredData={pageStructuredData}>
+  <main class="project-detail-page">
+    <section class="project-detail-hero" aria-labelledby="project-title">
+      <div class="project-hero-orbit project-hero-orbit-top" aria-hidden="true"></div>
+      <div class="project-hero-orbit project-hero-orbit-bottom" aria-hidden="true"></div>
+      <div class="container project-hero-grid">
+        <div class="project-hero-copy">
+          <a class="project-back-link effectFade fadeUp" href="/projects/">
+            <span aria-hidden="true">←</span> All Recent Projects
+          </a>
+          <h1 id="project-title" class="effectFade fadeUp">Document<br />Intelligence<br />System</h1>
+          <span class="project-title-underline" aria-hidden="true"></span>
+          <p class="project-hero-description effectFade fadeUp">
+            Transform business documents into searchable, actionable knowledge with AI. Upload documents,
+            extract key information and get contextual answers from your files through an intelligent
+            document interface.
+          </p>
+          <ul class="project-tags effectFade fadeUp" aria-label="Project capabilities">
+            {tags.map((tag) => <li>{tag}</li>)}
+          </ul>
+          <a class="project-text-link effectFade fadeUp" href="#project-overview">
+            Explore the project <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <div class="project-hero-visual effectFade fadeUp">
+          <img
+            src="/images/projects/document-intelligence-hero.jpg"
+            alt="Document intelligence interface analysing technical manuals and answering questions from business documents"
+            fetchpriority="high"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="project-overview section-space" id="project-overview" aria-labelledby="overview-title">
+      <div class="container">
+        <div class="project-section-heading effectFade fadeUp">
+          <span class="project-eyebrow">Project Overview</span>
+          <h2 id="overview-title">From scattered documents to <em>intelligent knowledge.</em></h2>
+          <p>
+            Finding the right information across large volumes of business documents shouldn't require
+            endless manual searching. We engineered an AI-powered system that makes document information
+            easier to access, understand and use.
+          </p>
+        </div>
+
+        <div class="challenge-solution-grid">
+          <article class="challenge-card effectFade fadeUp">
+            <div class="overview-card-copy">
+              <span class="card-eyebrow">The Challenge</span>
+              <h3>Information buried in<br class="desktop-only"/> business documents</h3>
+              <p class="overview-card-description">Businesses deal with large volumes of PDFs, reports, contracts and records. Finding specific information, extracting key details and locating relevant answers manually can be time-consuming and inefficient.</p>
+              <ul>
+                {challenge.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+          </article>
+
+          <div class="engineer-connector" aria-label="Engineered solution">
+            <span class="connector-line"></span>
+            <span class="connector-arrow" aria-hidden="true">→</span>
+            <span class="connector-label">Engineer</span>
+          </div>
+
+          <article class="solution-card effectFade fadeUp">
+            <div class="overview-card-copy">
+              <span class="card-eyebrow">The Solution</span>
+              <h3>An AI-powered document<br class="desktop-only"/> intelligence system</h3>
+              <p class="overview-card-description">We built an intelligent platform that processes business documents, creates searchable knowledge bases and enables users to retrieve relevant information through natural-language queries.</p>
+              <ul>
+                {solution.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="finished-experience section-space" id="finished-experience" aria-labelledby="experience-title">
+      <div class="container experience-layout">
+        <div class="experience-copy effectFade fadeUp">
+          <span class="project-eyebrow">Product Experience</span>
+          <h2 id="experience-title">Explore the Document Intelligence System</h2>
+          <p>
+            A working AI-powered application that lets users upload documents, search their contents
+            and get contextual answers through a conversational interface.
+          </p>
+        </div>
+        <a class="experience-live-demo-btn" href="https://livedemo-document-intelligence.parasaiinnovations.com/" target="_blank" rel="noopener noreferrer">
+          Explore Live Demo <span aria-hidden="true">↗</span>
+        </a>
+        <a class="experience-preview effectFade fadeUp" href="https://livedemo-document-intelligence.parasaiinnovations.com/" target="_blank" rel="noopener noreferrer" aria-label="Open the Document Intelligence live demo">
+          <img
+            src="https://parasaiinnovations.com/assets/chatbot%20ui.png"
+            alt="Document Intelligence System application showing document upload, document search and contextual AI answers"
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
+      </div>
+    </section>
+
+    <section class="project-specific-cta" aria-labelledby="project-cta-title">
+      <div class="project-cta-inner">
+        <div class="project-cta-content">
+          <div class="project-cta-copy">
+            <h2 id="project-cta-title">Have documents holding back your business operations?</h2>
+            <p>Let's build intelligent document systems that make your business information easier to access, understand and act on.</p>
+            <a class="project-cta-button" href="/contact/">
+              Discuss Your Project <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <div class="project-cta-visual" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    const projectContactParams = new URLSearchParams(window.location.search);
+    projectContactParams.set("service", "AI Applications & Business Automations");
+    projectContactParams.set("landing_page", `${window.location.origin}${window.location.pathname}${window.location.search}`);
+    document.querySelectorAll('.project-cta-button, a[href^="/contact/?service="]').forEach((link) => {
+      link.setAttribute("href", `/contact/?${projectContactParams.toString()}`);
+    });
+  </script>
+</BaseLayout>

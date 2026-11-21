@@ -1,0 +1,1173 @@
+/* ==========================================================================
+   Aigocy theme foundation
+   Original theme styles remain the source of truth for visual components.
+   This file contains only project-specific overrides and interaction support.
+   ========================================================================== */
+
+@import url("/wp-content/themes/aigocy/assets/css/bootstrap.min.css");
+@import url("/wp-content/themes/aigocy/assets/fonts/fonts.css");
+@import url("/wp-content/themes/aigocy/assets/icon/icomoon/style.css");
+@import url("/wp-content/themes/aigocy/assets/css/animate.css");
+@import url("/wp-content/themes/aigocy/assets/css/styles.css");
+
+/* 1. Global behaviour and shared section surfaces
+   -------------------------------------------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.box-white {
+  margin-inline: 16px;
+  background-color: var(--neutral-50, #fafafa);
+}
+
+.box-white-top {
+  border-radius: 40px 40px 0 0;
+}
+
+.box-white-none {
+  border-radius: 0;
+}
+
+@media (max-width: 991px) {
+  .box-white {
+    margin-inline: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .box-white-top {
+    border-radius: 24px 24px 0 0;
+  }
+
+  .section-hero .hero-image {
+    background-attachment: scroll;
+  }
+
+  .section-hero .content-wrap .text br {
+    display: none;
+  }
+}
+
+/* 2. About
+   -------------------------------------------------------------------------- */
+
+.section-about-us .about-trustpilot {
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.section-about-us .about-rating-stars {
+  flex-wrap: nowrap;
+}
+
+.section-about-us .about-rating-stars svg {
+  display: block;
+  flex: 0 0 24px;
+}
+
+@media (max-width: 767px) {
+  .section-about-us .box-quotes .image {
+    width: 100%;
+    max-width: 240px;
+  }
+}
+
+/* 3. Services
+   -------------------------------------------------------------------------- */
+
+.section-services .accordion-action {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.section-services .accordion-action:focus-visible {
+  outline: 2px solid #fd3a25;
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+.section-services .service-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.42s ease,
+    opacity 0.3s ease;
+}
+
+.section-services .service-panel > .accordion-content {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.section-services .service-panel.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.section-services .accordion-faq_item .accordion-action:not(.collapsed) {
+  cursor: default;
+}
+
+.section-services .services-image {
+  width: 115%;
+  max-width: 580px;
+  margin-top: clamp(20px, 10vw, 140px);
+}
+
+@media (max-width: 991px) {
+  .section-services .services-image {
+    width: min(100%, 420px);
+    margin-top: 48px;
+  }
+}
+
+@media (max-width: 575px) {
+  .section-services .services-image {
+    width: 100%;
+    margin-top: 36px;
+  }
+}
+
+.section-services .services-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transition:
+    opacity 0.25s ease,
+    transform 0.55s ease;
+}
+
+.section-services .services-image img.is-changing {
+  opacity: 0.25;
+  transform: scale(0.985);
+}
+
+.section-services .list-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* 4. Featured works
+   -------------------------------------------------------------------------- */
+
+.section-featured-works .featured-works-item .image {
+  height: clamp(260px, 44vw, 620px);
+}
+
+.section-featured-works .featured-works-item .image img {
+  display: block;
+}
+
+.section-featured-works .featured-works-item .content .bot .heading {
+  margin: 0;
+  font-size: clamp(26px, 3vw, 40px);
+  line-height: 1.12;
+}
+
+.section-featured-works .featured-works-item .content .grid-text .title {
+  margin-bottom: 10px;
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+}
+
+.section-featured-works .featured-works-item .content .grid-text .text-body-3 {
+  line-height: 1.55;
+}
+
+@media (max-width: 767px) {
+  .section-featured-works .featured-works-item .image {
+    height: 250px;
+  }
+}
+
+/* 5. Process
+   -------------------------------------------------------------------------- */
+
+.section-process .process-slide {
+  min-width: 0;
+}
+
+.section-process .process-track {
+  display: flex;
+  gap: 24px;
+  margin: -8px -8px 0;
+  padding: 8px 8px 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  outline: none;
+}
+
+.section-process .process-track::-webkit-scrollbar {
+  display: none;
+}
+
+.section-process .process-slide-item {
+  flex: 0 0 56.2%;
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.section-process .process-card {
+  height: 100%;
+  min-height: 420px;
+}
+
+.section-process .process-card .icon {
+  flex: 0 0 72px;
+}
+
+.section-process .process-card .content .title {
+  font-size: 24px;
+}
+
+.section-process .process-card .content .text {
+  line-height: 1.65;
+}
+
+.section-process .group-btn-slider {
+  display: flex;
+  gap: 12px;
+}
+
+.section-process .group-btn-slider button {
+  display: inline-flex;
+  width: 52px;
+  height: 52px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--neutral-200);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--neutral-800);
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.section-process .group-btn-slider button:not(:disabled):hover {
+  border-color: #fd3a25;
+  background: #fd3a25;
+  color: var(--white);
+}
+
+.section-process .group-btn-slider button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.section-process .group-btn-slider button:focus-visible,
+.section-process .process-track:focus-visible {
+  outline: 2px solid #fd3a25;
+  outline-offset: 4px;
+}
+
+@media (max-width: 991px) {
+  .section-process .process-slide-item {
+    flex-basis: min(78%, 440px);
+  }
+
+  .section-process .process-card {
+    min-height: 390px;
+  }
+}
+
+@media (max-width: 575px) {
+  .section-process .process-track {
+    gap: 16px;
+  }
+
+  .section-process .process-slide-item {
+    flex-basis: 88%;
+  }
+
+  .section-process .process-card {
+    min-height: 360px;
+    padding: 26px;
+    border-radius: 30px;
+  }
+
+  .section-process .process-card .icon,
+  .section-process .process-card .content {
+    margin-bottom: 60px;
+  }
+}
+
+/* 6. Benefits
+   -------------------------------------------------------------------------- */
+
+.section-benefits .benefits-progress-inner .benefits-progress-item {
+  min-width: 0;
+}
+
+.section-benefits .benefits-progress-inner .progress-line {
+  flex: 0 0 auto;
+  max-width: 100%;
+  transition: width 1.15s cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+.section-benefits .benefits-progress-inner .progress-text {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.section-benefits .benefits-design .benefits-design-inner .item-img-1,
+.section-benefits .benefits-secure-inner img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 991px) {
+  .section-benefits .row > [class*="col-"] {
+    margin-bottom: 24px;
+  }
+
+  .section-benefits .row > [class*="col-"]:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* 7. Features
+   -------------------------------------------------------------------------- */
+
+.section-features {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-features .features-wrap {
+  position: relative;
+  z-index: 2;
+  gap: 28px;
+}
+
+.section-features .features-col {
+  width: calc((100% - 264px) / 2);
+}
+
+.section-features .features-col.col-right {
+  margin-left: 7%;
+}
+
+.section-features .features-col.col-left {
+  margin-right: 7%;
+}
+
+.section-features .features-center {
+  position: relative;
+  z-index: 3;
+  flex: 0 0 208px;
+}
+
+.section-features .features-center img {
+  display: block;
+  width: 76%;
+  max-width: 160px;
+  height: auto;
+}
+
+.section-features .features-item {
+  position: relative;
+  z-index: 2;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.section-features .features-item:hover {
+  transform: translateY(-5px);
+}
+
+.section-features .features-item p {
+  margin-bottom: 0;
+  line-height: 24px;
+}
+
+.section-features .side-line-main {
+  pointer-events: none;
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+  .section-features .features-wrap {
+    gap: 18px;
+  }
+
+  .section-features .features-col {
+    width: calc((100% - 230px) / 2);
+  }
+
+  .section-features .features-center {
+    flex-basis: 190px;
+  }
+}
+
+@media (max-width: 991px) {
+  .section-features .features-wrap {
+    gap: 24px;
+  }
+
+  .section-features .features-col {
+    width: 100%;
+    margin-inline: 0;
+  }
+
+  .section-features .features-center {
+    display: none;
+  }
+}
+
+/* 8. Motion preferences
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .section-services .service-panel,
+  .section-services .services-image img,
+  .section-process .process-track,
+  .section-benefits .benefits-progress-inner .progress-line,
+  .section-features .features-item {
+    transition: none !important;
+  }
+
+  .section-features .features-item:hover {
+    transform: none;
+  }
+
+  .section-features .side-line-main {
+    display: none;
+  }
+}
+
+.text-orange {
+  color: #FF4B2B;
+  background: none;
+  -webkit-text-fill-color: #FF4B2B;
+  -webkit-background-clip: unset;
+}
+
+.heading-title .text-orange {
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: #FF4B2B;
+  -webkit-text-stroke: 0px transparent;
+}
+
+/* 9. Hero section headline refinement
+   -------------------------------------------------------------------------- */
+
+.section-hero .content-wrap h1.title.text-display-2 {
+  font-size: 89px;
+  line-height: 89px;
+}
+
+@media (max-width: 991px) {
+  .section-hero .content-wrap h1.title.text-display-2 {
+    font-size: 56px;
+    line-height: 62px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-hero .content-wrap h1.title.text-display-2 {
+    font-size: 30px;
+    line-height: 38px;
+  }
+}
+
+/* 10. About section location text refinement
+   -------------------------------------------------------------------------- */
+
+.section-about-us .col-left .position-relative {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.section-about-us .col-left h5.title {
+  margin: 0 0 24px 0;
+  line-height: 1.4;
+}
+
+.section-about-us .col-left .tf-btn {
+  margin-top: 8px;
+}
+
+/* 11. Testimonial card refinement
+   -------------------------------------------------------------------------- */
+
+.section-about-us .box-quotes {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 40px;
+}
+
+.section-about-us .box-quotes .testimonial-top {
+  display: block;
+  min-width: 0;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--neutral-200, #E4E4E7);
+}
+
+/* The grid keeps every slide in the same footprint while the incoming
+   testimonial rises from below and covers the outgoing testimonial. */
+.section-about-us .box-quotes .testimonial-viewport {
+  display: grid;
+  min-width: 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.section-about-us .box-quotes .testimonial-slide {
+  grid-area: 1 / 1;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0;
+  background: var(--neutral-50, #fafafa);
+  transform: translateY(110%);
+  visibility: hidden;
+  z-index: 0;
+  transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 800ms;
+  will-change: transform;
+}
+
+.section-about-us .box-quotes .testimonial-slide.is-active {
+  transform: translateY(0);
+  visibility: visible;
+  z-index: 1;
+  transition-delay: 0s;
+}
+
+.section-about-us .box-quotes .testimonial-slide.is-entering {
+  visibility: visible;
+  z-index: 2;
+  transition-delay: 0s;
+}
+
+.section-about-us .box-quotes .testimonial-slide.is-entering.is-entered {
+  transform: translateY(0);
+}
+
+.section-about-us .box-quotes .testimonial-slide .icon {
+  flex: 0 0 auto;
+  margin: 0 0 12px;
+}
+
+.section-about-us .box-quotes .testimonial-slide .desc {
+  margin: 0;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.section-about-us .box-quotes .testimonial-slide .closing-quote {
+  display: flex;
+  margin-top: 16px;
+  justify-content: flex-end;
+}
+
+.section-about-us .box-quotes .testimonial-bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  width: 100%;
+  align-self: stretch;
+  box-sizing: border-box;
+  align-items: end;
+  gap: 24px;
+}
+
+.section-about-us .box-quotes .expertise-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-about-us .box-quotes .about-trustpilot {
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  margin: 0;
+}
+
+.section-about-us .box-quotes .about-trustpilot svg {
+  flex: 0 0 26px;
+  width: 26px;
+  height: 24px;
+}
+
+.section-about-us .box-quotes .about-rating-stars {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  margin: 0;
+}
+
+.section-about-us .box-quotes .about-rating-stars svg {
+  display: block;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.section-about-us .box-quotes .review-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-self: end;
+  align-self: end;
+  min-width: 0;
+  text-align: right;
+  align-items: flex-end;
+}
+
+.section-about-us .box-quotes .review-column .label {
+  color: var(--neutral-600, #52525B);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.section-about-us .box-quotes .linkedin-link {
+  color: #FF4B2B;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: opacity 0.2s ease;
+}
+
+.section-about-us .box-quotes .linkedin-link:hover {
+  opacity: 0.8;
+}
+
+.section-about-us .box-quotes .linkedin-link::after {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF4B2B' stroke-width='2'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6m4-3h6v6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 767px) {
+  .section-about-us .box-quotes {
+    padding: 32px 24px;
+    gap: 24px;
+  }
+
+  .section-about-us .box-quotes .testimonial-top {
+    padding-bottom: 24px;
+  }
+
+  .section-about-us .box-quotes .testimonial-bottom {
+    grid-template-columns: 1fr;
+    justify-items: start;
+    gap: 24px;
+  }
+
+  .section-about-us .box-quotes .review-column {
+    justify-self: start;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .section-about-us .box-quotes .testimonial-slide {
+    transition: none !important;
+  }
+}
+
+/* 12. Full-card vertical testimonial carousel
+   The entire white card (quote, expertise rating and review link) moves as one
+   layer. The viewport clips the incoming card as it rises from below. */
+.section-about-us .testimonial-carousel {
+  width: 100%;
+  min-width: 0;
+  border-radius: 40px;
+  filter: drop-shadow(0 12px 12px rgba(0, 0, 0, 0.12));
+}
+
+.section-about-us .testimonial-carousel .testimonial-viewport {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 40px;
+}
+
+.section-about-us .testimonial-carousel .testimonial-slide {
+  grid-area: 1 / 1;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 28px;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 40px;
+  border: 0;
+  border-top: 8px solid #fff;
+  border-radius: 40px;
+  background: #f4f4f5;
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.08);
+  transform: translate3d(0, 110%, 0);
+  visibility: hidden;
+  z-index: 0;
+  transition:
+    transform 800ms cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 800ms;
+  will-change: transform;
+}
+
+.section-about-us .testimonial-carousel .testimonial-slide.is-active {
+  transform: translate3d(0, 0, 0);
+  visibility: visible;
+  z-index: 1;
+  transition-delay: 0s;
+}
+
+.section-about-us .testimonial-carousel .testimonial-slide.is-entering {
+  visibility: visible;
+  z-index: 2;
+  transition-delay: 0s;
+}
+
+.section-about-us .testimonial-carousel .testimonial-slide.is-entering.is-entered {
+  transform: translate3d(0, 0, 0);
+}
+
+.section-about-us .testimonial-carousel .testimonial-top {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 0 28px;
+  border-bottom: 1px solid var(--neutral-200, #e4e4e7);
+}
+
+.section-about-us .testimonial-carousel .testimonial-top .icon {
+  flex: 0 0 auto;
+  margin: 0 0 4px;
+}
+
+.section-about-us .testimonial-carousel .testimonial-top .desc {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.section-about-us .testimonial-carousel .closing-quote {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.section-about-us .testimonial-carousel .testimonial-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 24px;
+}
+
+.section-about-us .testimonial-carousel .expertise-column {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 12px;
+  justify-self: start;
+}
+
+.section-about-us .testimonial-carousel .about-trustpilot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.section-about-us .testimonial-carousel .about-trustpilot svg {
+  flex: 0 0 26px;
+  width: 26px;
+  height: 24px;
+}
+
+.section-about-us .testimonial-carousel .about-rating-stars {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  margin: 0;
+}
+
+.section-about-us .testimonial-carousel .about-rating-stars svg {
+  display: block;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.section-about-us .testimonial-carousel .testimonial-link {
+  color: #ff4b2b;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.section-about-us .testimonial-carousel .testimonial-link:hover {
+  opacity: 0.8;
+}
+
+.section-about-us .testimonial-carousel .testimonial-link::after {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF4B2B' stroke-width='2'%3E%3Cpath d='M7 7l10 10M17 7v10H7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 767px) {
+  .section-about-us .testimonial-carousel,
+  .section-about-us .testimonial-carousel .testimonial-viewport {
+    border-radius: 28px;
+  }
+
+  .section-about-us .testimonial-carousel .testimonial-slide {
+    padding: 30px 24px;
+    gap: 24px;
+    border-radius: 28px;
+  }
+
+  .section-about-us .testimonial-carousel .testimonial-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .section-about-us .testimonial-carousel .testimonial-link {
+    white-space: normal;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-about-us .testimonial-carousel .testimonial-slide {
+    transition: none !important;
+  }
+}
+
+
+/* 13. Final testimonial typography, alignment and icon refinement
+   -------------------------------------------------------------------------- */
+
+.section-about-us .testimonial-carousel .testimonial-top .desc {
+  font-family: inherit;
+  color: #52525B;
+  font-size: clamp(18px, 1.65vw, 22px);
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: normal;
+  text-wrap: pretty;
+}
+
+.section-about-us .testimonial-carousel .testimonial-top .icon svg,
+.section-about-us .testimonial-carousel .testimonial-top .closing-quote svg {
+  display: block;
+  width: 23px;
+  height: 20px;
+}
+
+.section-about-us .testimonial-carousel .about-trustpilot {
+  font-family: inherit;
+  color: #18181B;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.section-about-us .testimonial-carousel .about-rating-stars {
+  align-items: center;
+  gap: 6px;
+}
+
+.section-about-us .testimonial-carousel .about-rating-stars svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+}
+
+.section-about-us .testimonial-carousel .testimonial-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.section-about-us .testimonial-carousel .expertise-row {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.section-about-us .testimonial-carousel .testimonial-link {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  align-self: flex-end;
+  gap: 7px;
+  margin: 0 0 2px auto;
+  margin-top: -3px;
+  color: #FF4B2B;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.section-about-us .testimonial-carousel .testimonial-link::after {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
+  background: no-repeat center / contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF4B2B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 3h7v7'/%3E%3Cpath d='M10 14 21 3'/%3E%3Cpath d='M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5'/%3E%3C/svg%3E");
+}
+
+.section-about-us .testimonial-carousel .testimonial-link:hover {
+  color: #D93B20;
+  opacity: 1;
+}
+
+.section-about-us .testimonial-carousel .testimonial-link:focus-visible {
+  outline: 2px solid #FF4B2B;
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+
+@media (max-width: 767px) {
+  .section-about-us .testimonial-carousel .testimonial-top .desc {
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  .section-about-us .testimonial-carousel .testimonial-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .section-about-us .testimonial-carousel .testimonial-link {
+    align-self: flex-start;
+    margin: 0;
+    white-space: normal;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-about-us .testimonial-carousel .testimonial-link {
+    transition: none;
+  }
+}
+.section-about-us .testimonial-quote {
+  margin: 0;
+  font-family: inherit;
+  font-size: clamp(18px, 1.8vw, 22px) !important;
+  font-weight: 500 !important;
+  line-height: 1.55 !important;
+  letter-spacing: -0.2px;
+  color: #52525B;
+}
+
+@media (max-width: 767px) {
+  .section-about-us .testimonial-quote {
+    font-size: 17px !important;
+    line-height: 1.55 !important;
+  }
+}
+.industry-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+  max-width: 100%;
+}
+
+.industry-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 9px;
+  border: 1px solid #dedee3;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #555;
+  white-space: nowrap;
+  background: #fff;
+}
+
+/* 10. Floating pill navigation
+   -------------------------------------------------------------------------- */
+#masthead.tf-header.header2 {
+  position: sticky !important;
+  top: 14px;
+  z-index: 1000;
+  width: 100%;
+  padding-top: 14px;
+  margin-bottom: -116px;
+  background: transparent !important;
+  box-shadow: none !important;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+#masthead.tf-header.header2.header-sticky {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#masthead.tf-header.header2 .header-inner {
+  width: min(1040px, calc(100% - 48px));
+  max-width: 1040px !important;
+  min-height: 66px;
+  margin-inline: auto !important;
+  padding: 8px 10px 8px 24px;
+  border: 1px solid rgba(28, 29, 33, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.84) !important;
+  box-shadow:
+    0 10px 30px rgba(20, 20, 24, 0.09),
+    0 2px 7px rgba(20, 20, 24, 0.045);
+  -webkit-backdrop-filter: blur(24px) saturate(145%);
+  backdrop-filter: blur(24px) saturate(145%);
+  pointer-events: auto;
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+#masthead.tf-header.header2 .logo-site {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+}
+
+#masthead.tf-header.header2 .logo-site img {
+  display: block;
+  width: 186px;
+  max-width: 100%;
+  height: auto;
+}
+
+#masthead.tf-header.header2 .nav-menu-main {
+  align-items: center;
+  gap: clamp(16px, 2vw, 26px);
+}
+
+#masthead.tf-header.header2 .item-link {
+  white-space: nowrap;
+}
+
+#masthead.tf-header.header2 .tf-btn {
+  flex: 0 0 auto;
+  border-radius: 999px;
+}
+
+@media (max-width: 991px) {
+  #masthead.tf-header.header2 {
+    padding-top: 12px;
+    margin-bottom: -104px;
+  }
+
+  #masthead.tf-header.header2 .header-inner {
+    width: calc(100% - 36px);
+    min-height: 60px;
+    padding: 7px 8px 7px 18px;
+  }
+
+  #masthead.tf-header.header2 .logo-site img {
+    width: 164px;
+  }
+}
+
+@media (max-width: 575px) {
+  #masthead.tf-header.header2 {
+    top: 10px;
+    padding-top: 10px;
+    margin-bottom: -94px;
+  }
+
+  #masthead.tf-header.header2 .header-inner {
+    width: calc(100% - 28px);
+    min-height: 56px;
+    padding: 6px 7px 6px 14px;
+  }
+
+  #masthead.tf-header.header2 .logo-site img {
+    width: 145px;
+  }
+
+  #masthead.tf-header.header2 .mobile-menu {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #masthead.tf-header.header2 .header-inner {
+    transition: none;
+  }
+}
+
+/* Services overview page link */
+.section-services .services-overview-link { display: flex; justify-content: center; margin-top: 42px; }
+.section-services .services-overview-link .tf-btn { display: inline-flex; align-items: center; gap: 10px; }

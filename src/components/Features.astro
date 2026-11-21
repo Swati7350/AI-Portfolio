@@ -1,0 +1,95 @@
+---
+const leftFeatures = [
+  {
+    icon: "icon-robot-solid",
+    title: "Agent-Powered Workflows",
+    description: "Turn repetitive tasks into autonomous flows—agents plan, execute, and report with guardrails, audit trails, and clear handoff to humans."
+  },
+  {
+    icon: "icon-clipboard-check-solid",
+    title: "Eval-First Quality",
+    description: "Measure accuracy, latency, safety, and cost from day one. Our evals and dashboards keep models reliable and budgets predictable."
+  },
+  {
+    icon: "icon-book-solid",
+    title: "Private Knowledge RAG",
+    description: "Make your docs, tickets, and wikis instantly useful with retrieval augmented generation—freshness, citations, and explainability built in."
+  }
+];
+const rightFeatures = [
+  {
+    icon: "icon-user-check-solid",
+    title: "Human-Centered AI UX",
+    description: "Interfaces, prompts, and error states designed for trust and adoption—so the smart thing is also the obvious thing to do."
+  },
+  {
+    icon: "icon-shield-alt-solid",
+    title: "Secure by Design",
+    description: "PII handling, SSO/SAML, RBAC, secrets management, and compliance workflows—ship AI that’s safe, auditable, and enterprise-ready."
+  },
+  {
+    icon: "icon-plug-solid",
+    title: "Seamless Integrations",
+    description: "Plug into your stack (CRM, helpdesk, ERP, data warehouse) with webhooks and APIs to turn insights into action—fast."
+  }
+];
+---
+<section class="section-features flat-spacing pt-0" id="features">
+  <div class="container">
+    <div class="heading-section center mb-64">
+      <div class="heading-sub fw-semibold effectFade fadeUp">Features</div>
+      <div class="heading-title text-gradient-3 effectFade fadeRotateX">All Features in One</div>
+    </div>
+  </div>
+  <div class="position-relative">
+    <div class="container z-5">
+      <div class="features-wrap justify-content-between">
+        <div class="features-col col-left lg-mb-24">
+          {leftFeatures.map((feature) => (
+            <article class="features-item effectFade fadeUp">
+              <i class:list={["icon", feature.icon]} aria-hidden="true"></i>
+              <h6 class="title fw-semibold">{feature.title}</h6>
+              <p class="text-secondary">{feature.description}</p>
+            </article>
+          ))}
+        </div>
+        <div class="features-center features-center--brand flex-shrink" aria-label="Paras AI Innovations">
+          <img src="/images/brand/paras-ai-mark.svg" alt="Paras AI Innovations" loading="lazy" decoding="async" />
+        </div>
+        <div class="features-col col-right">
+          {rightFeatures.map((feature) => (
+            <article class="features-item effectFade fadeUp" data-delay="0.1">
+              <i class:list={["icon", feature.icon]} aria-hidden="true"></i>
+              <h6 class="title fw-semibold">{feature.title}</h6>
+              <p class="text-secondary">{feature.description}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+    <div class="side-line-main d-none d-lg-block wow fadeIn" aria-hidden="true">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mx-auto">
+            <div class="side-line-wrap">
+              <div class="link-break-line left">
+                <div class="link-break-line">
+                  <span class="item top"></span>
+                  <span class="item bottom"></span>
+                </div>
+              </div>
+              <div class="link-break-center">
+                <span class="simu-electric left"></span>
+                <span class="simu-electric right"></span>
+              </div>
+              <div class="link-break-line right">
+                <span class="item top"></span>
+                <span class="item bottom"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

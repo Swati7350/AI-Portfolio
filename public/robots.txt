@@ -1,15 +1,4 @@
-# SEO robots configuration for parasaiinnovations.com
-
 User-agent: *
 Allow: /
-Disallow: /admin/
 
-# Allow sitemap
 Sitemap: https://parasaiinnovations.com/sitemap.xml
-
-# Specific rules for crawlers
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /

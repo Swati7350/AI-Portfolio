@@ -1,381 +1,504 @@
 ---
-/**
- * src/components/Footer.astro
- * 
- * Footer component - four-column layout:
- * 1. Brand (company name, tagline, description)
- * 2. Explore (navigation links)
- * 3. Connect (platform logos)
- * 4. CTA (call-to-action section)
- */
+const currentYear = new Date().getFullYear();
 
-import { site } from '../data/site';
+const exploreLinks = [
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/#about" },
+  { label: "Services", href: "/#services" },
+  { label: "Projects", href: "/projects/" },
+  { label: "Contact", href: "/contact/" },
+];
 ---
-
-<footer class="site-footer" role="contentinfo">
-  <div class="footer-inner">
-    <!-- Column 1: Brand -->
-    <div class="footer-column footer-brand">
-      <p class="footer-brand-name">{site.title}</p>
-      <p class="footer-tagline">Understand the Problem. Engineer the Solution.</p>
-      <p class="footer-description">
-        We build practical solutions that simplify operations, connect existing tools and address real business needs.
-      </p>
-    </div>
-
-    <!-- Column 2: Explore -->
-    <nav class="footer-column footer-nav" aria-label="Explore">
-      <h3 class="footer-heading">Explore</h3>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/#about">About Us</a></li>
-        <li><a href="/case-studies/">Case Studies</a></li>
-        <li><a href="/insights/">Insights</a></li>
-        <li><a href="/industries/">Industries</a></li>
-      </ul>
-    </nav>
-
-    <!-- Column 3: Connect -->
-    <div class="footer-column footer-connect">
-      <h3 class="footer-heading">Connect</h3>
-      <div class="footer-platform-logos">
-        <a
-          href={site.social.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          class="platform-logo-link"
-        >
-          <svg
-            class="platform-logo"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7H10v-7a6 6 0 0 1 6-6z" />
-            <rect x="2" y="9" width="4" height="12" />
-            <circle cx="4" cy="4" r="2" />
-          </svg>
+<footer class="site-footer" id="site-footer">
+  <div class="footer-glow footer-glow-top" aria-hidden="true"></div>
+  <div class="footer-shell">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a class="footer-logo" href="/" aria-label="Paras AI Innovations home">
+          <img
+            src="/images/brand/paras-ai-logo-dark.png"
+            alt="Paras AI Innovations"
+            width="370"
+            height="86"
+            loading="lazy"
+            decoding="async"
+          />
         </a>
+        <span class="footer-brand-rule" aria-hidden="true"></span>
+        <h2>Understand the Problem.<br />Engineer the Solution.</h2>
+        <p>We build practical solutions that simplify operations, connect existing tools and address real business needs.</p>
+      </div>
 
-        <a
-          href={site.social.clutch}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Clutch"
-          class="platform-logo-link"
-        >
-          <span class="platform-wordmark clutch-wordmark" aria-hidden="true">clutch</span>
-        </a>
+      <nav class="footer-column footer-explore" aria-label="Explore">
+        <h3>Explore</h3>
+        <ul>
+          {exploreLinks.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </nav>
 
-        <a
-          href={site.social.upwork}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Upwork"
-          class="platform-logo-link"
-        >
-          <svg
-            class="platform-logo"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3.001-2.439-5.452-5.439-5.452z" />
-          </svg>
-        </a>
+      <div class="footer-column footer-connect">
+        <h3>Connect</h3>
+        <ul>
+          <li>
+            <a href="mailto:sales@parasaiinnovations.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m4 7 8 6 8-6"></path></svg>
+              <span>sales@parasaiinnovations.com</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/company/paras-ai-innovations/" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9v9M6 6.5v.1M10 18v-5.2a3 3 0 0 1 6 0V18M10 9v9"></path><rect x="2.5" y="2.5" width="19" height="19" rx="2.5"></rect></svg>
+              <span>LinkedIn <b aria-hidden="true">↗</b></span>
+            </a>
+          </li>
+        </ul>
+      </div>
 
-        <a
-          href={site.social.fiverr}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Fiverr"
-          class="platform-logo-link"
-        >
-          <span class="platform-wordmark fiverr-wordmark" aria-hidden="true">fiverr</span>
+      <div class="footer-column footer-build">
+        <h3>Ready to Build Smarter Systems for Your Business?</h3>
+        <p>Let's discuss how intelligent automation can streamline your workflows and drive growth.</p>
+        <a class="footer-cta" href="/contact/">
+          Discuss Your Project <span aria-hidden="true">↗</span>
         </a>
       </div>
     </div>
 
-    <!-- Column 4: CTA -->
-    <div class="footer-column footer-cta">
-      <div class="footer-cta-content">
-        <h3 class="footer-cta-heading">Ready to Build Smarter Systems for Your Business?</h3>
-        <p class="footer-cta-description">Let's discuss how intelligent automation can streamline your workflows and drive growth.</p>
-        <a href="/contact/" class="footer-cta-button">Discuss Your Project</a>
-      </div>
+    <div class="footer-bottom">
+      <p>© {currentYear} Paras AI Innovations. All rights reserved.</p>
+      <a class="footer-back-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
     </div>
   </div>
 
-  <div class="footer-bottom">
-    <div class="footer-bottom-inner">
-      <p class="footer-copy">
-        © {new Date().getFullYear()} {site.title}. All rights reserved.
-      </p>
-    </div>
-  </div>
+  <svg class="footer-wave" viewBox="0 0 1600 190" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="footerWaveGradient" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#ff432b" stop-opacity="0.05" />
+        <stop offset="0.55" stop-color="#ff432b" stop-opacity="0.85" />
+        <stop offset="1" stop-color="#ff432b" stop-opacity="0.2" />
+      </linearGradient>
+    </defs>
+    <g fill="none" stroke="url(#footerWaveGradient)" stroke-width="1.1">
+      <path d="M-30 152 C230 10 410 18 640 92 S1060 185 1270 105 1510 38 1640 8" />
+      <path d="M-30 162 C230 20 410 28 640 102 S1060 195 1270 115 1510 48 1640 18" />
+      <path d="M-30 172 C230 30 410 38 640 112 S1060 205 1270 125 1510 58 1640 28" />
+      <path d="M-30 182 C230 40 410 48 640 122 S1060 215 1270 135 1510 68 1640 38" />
+    </g>
+  </svg>
 </footer>
 
-<style>
+<style is="global">
   .site-footer {
-    background: #0B1F44;
-    color: rgba(255, 255, 255, 0.85);
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 0 34px;
+    background: #171719;
+    color: #f8f6f4;
   }
 
-  .footer-inner {
-    max-width: 1240px;
+  .footer-shell {
+    position: relative;
+    z-index: 2;
+    width: min(100%, 1480px);
     margin: 0 auto;
-    padding: 0 1.5rem;
+  }
+
+  .footer-glow {
+    position: absolute;
+    z-index: 0;
+    width: 520px;
+    height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(255, 67, 43, .16), transparent 68%);
+    filter: blur(24px);
+    pointer-events: none;
+  }
+
+  .footer-glow-top {
+    top: -210px;
+    right: -100px;
+  }
+
+  .footer-main {
     display: grid;
-    grid-template-columns: 1.5fr 0.8fr 0.8fr 1.2fr;
-    align-items: start;
-    gap: 48px;
-    padding-top: 56px;
-    padding-bottom: 40px;
+    grid-template-columns: minmax(280px, 1.2fr) minmax(130px, .55fr) minmax(280px, 1.05fr) minmax(300px, 1.2fr);
+    gap: clamp(28px, 3.4vw, 58px);
+    padding: 76px 0 72px;
+  }
+
+  .footer-brand,
+  .footer-column {
+    min-width: 0;
+  }
+
+  .footer-brand {
+    padding-right: clamp(20px, 2.8vw, 44px);
+  }
+
+  .footer-logo {
+    display: inline-flex;
+    width: min(100%, 290px);
+    align-items: center;
+  }
+
+  .footer-logo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .footer-brand-rule {
+    display: block;
+    width: 96px;
+    height: 4px;
+    margin: 25px 0 24px;
+    border-radius: 99px;
+    background: #ff432b;
+  }
+
+  .footer-brand h2 {
+    margin: 0;
+    color: #f8f6f4;
+    font-size: clamp(21px, 1.65vw, 27px);
+    font-weight: 720;
+    line-height: 1.28;
+    letter-spacing: -.035em;
+  }
+
+  .footer-brand p,
+  .footer-build p {
+    margin: 20px 0 0;
+    color: #a6a6ac;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .footer-brand p {
+    max-width: 410px;
   }
 
   .footer-column {
+    padding-left: clamp(22px, 3vw, 48px);
+    border-left: 1px solid rgba(255,255,255,.18);
+  }
+
+  .footer-column h3 {
+    margin: 0 0 30px;
+    color: #f8f6f4;
+    font-size: clamp(19px, 1.55vw, 25px);
+    font-weight: 720;
+    line-height: 1.25;
+    letter-spacing: -.025em;
+  }
+
+  .footer-column ul {
+    display: grid;
+    gap: 17px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .footer-column li {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer-column a {
+    color: #a6a6ac;
+    font-size: 15px;
+    line-height: 1.5;
+    text-decoration: none;
+    transition: color .2s ease, transform .2s ease;
+  }
+
+  .footer-explore a {
+    display: inline-flex;
+  }
+
+  .footer-column a:hover,
+  .footer-back-top:hover {
+    color: #ff705d;
+  }
+
+  .footer-explore a:hover {
+    transform: translateX(4px);
+  }
+
+  .footer-connect ul {
+    gap: 24px;
+  }
+
+  .footer-connect a {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    align-items: center;
+    gap: 17px;
+    overflow-wrap: anywhere;
   }
 
-  /* Brand Column */
-  .footer-brand {
-    gap: 12px;
+  .footer-connect svg {
+    flex: 0 0 23px;
+    width: 23px;
+    height: 23px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
 
-  .footer-brand-name {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: -0.01em;
-    margin: 0;
-  }
-
-  .footer-tagline {
-    font-size: 0.9rem;
+  .footer-connect b {
+    margin-left: 5px;
+    color: #ff6048;
+    font-size: 18px;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .footer-build h3 {
+    max-width: 390px;
+    margin-bottom: 0;
+    font-size: clamp(22px, 1.8vw, 29px);
+  }
+
+  .footer-build p {
+    max-width: 420px;
+    margin-top: 22px;
+  }
+
+  .footer-cta {
+    display: inline-flex;
+    min-height: 54px;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    margin-top: 28px;
+    padding: 0 28px;
+    border: 1px solid #ff432b;
+    border-radius: 999px;
+    background: #ff432b;
+    box-shadow: 0 8px 24px rgba(255,67,43,.17);
+    color: #fff !important;
+    font-size: 15px;
+    font-weight: 700;
+    transition: background .2s ease, box-shadow .2s ease, transform .2s ease;
+  }
+
+  .footer-cta:hover {
+    background: #e93620;
+    box-shadow: 0 12px 28px rgba(255,67,43,.24);
+    transform: translateY(-2px);
+  }
+
+  .footer-cta span {
+    font-size: 19px;
+    line-height: 1;
+  }
+
+  .footer-bottom {
+    display: flex;
+    min-height: 78px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    border-top: 1px solid rgba(255,255,255,.24);
+  }
+
+  .footer-bottom p {
     margin: 0;
+    color: #a6a6ac;
+    font-size: 13px;
     line-height: 1.5;
   }
 
-  .footer-description {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.65);
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  /* Navigation Column */
-  .footer-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .footer-nav a {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .footer-nav a:hover {
-    color: #22D3EE;
-  }
-
-  /* Connect Column - Platform Logos */
-  .footer-platform-logos {
-    display: flex;
-    gap: 12px;
-    flex-wrap: nowrap;
-    margin-top: 8px;
-    align-items: center;
-  }
-
-  .platform-logo-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.08);
-    color: rgba(255, 255, 255, 0.7);
-    transition: all 0.2s;
-    text-decoration: none;
-    flex-shrink: 0;
-  }
-
-  .platform-logo-link:hover {
-    background: rgba(255, 255, 255, 0.15);
-    color: #22D3EE;
-  }
-
-  .platform-logo {
-    flex-shrink: 0;
-    width: 18px;
-    height: 18px;
-  }
-
-  /* Readable monochrome wordmarks for Clutch and Fiverr. */
-  .platform-wordmark {
-    display: inline-block;
-    color: currentColor;
-    line-height: 1;
-    white-space: nowrap;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 800;
-  }
-
-  .clutch-wordmark {
-    font-size: 11px;
-    letter-spacing: -0.07em;
-  }
-
-  .fiverr-wordmark {
-    font-size: 10px;
-    letter-spacing: -0.08em;
-  }
-
-  /* CTA Column */
-  .footer-cta {
-    gap: 16px;
-  }
-
-  .footer-cta-content {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .footer-cta-heading {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #fff;
-    margin: 0;
-    line-height: 1.3;
-  }
-
-  .footer-cta-description {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.75);
-    margin: 0;
-    line-height: 1.6;
-  }
-
-  .footer-cta-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 11px 24px;
-    background: #22D3EE;
-    color: #0B1F44;
-    font-weight: 600;
-    font-size: 0.9rem;
-    border-radius: 8px;
-    text-decoration: none;
-    box-shadow: 0 2px 8px rgba(34, 211, 238, 0.25);
-    transition: all 0.2s;
-    border: none;
-    cursor: pointer;
-  }
-
-  .footer-cta-button:hover {
-    background: #06B6D4;
-    box-shadow: 0 4px 12px rgba(34, 211, 238, 0.35);
-  }
-
-  /* Heading Styles */
-  .footer-heading {
-    font-size: 0.75rem;
-    font-weight: 800;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin: 0;
-    margin-bottom: 4px;
-  }
-
-  /* Footer Bottom */
-  .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(0, 0, 0, 0.2);
-  }
-
-  .footer-bottom-inner {
-    max-width: 1240px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 24px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-
-  .footer-copy {
-    margin: 0;
-    color: #aebdcb;
+  .footer-back-top {
+    color: #a6a6ac;
     font-size: 13px;
-    line-height: 1.6;
+    text-decoration: none;
+    transition: color .2s ease;
   }
 
-  /* Tablet Breakpoint */
-  @media (max-width: 1024px) {
-    .footer-inner {
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      padding-top: 48px;
-      padding-bottom: 32px;
+  .footer-back-top span {
+    margin-left: 6px;
+    color: #ff6048;
+    font-size: 17px;
+  }
+
+  .footer-wave {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    bottom: -18px;
+    width: 56%;
+    height: 160px;
+    opacity: .72;
+    pointer-events: none;
+  }
+
+  @media (max-width: 1199px) {
+    .footer-main {
+      grid-template-columns: minmax(250px, 1fr) minmax(130px, .6fr) minmax(250px, 1fr);
+      gap: 42px 28px;
     }
 
-    .footer-cta {
+    .footer-brand {
+      grid-row: span 2;
+    }
+
+    .footer-build {
+      grid-column: 2 / -1;
+    }
+
+    .footer-build h3 {
+      max-width: 560px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .site-footer {
+      padding: 0 24px;
+    }
+
+    .footer-main {
+      grid-template-columns: 1fr 1fr;
+      gap: 38px 22px;
+      padding: 52px 0 42px;
+    }
+
+    .footer-brand,
+    .footer-build {
+      grid-column: 1 / -1;
+      grid-row: auto;
+    }
+
+    .footer-brand {
+      padding-right: 0;
+    }
+
+    .footer-logo {
+      width: min(100%, 250px);
+    }
+
+    .footer-brand-rule {
+      margin: 20px 0;
+    }
+
+    .footer-brand h2 {
+      font-size: 22px;
+    }
+
+    .footer-brand p,
+    .footer-build p {
+      margin-top: 14px;
+      font-size: 14px;
+    }
+
+    .footer-column {
+      padding-left: 0;
+      border-left: 0;
+    }
+
+    .footer-column h3 {
+      margin-bottom: 19px;
+      font-size: 18px;
+    }
+
+    .footer-column ul {
+      gap: 13px;
+    }
+
+    .footer-column a {
+      font-size: 13px;
+    }
+
+    .footer-connect {
       grid-column: 1 / -1;
     }
-  }
 
-  /* Mobile Breakpoint */
-  @media (max-width: 640px) {
-    .footer-inner {
-      grid-template-columns: 1fr;
-      gap: 24px;
-      padding-top: 40px;
-      padding-bottom: 24px;
+    .footer-connect ul {
+      gap: 17px;
+    }
+
+    .footer-build h3 {
+      max-width: 430px;
+      font-size: 24px;
     }
 
     .footer-cta {
-      grid-column: auto;
+      min-height: 50px;
+      margin-top: 22px;
+      padding: 0 22px;
+      font-size: 14px;
     }
 
-    .footer-bottom-inner {
-      flex-direction: column;
-      align-items: flex-start;
+    .footer-bottom {
+      min-height: 68px;
     }
 
-    .footer-platform-logos {
-      gap: 12px;
-    }
-
-    .platform-logo-link {
-      width: 36px;
-      height: 36px;
-    }
-
-    .platform-logo {
-      width: 18px;
-      height: 18px;
+    .footer-wave {
+      width: 100%;
+      height: 110px;
+      opacity: .38;
     }
   }
+
+  @media (max-width: 380px) {
+    .site-footer {
+      padding-inline: 18px;
+    }
+
+    .footer-main {
+      gap: 32px 16px;
+    }
+
+    .footer-connect a {
+      gap: 11px;
+      font-size: 12px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .footer-column a,
+    .footer-cta,
+    .footer-back-top {
+      transition: none !important;
+    }
+  }
+
+  /* Isolated footer theme overrides: prevent the site's global light-footer rules from winning. */
+  #site-footer.site-footer {
+    background: #171719 !important;
+    color: #f8f6f4 !important;
+    color-scheme: dark;
+  }
+  #site-footer.site-footer .footer-shell { position: relative; z-index: 2; }
+  #site-footer.site-footer .footer-brand h2,
+  #site-footer.site-footer .footer-column h3 {
+    color: #f8f6f4 !important;
+  }
+  #site-footer.site-footer .footer-brand p,
+  #site-footer.site-footer .footer-build p,
+  #site-footer.site-footer .footer-column a,
+  #site-footer.site-footer .footer-bottom p,
+  #site-footer.site-footer .footer-back-top {
+    color: #a6a6ac !important;
+  }
+  #site-footer.site-footer .footer-column a:hover,
+  #site-footer.site-footer .footer-back-top:hover {
+    color: #ff705d !important;
+  }
+  #site-footer.site-footer .footer-cta {
+    background: #ff432b !important;
+    border-color: #ff432b !important;
+    color: #fff !important;
+  }
+  #site-footer.site-footer .footer-bottom {
+    border-top-color: rgba(255,255,255,.24) !important;
+  }
+  #site-footer.site-footer .footer-brand-rule { background: #ff432b !important; }
+  #site-footer.site-footer .footer-wave { pointer-events: none; }
+
 </style>

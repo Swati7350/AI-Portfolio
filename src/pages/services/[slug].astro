@@ -1,0 +1,304 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/service-detail.css";
+
+export function getStaticPaths() {
+  const servicePages = {
+  "ai-applications": {
+    number: "01",
+    title: "AI Applications & Business Automations",
+    eyebrow: "AI ENGINEERING & AUTOMATION",
+    summary: "Build practical AI systems that connect intelligence with the way your business works. From autonomous agents to knowledge systems and workflow automation, we engineer solutions around real operational requirements.",
+    metaTitle: "AI Applications & Business Automation Services | Paras AI Innovations",
+    metaDescription: "Build custom AI applications, multi-agent systems, RAG solutions, voice agents and intelligent business workflows with Paras AI Innovations.",
+    tags: ["Multi-Agent Systems", "AI Voice Agents", "RAG Systems", "Workflow Automation", "Marketing Automation"],
+    introTitle: "Move beyond isolated AI experiments.",
+    intro: "AI creates business value when it is connected to trusted information, existing tools and clearly defined processes. We help organizations identify the right opportunities, design the system architecture and build AI-powered applications that fit their operating environment.",
+    capabilities: [
+      ["AI agents & multi-agent systems", "Design task-oriented agents that reason across defined workflows, use approved tools and coordinate multi-step activities."],
+      ["RAG & knowledge systems", "Make internal documents and business knowledge easier to search and use through retrieval-augmented generation and grounded conversational experiences."],
+      ["AI voice & conversational experiences", "Create voice and chat interfaces that help customers or employees interact with business information and services."],
+      ["Workflow & marketing automation", "Connect AI capabilities with business applications to reduce repetitive handoffs, support decisions and keep workflows moving."]
+    ],
+    outcomesTitle: "Designed around operational priorities.",
+    outcomes: ["Reduce repetitive manual steps across defined processes.", "Make business knowledge easier to find and act on.", "Connect AI capabilities with the systems teams already use.", "Create consistent, traceable workflows with appropriate human oversight."],
+    approach: "We start with the business process, not a predetermined model or tool. Together, we define the use case, information sources, integrations, controls and success criteria before moving through prototyping, engineering, evaluation and deployment.",
+    projects: [
+      ["Document Intelligence System", "Explore an AI-powered document experience for searching content and asking contextual questions.", "/projects/document-intelligence/"],
+      ["Invoice Reconciliation", "See an intelligent workflow concept for matching invoice information and identifying discrepancies.", "/projects/invoice-reconciliation/"],
+      ["Intelligent WhatsApp Conversations", "Explore conversational AI designed to support customer interactions through WhatsApp.", "/projects/whatsapp-ai-agent/"]
+    ],
+    faqs: [
+      ["What types of AI applications can you build?", "We work on custom AI agents, RAG and knowledge systems, voice and conversational interfaces, document workflows and AI-enabled business applications. The right approach depends on the process, data and systems involved."],
+      ["Can you integrate AI with our existing software?", "Yes. Integration requirements are assessed during discovery. Depending on the available interfaces, an AI solution can connect with business applications, databases, APIs and internal systems."],
+      ["Do you use our private business data?", "Data access, processing, retention and deployment requirements are defined with you before implementation. Architecture and safeguards depend on the sensitivity of the data and your operating requirements."],
+      ["How does an AI project begin?", "We begin by understanding the business problem, users, workflow, information sources and desired outcome. This helps establish a practical scope and an implementation approach before development begins."]
+    ]
+  },
+  "data-annotation": {
+    number: "02",
+    title: "Data Annotation & AI Training",
+    eyebrow: "DATA OPERATIONS & AI TRAINING",
+    summary: "Prepare dependable training and evaluation data for AI systems. We support structured annotation and data preparation workflows across image, video, audio and text, with quality processes aligned to the requirements of each project.",
+    metaTitle: "Data Annotation & AI Training Services | Paras AI Innovations",
+    metaDescription: "Image and video annotation, audio transcription, object detection and text data preparation for AI training and evaluation workflows.",
+    tags: ["Video Annotation", "Image Labeling", "Audio Transcription", "Object Detection & Tracking"],
+    introTitle: "Build AI on data you can trust.",
+    intro: "The quality of an AI system depends in part on the quality and consistency of the data used to train and evaluate it. We help define annotation requirements, prepare datasets and establish review workflows that make data outputs more useful for downstream model development.",
+    capabilities: [
+      ["Image labeling", "Structure image datasets with labels and annotations based on agreed taxonomies, instructions and output formats."],
+      ["Video annotation", "Annotate video frames and sequences for use cases that require temporal consistency and clearly defined labeling rules."],
+      ["Audio transcription", "Convert audio into structured text outputs according to project-specific transcription and formatting guidelines."],
+      ["Object detection & tracking", "Support bounding-box, object identification and tracking workflows using defined classes and annotation conventions."]
+    ],
+    outcomesTitle: "A disciplined approach to data quality.",
+    outcomes: ["Consistent annotation guidelines and label definitions.", "Review and quality assurance steps suited to the dataset.", "Structured outputs aligned with downstream training workflows.", "Clear handling of edge cases, ambiguity and annotation feedback."],
+    approach: "We align on the use case, data type, taxonomy, annotation instructions, acceptance criteria and delivery format. A representative sample can be used to validate guidelines and quality expectations before scaling the workflow.",
+    projects: [],
+    faqs: [
+      ["What data types can you support?", "The listed service scope includes image labeling, video annotation, audio transcription, text categorization and object detection and tracking. Project feasibility depends on the data and annotation specification."],
+      ["Can you work with our annotation guidelines?", "Yes. We can work from your existing instructions or collaborate on defining label definitions, edge-case rules and review criteria before production work begins."],
+      ["How is annotation quality managed?", "Quality processes should be agreed for each project and may include guideline reviews, sampling, validation checks and feedback loops. The exact process depends on the task and acceptance criteria."],
+      ["Can you handle a pilot dataset first?", "A pilot is a practical way to validate the annotation scheme, output format and review process before committing to a larger dataset. Scope can be defined during discovery."]
+    ]
+  },
+  "third-party-integrations": {
+    number: "03",
+    title: "Third-Party Integrations",
+    eyebrow: "ENTERPRISE INTEGRATION & DATA SYSTEMS",
+    summary: "Connect the platforms and data your business depends on. We engineer API integrations, data pipelines and application connections that help information move reliably across your technology environment.",
+    metaTitle: "Third-Party & Enterprise Integration Services | Paras AI Innovations",
+    metaDescription: "Connect enterprise platforms with API integrations, data pipelines, Snowflake, Databricks, SnapLogic and custom integration workflows.",
+    tags: ["Snowflake", "Databricks", "Data Pipelines", "API Integration", "SnapLogic", "Enterprise Platforms"],
+    introTitle: "Make your systems work together.",
+    intro: "Disconnected applications create fragmented information and manual work. We help businesses plan and implement integrations between platforms, services and data environments, with attention to the interfaces, transformation logic and operational requirements involved.",
+    capabilities: [
+      ["API integration", "Connect applications and services through documented APIs, authentication mechanisms and agreed data contracts."],
+      ["Data pipelines", "Design data movement and transformation workflows that bring information from source systems into downstream platforms."],
+      ["Snowflake & Databricks", "Support integration and data workflow requirements involving modern cloud data platforms, based on your architecture and use case."],
+      ["Enterprise platform connectivity", "Connect business applications and enterprise systems using available APIs, middleware and integration platforms such as SnapLogic."]
+    ],
+    outcomesTitle: "Integration built for the way your systems operate.",
+    outcomes: ["Reduce avoidable manual data transfers between systems.", "Improve consistency across connected applications.", "Establish clearer data flows and integration responsibilities.", "Create maintainable connections that can evolve with business needs."],
+    approach: "We map the systems, owners, data flows, access constraints and failure scenarios first. The implementation plan then defines integration patterns, transformations, monitoring expectations and a validation approach appropriate to the environment.",
+    projects: [],
+    faqs: [
+      ["Which platforms can you integrate?", "Our listed capabilities include Snowflake, Databricks, SnapLogic, APIs, data pipelines and enterprise platforms. Specific feasibility depends on the systems, interfaces, access and requirements involved."],
+      ["Can you work with an existing integration architecture?", "Yes. We can assess the current architecture and work within existing standards, middleware and security requirements where access and documentation are available."],
+      ["Do you build custom APIs?", "API integration is part of our stated service scope. Custom API development requirements can be assessed alongside the systems and workflows that need to connect."],
+      ["How do you approach integration reliability?", "Reliability requirements are defined during discovery and can include validation, error handling, retries, logging and operational monitoring depending on the use case."]
+    ]
+  },
+  "custom-software": {
+    number: "04",
+    title: "Custom Software & SaaS",
+    eyebrow: "PRODUCT ENGINEERING",
+    summary: "Turn a business requirement or product idea into dependable software. We design and engineer web applications, SaaS platforms and backend systems around your users, workflows and long-term product goals.",
+    metaTitle: "Custom Software & SaaS Development Services | Paras AI Innovations",
+    metaDescription: "Custom SaaS development, web applications, backend engineering and API development tailored to business requirements.",
+    tags: ["SaaS Development", "Web Applications", "Backend & API Development"],
+    introTitle: "Software shaped around your business.",
+    intro: "Off-the-shelf tools do not always fit specialized workflows, product ideas or operational requirements. We work with businesses to translate those needs into software products with considered architecture, usable interfaces and maintainable foundations.",
+    capabilities: [
+      ["SaaS product development", "Engineer subscription-based software products around defined user roles, product workflows and business requirements."],
+      ["Web application development", "Build browser-based applications that bring business processes, information and user interactions into a cohesive experience."],
+      ["Backend engineering", "Develop application logic, data models and service layers that support product functionality and integrations."],
+      ["API development", "Create application interfaces that enable systems, services and front-end experiences to communicate through defined contracts."]
+    ],
+    outcomesTitle: "A product foundation built to evolve.",
+    outcomes: ["Translate business requirements into a defined product scope.", "Create software experiences aligned with user workflows.", "Establish maintainable backend and API foundations.", "Plan for future features, integrations and operational needs."],
+    approach: "We work through discovery, requirements, experience design, architecture, implementation and validation. The delivery plan is shaped around product complexity, existing systems, stakeholders and the release goals agreed at the outset.",
+    projects: [],
+    faqs: [
+      ["Can you develop a SaaS product from scratch?", "We offer SaaS development and can work from an initial product concept or a defined specification. Scope, architecture and delivery milestones are established during discovery."],
+      ["Can you extend an existing application?", "Existing applications can be assessed for enhancements, integrations or backend work. The approach depends on the current codebase, documentation and technical constraints."],
+      ["Do you handle both frontend and backend development?", "Our listed capabilities include web applications, backend engineering and API development. The delivery team and scope are defined according to the product requirements."],
+      ["How do you estimate a software project?", "We first clarify the users, workflows, features, integrations, constraints and delivery expectations. This provides the basis for a realistic scope and estimate."]
+    ]
+  },
+  "websites-digital-marketing": {
+    number: "05",
+    title: "Websites & Digital Marketing",
+    eyebrow: "DIGITAL EXPERIENCE & GROWTH",
+    summary: "Create a stronger digital foundation for your business. We build business websites and support digital visibility through search and paid advertising, with an emphasis on clear communication and purposeful user journeys.",
+    metaTitle: "Website Development & Digital Marketing Services | Paras AI Innovations",
+    metaDescription: "Business website development, Google Ads and SEO optimization to strengthen your digital presence and support measurable marketing activity.",
+    tags: ["Business Websites", "Google Ads", "SEO Optimization"],
+    introTitle: "A digital presence with a clear purpose.",
+    intro: "Your website is often the first detailed interaction a potential customer has with your business. We help shape digital experiences that communicate your offer clearly, guide visitors toward relevant actions and provide a foundation for ongoing search and advertising activity.",
+    capabilities: [
+      ["Business website development", "Create responsive business websites that present your services, products and brand with clarity across devices."],
+      ["Website experience & structure", "Organize page content, navigation and calls to action around the information visitors need to make an informed decision."],
+      ["Google Ads", "Plan and manage paid search activity around relevant search intent, campaign structure, landing-page alignment and conversion measurement."],
+      ["SEO optimization", "Improve technical foundations and on-page relevance so search engines and visitors can better understand your website content."]
+    ],
+    outcomesTitle: "Connect visibility with a better visitor experience.",
+    outcomes: ["Communicate your offering and differentiators more clearly.", "Make important information and enquiry paths easier to find.", "Align paid search campaigns with relevant landing pages.", "Build a stronger foundation for ongoing search visibility."],
+    approach: "We begin by understanding the business, audience, offering and desired visitor actions. Website structure, content, design and marketing activity are then aligned to those priorities, with measurement requirements defined before campaigns go live.",
+    projects: [],
+    faqs: [
+      ["Can you build a website for an established business?", "Yes. Business website development is part of our stated service scope. We can work from existing brand materials and content or help define the site structure and requirements."],
+      ["Do you provide Google Ads services?", "Google Ads is included in our listed capabilities. Campaign scope should define target markets, search intent, landing pages, budgets and conversion measurement."],
+      ["What does SEO optimization include?", "SEO optimization can involve technical and on-page improvements. The work should be scoped after reviewing the website, target searches, content and current technical setup."],
+      ["Can you handle the website and marketing together?", "Website development, Google Ads and SEO optimization are all within the listed service category. Combining them can help align the website experience with acquisition activity, depending on your goals."]
+    ]
+  }
+  };
+
+  return Object.entries(servicePages).map(([slug, service]) => ({ params: { slug }, props: { service, slug } }));
+}
+
+const { service, slug } = Astro.props;
+const canonicalURL = `https://parasaiinnovations.com/services/${slug}/`;
+const pageStructuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": service.title,
+    "description": service.metaDescription,
+    "provider": { "@type": "Organization", "name": "Paras AI Innovations", "url": "https://parasaiinnovations.com/" },
+    "url": canonicalURL
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://parasaiinnovations.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://parasaiinnovations.com/services/" },
+      { "@type": "ListItem", "position": 3, "name": service.title, "item": canonicalURL }
+    ]
+  }
+];
+---
+<BaseLayout title={service.metaTitle} description={service.metaDescription} canonicalURL={canonicalURL} structuredData={pageStructuredData}>
+  <main class="service-detail-page">
+    <section class="service-detail-hero">
+      <div class="service-detail-hero-bg" aria-hidden="true"></div>
+      <div class="container service-detail-hero-content">
+        <a class="service-detail-back" href="/services/">← All Services</a>
+        <div class="service-detail-eyebrow"><span></span>{service.eyebrow}<span></span></div>
+        <div class="service-detail-number">{service.number} / 05</div>
+        <h1>{service.title}</h1>
+        <p>{service.summary}</p>
+        <a class="tf-btn" href="/contact/" data-service-contact>Discuss Your Project <span aria-hidden="true">↗</span></a>
+        <div class="service-detail-hero-tags">
+          {service.tags.map((tag) => <span>{tag}</span>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="service-detail-intro">
+      <div class="container service-detail-intro-grid">
+        <div>
+          <div class="service-detail-section-label">THE OPPORTUNITY</div>
+          <h2>{service.introTitle}</h2>
+        </div>
+        <p>{service.intro}</p>
+      </div>
+    </section>
+
+    <section class="service-detail-capabilities">
+      <div class="container">
+        <div class="service-detail-heading">
+          <div class="service-detail-section-label">WHAT WE DO</div>
+          <h2>Capabilities built around <em>real requirements.</em></h2>
+          <p>Focused expertise, practical implementation and a delivery approach shaped by your business context.</p>
+        </div>
+        <div class="service-capability-grid">
+          {service.capabilities.map((capability, index) => (
+            <article class="service-capability-card">
+              <span class="service-capability-number">0{index + 1}</span>
+              <h3>{capability[0]}</h3>
+              <p>{capability[1]}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="service-detail-outcomes">
+      <div class="container service-outcomes-grid">
+        <div>
+          <div class="service-detail-section-label">BUSINESS VALUE</div>
+          <h2>{service.outcomesTitle}</h2>
+          <p>Every engagement is scoped around the context, constraints and outcomes that matter to your organization.</p>
+        </div>
+        <ul>
+          {service.outcomes.map((outcome) => <li><span aria-hidden="true">↗</span>{outcome}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="service-detail-approach">
+      <div class="container service-approach-inner">
+        <div>
+          <div class="service-detail-section-label">HOW WE WORK</div>
+          <h2>A considered path from <em>requirements to delivery.</em></h2>
+        </div>
+        <p>{service.approach}</p>
+      </div>
+    </section>
+
+    {service.projects.length > 0 && (
+      <section class="service-detail-projects">
+        <div class="container">
+          <div class="service-detail-heading">
+            <div class="service-detail-section-label">SELECTED PROJECTS</div>
+            <h2>Explore related <em>work.</em></h2>
+            <p>See how these capabilities are represented in our project demonstrations.</p>
+          </div>
+          <div class="service-related-projects">
+            {service.projects.map((project, index) => (
+              <a href={project[2]} class="service-related-project">
+                <span>0{index + 1}</span>
+                <div><strong>{project[0]}</strong><small>{project[1]}</small></div>
+                <b aria-hidden="true">↗</b>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <section class="service-detail-faq">
+      <div class="container service-faq-grid">
+        <div>
+          <div class="service-detail-section-label">COMMON QUESTIONS</div>
+          <h2>What you may want <em>to know.</em></h2>
+          <p>Have a requirement that isn't covered here? Tell us about it and we'll help clarify the next step.</p>
+        </div>
+        <div class="service-faq-list">
+          {service.faqs.map((faq, index) => (
+            <details class="service-faq-item">
+              <summary><span>{faq[0]}</span><b aria-hidden="true">+</b></summary>
+              <p>{faq[1]}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="service-detail-cta">
+      <div class="container">
+        <div class="service-detail-cta-inner">
+          <div>
+            <div class="service-detail-section-label">LET'S TALK ABOUT YOUR REQUIREMENTS</div>
+            <h2>Have a challenge worth <em>solving?</em></h2>
+            <p>Share the context, goals and constraints. We'll help you explore a practical way forward.</p>
+          </div>
+          <a class="tf-btn" href="/contact/" data-service-contact>Discuss Your Project <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script define:vars={{ serviceTitle: service.title }}>
+    const serviceContactParams = new URLSearchParams(window.location.search);
+    serviceContactParams.set("service", serviceTitle);
+    const landingPage = `${window.location.origin}${window.location.pathname}${window.location.search}`;
+    serviceContactParams.set("service", serviceTitle);
+    serviceContactParams.set("landing_page", landingPage);
+    document.querySelectorAll("[data-service-contact]").forEach((link) => {
+      link.setAttribute("href", `/contact/?${serviceContactParams.toString()}`);
+    });
+  </script>
+</BaseLayout>

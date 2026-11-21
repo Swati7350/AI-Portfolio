@@ -1,0 +1,293 @@
+---
+const formspreeEndpoint = "/api/contact";
+---
+<section id="contact" class="flat-spacing pt-0">
+  <div class="section-contact">
+    <div class="contact-image">
+      <img src="/wp-content/themes/aigocy/assets/images/section/contact-image-bg.jpg" alt="" loading="lazy" />
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="col-left">
+            <div class="heading-section mb-48">
+              <div class="heading-sub fw-semibold effectFade fadeUp">Contact</div>
+              <div class="heading-title text-gradient-3 effectFade fadeRotateX">Let's Build<br />Intelligent Things</div>
+            </div>
+            <div>
+              <div class="contact-item mb-20 effectFade fadeRotateX">
+                <i class="icon icon-envelope-solid" aria-hidden="true"></i>
+                <div class="content">
+                  <div class="title fw-semibold mb-2">E-mail address</div>
+                  <a class="text" href="mailto:sales@parasaiinnovations.com">sales@parasaiinnovations.com</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-contact effectFade fadeUp">
+            <form id="contact-form" method="POST" action={formspreeEndpoint || ""}>
+              <div class="contact-form-fields">
+              <h4 class="heading fw-semibold">Fill this form below</h4>
+              <fieldset class="mb-21">
+                <label class="fw-semibold text-body-3 mb-20" for="contact-name">Full Name <span aria-label="required">*</span></label>
+                <input 
+                  id="contact-name" 
+                  class="form-control" 
+                  type="text" 
+                  name="name"
+                  autocomplete="name" 
+                  placeholder="Enter your full name" 
+                  required 
+                  aria-required="true"
+                />
+              </fieldset>
+              <fieldset class="mb-21">
+                <label class="fw-semibold text-body-3 mb-20" for="contact-email">Work Email <span aria-label="required">*</span></label>
+                <input 
+                  id="contact-email" 
+                  class="form-control" 
+                  type="email" 
+                  name="email"
+                  autocomplete="email" 
+                  placeholder="Enter your work email" 
+                  required 
+                  aria-required="true"
+                />
+              </fieldset>
+              <fieldset class="mb-21">
+                <label class="fw-semibold text-body-3 mb-20" for="contact-company">Company Name <span aria-label="required">*</span></label>
+                <input
+                  id="contact-company"
+                  class="form-control"
+                  type="text"
+                  name="company"
+                  placeholder="Enter your company name"
+                  autocomplete="organization"
+                  required
+                  aria-required="true"
+                />
+              </fieldset>
+              <fieldset class="mb-21">
+                <label class="fw-semibold text-body-3 mb-20" for="contact-service">Service Required <span aria-label="required">*</span></label>
+                <select
+                  id="contact-service"
+                  class="form-control"
+                  name="service"
+                  required
+                  aria-required="true"
+                >
+                  <option value="" disabled selected>Select a service</option>
+                  <option value="AI Applications & Business Automations">AI Applications & Business Automations</option>
+                  <option value="Data Annotation & AI Training">Data Annotation & AI Training</option>
+                  <option value="Third-Party Integrations">Third-Party Integrations</option>
+                  <option value="Custom Software & SaaS">Custom Software & SaaS</option>
+                  <option value="Websites & Digital Marketing">Websites & Digital Marketing</option>
+                  <option value="Not sure yet">Not sure yet</option>
+                </select>
+              </fieldset>
+              <fieldset class="mb-18">
+                <label class="fw-semibold text-body-3 mb-0" for="contact-message">Message / Project Details <span aria-label="required">*</span></label>
+                <textarea 
+                  id="contact-message" 
+                  class="form-control" 
+                  name="message" 
+                  rows="4" 
+                  maxlength="2000" 
+                  placeholder="Tell us a little about your project"
+                  required
+                  aria-required="true"
+                ></textarea>
+              </fieldset>
+
+              <input type="hidden" name="_gotcha" tabindex="-1" autocomplete="off" />
+              <button 
+                type="submit" 
+                class="tf-btn w-100" 
+                id="contact-submit-btn"
+                disabled={!formspreeEndpoint}
+              >
+                Submit Message
+              </button>
+              </div>
+              <p 
+                class="contact-form-note" 
+                id="contact-form-note" 
+                role="status"
+                aria-live="polite"
+              >
+                {!formspreeEndpoint && "The enquiry form is temporarily unavailable. Please email sales@parasaiinnovations.com."}
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .section-contact .contact-image::after { content:""; position:absolute; inset:0; border-radius:inherit; background:rgba(9,9,11,.16); pointer-events:none; }
+  .section-contact .contact-image { overflow:hidden; }
+  .section-contact .contact-item .content .text { color:inherit; text-decoration:none; }
+  .section-contact .contact-item .content .text:hover { color:var(--brand); }
+  .section-contact .form-contact fieldset { border:0; padding:0; margin-left:0; margin-right:0; min-width:0; }
+  .section-contact .form-contact label { display:block; }
+  .section-contact .form-contact label span { color: #fd3a25; }
+  .section-contact .form-control { width:100%; min-height:50px; padding:13px 16px; border:1px solid #d4d4d8; border-radius:12px; background:#fff; color:#18181b; font:inherit; }
+  .section-contact .form-contact textarea.form-control { min-height:114px; resize:vertical; }
+  .section-contact .form-control:focus { outline:2px solid rgba(253,58,37,.35); border-color:#fd3a25; }
+  .section-contact select.form-control { appearance:auto; cursor:pointer; }
+  .section-contact .form-control:invalid:not(:placeholder-shown) { border-color: #ef4444; }
+  .section-contact .attachment { flex-wrap:wrap; }
+  .section-contact .attachment input { max-width:100%; font-size:13px; }
+  .contact-form-note { margin:14px 0 0; color:#71717a; font-size:12px; line-height:1.5; }
+  .tf-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+  .contact-form--loading .tf-btn { opacity: 0.6; pointer-events: none; }
+  .contact-form--success {
+    padding: 28px 32px;
+    min-height: 0;
+    background-color: #f0fdf4;
+    border-color: #22c55e;
+  }
+  .contact-form--success .contact-form-fields {
+    display: none;
+  }
+  .contact-form--success .contact-form-note {
+    margin: 0;
+    color: #166534;
+    font-size: 15px;
+    line-height: 1.65;
+    text-align: center;
+  }
+  @media (max-width: 767px) {
+    .contact-form--success {
+      padding: 24px 20px;
+    }
+  }
+  .contact-form--error { background-color: #fef2f2; border-color: #ef4444; }
+</style>
+<script define:vars={{ formspreeEndpoint }}>
+  const contactForm = document.querySelector("#contact-form");
+  const submitBtn = document.querySelector("#contact-submit-btn");
+  const noteEl = document.querySelector("#contact-form-note");
+  const formContainer = contactForm?.closest(".form-contact");
+
+  if (contactForm) {
+    window.dataLayer = window.dataLayer || [];
+    let formStartTracked = false;
+    contactForm.addEventListener("focusin", () => {
+      if (formStartTracked) return;
+      formStartTracked = true;
+      window.dataLayer.push({ event: "form_start", form_id: "contact-form" });
+    });
+    const attachmentInput = contactForm.querySelector('[name="attachment"]');
+    attachmentInput?.addEventListener("change", () => {
+      if (attachmentInput.files?.length) {
+        window.dataLayer.push({
+          event: "file_upload",
+          form_id: "contact-form",
+          file_count: attachmentInput.files.length
+        });
+      }
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const trackedKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
+
+    // Keep campaign attribution while a visitor moves from a service page to the contact form.
+    trackedKeys.forEach((key) => {
+      const value = params.get(key);
+      try {
+        if (value) window.sessionStorage.setItem(`paras_${key}`, value);
+        const storedValue = value || window.sessionStorage.getItem(`paras_${key}`) || "";
+        const field = contactForm.querySelector(`[name="${key}"]`);
+        if (field) field.value = storedValue;
+      } catch {
+        const field = contactForm.querySelector(`[name="${key}"]`);
+        if (field) field.value = value || "";
+      }
+    });
+
+    const landingPageField = contactForm.querySelector('[name="landing_page"]');
+    const referrerField = contactForm.querySelector('[name="referrer"]');
+    const incomingLandingPage = params.get("landing_page");
+    try {
+      if (incomingLandingPage) window.sessionStorage.setItem("paras_landing_page", incomingLandingPage);
+      const originalLandingPage = incomingLandingPage || window.sessionStorage.getItem("paras_landing_page") || window.location.href;
+      if (landingPageField) landingPageField.value = originalLandingPage;
+      if (referrerField) referrerField.value = document.referrer || "Direct";
+    } catch {
+      if (landingPageField) landingPageField.value = incomingLandingPage || window.location.href;
+      if (referrerField) referrerField.value = document.referrer || "Direct";
+    }
+
+    const requestedService = params.get("service");
+    const serviceField = contactForm.querySelector('[name="service"]');
+    if (requestedService && serviceField) {
+      const matchingOption = [...serviceField.options].find((option) => option.value === requestedService);
+      if (matchingOption) serviceField.value = requestedService;
+    }
+  }
+
+  if (contactForm && formspreeEndpoint) {
+    contactForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (submitBtn.disabled) return;
+
+      noteEl.textContent = "";
+      formContainer?.classList.remove("contact-form--error", "contact-form--success");
+      submitBtn.disabled = true;
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = "Sending...";
+      formContainer?.classList.add("contact-form--loading");
+
+      try {
+        console.log("Form submission started");
+        console.log("API endpoint:", formspreeEndpoint);
+        
+        const formData = new FormData(contactForm);
+        
+        console.log("Submitting form...");
+        const response = await fetch(formspreeEndpoint, {
+          method: "POST",
+          body: formData,
+        });
+
+        console.log("Response status:", response.status);
+        const result = await response.json();
+        console.log("Response body:", result);
+        
+        if (!response.ok) {
+          throw new Error(result.error || `Form submission failed (${response.status}).`);
+        }
+
+        console.log("Form submission successful!");
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "generate_lead",
+          form_id: "contact-form",
+          service: formData.get("service") || "Not specified"
+        });
+
+        formContainer?.classList.remove("contact-form--loading");
+        formContainer?.classList.add("contact-form--success");
+        noteEl.textContent = "Thank you for contacting Paras AI Innovations. Your enquiry has been received. Our team will get back to you shortly.";
+        noteEl.setAttribute("role", "alert");
+        contactForm.reset();
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        window.setTimeout(() => formContainer?.classList.remove("contact-form--success"), 5000);
+      } catch (error) {
+        console.error("Form submission error:", error);
+        console.error("Error message:", error instanceof Error ? error.message : String(error));
+        formContainer?.classList.remove("contact-form--loading");
+        formContainer?.classList.add("contact-form--error");
+        noteEl.textContent = "We couldn't send your enquiry. Please try again or email sales@parasaiinnovations.com.";
+        noteEl.setAttribute("role", "alert");
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  }
+</script>

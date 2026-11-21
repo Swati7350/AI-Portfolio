@@ -1,0 +1,165 @@
+---
+const services = [
+  {
+    id: "service-1",
+    title: "AI Applications &",
+    second: "Business Automations",
+    number: "01",
+    image: "/wp-content/themes/aigocy/assets/images/section/service-1.jpg",
+    description: "Design AI-Powered applications and autonomous workflows that streamline business operations, automate complex processes, and seamlessly integrate enterprise systems.",
+    tags: ["Multi-Agent Systems", "AI Voice Agents", "RAG Systems", "Workflow Automation", "Marketing Automation"]
+  },
+  {
+    id: "service-2",
+    title: "Data Annotation & ",
+    second: "AI Training",
+    number: "02",
+    image: "/wp-content/themes/aigocy/assets/images/section/service-2.jpg",
+    description: "Provide accurate video annotation, image labeling, audio transcription, and text categorization to prepare data for AI applications.",
+    tags: ["Video Annotation","Image Labeling","Audio Transcription", "Object Detection & Tracking"]
+  },
+  {
+    id: "service-3",
+    title: "Third-Party ",
+    second: "Integrations",
+    number: "03",
+    image: "/wp-content/themes/aigocy/assets/images/section/service-2.jpg",
+    description: "Connect business applications, third-party platforms, and enterprise systems through seamless API integrations, data pipelines, and custom workflows.",
+    tags: ["Snowflake", "Databricks", "Data Pipelines", "API Integration", "SnapLogic", "Enterprise Platforms"]
+  },
+  {
+    id: "service-4",
+    title: "Custom Software ",
+    second: "& SaaS",
+    number: "04",
+    image: "/wp-content/themes/aigocy/assets/images/section/service-3.jpg",
+    description: "Engineer scalable software products and platforms tailored to your business requirements and growth.",
+    tags: ["SaaS Development", "Web Applications", "Backend & API Development"]
+  },
+  {
+    id: "service-5",
+    title: "Websites ",
+    second: "& Digital Marketing",
+    number: "05",
+    image: "/wp-content/themes/aigocy/assets/images/section/service-4.jpg",
+    description: "Create modern, responsive websites and digital experiences designed to strengthen your online presence.",
+    tags: ["Business Websites", "Google Ads","SEO Optimization"]
+  }
+];
+---
+<section class="section-services flat-spacing" id="services">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-xxl-4 col-lg-6">
+        <div class="col-left">
+          <div class="heading-section mb-48">
+            <div class="heading-sub fw-semibold effectFade fadeUp">Services</div>
+            <div class="heading-title text-gradient-3 effectFade fadeRotateX">
+              End-to-End<br />Technology Solutions
+            </div>
+          </div>
+          <p class="effectFade fadeUp">
+            From intelligent AI applications to custom software and web platforms, we turn business challenges into practical, scalable digital solutions.
+          </p>
+          <div class="services-image effectFade fadeUp" id="services-feature-image">
+            <img
+              src={services[0].image}
+              alt="AI strategy and mapping"
+              loading="lazy"
+              decoding="async"
+              data-service-image
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xxl-6 col-lg-6">
+        <div class="accordion-faq_list" id="accordion-services">
+          {services.map((service, index) => (
+            <div class="accordion-faq_item effectFade fadeUp" data-service-item={index}>
+              <button
+                class:list={["accordion-action", "services-image-btn", index === 0 ? "active-img" : "collapsed"]}
+                type="button"
+                aria-expanded={index === 0 ? "true" : "false"}
+                aria-controls={`service-panel-${index}`}
+                data-service-trigger={index}
+                data-img={service.image}
+              >
+                <span class="accordion-title">
+                  <span class="service-name">{service.title}<br />{service.second}</span>
+                </span>
+              </button>
+              <div
+                class:list={["service-panel", index === 0 ? "is-open" : ""]}
+                id={`service-panel-${index}`}
+                aria-hidden={index === 0 ? "false" : "true"}
+                data-service-panel={index}
+              >
+                <div class="accordion-content">
+                  <div class="text-body-3 text-neutral-300 text">{service.description}</div>
+                  <div class="list-tags">
+                    {service.tags.map((tag) => (
+                      <span class="tags-item fw-semibold">{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+    <div class="services-overview-link effectFade fadeUp">
+      <a class="tf-btn" href="/services/">Explore All Services <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<script>
+  const serviceSection = document.querySelector("#services");
+  if (serviceSection && !serviceSection.hasAttribute("data-interactions-ready")) {
+    serviceSection.setAttribute("data-interactions-ready", "true");
+    const triggers = [...serviceSection.querySelectorAll("[data-service-trigger]")];
+    const panels = [...serviceSection.querySelectorAll("[data-service-panel]")];
+    const image = serviceSection.querySelector("[data-service-image]");
+    let current = 0;
+
+    const activate = (index) => {
+      if (index === current && triggers[index]?.getAttribute("aria-expanded") === "true") return;
+      current = index;
+
+      triggers.forEach((trigger, i) => {
+        const active = i === index;
+        trigger.classList.toggle("collapsed", !active);
+        trigger.classList.toggle("active-img", active);
+        trigger.setAttribute("aria-expanded", String(active));
+      });
+
+      panels.forEach((panel, i) => {
+        const active = i === index;
+        panel.classList.toggle("is-open", active);
+        panel.setAttribute("aria-hidden", String(!active));
+      });
+
+      const nextSrc = triggers[index]?.dataset.img;
+      if (image && nextSrc) {
+        image.classList.add("is-changing");
+        const preload = new Image();
+        preload.onload = () => {
+          image.src = nextSrc;
+          image.classList.remove("is-changing");
+        };
+        preload.onerror = () => {
+          image.classList.remove("is-changing");
+        };
+        preload.src = nextSrc;
+      }
+    };
+
+    triggers.forEach((trigger, index) => {
+      trigger.addEventListener("click", () => activate(index));
+    });
+  }
+</script>
+

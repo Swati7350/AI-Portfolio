@@ -1,0 +1,79 @@
+---
+const faqs = [
+  { question: "01. What does Paras AI Innovations do?", answer: "Paras AI Innovations provides end-to-end technology and digital solutions, helping businesses build and scale across five key areas: AI Applications & Business Automation, Data Annotation & AI Training, Third-Party Integrations, Custom Software & SaaS, and Websites & Digital Marketing. We combine engineering expertise and practical execution to turn business requirements into effective digital solutions." },
+  { question: "02. How do we get started with a project?", answer: "Start by sharing your business challenges, operational bottlenecks, repetitive tasks, or specific requirements. Our team will assess your needs, identify opportunities, and recommend the right technology solution to move your business forward." },
+  { question: "03. How do you work with our existing systems and technology?", answer: "We can integrate with your existing applications, databases, APIs, and third-party platforms to extend your current technology ecosystem and improve how your systems work together." },
+  { question: "04. How is project pricing determined?", answer: "Pricing depends on your requirements, project scope, complexity, and technical needs. We provide a tailored proposal outlining the estimated costs and deliverables before development begins." },
+  { question: "05. Do you provide ongoing support after project delivery?", answer: "Yes. We provide ongoing maintenance, technical support, enhancements, and further development to help keep your solutions reliable and aligned with evolving business needs." }
+];
+---
+<section class="section-faqs flat-spacing pt-0" id="faqs">
+  <div class="container">
+    <div class="heading-section center mb-64">
+      <div class="heading-sub fw-semibold effectFade fadeUp">FAQs</div>
+      <div class="heading-title text-gradient-3 effectFade fadeRotateX">Frequently Asked <br /> Questions</div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="accordion-asked" id="accordion-asked">
+          {faqs.map((item, index) => (
+            <div class="accordion-asked-item effectFade fadeRotateX">
+              <div class="accordion-asked-title">
+                <button class:list={["accordion-button", "text-body-1", "fw-semibold", { collapsed: index !== 0 }]} type="button" aria-expanded={index === 0 ? "true" : "false"} aria-controls={`faq-answer-${index}`} id={`faq-question-${index}`}>
+                  {item.question}<span class="right-icon" aria-hidden="true"></span>
+                </button>
+              </div>
+              <div id={`faq-answer-${index}`} class="faq-answer" role="region" aria-labelledby={`faq-question-${index}`} hidden={index !== 0}>
+                <div class="accordion-body">{item.answer}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  /* Keep the original theme accordion geometry, shadows and plus/minus
+     icon from styles.css; only correct the text colour and interaction glue. */
+  .section-faqs .accordion-button {
+    display:flex;
+    width:100%;
+    padding:0;
+    border:0;
+    background:transparent;
+    color:var(--primary);
+    text-align:left;
+    cursor:pointer;
+    font:inherit;
+  }
+  .section-faqs .accordion-button:hover { color:var(--brand); }
+  .section-faqs .accordion-button:focus-visible {
+    outline:2px solid var(--brand);
+    outline-offset:5px;
+    border-radius:4px;
+  }
+  .section-faqs .faq-answer[hidden] { display:none; }
+  .section-faqs .accordion-body { color:var(--secondary); }
+
+</style>
+<script>
+  const faqButtons = [...document.querySelectorAll("#accordion-asked .accordion-button")];
+  faqButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const wasOpen = button.getAttribute("aria-expanded") === "true";
+      faqButtons.forEach((other) => {
+        other.setAttribute("aria-expanded", "false");
+        other.classList.add("collapsed");
+        const panel = document.getElementById(other.getAttribute("aria-controls"));
+        if (panel) panel.hidden = true;
+      });
+      if (!wasOpen) {
+        button.setAttribute("aria-expanded", "true");
+        button.classList.remove("collapsed");
+        const panel = document.getElementById(button.getAttribute("aria-controls"));
+        if (panel) panel.hidden = false;
+      }
+    });
+  });
+</script>

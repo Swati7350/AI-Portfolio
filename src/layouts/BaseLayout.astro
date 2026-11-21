@@ -1,0 +1,118 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/theme.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalURL?: string;
+  ogImage?: string;
+}
+
+const {
+  title = "Paras AI Innovations | AI & Software Engineering",
+  description = "Paras AI Innovations builds intelligent AI applications, custom software, AI agents and business automation systems that solve real business challenges.",
+  canonicalURL = new URL(Astro.url.pathname, "https://parasaiinnovations.com").href,
+  ogImage = "/images/brand/paras-ai-mark.png",
+} = Astro.props as Props;
+
+const socialImage = new URL(ogImage, "https://parasaiinnovations.com").href;
+const gtmId = import.meta.env.PUBLIC_GTM_ID || "";
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#FAFAFA" />
+    {gtmId && <meta name="gtm-id" content={gtmId} />}
+    <script is:inline>
+      (() => {
+        const gtmId = document.querySelector('meta[name="gtm-id"]')?.getAttribute("content");
+        if (!gtmId) return;
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        const gtmScript = document.createElement("script");
+        gtmScript.async = true;
+        gtmScript.src = `https://www.googletagmanager.com/gtm.js?id=${gtmId}`;
+        document.head.appendChild(gtmScript);
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/images/brand/paras-ai-mark.png" />
+    <link rel="apple-touch-icon" href="/images/brand/paras-ai-mark.png" />
+    <link rel="canonical" href={canonicalURL} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={socialImage} />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+  </head>
+  <body data-color-primary="color-primary-1">
+    {gtmId && (
+      <noscript>
+        <iframe
+          src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+          height="0"
+          width="0"
+          style="display:none;visibility:hidden"
+          title="Google Tag Manager"
+        ></iframe>
+      </noscript>
+    )}
+    <div id="page" class="hfeed site">
+      <Header />
+      <slot />
+      <Footer />
+    </div>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      (() => {
+        const path = window.location.pathname.replace(/\/+$/, "") || "/";
+        let eventName = "site_page_view";
+        let pageType = "other";
+        if (path === "/") pageType = "home";
+        else if (path === "/contact") pageType = "contact";
+        else if (path === "/services") pageType = "services_overview";
+        else if (path.startsWith("/services/")) {
+          pageType = "service";
+          eventName = "service_page_view";
+        } else if (path === "/projects") pageType = "projects_overview";
+        else if (path.startsWith("/projects/")) {
+          pageType = "project";
+          eventName = "project_view";
+        }
+        window.dataLayer.push({
+          event: eventName,
+          page_type: pageType,
+          page_path: window.location.pathname,
+          page_title: document.title
+        });
+      })();
+    </script>
+    <script is:inline defer src="/wp-includes/js/jquery/jquery.min.js"></script>
+    <script is:inline defer src="/wp-content/themes/aigocy/assets/js/bootstrap.min.js"></script>
+    <script is:inline defer src="/wp-content/themes/aigocy/assets/js/jquery.nice-select.min.js"></script>
+    <script is:inline defer src="/wp-content/themes/aigocy/assets/js/slick.min.js"></script>
+    <script is:inline defer src="/wp-content/themes/aigocy/assets/js/countto.js"></script>
+    <script is:inline defer src="/wp-content/themes/aigocy/assets/js/carousel.js"></script>
+    <script is:inline defer src="/wp-content/themes/aigocy/assets/js/infinityslide.js"></script>
+    <script is:inline defer src="/wp-content/themes/aigocy/assets/js/ScrollSmooth.js"></script>
+    <script is:inline defer src="/wp-content/themes/aigocy/assets/js/gsap.min.js"></script>
+    <script is:inline defer src="/wp-content/themes/aigocy/assets/js/ScrollTrigger.min.js"></script>
+    <script is:inline defer src="/wp-content/themes/aigocy/assets/js/ScrollToPlugin.min.js"></script>
+    <script is:inline defer src="/wp-content/themes/aigocy/assets/js/gsapAnimation.js"></script>
+    <script is:inline defer src="/wp-content/themes/aigocy/assets/js/main.js"></script>
+  </body>
+</html>

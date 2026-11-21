@@ -1,0 +1,172 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/project-detail.css";
+
+const tags = ["AI Agents", "WhatsApp Automation"];
+const challenge = [
+  "Repeated questions about products, pricing and availability.",
+  "Manually checking product specifications and business information.",
+  "Preparing quotations for individual customer requirements.",
+  "Delayed responses during busy business hours.",
+  "Follow-ups and order inquiries requiring manual coordination."
+];
+const solution = [
+  "Understands customer questions and conversational intent.",
+  "Retrieves relevant product information and pricing.",
+  "Handles quotation-related inquiries automatically.",
+  "Collects customer requirements through conversations.",
+  "Triggers business workflows based on customer interactions.",
+  "Escalates conversations when human intervention is required."
+];
+const pageStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://parasaiinnovations.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://parasaiinnovations.com/projects/" },
+    { "@type": "ListItem", "position": 3, "name": "Intelligent WhatsApp Conversations", "item": "https://parasaiinnovations.com/projects/whatsapp-ai-agent/" }
+  ]
+};
+---
+<BaseLayout
+  title="Intelligent WhatsApp Conversations | Paras AI Innovations"
+  description="Deploy AI-powered agents that understand customer inquiries, retrieve business information, generate responses and automate everyday business processes — directly through WhatsApp."
+  ogImage="/images/projects/whatsapp-ai-agent-hero.png"
+ structuredData={pageStructuredData}>
+  <main class="project-detail-page whatsapp-project">
+    <section class="project-detail-hero" aria-labelledby="project-title">
+      <div class="project-hero-orbit project-hero-orbit-top" aria-hidden="true"></div>
+      <div class="project-hero-orbit project-hero-orbit-bottom" aria-hidden="true"></div>
+      <div class="container project-hero-grid">
+        <div class="project-hero-copy">
+          <a class="project-back-link effectFade fadeUp" href="/projects/">
+            <span aria-hidden="true">←</span> All Recent Projects
+          </a>
+          <h1 id="project-title" class="effectFade fadeUp">Intelligent<br />WhatsApp<br />Conversations</h1>
+          <span class="project-title-underline" aria-hidden="true"></span>
+          <p class="project-hero-description effectFade fadeUp">
+            Deploy AI-powered agents that understand customer inquiries, retrieve business information,
+            generate responses and automate everyday business processes — directly through WhatsApp.
+          </p>
+          <ul class="project-tags effectFade fadeUp" aria-label="Project capabilities">
+            {tags.map((tag) => <li>{tag}</li>)}
+          </ul>
+          <a class="project-text-link effectFade fadeUp" href="#project-overview">
+            Explore the project <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <div class="project-hero-visual effectFade fadeUp">
+          <img
+            src="/images/projects/whatsapp-ai-agent-hero.png"
+            alt="WhatsApp AI agent helping a customer book a clinic appointment through an automated conversation"
+            fetchpriority="high"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="project-overview section-space" id="project-overview" aria-labelledby="overview-title">
+      <div class="container">
+        <div class="project-section-heading effectFade fadeUp">
+          <span class="project-eyebrow">The Thinking Behind the Build</span>
+          <h2 id="overview-title">From Customer Conversations to <em>Automated Business Operations.</em></h2>
+          <p>
+            Customer interactions often involve more than answering questions. Businesses spend time understanding
+            requirements, checking product information, preparing quotations and coordinating follow-ups. We engineered
+            an AI-powered WhatsApp agent that understands customer intent, retrieves relevant business information and
+            helps automate these interactions through intelligent workflows.
+          </p>
+        </div>
+
+        <div class="challenge-solution-grid">
+          <article class="challenge-card effectFade fadeUp">
+            <div class="overview-card-copy">
+              <span class="card-eyebrow">The Challenge</span>
+              <h3>Customer Conversations Were Entirely Manual</h3>
+              <p class="overview-card-description">Handling business inquiries through WhatsApp required constant manual involvement.</p>
+              <ul>
+                {challenge.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+          </article>
+
+          <div class="engineer-connector" aria-label="Engineered solution">
+            <span class="connector-line"></span>
+            <span class="connector-arrow" aria-hidden="true">→</span>
+            <span class="connector-label">Engineer</span>
+          </div>
+
+          <article class="solution-card effectFade fadeUp">
+            <div class="overview-card-copy">
+              <span class="card-eyebrow">The Solution</span>
+              <h3>An AI-Powered WhatsApp Business Agent</h3>
+              <p class="overview-card-description">We developed an intelligent conversational system that connects WhatsApp interactions with business information and automated workflows.</p>
+              <ul>
+                {solution.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="finished-experience section-space" id="finished-experience" aria-labelledby="experience-title">
+      <div class="container experience-layout">
+        <div class="experience-copy effectFade fadeUp">
+          <span class="project-eyebrow">Product Experience</span>
+          <h2 id="experience-title">Explore the Intelligent WhatsApp Conversations</h2>
+          <p>
+            An AI-powered WhatsApp business agent that understands customer inquiries, retrieves relevant
+            product information, responds with accurate business details and assists customers with quotation requests.
+          </p>
+        </div>
+        <span class="experience-live-demo-btn" aria-disabled="true" title="Live demo URL has not been provided">
+          Explore Live Demo <span aria-hidden="true">↗</span>
+        </span>
+        <div class="experience-preview effectFade fadeUp">
+          <img
+            src="/images/projects/whatsapp-ai-agent-preview.png"
+            alt="WhatsApp AI Agent demonstration showing a customer requesting a quotation for 20 lawn mowers and receiving product, price, MOQ and delivery details"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="project-specific-cta" aria-labelledby="project-cta-title">
+      <div class="project-cta-inner">
+        <div class="project-cta-content">
+          <div class="project-cta-copy">
+            <h2 id="project-cta-title">Turn Customer Conversations Into Intelligent Workflows.</h2>
+            <p>Build AI-powered WhatsApp experiences that handle inquiries, connect business information and automate the processes behind your customer interactions.</p>
+            <a class="project-cta-button" href="/contact/?service=AI%20Applications%20%26%20Business%20Automations">
+              Discuss Your Project <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <div class="project-cta-visual" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    const projectContactParams = new URLSearchParams(window.location.search);
+    projectContactParams.set("service", "AI Applications & Business Automations");
+    projectContactParams.set("landing_page", `${window.location.origin}${window.location.pathname}${window.location.search}`);
+    document.querySelectorAll('.project-cta-button, a[href^="/contact/?service="]').forEach((link) => {
+      link.setAttribute("href", `/contact/?${projectContactParams.toString()}`);
+    });
+  </script>
+</BaseLayout>
+
+<style>
+  .whatsapp-project .project-hero-visual img {
+    object-fit: contain;
+    background: #fff;
+  }
+  .whatsapp-project .experience-preview > img {
+    aspect-ratio: 1672 / 941;
+    object-fit: contain;
+    background: #fff;
+  }
+</style>

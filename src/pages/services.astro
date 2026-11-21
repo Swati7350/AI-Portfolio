@@ -1,0 +1,141 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/services.css";
+
+const services = [
+  {
+    number: "01",
+    slug: "ai-applications",
+    title: "AI Applications & Business Automations",
+    description: "Design AI-Powered applications and autonomous workflows that streamline business operations, automate complex processes, and seamlessly integrate enterprise systems.",
+    tags: ["Multi-Agent Systems", "AI Voice Agents", "RAG Systems", "Workflow Automation", "Marketing Automation"]
+  },
+  {
+    number: "02",
+    slug: "data-annotation",
+    title: "Data Annotation & AI Training",
+    description: "Provide accurate video annotation, image labeling, audio transcription, and text categorization to prepare data for AI applications.",
+    tags: ["Video Annotation", "Image Labeling", "Audio Transcription", "Object Detection & Tracking"]
+  },
+  {
+    number: "03",
+    slug: "third-party-integrations",
+    title: "Third-Party Integrations",
+    description: "Connect business applications, third-party platforms, and enterprise systems through seamless API integrations, data pipelines, and custom workflows.",
+    tags: ["Snowflake", "Databricks", "Data Pipelines", "API Integration", "SnapLogic", "Enterprise Platforms"]
+  },
+  {
+    number: "04",
+    slug: "custom-software",
+    title: "Custom Software & SaaS",
+    description: "Engineer scalable software products and platforms tailored to your business requirements and growth.",
+    tags: ["SaaS Development", "Web Applications", "Backend & API Development"]
+  },
+  {
+    number: "05",
+    slug: "websites-digital-marketing",
+    title: "Websites & Digital Marketing",
+    description: "Create modern, responsive websites and digital experiences designed to strengthen your online presence.",
+    tags: ["Business Websites", "Google Ads", "SEO Optimization"]
+  }
+];
+
+const projects = [
+  { title: "Document Intelligence System", description: "Transform business documents into searchable, actionable knowledge with AI.", href: "/projects/document-intelligence/" },
+  { title: "Invoice Reconciliation", description: "An AI-powered workflow that matches financial documents and highlights discrepancies.", href: "/projects/invoice-reconciliation/" },
+  { title: "Intelligent WhatsApp Conversations", description: "AI-powered agents that understand customer inquiries and automate conversations through WhatsApp.", href: "/projects/whatsapp-ai-agent/" }
+];
+const pageStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://parasaiinnovations.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://parasaiinnovations.com/services/" }
+  ]
+};
+---
+<BaseLayout
+  title="Our Services | AI, Data & Software Engineering | Paras AI Innovations"
+  description="Explore Paras AI Innovations services across AI applications and business automation, data annotation and AI training, enterprise integrations, custom software, SaaS, websites and digital marketing."
+ structuredData={pageStructuredData}>
+  <main class="services-page">
+    <section class="services-page-hero">
+      <div class="services-page-hero-bg" aria-hidden="true"></div>
+      <div class="container services-page-hero-content">
+        <div class="services-page-eyebrow"><span></span> WHAT WE DO <span></span></div>
+        <h1>Technology Solutions<br />Built Around <em>Your Business.</em></h1>
+        <p>From intelligent AI applications to data services, enterprise integrations and custom software, explore the capabilities we bring together to solve business challenges.</p>
+        <a class="tf-btn" href="/contact/">Discuss Your Project <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="services-overview" aria-labelledby="services-overview-title">
+      <div class="container">
+        <div class="services-overview-heading">
+          <div>
+            <div class="services-section-eyebrow">OUR CAPABILITIES</div>
+            <h2 id="services-overview-title">Explore Our <em>Services.</em></h2>
+          </div>
+          <p>Specialized capabilities to help businesses build, connect and improve their digital operations.</p>
+        </div>
+
+        <div class="services-cards-grid">
+          {services.map((service) => (
+            <article class="service-overview-card">
+              <div class="service-card-topline">
+                <span class="service-card-number">{service.number}</span>
+                <span class="service-card-mark" aria-hidden="true">↗</span>
+              </div>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+              <div class="service-card-tags" aria-label={`${service.title} capabilities`}>
+                {service.tags.map((tag) => <span>{tag}</span>)}
+              </div>
+              <a class="service-card-link" href={`/services/${service.slug}/`}>Explore Service <span aria-hidden="true">→</span></a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="services-projects" aria-labelledby="services-projects-title">
+      <div class="container">
+        <div class="services-projects-heading">
+          <div class="services-section-eyebrow">SELECTED WORK</div>
+          <h2 id="services-projects-title">Capabilities in <em>Practice.</em></h2>
+          <p>Explore selected projects that demonstrate how we apply technology to practical business challenges.</p>
+        </div>
+        <div class="services-project-links">
+          {projects.map((project, index) => (
+            <a class="services-project-link" href={project.href}>
+              <span class="services-project-index">0{index + 1}</span>
+              <span class="services-project-copy"><strong>{project.title}</strong><small>{project.description}</small></span>
+              <span class="services-project-arrow" aria-hidden="true">↗</span>
+            </a>
+          ))}
+        </div>
+        <a class="services-all-projects" href="/projects/">Explore All Projects <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="services-page-cta">
+      <div class="container">
+        <div class="services-page-cta-inner">
+          <div>
+            <span class="services-section-eyebrow">HAVE A PROJECT IN MIND?</span>
+            <h2>Let's Build Something<br /><em>That Moves You Forward.</em></h2>
+            <p>Tell us what you're looking to achieve. We'll help you explore the right approach.</p>
+          </div>
+          <a class="tf-btn" href="/contact/">Discuss Your Project <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    const servicesPageContactParams = new URLSearchParams(window.location.search);
+    servicesPageContactParams.set("landing_page", `${window.location.origin}${window.location.pathname}${window.location.search}`);
+    document.querySelectorAll('.services-page a[href="/contact/"]').forEach((link) => {
+      link.setAttribute("href", `/contact/?${servicesPageContactParams.toString()}`);
+    });
+  </script>
+</BaseLayout>

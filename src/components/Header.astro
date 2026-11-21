@@ -1,0 +1,40 @@
+---
+const pathname = Astro.url.pathname.replace(/\/+$/, "") || "/";
+const isHome = pathname === "/";
+const isProjects = pathname === "/projects";
+const isServices = pathname === "/services";
+const isContact = pathname === "/contact";
+const menuItems = [
+  { label: "Home", href: "/", active: isHome },
+  { label: "Services", href: "/services/", active: isServices },
+  { label: "Projects", href: "/projects/", active: isProjects },
+  { label: "About", href: "/#about", active: false },
+  { label: "Contact", href: "/contact/", active: isContact }
+];
+---
+<header class="tf-header header2" id="masthead">
+  <div class="header-inner">
+    <a class="logo-site" href="/" aria-label="Paras AI Innovations home">
+      <img src="/images/brand/paras-ai-logo.svg" alt="Paras AI Innovations" width="186" height="35" />
+    </a>
+    <div class="box-navigation">
+      <ul class="nav-menu-main" id="menu-main-menu">
+        {menuItems.map((item) => (
+          <li class="menu-item">
+            <a
+              class:list={["item-link", "link1", item.active && "active"]}
+              href={item.href}
+              aria-current={item.active ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <a class="tf-btn d-lg-flex d-none" href="/contact/">Start a Project</a>
+    <button class="tf-btn open-mb-menu mobile-menu d-lg-none d-flex" type="button" aria-label="Open menu" aria-expanded="false">
+      <i class="icon icon-grip-lines-solid"></i>
+    </button>
+  </div>
+</header>

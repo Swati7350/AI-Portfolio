@@ -1,0 +1,96 @@
+---
+const steps = [
+  {
+    icon: "icon-search-solid",
+    title: "Discover & Scope",
+    description: "Align on problems, data reality, and success metrics. Opportunity brief, KPI model, phased roadmap, effort/cost ranges.",
+    time: "3-7 DAYS"
+  },
+  {
+    icon: "icon-bolt-solid",
+    title: "Prototype",
+    description: "De-risk unknowns and validate value quickly. Clickable UX, tech spike repo, initial eval rubric, demo.",
+    time: "1-2 WEEKS"
+  },
+  {
+    icon: "icon-user-check-solid-1",
+    title: "Validate & Evals",
+    description: "Prove accuracy, usability, safety, and cost. Eval dashboard, acceptance thresholds, decision to iterate/ship.",
+    time: "1 WEEKS"
+  }
+];
+---
+<section class="section-process flat-spacing pt-0" id="process">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5">
+        <div class="process-heading h-100">
+          <div class="heading-section mb-80">
+            <div class="heading-sub fw-semibold effectFade fadeUp">Process</div>
+            <div class="heading-title text-gradient-3 effectFade fadeRotateX">From Idea <br /> to Production</div>
+          </div>
+          <div class="group-btn-slider" aria-label="Process slider controls">
+            <button class="nav-prev-swiper" type="button" aria-label="Previous process step" disabled>
+              <i class="icon icon-angle-left-solid" aria-hidden="true"></i>
+            </button>
+            <button class="nav-next-swiper" type="button" aria-label="Next process step">
+              <i class="icon icon-angle-right-solid" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="process-slide">
+          <div class="process-track" data-process-track tabindex="0" aria-label="Three steps from idea to production">
+            {steps.map((step, index) => (
+              <div class="process-slide-item">
+                <div class="process-card">
+                  <i class:list={["icon", step.icon]} aria-hidden="true"></i>
+                  <div class="content">
+                    <h4 class="title fw-semibold">{step.title}</h4>
+                    <p class="text text-secondary">{step.description}</p>
+                  </div>
+                  <div class="bot">
+                    <div class="time fw-semibold">{step.time}</div>
+                    <div class="number">
+                      <span class="text-neutral-400">{String(index + 1).padStart(2, "0")}</span>
+                      <span class="text-neutral-200">/03</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const section = document.querySelector(".section-process");
+  if (section) {
+    const track = section.querySelector("[data-process-track]");
+    const previous = section.querySelector(".nav-prev-swiper");
+    const next = section.querySelector(".nav-next-swiper");
+    const slides = Array.from(track.querySelectorAll(".process-slide-item"));
+
+    const updateControls = () => {
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      previous.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft >= maxScroll - 2;
+    };
+
+    const move = (direction) => {
+      const slide = slides[0];
+      const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 24;
+      track.scrollBy({ left: direction * (slide.getBoundingClientRect().width + gap), behavior: "smooth" });
+    };
+
+    previous.addEventListener("click", () => move(-1));
+    next.addEventListener("click", () => move(1));
+    track.addEventListener("scroll", updateControls, { passive: true });
+    window.addEventListener("resize", updateControls);
+    updateControls();
+  }
+</script>

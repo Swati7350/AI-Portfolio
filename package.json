@@ -1,16 +1,14 @@
 {
-  "name": "paras-ai-innovations",
-  "version": "2.0.0",
+  "name": "aigocy-header-hero-replica",
+  "version": "1.0.0",
+  "private": true,
   "type": "module",
-  "description": "Paras AI Innovations - AI Agents & Business Automation",
-  "author": "Paras AI Innovations",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --host 0.0.0.0",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "astro preview --host 0.0.0.0"
   },
   "dependencies": {
-    "astro": "^4.0.0"
+    "astro": "^5.7.0"
   }
 }

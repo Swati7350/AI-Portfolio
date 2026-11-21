@@ -1,0 +1,77 @@
+---
+const projects = [
+  {
+    title: ["Document Intelligence", "System"],
+    image: "/wp-content/themes/aigocy/assets/images/section/doc intelligent.png",
+    href: "/projects/document-intelligence/",
+    description: "Processes 1,000+ pages of business documents with AI-powered search and retrieval.",
+    deliverables: ["Enterprise RAG & Knowledge Management Platform"],
+    industry: ["Legal","Healthcare","Fintech","Retail","Insurance"]
+  },
+  {
+    title: ["AI-Powered 3-Way Matching", "System"],
+    image: "/wp-content/themes/aigocy/assets/images/section/3wm.png",
+    href: "YOUR_3WM_DEMO_URL",
+    description: "Automates Reconciliation of POs, goods receipt, and supplier invoices. Eliminates hours of manual reviews.",
+    deliverables: [
+      "Automated Reconciliation, Discrepancy Detection"
+    ],
+    industry: [
+      "Manufacturing","Retail","Procurement","Logistics & Supply Chain"
+    ]
+  }
+];
+---
+<section id="works" class="section-featured-works flat-spacing pt-0">
+  <div class="container">
+    <div class="heading-section mb-0">
+      <div class="heading-sub fw-semibold mx-auto effectFade fadeUp">Featured Works</div>
+    </div>
+    <div class="featured-works-list position-relative">
+      {projects.map((project, index) => (
+        <div>
+          <article class:list={["featured-works-item", "effectFade", "fadeUp", index === 0 && "no-div"]}>
+            <div class="image main-mouse-hover">
+              <img src={project.image} alt={`${project.title.join(" ")} project preview`} loading="lazy" decoding="async" />
+              <a href={project.href} class="tf-mouse view-project h6" target={project.href.startsWith("https://") ? "_blank" : undefined} rel="noreferrer">
+                View Project <i class="icon icon-arrow-top-right"></i>
+              </a>
+            </div>
+            <div class="content">
+              <div class="pagi-dot" aria-label={`Project ${index + 1} of ${projects.length}`}>
+                {projects.map((_, dotIndex) => <span class:list={{ active: dotIndex === index }}></span>)}
+              </div>
+              <div class="bot">
+                <h4 class="heading fw-semibold">{project.title[0]}<br />{project.title[1]}</h4>
+                <div class="grid-text">
+                  <div class="item">
+                    <div class="title text-secondary">DESCRIPTION</div>
+                    <div class="text-body-3 fw-semibold">{project.description}</div>
+                  </div>
+                  <div class="item">
+                    <div class="title text-secondary">DELIVERABLES</div>
+                    <div class="fw-semibold text-body-3">{project.deliverables[0]}<br />{project.deliverables[1]}</div>
+                  </div>
+                  <div class="item">
+                    <div class="title text-secondary">INDUSTRY</div>
+                    <div class="industry-tags">
+                      {(Array.isArray(project.industry)
+                        ? project.industry
+                        : [project.industry]
+                      )
+                        .filter(Boolean)
+                        .flatMap((industry) => String(industry).split(","))
+                        .map((industry) => (
+                          <span class="industry-tag">{industry.trim()}</span>
+                        ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
