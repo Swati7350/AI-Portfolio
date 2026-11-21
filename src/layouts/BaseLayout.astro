@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import FloatingWhatsApp from "../components/FloatingWhatsApp.astro";
 import "../styles/theme.css";
 
 interface Props {
@@ -76,6 +77,7 @@ const gtmId = import.meta.env.PUBLIC_GTM_ID || "";
       <slot />
       <Footer />
     </div>
+    <FloatingWhatsApp />
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       (() => {

@@ -1,5 +1,15 @@
 ---
 const formspreeEndpoint = "/api/contact";
+
+// Service-specific default messages
+const serviceMessages: Record<string, string> = {
+  "AI Applications & Business Automations": "I'm interested in learning more about AI applications and business automation solutions for our organization.",
+  "Data Annotation & AI Training": "We need help with data annotation and AI model training. I'd like to discuss our requirements.",
+  "Third-Party Integrations": "We're looking to integrate our existing systems. Can you help us with third-party integrations?",
+  "Custom Software & SaaS": "I'm interested in custom software development and SaaS solutions tailored to our business needs.",
+  "Websites & Digital Marketing": "We need help building a website and implementing digital marketing strategies.",
+  "Not sure yet": "I'd like to discuss potential AI and software solutions for our business."
+};
 ---
 <section id="contact" class="flat-spacing pt-0">
   <div class="section-contact">
@@ -20,6 +30,13 @@ const formspreeEndpoint = "/api/contact";
                 <div class="content">
                   <div class="title fw-semibold mb-2">E-mail address</div>
                   <a class="text" href="mailto:sales@parasaiinnovations.com">sales@parasaiinnovations.com</a>
+                </div>
+              </div>
+              <div class="contact-item effectFade fadeRotateX">
+                <i class="icon icon-tty-solid" aria-hidden="true"></i>
+                <div class="content">
+                  <div class="title fw-semibold mb-2">Phone</div>
+                  <a class="text" href="tel:+917350875804">+91-7350875804</a>
                 </div>
               </div>
             </div>
@@ -98,6 +115,7 @@ const formspreeEndpoint = "/api/contact";
                   placeholder="Tell us a little about your project"
                   required
                   aria-required="true"
+                  data-service-messages={JSON.stringify(serviceMessages)}
                 ></textarea>
               </fieldset>
 
@@ -172,6 +190,22 @@ const formspreeEndpoint = "/api/contact";
   const submitBtn = document.querySelector("#contact-submit-btn");
   const noteEl = document.querySelector("#contact-form-note");
   const formContainer = contactForm?.closest(".form-contact");
+  const messageField = document.querySelector("#contact-message");
+  const serviceField = document.querySelector('[name="service"]');
+
+  // Parse service messages from data attribute
+  const serviceMessagesJson = messageField?.getAttribute("data-service-messages");
+  const serviceMessages = serviceMessagesJson ? JSON.parse(serviceMessagesJson) : {};
+
+  // Update message field when service changes
+  if (serviceField && messageField) {
+    serviceField.addEventListener("change", () => {
+      const selectedService = serviceField.value;
+      if (selectedService && serviceMessages[selectedService]) {
+        messageField.value = serviceMessages[selectedService];
+      }
+    });
+  }
 
   if (contactForm) {
     window.dataLayer = window.dataLayer || [];
@@ -223,10 +257,14 @@ const formspreeEndpoint = "/api/contact";
     }
 
     const requestedService = params.get("service");
-    const serviceField = contactForm.querySelector('[name="service"]');
-    if (requestedService && serviceField) {
-      const matchingOption = [...serviceField.options].find((option) => option.value === requestedService);
-      if (matchingOption) serviceField.value = requestedService;
+    const serviceFieldSelect = contactForm.querySelector('[name="service"]');
+    if (requestedService && serviceFieldSelect) {
+      const matchingOption = [...serviceFieldSelect.options].find((option) => option.value === requestedService);
+      if (matchingOption) {
+        serviceFieldSelect.value = requestedService;
+        // Trigger change event to populate message
+        serviceFieldSelect.dispatchEvent(new Event("change"));
+      }
     }
   }
 

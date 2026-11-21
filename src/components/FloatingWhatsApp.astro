@@ -1,0 +1,125 @@
+---
+// Floating WhatsApp Icon Component
+const phoneNumber = "917350875804"; // WhatsApp number without + or spaces
+---
+
+<a 
+  href="https://wa.me/917350875804"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="floating-whatsapp"
+  id="floating-whatsapp-btn"
+  aria-label="Chat with us on WhatsApp"
+  title="Chat with us on WhatsApp"
+>
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M20.52 3.48C18.9 1.84 16.7 1 14.3 1 8.1 1 3.2 5.9 3.2 12.1c0 2.1.55 4.15 1.6 5.95L2.9 23l6.35-1.9c1.7.9 3.6 1.4 5.65 1.4 6.2 0 11.1-4.9 11.1-11.1 0-3-1.25-5.8-3.48-7.84zM14.3 20.4c-1.75 0-3.45-.45-4.95-1.3l-.35-.2-3.65 1.1 1.1-3.6-.25-.4c-.95-1.5-1.5-3.25-1.5-5.1 0-5.15 4.2-9.35 9.35-9.35 2.5 0 4.85.95 6.6 2.7 1.75 1.75 2.7 4.1 2.7 6.6 0 5.15-4.2 9.35-9.35 9.35zm5.1-7c-.3-.15-1.75-.85-2.05-.95-.3-.1-.5-.15-.7.15-.2.3-.75.95-.95 1.15-.2.2-.4.25-.7.05-.3-.15-1.25-.45-2.35-1.45-.85-.75-1.4-1.7-1.6-2 -.15-.3 0-.45.15-.6.15-.15.3-.35.45-.5.15-.15.2-.3.3-.5.1-.2.05-.35-.05-.5-.1-.15-.7-1.65-.95-2.25-.25-.55-.5-.5-.7-.5-.15 0-.35 0-.55 0-.2 0-.55.1-.85.4-.3.3-1.1 1.05-1.1 2.55 0 1.5.9 2.95 1.05 3.15.15.2 2.1 3.2 5.1 4.5.7.3 1.25.5 1.7.65.7.2 1.35.2 1.85.1.55-.1 1.75-.7 2-1.4.25-.7.25-1.3.2-1.4-.05-.1-.2-.15-.5-.25z"/>
+  </svg>
+</a>
+
+<script>
+  // WhatsApp messages based on current page
+  const whatsappMessages: Record<string, string> = {
+    "/": "Hi! I'd like to know more about your AI solutions and services.",
+    "/projects/": "I'm interested in learning more about your project portfolio and AI applications.",
+    "/projects/document-intelligence/": "I'm interested in your Document Intelligence System for processing business documents.",
+    "/projects/invoice-reconciliation/": "I'd like to discuss your AI-powered invoice reconciliation solution.",
+    "/projects/whatsapp-ai-agent/": "Can you tell me more about your WhatsApp AI agent solution for business automation?",
+    "/services/": "I'd like to explore which of your services would be best for our business needs.",
+    "/services/ai-applications/": "I'm interested in learning more about your AI Applications & Business Automation services.",
+    "/services/data-annotation/": "Can you help us with data annotation and AI training for our projects?",
+    "/services/third-party-integrations/": "We need help with integrating our enterprise platforms and data systems.",
+    "/services/custom-software/": "I'd like to discuss custom software development and SaaS solutions for our business.",
+    "/services/websites-digital-marketing/": "Can you help us build a website and improve our digital marketing presence?",
+    "/contact/": "Hi! I have an inquiry about your services and would like to connect.",
+  };
+
+  function getWhatsAppMessage(): string {
+    const pathname = window.location.pathname;
+    
+    // Check for exact matches first
+    if (whatsappMessages[pathname]) {
+      return whatsappMessages[pathname];
+    }
+    
+    // Default message
+    return "Hi! I'd like to know more about your AI solutions and services.";
+  }
+
+  function updateWhatsAppLink() {
+    const button = document.getElementById("floating-whatsapp-btn");
+    if (!button) return;
+    
+    const message = getWhatsAppMessage();
+    const encodedMessage = encodeURIComponent(message);
+    button.href = `https://wa.me/917350875804?text=${encodedMessage}`;
+  }
+
+  // Update on page load
+  document.addEventListener("DOMContentLoaded", updateWhatsAppLink);
+  
+  // Also update immediately in case DOM is already loaded
+  updateWhatsAppLink();
+</script>
+
+<style>
+  .floating-whatsapp {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 999;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    animation: pulse-whatsapp 2s ease-in-out infinite;
+  }
+
+  .floating-whatsapp:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 24px rgba(37, 211, 102, 0.6);
+    animation: none;
+  }
+
+  .floating-whatsapp svg {
+    width: 32px;
+    height: 32px;
+    fill: white;
+  }
+
+  @keyframes pulse-whatsapp {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .floating-whatsapp {
+      bottom: 16px;
+      right: 16px;
+      width: 56px;
+      height: 56px;
+    }
+
+    .floating-whatsapp svg {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .floating-whatsapp {
+      animation: none;
+    }
+  }
+</style>
