@@ -160,6 +160,21 @@ html {
   gap: 8px;
 }
 
+.section-services .list-tags .tags-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.10);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.25;
+  opacity: 1;
+  visibility: visible;
+}
+
 /* 4. Featured works
    -------------------------------------------------------------------------- */
 

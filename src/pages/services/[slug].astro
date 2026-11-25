@@ -5,7 +5,6 @@ import "../../styles/service-detail.css";
 export function getStaticPaths() {
   const servicePages = {
   "ai-applications": {
-    number: "01",
     title: "AI Applications & Business Automations",
     eyebrow: "AI ENGINEERING & AUTOMATION",
     summary: "Build practical AI systems that connect intelligence with the way your business works. From autonomous agents to knowledge systems and workflow automation, we engineer solutions around real operational requirements.",
@@ -29,14 +28,13 @@ export function getStaticPaths() {
       ["Intelligent WhatsApp Conversations", "Explore conversational AI designed to support customer interactions through WhatsApp.", "/projects/whatsapp-ai-agent/"]
     ],
     faqs: [
-      ["What types of AI applications can you build?", "We work on custom AI agents, RAG and knowledge systems, voice and conversational interfaces, document workflows and AI-enabled business applications. The right approach depends on the process, data and systems involved."],
-      ["Can you integrate AI with our existing software?", "Yes. Integration requirements are assessed during discovery. Depending on the available interfaces, an AI solution can connect with business applications, databases, APIs and internal systems."],
-      ["Do you use our private business data?", "Data access, processing, retention and deployment requirements are defined with you before implementation. Architecture and safeguards depend on the sensitivity of the data and your operating requirements."],
-      ["How does an AI project begin?", "We begin by understanding the business problem, users, workflow, information sources and desired outcome. This helps establish a practical scope and an implementation approach before development begins."]
+      ["What types of AI applications we build?", "We engineer intelligent AI systems spanning autonomous agents, multi-agent orchestration, reasoning, persistent memory and contextual intelligence. Our capabilities include RAG pipelines, enterprise knowledge systems, multimodal AI, conversational interfaces, model fine-tuning and evaluation. We build secure AI architectures with guardrails, governance, observability and human-in-the-loop controls. We integrate enterprise data platforms such as Snowflake, Databricks, Apollo, vector databases and cloud technologies."],
+      ["Can you integrate AI with our existing software?", "Yes. We connect AI capabilities with your existing software, databases and APIs, integrating enterprise data platforms such as Snowflake and Databricks into your technology ecosystem. This enables AI models and intelligent agents to securely access enterprise data, work across systems and automate workflows—while extending your existing infrastructure rather than replacing it."],
+      ["Do you work with enterprise data platforms such as Snowflake and Databricks?", "Yes. We work across enterprise platforms and data ecosystems, including Snowflake, Databricks, Apollo, SnapLogic, cloud platforms, data warehouses, integration tools and APIs. We help businesses connect systems, streamline data flows, build integrations and extend their existing technology infrastructure through scalable solutions."],
+      ["How does a project get started?", "We begin by understanding your business goals, requirements and challenges. Our team evaluates the scope, identifies the right approach and technologies, and outlines a clear roadmap with milestones, deliverables and timelines."]
     ]
   },
   "data-annotation": {
-    number: "02",
     title: "Data Annotation & AI Training",
     eyebrow: "DATA OPERATIONS & AI TRAINING",
     summary: "Prepare dependable training and evaluation data for AI systems. We support structured annotation and data preparation workflows across image, video, audio and text, with quality processes aligned to the requirements of each project.",
@@ -63,7 +61,6 @@ export function getStaticPaths() {
     ]
   },
   "third-party-integrations": {
-    number: "03",
     title: "Third-Party Integrations",
     eyebrow: "ENTERPRISE INTEGRATION & DATA SYSTEMS",
     summary: "Connect the platforms and data your business depends on. We engineer API integrations, data pipelines and application connections that help information move reliably across your technology environment.",
@@ -90,7 +87,6 @@ export function getStaticPaths() {
     ]
   },
   "custom-software": {
-    number: "04",
     title: "Custom Software & SaaS",
     eyebrow: "PRODUCT ENGINEERING",
     summary: "Turn a business requirement or product idea into dependable software. We design and engineer web applications, SaaS platforms and backend systems around your users, workflows and long-term product goals.",
@@ -117,7 +113,6 @@ export function getStaticPaths() {
     ]
   },
   "websites-digital-marketing": {
-    number: "05",
     title: "Websites & Digital Marketing",
     eyebrow: "DIGITAL EXPERIENCE & GROWTH",
     summary: "Create a stronger digital foundation for your business. We build business websites and support digital visibility through search and paid advertising, with an emphasis on clear communication and purposeful user journeys.",
@@ -177,7 +172,6 @@ const pageStructuredData = [
       <div class="container service-detail-hero-content">
         <a class="service-detail-back" href="/services/">← All Services</a>
         <div class="service-detail-eyebrow"><span></span>{service.eyebrow}<span></span></div>
-        <div class="service-detail-number">{service.number} / 05</div>
         <h1>{service.title}</h1>
         <p>{service.summary}</p>
         <a class="tf-btn" href="/contact/" data-service-contact>Discuss Your Project <span aria-hidden="true">↗</span></a>
